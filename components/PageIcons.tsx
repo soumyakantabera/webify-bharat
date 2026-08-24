@@ -72,9 +72,6 @@ export function PageLead({
 }) {
   return (
     <>
-      <span className="page-title-icon">
-        <PageGlyph name={icon} size={22} />
-      </span>
       <div className="eyebrow">
         <span className="eyebrow-icon">
           <PageGlyph name={icon} size={13} />
