@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <Layout>
       <section className="page-hero">
-        <div className="container">
+        <div className="container page-copy">
           <div className="eyebrow">
             <span className="dot" /> Page not found
           </div>
@@ -15,7 +15,7 @@ export default function NotFound() {
           <p className="muted-copy">
             The link may be outdated. Head home, or tell us what you were looking for.
           </p>
-          <div className="hero-actions" style={{ marginTop: 24 }}>
+          <div className="hero-actions" >
             <Link href="/" className="btn btn-primary">
               Back to home
             </Link>

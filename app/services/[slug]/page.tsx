@@ -34,7 +34,7 @@ export default async function ServicePage({
     <Layout>
       <section className="page-hero">
         <div className="container wrap">
-          <div>
+          <div className="page-copy">
             <PageLead icon={service.slug} kicker="Webify Bharat service" />
             <h1>{service.title}</h1>
             <p className="muted-copy">

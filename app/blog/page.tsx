@@ -13,12 +13,12 @@ export default function BlogPage() {
   return (
     <Layout>
       <section className="page-hero">
-        <div className="container">
+        <div className="container page-copy">
           <PageLead icon="blog" kicker="Insights" />
           <h1>
             Practical ideas for <span>smarter business.</span>
           </h1>
-          <p className="muted-copy" style={{ maxWidth: 700 }}>
+          <p className="muted-copy">
             Straightforward guides on websites, payments, WhatsApp, analytics and
             digital operations.
           </p>

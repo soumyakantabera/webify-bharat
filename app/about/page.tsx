@@ -11,7 +11,7 @@ export default function AboutPage() {
     <Layout>
       <section className="page-hero">
         <div className="container wrap">
-          <div>
+          <div className="page-copy">
             <PageLead icon="about" kicker="About Webify Bharat" />
             <h1>
               Helping businesses operate <span>smarter online.</span>

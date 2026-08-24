@@ -14,7 +14,7 @@ export default function IndustriesPage() {
     <Layout>
       <section className="page-hero">
         <div className="container wrap">
-          <div>
+          <div className="page-copy">
             <PageLead icon="industries" kicker="Industries" />
             <h1>
               Built for <span>real businesses.</span>

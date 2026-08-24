@@ -34,7 +34,7 @@ export default async function ArticlePage({
   return (
     <Layout>
       <section className="page-hero">
-        <div className="container article">
+        <div className="container article page-copy">
           <PageLead icon="article" kicker="Insights" />
           <h1>{post.title}</h1>
           <p className="muted-copy">{post.excerpt}</p>

@@ -12,14 +12,14 @@ export default function PricingPage() {
   return (
     <Layout>
       <section className="page-hero">
-        <div className="container">
+        <div className="container page-copy">
           <PageLead icon="pricing" kicker="Pricing" />
           <h1>
             Start simple.
             <br />
             <span>Build as you grow.</span>
           </h1>
-          <p className="muted-copy" style={{ maxWidth: 650 }}>
+          <p className="muted-copy">
             Clear starting points for common needs. Final scope depends on your actual
             business workflow and integrations.
           </p>

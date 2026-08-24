@@ -11,7 +11,7 @@ export default function WorkPage() {
   return (
     <Layout>
       <section className="page-hero">
-        <div className="container">
+        <div className="container page-copy">
           <PageLead icon="work" kicker="Work" />
           <h1>
             Systems designed around <span>real operations.</span>

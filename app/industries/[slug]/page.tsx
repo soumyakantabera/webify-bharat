@@ -35,7 +35,7 @@ export default async function IndustryPage({
     <Layout>
       <section className="page-hero">
         <div className="container wrap">
-          <div>
+          <div className="page-copy">
             <PageLead icon={industry.slug} kicker="Industry solution" />
             <h1>
               Digital systems for <span>{industry.title}</span>

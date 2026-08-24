@@ -240,19 +240,28 @@ h3 {
   font-family: var(--font-display);
 }
 h1 {
-  font-size: clamp(34px, 6vw, 76px);
-  line-height: 0.98;
-  margin: 20px 0 24px;
+  font-size: clamp(32px, 5.2vw, 64px);
+  line-height: 1.06;
 }
 h1 span,
 h2 span {
   color: var(--teal);
 }
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.hero-copy h1 {
+  margin-top: 14px;
+  font-size: clamp(34px, 5.6vw, 68px);
+}
 .hero-copy > p {
-  font-size: 18px;
+  font-size: 17px;
+  line-height: 1.65;
   color: var(--muted);
-  max-width: 590px;
-  margin: 0 0 30px;
+  max-width: 38rem;
+  margin-top: 16px;
 }
 .control-section {
   padding-top: 40px;
@@ -320,6 +329,7 @@ h2 span {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+  margin-top: 24px;
 }
 .hero-visual {
   position: relative;
@@ -340,7 +350,9 @@ h2 span {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
-  padding: 14px 0 0;
+  padding: 0;
+  margin-top: 28px;
+  width: 100%;
 }
 .trust-item {
   background: #fff;
@@ -381,11 +393,12 @@ h2 span {
   align-items: end;
   justify-content: space-between;
   gap: 30px;
-  margin-bottom: 34px;
+  margin-bottom: 32px;
 }
 .section-head h2 {
-  font-size: clamp(34px, 4vw, 52px);
-  line-height: 1.04;
+  font-size: clamp(30px, 4vw, 46px);
+  line-height: 1.08;
+  margin-top: 10px;
 }
 .section-head p {
   max-width: 530px;
@@ -688,21 +701,47 @@ h2 span {
   padding: 12px;
 }
 .page-hero {
-  padding: 72px 0 34px;
+  padding: 56px 0 48px;
 }
 .page-hero .wrap {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 44px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 40px 48px;
   align-items: center;
 }
+.page-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  max-width: 40rem;
+}
+.page-copy h1 {
+  margin-top: 12px;
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1.12;
+}
+.page-copy .muted-copy,
+.page-copy > p {
+  margin-top: 14px;
+}
+.page-copy .btn,
+.page-copy .hero-actions {
+  margin-top: 22px;
+}
 .page-hero h1 {
-  font-size: clamp(44px, 5vw, 68px);
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1.12;
 }
 .page-hero img {
-  max-height: 510px;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  max-height: 420px;
+  height: auto;
   object-fit: contain;
-  margin: auto;
+  margin: 0;
+  border-radius: 24px;
 }
 .feature-grid {
   display: grid;
@@ -1222,7 +1261,10 @@ textarea.input {
 }
 .muted-copy {
   color: var(--muted);
-  font-size: 18px;
+  font-size: 17px;
+  line-height: 1.65;
+  max-width: 40rem;
+  margin: 0;
 }
 .display-h2 {
   font-size: 48px;
@@ -1341,8 +1383,9 @@ textarea.input {
   .nav-inner {
     height: 64px;
   }
-  h1 {
-    margin: 14px 0 16px;
+  .hero-copy h1,
+  .page-copy h1 {
+    margin-top: 10px;
   }
   .hero-copy > p {
     font-size: 16px;

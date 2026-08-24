@@ -13,12 +13,12 @@ export default function ContactPage() {
   return (
     <Layout>
       <section className="page-hero">
-        <div className="container">
+        <div className="container page-copy">
           <PageLead icon="contact" kicker="Contact" />
           <h1>
             Tell us what you want to <span>improve.</span>
           </h1>
-          <p className="muted-copy" style={{ maxWidth: 650 }}>
+          <p className="muted-copy">
             Website, payments, WhatsApp, analytics or a messy combination of all four —
             start with the business problem.
           </p>

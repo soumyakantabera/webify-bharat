@@ -13,12 +13,12 @@ export default function ServicesPage() {
   return (
     <Layout>
       <section className="page-hero">
-        <div className="container">
+        <div className="container page-copy">
           <PageLead icon="services" kicker="Services" />
           <h1>
             Digital systems that connect to <span>real work.</span>
           </h1>
-          <p className="muted-copy" style={{ maxWidth: 700 }}>
+          <p className="muted-copy">
             Illustrations explain the technology. Real photography shows the business
             context it is meant to improve.
           </p>
