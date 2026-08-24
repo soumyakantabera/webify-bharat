@@ -1328,7 +1328,7 @@ textarea.input {
     height: 36px;
   }
   .hero {
-    padding: 24px 0 32px;
+    padding: 36px 0 44px;
   }
   .hero-grid,
   .process-wrap,
@@ -1338,11 +1338,11 @@ textarea.input {
   .cta-band,
   .control-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 28px;
   }
   .hero-visual {
     order: 1;
-    max-height: 200px;
+    max-height: 240px;
     overflow: hidden;
   }
   .hero-visual:before {
@@ -1356,11 +1356,11 @@ textarea.input {
   }
   .trust {
     grid-template-columns: repeat(2, 1fr);
-    margin-top: 18px;
-    gap: 8px;
+    margin-top: 24px;
+    gap: 12px;
   }
   .page-hero {
-    padding: 28px 0 24px;
+    padding: 36px 0 32px;
   }
   .service-card,
   .service-card.featured {
@@ -1403,66 +1403,67 @@ textarea.input {
 
 @media (max-width: 620px) {
   .container {
-    width: min(100% - 28px, 1180px);
+    width: min(100% - 40px, 1180px);
   }
   .nav-inner {
-    height: 58px;
+    height: 62px;
   }
   .hero {
-    padding: 16px 0 28px;
+    padding: 28px 0 40px;
   }
   .hero-copy h1 {
-    margin-top: 8px;
-    font-size: 30px;
-    line-height: 1.1;
+    margin-top: 14px;
+    font-size: 32px;
+    line-height: 1.12;
   }
   .page-copy h1 {
-    margin-top: 8px;
-    font-size: 28px;
-    line-height: 1.15;
+    margin-top: 14px;
+    font-size: 30px;
+    line-height: 1.16;
   }
   .hero-copy > p,
   .page-copy .muted-copy {
-    font-size: 15px;
-    line-height: 1.55;
-    margin-top: 12px;
+    font-size: 16px;
+    line-height: 1.65;
+    margin-top: 18px;
   }
   .hero-actions {
-    margin-top: 16px;
-    gap: 8px;
+    margin-top: 22px;
+    gap: 12px;
   }
   .hero-actions .btn {
     flex: 1 1 auto;
-    padding: 12px 16px;
-    font-size: 13px;
+    padding: 13px 18px;
+    font-size: 14px;
   }
   .trust {
-    margin-top: 16px;
-    gap: 8px;
+    margin-top: 22px;
+    gap: 12px;
   }
   .trust-item {
-    min-height: 44px;
-    padding: 8px 10px 8px 8px;
-    font-size: 12px;
-    border-radius: 14px;
+    min-height: 52px;
+    padding: 12px 14px 12px 12px;
+    font-size: 13px;
+    border-radius: 16px;
+    gap: 10px;
   }
   .section {
-    padding: 40px 0;
+    padding: 56px 0;
   }
   .page-hero {
-    padding: 20px 0 20px;
+    padding: 32px 0 36px;
   }
   .section-head {
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 28px;
   }
   .section-head h2 {
-    font-size: 28px;
-    margin-top: 8px;
+    font-size: 30px;
+    margin-top: 12px;
   }
   .section-head p {
-    margin-top: 10px;
-    font-size: 15px;
+    margin-top: 14px;
+    font-size: 16px;
   }
   .service-card,
   .service-card.featured {
@@ -1473,96 +1474,101 @@ textarea.input {
   .pricing-grid,
   .blog-grid {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 16px;
   }
   .industry-card img {
-    height: 200px;
+    height: 220px;
   }
   .values {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
   .cta-band {
-    padding: 22px;
-    border-radius: 22px;
-    margin: 8px 0 28px;
+    padding: 28px 24px;
+    border-radius: 24px;
+    margin: 16px 0 40px;
   }
   .footer {
-    margin-top: 40px;
-    padding: 32px 0 22px;
+    margin-top: 56px;
+    padding: 40px 0 28px;
   }
   .footer-grid {
     grid-template-columns: 1fr;
-    gap: 22px;
+    gap: 28px;
   }
   .footer-bottom {
     display: block;
-    margin-top: 20px;
-    padding-top: 14px;
+    margin-top: 28px;
+    padding-top: 18px;
   }
   .real-world {
-    padding-bottom: 36px;
+    padding-bottom: 48px;
   }
   .real-world-head {
     display: block;
-    margin-bottom: 16px;
+    margin-bottom: 22px;
   }
   .real-world-head p {
-    margin-top: 8px;
+    margin-top: 12px;
   }
   .photo-strip {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 16px;
   }
   .photo-card:first-child {
     grid-column: auto;
   }
   .photo-card {
-    min-height: 200px;
+    min-height: 230px;
   }
   .real-context-photo,
   .real-context-photo img,
   .about-photo,
   .about-photo img {
-    min-height: 220px;
+    min-height: 250px;
   }
   .contact-story > img {
-    height: 200px;
+    height: 230px;
   }
   .story-photo-card img {
-    height: 200px;
+    height: 230px;
   }
   .display-h2 {
-    font-size: 28px;
-    margin-top: 8px;
+    font-size: 30px;
+    margin-top: 12px;
   }
   .control-section {
-    padding-top: 12px;
+    padding-top: 20px;
   }
   .control-card {
-    padding: 20px 18px 16px;
-    border-radius: 22px;
+    padding: 24px 20px 20px;
+    border-radius: 24px;
   }
   .control-card h3 {
-    font-size: 22px;
-    margin-bottom: 12px;
+    font-size: 24px;
+    margin-bottom: 16px;
   }
   .faq-item summary {
-    padding: 14px 16px;
+    padding: 18px 18px;
     font-size: 16px;
   }
   .faq-item p {
-    padding: 0 16px 16px;
-    font-size: 14px;
+    padding: 0 18px 18px;
+    font-size: 15px;
   }
   .bento {
-    gap: 12px;
+    gap: 16px;
   }
   .form {
-    padding: 20px;
-    border-radius: 22px;
+    padding: 24px;
+    border-radius: 24px;
   }
   .price-card {
-    padding: 22px 18px;
+    padding: 26px 22px;
+  }
+  .page-copy .btn,
+  .page-copy .hero-actions {
+    margin-top: 22px;
   }
 }
 
