@@ -1,0 +1,55 @@
+export const ecommerceAddons = [
+  {
+    name: "Small",
+    price: "₹8,999",
+    tag: "Addon",
+    desc: "A focused catalogue for shops that sell a short list well — not 5,000 SKUs on day one.",
+    bestFor: "Single outlet · up to ~50 products",
+    features: [
+      "Product catalogue on your domain",
+      "UPI / payment-link checkout",
+      "Mobile-first product pages",
+      "Basic stock status (in / out)",
+      "WhatsApp order handoff",
+      "GST-ready invoice option",
+    ],
+    note: "Add on to Launch or Growth. Keep Amazon/Flipkart for reach; own the repeats.",
+    popular: false,
+  },
+  {
+    name: "Medium",
+    price: "₹18,999",
+    tag: "Addon",
+    desc: "A working store for growing catalogues — shipping honesty, more SKUs, cleaner orders.",
+    bestFor: "Growing retail · up to ~200 products",
+    features: [
+      "Everything in Small",
+      "Larger catalogue structure",
+      "Shipping zones / pincode notes",
+      "Order list the team can open daily",
+      "Named payment gateway checkout",
+      "WhatsApp order status templates",
+    ],
+    note: "Best match when marketplace fees already hurt and staff need one order screen.",
+    popular: true,
+  },
+  {
+    name: "Expanding",
+    price: "₹34,999",
+    tag: "Addon",
+    desc: "For brands outgrowing a simple list — multi-category, heavier ops, still owned by you.",
+    bestFor: "Multi-category · multi-outlet ready",
+    features: [
+      "Everything in Medium",
+      "Multi-category catalogue",
+      "Dealer / bulk enquiry path",
+      "Inventory-ready structure",
+      "Order + payment + invoice as one flow",
+      "Priority build and go-live support",
+    ],
+    note: "Use when Amazon/Flipkart are channels — not the only customer relationship.",
+    popular: false,
+  },
+] as const;
+
+export type EcommerceAddon = (typeof ecommerceAddons)[number];
