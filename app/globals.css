@@ -334,6 +334,108 @@ h2 span {
   border: 1px solid var(--line);
   background: #fff;
   box-shadow: var(--shadow);
+  min-width: 0;
+}
+.process-image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+.process-visual {
+  container-type: inline-size;
+  padding: 28px 22px 26px;
+  background:
+    radial-gradient(circle at 10% 14%, #e7f5f1 0 5px, transparent 6px),
+    radial-gradient(circle at 92% 18%, #fff1e8 0 4px, transparent 5px),
+    radial-gradient(circle at 88% 86%, #e7f5f1 0 6px, transparent 7px),
+    radial-gradient(circle at 8% 82%, #fff8d9 0 4px, transparent 5px),
+    #fff;
+}
+.process-visual-head {
+  margin-bottom: 8px;
+  padding: 0 6px 12px;
+}
+.process-visual-head strong {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--ink);
+}
+.process-visual-head span {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+}
+.process-visual-steps {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.pv-step {
+  text-align: center;
+  min-width: 0;
+  padding: 12px 10px 14px;
+  border-radius: 20px;
+}
+.pv-num {
+  width: 28px;
+  height: 28px;
+  margin: 0 auto 2px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  background: var(--teal);
+}
+.pv-papaya .pv-num {
+  background: var(--papaya);
+}
+.pv-gold .pv-num {
+  background: #e39b2d;
+}
+.pv-icon {
+  height: 96px;
+  display: grid;
+  place-items: center;
+}
+.pv-icon svg {
+  width: min(100%, 140px);
+  height: 96px;
+}
+.pv-step h3 {
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+  margin-top: 2px;
+}
+.pv-step p {
+  margin: 6px auto 0;
+  max-width: 18ch;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+@container (min-width: 420px) {
+  .pv-icon {
+    height: 108px;
+  }
+  .pv-icon svg {
+    height: 108px;
+  }
+  .pv-step p {
+    font-size: 13.5px;
+    max-width: 20ch;
+  }
 }
 .steps {
   display: grid;

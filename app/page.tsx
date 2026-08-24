@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Layout from "@/components/Layout";
+import { ProcessVisual } from "@/components/ProcessVisual";
 import { industries, services, WA_CHAT, WA_CONSULT } from "@/lib/site";
 
 export default function Home() {
@@ -191,7 +192,7 @@ export default function Home() {
             </div>
           </div>
           <div className="process-image">
-            <img src="/images/brand/process.png" alt="Webify Bharat process" />
+            <ProcessVisual />
           </div>
         </div>
       </section>
