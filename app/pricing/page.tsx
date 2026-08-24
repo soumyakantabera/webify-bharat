@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-export const metadata: Metadata = { title: "Pricing" };
+import { pageMetadata } from "@/lib/page-seo";
+export const metadata: Metadata = pageMetadata("pricing");
 
 import Layout from "@/components/Layout";
+import { SeoChunk } from "@/components/SeoChunk";
 import { ArticleBlock } from "@/components/ArticleBlock";
 import { pricingArticle } from "@/lib/seo-copy";
 import { PageLead } from "@/components/PageIcons";
@@ -27,6 +29,8 @@ export default function PricingPage() {
           </p>
         </div>
       </section>
+
+      <SeoChunk pageKey="pricing" />
       <section className="section">
         <div className="container pricing-grid">
           {plans.map((plan) => (

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/page-seo";
 import { notFound } from "next/navigation";
 import Layout from "@/components/Layout";
+import { SeoChunk } from "@/components/SeoChunk";
 import { ArticleBlock } from "@/components/ArticleBlock";
 import { industryArticles } from "@/lib/seo-copy";
 import { PageLead } from "@/components/PageIcons";
@@ -19,8 +21,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const industry = getIndustry(slug);
-  return { title: industry?.title ?? "Industries" };
+  return pageMetadata(`industry:${slug}`);
 }
 
 export default async function IndustryPage({
@@ -51,6 +52,8 @@ export default async function IndustryPage({
           <img src={`/images/real/${industry.photo}`} alt={industry.title} />
         </div>
       </section>
+
+      <SeoChunk pageKey={`industry:${industry.slug}`} />
 
       <section className="section">
         <div className="container">

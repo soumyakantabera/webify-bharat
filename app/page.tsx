@@ -1,5 +1,10 @@
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/page-seo";
+export const metadata: Metadata = pageMetadata("home");
+
 import Link from "next/link";
 import Layout from "@/components/Layout";
+import { SeoChunk } from "@/components/SeoChunk";
 import { ArticleBlock } from "@/components/ArticleBlock";
 import { entityDefine, homeArticle, searchResearchArticle } from "@/lib/seo-copy";
 import { PageLead } from "@/components/PageIcons";
@@ -75,6 +80,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <SeoChunk pageKey="home" />
 
       <section className="section control-section" id="control">
         <div className="container">

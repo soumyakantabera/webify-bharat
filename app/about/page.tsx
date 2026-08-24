@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-export const metadata: Metadata = { title: "About" };
+import { pageMetadata } from "@/lib/page-seo";
+export const metadata: Metadata = pageMetadata("about");
 
 import Layout from "@/components/Layout";
+import { SeoChunk } from "@/components/SeoChunk";
 import { ArticleBlock } from "@/components/ArticleBlock";
 import { aboutArticle } from "@/lib/seo-copy";
 import { PageLead } from "@/components/PageIcons";
@@ -30,6 +32,8 @@ export default function AboutPage() {
           />
         </div>
       </section>
+
+      <SeoChunk pageKey="about" />
 
       <section className="section">
         <div className="container process-wrap">

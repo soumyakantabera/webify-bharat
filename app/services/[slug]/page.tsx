@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/page-seo";
 import { notFound } from "next/navigation";
 import Layout from "@/components/Layout";
+import { SeoChunk } from "@/components/SeoChunk";
 import { ArticleBlock } from "@/components/ArticleBlock";
 import { serviceArticles } from "@/lib/seo-copy";
 import { PageLead } from "@/components/PageIcons";
@@ -19,8 +21,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const service = getService(slug);
-  return { title: service?.title ?? "Services" };
+  return pageMetadata(`service:${slug}`);
 }
 
 export default async function ServicePage({
@@ -48,6 +49,8 @@ export default async function ServicePage({
           <img src={`/images/services/${service.image}`} alt={service.title} />
         </div>
       </section>
+
+      <SeoChunk pageKey={`service:${service.slug}`} />
 
       <section className="section">
         <div className="container real-context">

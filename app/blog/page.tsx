@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-export const metadata: Metadata = { title: "Insights" };
+import { pageMetadata } from "@/lib/page-seo";
+export const metadata: Metadata = pageMetadata("blog");
 
 import Link from "next/link";
 import Layout from "@/components/Layout";
+import { SeoChunk } from "@/components/SeoChunk";
 import { ArticleBlock } from "@/components/ArticleBlock";
 import { blogIndexArticle } from "@/lib/seo-copy";
 import { PageLead } from "@/components/PageIcons";
@@ -26,6 +28,8 @@ export default function BlogPage() {
           </p>
         </div>
       </section>
+
+      <SeoChunk pageKey="blog" />
       <section className="section">
         <div className="container blog-grid">
           {posts.map((post) => (

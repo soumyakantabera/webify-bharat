@@ -706,6 +706,178 @@ export const faqsByPage: Record<string, FaqBlock> = {
       },
     ],
   },
+  "blog:justdial-vs-own-website": {
+    kicker: "Article FAQ",
+    title: "Justdial vs an owned",
+    accent: "website.",
+    intro: "The question behind every lead-pack renewal.",
+    items: [
+      {
+        q: "Should I cancel Justdial tomorrow?",
+        a: "Only if the pack no longer sends unique, profitable work. Build the owned site and GBP first. Then stop paying for name searches you already earned.",
+      },
+      {
+        q: "Is IndiaMART the same problem?",
+        a: "Same rent, different trade. IndiaMART fits some B2B RFQs. Repeat OEM and dealer buyers should still land on your catalogue and WhatsApp.",
+      },
+      {
+        q: "Will Google rank me without a directory?",
+        a: "Yes — Maps pack plus an owned URL with NAP match is the 2026 path. Directories are optional citations, not the front door.",
+      },
+    ],
+  },
+  "blog:zomato-commission-vs-own-ordering": {
+    kicker: "Article FAQ",
+    title: "Aggregator cut vs",
+    accent: "your own QR.",
+    intro: "Discovery vs the regular who already knows you.",
+    items: [
+      {
+        q: "What commission do Zomato and Swiggy take?",
+        a: "It varies by city and contract, often mid-teens to high-twenties plus ads inside the app. Read your current agreement. Regulars should not all pay that tax.",
+      },
+      {
+        q: "Will I lose visibility if I push my own QR?",
+        a: "Keep the aggregator for strangers. Put menu, Maps and UPI on a site you own for people who already chose you.",
+      },
+    ],
+  },
+  "blog:whatsapp-business-api-india": {
+    kicker: "Article FAQ",
+    title: "When the Business app",
+    accent: "is not enough.",
+    intro: "API vs the green app on one phone.",
+    items: [
+      {
+        q: "Do I need a BSP?",
+        a: "Yes, to go on WhatsApp Business Platform. Webify Bharat designs the website-to-inbox loop; a BSP provisions the API. Your number stays yours.",
+      },
+      {
+        q: "Are India message rates high?",
+        a: "Utility and authentication are among the lowest globally. Marketing templates cost more. Use API for reminders and receipts, not spam.",
+      },
+    ],
+  },
+  "blog:upi-payment-gateway-msme": {
+    kicker: "Article FAQ",
+    title: "Personal QR vs a",
+    accent: "named gateway.",
+    intro: "GST and refunds are the line.",
+    items: [
+      {
+        q: "When must I leave personal GPay?",
+        a: "When volume, refunds or a GSTIN make mixed personal-business money a filing problem. Named gateway + payment links is the fix.",
+      },
+    ],
+  },
+  "blog:google-business-profile-india": {
+    kicker: "Article FAQ",
+    title: "Maps pack questions",
+    accent: "Indian owners ask.",
+    intro: "Category search is how strangers find you.",
+    items: [
+      {
+        q: "Why is GBP not enough alone?",
+        a: "It wins the pack. The website wins the name search and gives AI Overviews something to cite. Point the profile at your URL.",
+      },
+      {
+        q: "What category should I pick?",
+        a: "The primary category closest to how people search — not the fanciest. Then match that language on your service pages.",
+      },
+    ],
+  },
+  "blog:website-cost-india-2026": {
+    kicker: "Article FAQ",
+    title: "What websites actually",
+    accent: "cost in India.",
+    intro: "Compare scope and GST, not the first integer.",
+    items: [
+      {
+        q: "Is ₹9,999 realistic?",
+        a: "As a Launch foundation — site, analytics, WhatsApp setup — yes. Catalogues, bilingual copy and gateways sit on Growth or a scoped quote.",
+      },
+      {
+        q: "Is GST included?",
+        a: "Ask every vendor. Most Indian quotes are exclusive of 18% GST. We state tax treatment in the proposal.",
+      },
+    ],
+  },
+  "blog:razorpay-vs-cashfree-vs-payu": {
+    kicker: "Article FAQ",
+    title: "Picking a payment",
+    accent: "gateway.",
+    intro: "TDR is not the whole bill.",
+    items: [
+      {
+        q: "Who is cheapest?",
+        a: "Card TDR clusters near 2%. UPI is cheaper. Success rate, settlement and KYC friction usually beat 0.1% shopping.",
+      },
+      {
+        q: "Do you resell a gateway?",
+        a: "No. We integrate checkout and receipts on your site and say if KYC is the real blocker.",
+      },
+    ],
+  },
+  "blog:hindi-hinglish-business-website": {
+    kicker: "Article FAQ",
+    title: "Language on the",
+    accent: "business website.",
+    intro: "Match the counter, not the agency deck.",
+    items: [
+      {
+        q: "Full Hindi site or bilingual?",
+        a: "Often bilingual headlines and WhatsApp copy are enough. Full duplicate sites only when search demand is clearly vernacular.",
+      },
+    ],
+  },
+  "blog:local-seo-near-me-india": {
+    kicker: "Article FAQ",
+    title: "Near me",
+    accent: "SEO.",
+    intro: "Relevance, distance, reviews — not 200 fake citations.",
+    items: [
+      {
+        q: "Do citation blasts still work?",
+        a: "Spam directories rarely beat a verified GBP, matching NAP, service pages and real reviews. Pay for unique work, not junk listings.",
+      },
+    ],
+  },
+  "blog:clinic-whatsapp-appointments-india": {
+    kicker: "Article FAQ",
+    title: "Clinic stack without an",
+    accent: "EMR on day one.",
+    intro: "Public layer first: site, Maps, WhatsApp, UPI.",
+    items: [
+      {
+        q: "Is this clinic management software?",
+        a: "No. It is the public door — website, GBP, WhatsApp slots, UPI. Keep your clinical records where they belong.",
+      },
+    ],
+  },
+  "blog:bing-places-copilot-india": {
+    kicker: "Article FAQ",
+    title: "Bing in a",
+    accent: "Google country.",
+    intro: "Free NAP insurance for Copilot.",
+    items: [
+      {
+        q: "Is Bing worth it in India?",
+        a: "Google first. Bing Places takes twenty minutes and helps Copilot. Keep NAP identical. Then invest in the website both point at.",
+      },
+    ],
+  },
+  "blog:gst-website-quote-india": {
+    kicker: "Article FAQ",
+    title: "Tax on the",
+    accent: "web invoice.",
+    intro: "18% GST is the usual extra.",
+    items: [
+      {
+        q: "Can I claim input credit?",
+        a: "If you are GST-registered and the vendor issues a proper tax invoice. Confirm with your CA. We will not pretend to be one.",
+      },
+    ],
+  },
   contact: {
     kicker: "Contact FAQ",
     title: "Before you hit",
@@ -737,7 +909,5 @@ export const faqsByPage: Record<string, FaqBlock> = {
 };
 
 export function getFaq(key: string): FaqBlock {
-  const block = faqsByPage[key];
-  if (!block) throw new Error(`Missing FAQ block: ${key}`);
-  return block;
+  return faqsByPage[key] ?? faqsByPage.blog ?? faqsByPage.home;
 }

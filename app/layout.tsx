@@ -5,7 +5,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: {
     default: "Webify Bharat | Own your customers. ₹0 per lead.",
-    template: "%s | Webify Bharat",
+    template: "%s",
   },
   description:
     "Webify Bharat builds websites, WhatsApp Business, UPI gateways and analytics for Indian MSMEs. Own your customers. ₹0 per organic lead. No Justdial or Zomato tax.",

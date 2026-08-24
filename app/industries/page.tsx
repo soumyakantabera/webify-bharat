@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-export const metadata: Metadata = { title: "Industries" };
+import { pageMetadata } from "@/lib/page-seo";
+export const metadata: Metadata = pageMetadata("industries");
 
 import Link from "next/link";
 import Layout from "@/components/Layout";
+import { SeoChunk } from "@/components/SeoChunk";
 import { ArticleBlock } from "@/components/ArticleBlock";
 import { industriesIndexArticle } from "@/lib/seo-copy";
 import { PageLead } from "@/components/PageIcons";
@@ -33,6 +35,8 @@ export default function IndustriesPage() {
           />
         </div>
       </section>
+
+      <SeoChunk pageKey="industries" />
       <section className="section section-soft">
         <div className="container industry-grid">
           {industries.map((industry) => (

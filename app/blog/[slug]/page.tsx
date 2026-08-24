@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/page-seo";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Layout from "@/components/Layout";
+import { SeoChunk } from "@/components/SeoChunk";
 import { PageLead } from "@/components/PageIcons";
 import { FaqSection } from "@/components/FaqSection";
 import { getFaq } from "@/lib/faqs";
@@ -18,8 +20,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = getPost(slug);
-  return { title: post?.title ?? "Insights" };
+  return pageMetadata(`blog:${slug}`);
 }
 
 export default async function ArticlePage({
@@ -40,6 +41,8 @@ export default async function ArticlePage({
           <p className="muted-copy">{post.excerpt}</p>
         </div>
       </section>
+
+      <SeoChunk pageKey={`blog:${post.slug}`} />
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container article">
           <img

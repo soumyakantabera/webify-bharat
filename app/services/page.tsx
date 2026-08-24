@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-export const metadata: Metadata = { title: "Services" };
+import { pageMetadata } from "@/lib/page-seo";
+export const metadata: Metadata = pageMetadata("services");
 
 import Link from "next/link";
 import Layout from "@/components/Layout";
+import { SeoChunk } from "@/components/SeoChunk";
 import { ArticleBlock } from "@/components/ArticleBlock";
 import { servicesIndexArticle } from "@/lib/seo-copy";
 import { PageLead } from "@/components/PageIcons";
@@ -26,6 +28,8 @@ export default function ServicesPage() {
           </p>
         </div>
       </section>
+
+      <SeoChunk pageKey="services" />
       <section className="section">
         <div className="container bento">
           {services.map((service) => (

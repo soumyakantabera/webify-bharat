@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-export const metadata: Metadata = { title: "Contact" };
+import { pageMetadata } from "@/lib/page-seo";
+export const metadata: Metadata = pageMetadata("contact");
 
 import ContactForm from "@/components/ContactForm";
 import Layout from "@/components/Layout";
+import { SeoChunk } from "@/components/SeoChunk";
 import { ArticleBlock } from "@/components/ArticleBlock";
 import { contactArticle } from "@/lib/seo-copy";
 import { PageLead } from "@/components/PageIcons";
@@ -26,6 +28,8 @@ export default function ContactPage() {
           </p>
         </div>
       </section>
+
+      <SeoChunk pageKey="contact" />
 
       <section className="section">
         <div className="container contact-grid">
