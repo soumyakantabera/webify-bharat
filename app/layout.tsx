@@ -3,6 +3,7 @@ import "./globals.css";
 import "./pricing-ui.css";
 import "./home-pricing.css";
 import "./blog-images.css";
+import "./about-brand.css";
 import { jetbrains, manrope, sora } from "./fonts";
 
 export const viewport: Viewport = {
