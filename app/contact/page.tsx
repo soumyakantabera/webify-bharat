@@ -3,6 +3,8 @@ export const metadata: Metadata = { title: "Contact" };
 
 import ContactForm from "@/components/ContactForm";
 import Layout from "@/components/Layout";
+import { FaqSection } from "@/components/FaqSection";
+import { getFaq } from "@/lib/faqs";
 import { WhatsAppCta } from "@/components/icons";
 import { WA_CHAT } from "@/lib/site";
 
@@ -48,6 +50,7 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+      <FaqSection block={getFaq("contact")} />
     </Layout>
   );
 }

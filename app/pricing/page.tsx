@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 export const metadata: Metadata = { title: "Pricing" };
 
 import Layout from "@/components/Layout";
+import { FaqSection } from "@/components/FaqSection";
+import { getFaq } from "@/lib/faqs";
 import { WhatsAppCta } from "@/components/icons";
-import { faqs, plans, WA_PACKAGES } from "@/lib/site";
+import { plans, WA_PACKAGES } from "@/lib/site";
 
 export default function PricingPage() {
   return (
@@ -50,29 +52,7 @@ export default function PricingPage() {
           ))}
         </div>
       </section>
-      <section className="section section-soft">
-        <div className="container">
-          <div className="section-head">
-            <div>
-              <div className="eyebrow">
-                <span className="dot" /> FAQ
-              </div>
-              <h2>
-                Straight answers <span>before you start.</span>
-              </h2>
-            </div>
-            <p>If the scope is unusual, we would rather say so on the first call.</p>
-          </div>
-          <div className="faq">
-            {faqs.map((item) => (
-              <div className="faq-item" key={item.q}>
-                <h3>{item.q}</h3>
-                <p>{item.a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FaqSection block={getFaq("pricing")} />
     </Layout>
   );
 }

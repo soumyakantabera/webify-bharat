@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 export const metadata: Metadata = { title: "About" };
 
 import Layout from "@/components/Layout";
+import { FaqSection } from "@/components/FaqSection";
+import { getFaq } from "@/lib/faqs";
 
 export default function AboutPage() {
   return (
@@ -119,6 +121,7 @@ export default function AboutPage() {
           </article>
         </div>
       </section>
+      <FaqSection block={getFaq("about")} />
     </Layout>
   );
 }

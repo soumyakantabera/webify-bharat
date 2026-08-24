@@ -3,6 +3,8 @@ export const metadata: Metadata = { title: "Industries" };
 
 import Link from "next/link";
 import Layout from "@/components/Layout";
+import { FaqSection } from "@/components/FaqSection";
+import { getFaq } from "@/lib/faqs";
 import { WhatsAppCta } from "@/components/icons";
 import { industries, WA_CHAT } from "@/lib/site";
 
@@ -47,6 +49,7 @@ export default function IndustriesPage() {
           ))}
         </div>
       </section>
+      <FaqSection block={getFaq("industries")} />
     </Layout>
   );
 }

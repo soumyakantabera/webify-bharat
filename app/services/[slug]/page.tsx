@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Layout from "@/components/Layout";
+import { FaqSection } from "@/components/FaqSection";
+import { getFaq } from "@/lib/faqs";
 import { CheckItem, WhatsAppCta } from "@/components/icons";
 import { getService, serviceFeatures, services, WA_CHAT, WA_SERVICES } from "@/lib/site";
 
@@ -97,6 +99,8 @@ export default async function ServicePage({
           </div>
         </div>
       </section>
+
+      <FaqSection block={getFaq(`service:${service.slug}`)} />
 
       <section className="section">
         <div className="container">

@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Layout from "@/components/Layout";
+import { FaqSection } from "@/components/FaqSection";
+import { getFaq } from "@/lib/faqs";
 import { ProcessVisual } from "@/components/ProcessVisual";
 import {
   CheckItem,
@@ -315,6 +317,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <FaqSection block={getFaq("home")} />
 
       <section className="section">
         <div className="container">

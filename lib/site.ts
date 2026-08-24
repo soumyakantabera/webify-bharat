@@ -353,21 +353,3 @@ export const industryFeatures = [
   "Operational control",
 ] as const;
 
-export const faqs = [
-  {
-    q: "How do we start?",
-    a: "A short discovery call on WhatsApp or a consult. We map the current operation, pick the highest-impact first move, and share a clear scope before any build starts.",
-  },
-  {
-    q: "Are the package prices fixed?",
-    a: "They are starting points for common scopes. Final pricing follows your actual workflows, integrations and content. You will see the scope in writing before work begins.",
-  },
-  {
-    q: "Do you only build websites?",
-    a: "No. Websites are often the front door. We also set up payments, WhatsApp automation, analytics and operational workflows so the business can run as one system.",
-  },
-  {
-    q: "How long does a typical project take?",
-    a: "A focused Launch website is often weeks, not months. Growth and Command work depends on integrations. We sequence so you get a usable first version quickly.",
-  },
-] as const;

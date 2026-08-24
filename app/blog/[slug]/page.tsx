@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Layout from "@/components/Layout";
+import { FaqSection } from "@/components/FaqSection";
+import { getFaq } from "@/lib/faqs";
 import { WhatsAppCta } from "@/components/icons";
 import { getPost, posts, WA_CHAT } from "@/lib/site";
 
@@ -55,7 +57,12 @@ export default async function ArticlePage({
           {post.body.map((paragraph) => (
             <p key={paragraph.slice(0, 40)}>{paragraph}</p>
           ))}
-          <div className="hero-actions" style={{ marginTop: 28 }}>
+        </div>
+      </section>
+      <FaqSection block={getFaq(`blog:${post.slug}`)} />
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div className="container article">
+          <div className="hero-actions" style={{ marginTop: 0 }}>
             <WhatsAppCta href={WA_CHAT}>Talk this through</WhatsAppCta>
             <Link href="/blog" className="btn btn-secondary">
               All insights

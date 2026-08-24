@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Layout from "@/components/Layout";
+import { FaqSection } from "@/components/FaqSection";
+import { getFaq } from "@/lib/faqs";
 import { WhatsAppCta } from "@/components/icons";
 import { getIndustry, industries, industryFeatures, WA_CHAT } from "@/lib/site";
 
@@ -125,6 +127,7 @@ export default async function IndustryPage({
           </div>
         </div>
       </section>
+      <FaqSection block={getFaq(`industry:${industry.slug}`)} />
     </Layout>
   );
 }

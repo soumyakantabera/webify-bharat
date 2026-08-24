@@ -3,6 +3,8 @@ export const metadata: Metadata = { title: "Insights" };
 
 import Link from "next/link";
 import Layout from "@/components/Layout";
+import { FaqSection } from "@/components/FaqSection";
+import { getFaq } from "@/lib/faqs";
 import { IconArrow } from "@/components/icons";
 import { posts } from "@/lib/site";
 
@@ -44,6 +46,7 @@ export default function BlogPage() {
           ))}
         </div>
       </section>
+      <FaqSection block={getFaq("blog")} />
     </Layout>
   );
 }
