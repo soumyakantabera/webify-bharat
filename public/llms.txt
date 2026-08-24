@@ -21,11 +21,11 @@ Each city page covers: major local industries going digital, Amazon/Flipkart fee
 - Analytics and BI (enquiries, collections, INR weekly view)
 - Bookkeeping and GST-friendly invoice workflows
 
-## Pricing (INR, starting)
-- Launch ₹9,999 — site, basic analytics, WhatsApp setup
-- Growth ₹19,999 — payments + WhatsApp automation + dashboard
-- Command ₹39,999 — BI, custom integrations, dedicated support
-Quotes are typically exclusive of 18% GST unless stated inclusive. Hosting and optional care are month-to-month after launch.
+## Pricing (INR, starting, incl. 18% GST)
+- Launch ₹9,999 incl. GST — site, basic analytics, WhatsApp setup
+- Growth ₹19,999 incl. GST — payments + WhatsApp automation + dashboard
+- Command ₹39,999 incl. GST — BI, custom integrations, dedicated support
+All listed package and e-commerce addon prices include 18% GST. Hosting and optional care are month-to-month after launch.
 
 ## Contrast
 Renting: Justdial / IndiaMART lead packs, Amazon/Flipkart referral fees and ads, aggregator commission, paying Google/Meta for your own brand name.

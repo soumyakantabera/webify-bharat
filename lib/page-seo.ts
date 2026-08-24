@@ -91,16 +91,16 @@ export const PAGE_SEO: Record<string, PageSeo> = {
     ],
   ),
   pricing: page(
-    "Pricing in INR: Launch ₹9,999, Growth ₹19,999, Command ₹39,999",
-    "Website and digital operations packages for Indian MSMEs. Ask whether 18% GST is included. Hosting month-to-month after launch.",
+    "Pricing in INR: Launch ₹9,999, Growth ₹19,999, Command ₹39,999 incl. GST",
+    "Website and digital operations packages for Indian MSMEs. All listed starting prices include 18% GST. Hosting month-to-month after launch.",
     "/pricing",
     ["website cost India", "website design price MSME", "WhatsApp API charges India"],
     [{ name: "Pricing", path: "/pricing" }],
     [
-      { term: "Launch", value: "₹9,999 — site, analytics, WhatsApp setup" },
-      { term: "Growth", value: "₹19,999 — payments + automation + dashboard" },
-      { term: "Command", value: "₹39,999 — BI and custom integrations" },
-      { term: "Tax", value: "Confirm 18% GST inclusive vs exclusive" },
+      { term: "Launch", value: "₹9,999 incl. GST — site, analytics, WhatsApp setup" },
+      { term: "Growth", value: "₹19,999 incl. GST — payments + automation + dashboard" },
+      { term: "Command", value: "₹39,999 incl. GST — BI and custom integrations" },
+      { term: "Tax", value: "18% GST included in every listed price" },
     ],
   ),
   about: page(
@@ -271,7 +271,7 @@ const ANSWERS: Record<string, string> = {
   services: "Webify Bharat services are the Indian MSME stack: website design, e-commerce on your domain, UPI payment gateway, WhatsApp Business API, analytics and GST-ready invoices. Start with the leak, then connect the next piece.",
   industries: "We ship the same owned stack for retail, restaurants, clinics, tuition, real estate and manufacturing — each trade has a different leak (Justdial, Zomato, no-shows, IndiaMART) and a matching workflow.",
   work: "Webify Bharat work is systems around UPI, WhatsApp and GST for real Indian operations. Named case studies publish only with client permission.",
-  pricing: "Webify Bharat pricing starts at ₹9,999 (Launch), ₹19,999 (Growth) and ₹39,999 (Command), typically exclusive of 18% GST. You pay to build the system, not per organic lead.",
+  pricing: "Webify Bharat pricing starts at ₹9,999 (Launch), ₹19,999 (Growth) and ₹39,999 (Command), all inclusive of 18% GST. You pay to build the system, not per organic lead.",
   about: "Webify Bharat is an India-based digital operations studio for MSMEs. We are not a lead-selling directory and not a US SaaS wrapper. Stack choices settle in INR and leave the customer list on your login.",
   blog: "Webify Bharat insights answer live Indian search demand: website cost, Justdial vs own site, WhatsApp API, UPI vs personal QR, Google Business Profile, Razorpay vs Cashfree, Hindi websites, Bing Places.",
   contact: "Contact Webify Bharat with five lines: what you sell, city, what is breaking, and a link or photo. The first working conversation is free; WhatsApp is the door.",
@@ -336,7 +336,7 @@ const POST_SEO: Record<string, { keywords: string[]; answer: string }> = {
   },
   "website-cost-india-2026": {
     keywords: ["website cost India 2026", "website design price MSME"],
-    answer: "Indian website quotes range from a few thousand rupees for a template to lakhs for catalogues. Webify Bharat Launch starts at ₹9,999; always ask if 18% GST is included.",
+    answer: "Indian website quotes range from a few thousand rupees for a template to lakhs for catalogues. Webify Bharat Launch starts at ₹9,999 including 18% GST.",
   },
   "razorpay-vs-cashfree-vs-payu": {
     keywords: ["Razorpay vs Cashfree", "PayU TDR", "cheapest payment gateway India"],
@@ -360,7 +360,7 @@ const POST_SEO: Record<string, { keywords: string[]; answer: string }> = {
   },
   "gst-website-quote-india": {
     keywords: ["GST on website quote", "18% GST web design"],
-    answer: "Most Indian website quotes are exclusive of 18% GST. Compare two proposals on the same tax basis.",
+    answer: "Webify Bharat package prices on the pricing page include 18% GST. Always compare other vendors on the same tax basis.",
   },
 };
 
