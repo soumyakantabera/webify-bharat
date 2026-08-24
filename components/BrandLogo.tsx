@@ -1,31 +1,21 @@
-export function BrandLogo() {
+type BrandLogoProps = {
+  variant?: "light" | "dark";
+};
+
+export function BrandLogo({ variant = "light" }: BrandLogoProps) {
   return (
-    <svg
-      className="logo-img"
-      viewBox="0 0 280 154"
-      width="112"
-      height="60"
-      role="img"
-      aria-label="Webify Bharat"
-    >
-      <title>Webify Bharat</title>
-      {/* W */}
-      <path
-        fill="#0F766E"
-        d="M10 144 L46 14 H72 L90 104 H100 L118 14 H144 L180 144 H152 L136 58 H126 L108 144 H76 L58 58 H48 L30 144 Z"
+    <span className={`brand-logo brand-logo-${variant}`}>
+      <img
+        src="/images/logo/wb-mark.png"
+        alt=""
+        className="brand-mark"
+        width={72}
+        height={48}
       />
-      {/* B — two stacked Ds with holes */}
-      <path
-        fill="#0F766E"
-        fillRule="evenodd"
-        d="M190 14 H226 C250 14 264 32 264 54 C264 76 250 88 226 88 H190 Z M208 34 H224 C236 34 242 42 242 54 C242 66 236 74 224 74 H208 Z"
-      />
-      <path
-        fill="#0F766E"
-        fillRule="evenodd"
-        d="M190 84 H232 C258 84 274 102 274 124 C274 146 256 144 228 144 H190 Z M208 104 H230 C246 104 254 112 254 124 C254 136 246 132 230 132 H208 Z"
-      />
-      <circle cx="46" cy="20" r="16" fill="#FF7A45" />
-    </svg>
+      <span className="brand-wordmark">
+        <span className="brand-webify">Webify</span>
+        <span className="brand-bharat">Bharat</span>
+      </span>
+    </span>
   );
 }

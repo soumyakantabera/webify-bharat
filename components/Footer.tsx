@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="footer-grid">
           <div>
             <Link href="/" className="logo" aria-label="Webify Bharat home">
-              <BrandLogo />
+              <BrandLogo variant="dark" />
             </Link>
             <p>Digital Operations. Real Growth.</p>
             <p>

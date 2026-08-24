@@ -1,9 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Webify Bharat">
-  <rect width="64" height="64" rx="14" fill="#FAFAF7"/>
-  <g transform="translate(4 12) scale(0.2)">
-    <path fill="#0F766E" d="M10 144 L46 14 H72 L90 104 H100 L118 14 H144 L180 144 H152 L136 58 H126 L108 144 H76 L58 58 H48 L30 144 Z"/>
-    <path fill="#0F766E" fill-rule="evenodd" d="M190 14 H226 C250 14 264 32 264 54 C264 76 250 88 226 88 H190 Z M208 34 H224 C236 34 242 42 242 54 C242 66 236 74 224 74 H208 Z"/>
-    <path fill="#0F766E" fill-rule="evenodd" d="M190 84 H232 C258 84 274 102 274 124 C274 146 256 144 228 144 H190 Z M208 104 H230 C246 104 254 112 254 124 C254 136 246 132 230 132 H208 Z"/>
-    <circle cx="46" cy="20" r="16" fill="#FF7A45"/>
-  </g>
+  <rect width="64" height="64" rx="14" fill="#E7F5F1"/>
+  <image href="/images/logo/wb-mark.png" x="6" y="14" width="52" height="36" />
 </svg>
