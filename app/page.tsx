@@ -41,9 +41,9 @@ export default function Home() {
             </p>
             <div className="hero-actions">
               <WhatsAppCta href={WA_CONSULT}>Book a free consult</WhatsAppCta>
-              <a className="btn btn-secondary" href="#control">
-                See the difference
-              </a>
+              <Link className="btn btn-secondary" href="/pricing">
+                Pricing from ₹9,999
+              </Link>
             </div>
             <div className="trust">
               <div className="trust-item">
@@ -229,7 +229,52 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section" id="pricing-preview">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <div className="eyebrow">
+                <span className="dot" /> Pricing
+              </div>
+              <h2>
+                Clear starting prices. <span>GST included.</span>
+              </h2>
+            </div>
+            <p>
+              Launch from ₹9,999 incl. GST. Growth and Command for payments, WhatsApp
+              automation and BI. E-commerce addons when you need a catalogue you own — not
+              another marketplace fee stack.
+            </p>
+          </div>
+          <div className="home-price-band">
+            <div className="home-price-item">
+              <span className="home-price-label">Launch</span>
+              <strong>₹9,999</strong>
+              <span className="home-price-note">starting · incl. GST</span>
+            </div>
+            <div className="home-price-item home-price-item-hot">
+              <span className="home-price-label">Growth</span>
+              <strong>₹19,999</strong>
+              <span className="home-price-note">starting · incl. GST</span>
+            </div>
+            <div className="home-price-item">
+              <span className="home-price-label">Command</span>
+              <strong>₹39,999</strong>
+              <span className="home-price-note">starting · incl. GST</span>
+            </div>
+          </div>
+          <div className="home-price-actions">
+            <Link className="btn btn-primary" href="/pricing">
+              See full pricing
+            </Link>
+            <WhatsAppCta href={WA_CONSULT} className="btn btn-secondary">
+              Book a free consult
+            </WhatsAppCta>
+          </div>
+        </div>
+      </section>
+
+      <section className="section container-process-section">
         <div className="container process-wrap">
           <div>
             <div className="eyebrow">
@@ -392,9 +437,14 @@ export default function Home() {
               <h2>Stop paying for people who already want you.</h2>
               <p>
                 Build a website and WhatsApp system you control. Organic enquiries land
-                at ₹0 per lead — not as a Justdial bill.
+                at ₹0 per lead — not as a Justdial bill. Packages from ₹9,999 incl. GST.
               </p>
-              <WhatsAppCta href={WA_CHAT}>Chat on WhatsApp</WhatsAppCta>
+              <div className="hero-actions" style={{ marginTop: 8 }}>
+                <WhatsAppCta href={WA_CHAT}>Chat on WhatsApp</WhatsAppCta>
+                <Link className="btn btn-secondary" href="/pricing" style={{ background: "rgba(255,255,255,0.12)", color: "#fff", borderColor: "rgba(255,255,255,0.25)" }}>
+                  View pricing
+                </Link>
+              </div>
             </div>
             <div className="image-wrap cta-real-photo">
               <img

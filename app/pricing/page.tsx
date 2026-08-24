@@ -46,8 +46,9 @@ export default function PricingPage() {
             <span>Build as you grow.</span>
           </h1>
           <p className="muted-copy">
-            Clear starting points for common needs. Final scope depends on your actual
-            business workflow and integrations. GST usually extra — ask on the proposal.
+            All package and addon prices below include 18% GST. Final scope still depends on
+            your workflow and integrations — the number on the card is the tax-inclusive
+            starting fee, not a surprise invoice later.
           </p>
         </div>
       </section>
@@ -67,7 +68,8 @@ export default function PricingPage() {
             </div>
             <p>
               Launch, Growth and Command cover the site, WhatsApp and payments stack.
-              Add e-commerce below when you need a catalogue you own.
+              Prices start from ₹9,999 incl. GST. Add e-commerce below when you need a
+              catalogue you own.
             </p>
           </div>
 
@@ -94,7 +96,7 @@ export default function PricingPage() {
                     <p className="price-desc">{plan.desc}</p>
                     <div className="price">
                       {plan.price}
-                      <small> starting</small>
+                      <small> starting · incl. GST</small>
                     </div>
                   </div>
                   <ul className="list">
@@ -130,7 +132,7 @@ export default function PricingPage() {
             <p>
               Add a catalogue and checkout on your domain so repeat buyers skip Amazon and
               Flipkart fee stacks. Small, Medium or Expanding — pick by product count and
-              ops, not by marketplace ambition.
+              ops. Every addon price includes 18% GST.
             </p>
           </div>
 
@@ -157,7 +159,7 @@ export default function PricingPage() {
                     <p className="price-desc">{addon.desc}</p>
                     <div className="price">
                       {addon.price}
-                      <small> starting · addon</small>
+                      <small> starting · incl. GST</small>
                     </div>
                   </div>
                   <ul className="list">
@@ -177,9 +179,10 @@ export default function PricingPage() {
           </div>
 
           <p className="pricing-footnote">
-            Gateway MDR, shipping partner fees and Meta/WhatsApp conversation charges stay
-            outside these build fees. We list them on the proposal. E-commerce addons sit on
-            top of a Launch, Growth or Command foundation — not instead of a site.
+            Package and addon build fees include 18% GST. Gateway MDR, shipping partner
+            fees and Meta/WhatsApp conversation charges stay outside these build fees — we
+            list them on the proposal. E-commerce addons sit on top of a Launch, Growth or
+            Command foundation — not instead of a site.
           </p>
         </div>
       </section>
