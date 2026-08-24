@@ -17,8 +17,12 @@ export const faqsByPage: Record<string, FaqBlock> = {
       "Not Silicon Valley theory. The questions kirana stores, clinics, factories and growing brands actually ask before they spend a rupee.",
     items: [
       {
+        q: "Do I really pay ₹0 to get a customer?",
+        a: "On the people who find your own website, Google Maps pin or WhatsApp number — yes, there is no per-lead bill and no marketplace commission. You pay once to build the system (and hosting). You do not pay Justdial, IndiaMART, Zomato or Meta for that enquiry. If you later choose ads, that is optional fuel — not the engine.",
+      },
+      {
         q: "We already get work from WhatsApp and Google. Why bother with a website?",
-        a: "Because the first thing a new customer does after a WhatsApp ping is search your name. If they find a half-dead page — or nothing — they message the next shop. A tight website is not a brochure. It is proof you are real, plus a place UPI, catalogues and follow-ups can live when the owner’s phone is busy.",
+        a: "Because the first thing a new customer does after a WhatsApp ping is search your name. If they find a half-dead page — or nothing — they message the next shop. A tight website is the address you own: proof you are real, plus a place UPI and follow-ups live when the owner’s phone is busy.",
       },
       {
         q: "Is this only for funded startups in Bengaluru?",

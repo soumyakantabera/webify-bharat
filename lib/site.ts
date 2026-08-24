@@ -1,8 +1,8 @@
 export const SITE = {
   name: "Webify Bharat",
-  tagline: "Digital Operations. Real Growth.",
+  tagline: "Own your customers. ₹0 per lead.",
   description:
-    "Websites, payments, WhatsApp automation, analytics and business systems for Indian businesses.",
+    "Websites, WhatsApp and payments Indian businesses own — full control of the customer, no per-lead fee, no aggregator commission on organic orders.",
   whatsapp: "918336097642",
   whatsappDisplay: "8336097642",
 } as const;
@@ -34,19 +34,19 @@ export const services: Service[] = [
     slug: "websites",
     title: "Website & Digital Presence",
     description:
-      "Fast, conversion-focused websites built to help your business look credible and get found.",
+      "A website you own — so Google and WhatsApp send you customers at ₹0 per lead, not a Justdial bill.",
     image: "website.png",
     photo: "business-owner.webp",
-    headline: "Your website should feel like part of the business",
+    headline: "Own the front door. Stop renting it.",
     story:
-      "A strong website is not decoration. It should make it easier for customers to understand, trust and contact you.",
+      "A strong website is the address you control: trust, WhatsApp, UPI, and enquiries that do not pay a marketplace tax.",
     featured: true,
   },
   {
     slug: "ecommerce",
     title: "E-commerce & Portals",
     description:
-      "Catalogs, online stores, customer portals and order flows that make selling simpler.",
+      "Your own store and catalogue — keep the customer and the margin, instead of handing both to a marketplace.",
     image: "ecommerce.png",
     photo: "ecommerce.webp",
     headline: "Online selling still happens in the real world",
@@ -67,12 +67,12 @@ export const services: Service[] = [
   {
     slug: "whatsapp",
     title: "WhatsApp API & Campaigns",
-    description: "Automated replies, lead nurturing, broadcasts and transactional messaging.",
+    description: "A WhatsApp system on your number — every chat is yours, with no per-lead fee.",
     image: "whatsapp.png",
     photo: "whatsapp.webp",
-    headline: "Customer conversations are operational work",
+    headline: "The inbox you own is the cheapest front desk in India",
     story:
-      "Turn enquiries, updates and follow-ups into a repeatable system without losing the human tone.",
+      "Turn enquiries, updates and follow-ups into a repeatable system. The customer who messaged you does not belong to Justdial.",
   },
   {
     slug: "analytics",
@@ -120,7 +120,7 @@ export const industries: Industry[] = [
   {
     slug: "restaurant",
     title: "Restaurants",
-    description: "Online ordering, QR payments, WhatsApp and repeat-customer systems.",
+    description: "QR ordering, UPI and WhatsApp on your terms — not a 25% aggregator cut on every plate.",
     photo: "restaurant.webp",
     illustration: "restaurant.png",
   },
@@ -352,4 +352,3 @@ export const industryFeatures = [
   "Reporting & insights",
   "Operational control",
 ] as const;
-

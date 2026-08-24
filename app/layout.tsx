@@ -3,16 +3,16 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Webify Bharat | Digital Operations. Real Growth.",
+    default: "Webify Bharat | Own your customers. ₹0 per lead.",
     template: "%s | Webify Bharat",
   },
   description:
-    "Websites, payments, WhatsApp automation, analytics and business systems for Indian businesses.",
+    "Full control of your website, WhatsApp and customer list. No per-lead fee. No aggregator commission on people who already want you.",
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://webify-bharat.vercel.app"),
   openGraph: {
     title: "Webify Bharat | Digital Operations. Real Growth.",
     description:
-      "Websites, payments, WhatsApp automation, analytics and business systems for Indian businesses.",
+      "Full control of your website, WhatsApp and customer list. No per-lead fee. No aggregator commission on people who already want you.",
     images: ["/og.jpg"],
   },
   icons: {

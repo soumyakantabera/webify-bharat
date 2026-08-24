@@ -180,6 +180,68 @@ h2 span {
   max-width: 590px;
   margin: 0 0 30px;
 }
+.control-section {
+  padding-top: 40px;
+}
+.control-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.control-card {
+  border-radius: 28px;
+  padding: 28px 28px 22px;
+  border: 1px solid var(--line);
+}
+.control-card.rent {
+  background: #fff;
+}
+.control-card.own {
+  background: var(--ink);
+  color: #fff;
+  border-color: transparent;
+}
+.control-kicker {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+  color: var(--muted);
+}
+.control-card.own .control-kicker {
+  color: #70d7cb;
+}
+.control-card h3 {
+  font-size: 28px;
+  margin-bottom: 18px;
+}
+.control-card.own h3 span,
+.control-card.own h3 {
+  color: #fff;
+}
+.control-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.control-card li {
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+  font-size: 15px;
+  font-weight: 700;
+}
+.control-card.own li {
+  border-top-color: rgba(255, 255, 255, 0.12);
+  color: #d7e8e4;
+}
+.control-note {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 70ch;
+}
+
 .hero-actions {
   display: flex;
   gap: 12px;
@@ -1117,7 +1179,8 @@ textarea.input {
   .about-grid,
   .page-hero .wrap,
   .contact-grid,
-  .cta-band {
+  .cta-band,
+  .control-grid {
     grid-template-columns: 1fr;
   }
   h1 {

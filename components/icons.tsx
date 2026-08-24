@@ -1,4 +1,4 @@
-import { ArrowRight, Check, ShieldCheck, TrendingUp, Zap } from "lucide-react";
+import { ArrowRight, Check, IndianRupee, KeyRound, ShieldCheck, TrendingUp, Users, Zap } from "lucide-react";
 import type { ReactNode, SVGProps } from "react";
 
 type IconProps = SVGProps<SVGSVGElement> & { size?: number };
@@ -17,6 +17,18 @@ export function IconTrend({ size = 16, ...props }: IconProps) {
 
 export function IconShield({ size = 16, ...props }: IconProps) {
   return <ShieldCheck size={size} strokeWidth={2.4} aria-hidden {...props} />;
+}
+
+export function IconKey({ size = 16, ...props }: IconProps) {
+  return <KeyRound size={size} strokeWidth={2.4} aria-hidden {...props} />;
+}
+
+export function IconRupee({ size = 16, ...props }: IconProps) {
+  return <IndianRupee size={size} strokeWidth={2.4} aria-hidden {...props} />;
+}
+
+export function IconUsers({ size = 16, ...props }: IconProps) {
+  return <Users size={size} strokeWidth={2.4} aria-hidden {...props} />;
 }
 
 export function IconArrow({ size = 16, ...props }: IconProps) {

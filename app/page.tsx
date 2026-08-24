@@ -1,18 +1,18 @@
 import Link from "next/link";
 import Layout from "@/components/Layout";
-import { FaqSection } from "@/components/FaqSection";
-import { getFaq } from "@/lib/faqs";
 import { ProcessVisual } from "@/components/ProcessVisual";
+import { FaqSection } from "@/components/FaqSection";
 import {
   CheckItem,
   IconArrow,
-  IconBolt,
   IconCheck,
-  IconShield,
-  IconTrend,
+  IconKey,
+  IconRupee,
+  IconUsers,
   WhatsAppCta,
 } from "@/components/icons";
 import { industries, services, WA_CHAT, WA_CONSULT } from "@/lib/site";
+import { getFaq } from "@/lib/faqs";
 
 export default function Home() {
   return (
@@ -21,47 +21,48 @@ export default function Home() {
         <div className="container hero-grid">
           <div className="hero-copy">
             <div className="eyebrow">
-              <span className="dot" /> Digital Operations. Real Growth.
+              <span className="dot" /> Full control. Zero rupees per lead.
             </div>
             <h1>
-              Smarter Operations.
+              Own your customers.
               <br />
-              <span>Stronger Business.</span>
+              <span>Stop renting them.</span>
             </h1>
             <p>
-              Build your website, collect payments, automate WhatsApp, understand your
-              numbers and keep operations under control — with one digital partner.
+              Your website, your WhatsApp, your list. No Justdial pack. No Zomato tax on
+              the guest who already wants you. No paying Google for the same name twice.
+              Enquiries that come through what you own cost you nothing extra per lead.
             </p>
             <div className="hero-actions">
               <WhatsAppCta href={WA_CONSULT}>Book a free consult</WhatsAppCta>
-              <a className="btn btn-secondary" href="#services">
-                Explore services
+              <a className="btn btn-secondary" href="#control">
+                See the difference
               </a>
             </div>
             <div className="trust">
               <div className="trust-item">
                 <span className="trust-icon">
-                  <IconShield />
+                  <IconKey />
                 </span>
-                Secure
+                Full control
               </div>
               <div className="trust-item">
                 <span className="trust-icon">
-                  <IconBolt />
+                  <IconRupee />
                 </span>
-                Fast
+                ₹0 / lead
               </div>
               <div className="trust-item">
                 <span className="trust-icon">
-                  <IconTrend />
+                  <IconUsers />
                 </span>
-                Data-driven
+                You own the list
               </div>
               <div className="trust-item">
                 <span className="trust-icon">
                   <IconCheck />
                 </span>
-                Compliant
+                No commission
               </div>
             </div>
           </div>
@@ -71,6 +72,53 @@ export default function Home() {
               alt="Webify Bharat digital operations dashboard"
             />
           </div>
+        </div>
+      </section>
+
+      <section className="section control-section" id="control">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <div className="eyebrow">
+                <span className="dot" /> Owned, not rented
+              </div>
+              <h2>
+                Full control. <span>No rupees per lead.</span>
+              </h2>
+            </div>
+            <p>
+              When someone finds you on Google, walks in, or WhatsApps your number —
+              that customer is yours. You do not pay Justdial, IndiaMART, Zomato or Meta
+              for that enquiry.
+            </p>
+          </div>
+          <div className="control-grid">
+            <article className="control-card rent">
+              <p className="control-kicker">Renting customers</p>
+              <h3>Pay every time someone wants you.</h3>
+              <ul>
+                <li>Zomato / Swiggy take a cut of the order</li>
+                <li>Justdial / IndiaMART bill per lead pack</li>
+                <li>Google and Meta charge for every click</li>
+                <li>They own the relationship — you rent it</li>
+              </ul>
+            </article>
+            <article className="control-card own">
+              <p className="control-kicker">Owning customers</p>
+              <h3>Your site. Your WhatsApp. ₹0 per lead.</h3>
+              <ul>
+                <li>Website + Maps + WhatsApp you control</li>
+                <li>No extra rupee when a customer messages you</li>
+                <li>Your list, your number, your rules</li>
+                <li>Pay once to build the system — not per head</li>
+              </ul>
+            </article>
+          </div>
+          <p className="control-note">
+            You still pay to build and host the system. What you stop paying is a tax on
+            every organic customer — no commission, no per-lead bill, no algorithm
+            holding the relationship.
+          </p>
         </div>
       </section>
 
@@ -102,7 +150,7 @@ export default function Home() {
                 <p>Digital systems should simplify the day, not add another thing to manage.</p>
               </div>
             </Link>
-            <Link href={`/industries/${"retail" }`} className="photo-card">
+            <Link to="/industries/$slug" params={{ slug: "retail" }} className="photo-card">
               <img
                 src="/images/real/retail.webp"
                 alt="Indian retail store owner serving a customer"
@@ -113,7 +161,8 @@ export default function Home() {
                 <p>Catalog, payments and customer experience connected.</p>
               </div>
             </Link>
-            <Link href={`/industries/${"restaurant" }`}
+            <Link
+              href="/industries/restaurant"
               className="photo-card"
             >
               <img
@@ -299,20 +348,20 @@ export default function Home() {
               <span className="dot" /> Why Webify Bharat
             </div>
             <h2 className="display-h2">
-              Digital systems.
+              Full control of the
               <br />
-              <span>One accountable partner.</span>
+              <span>customer relationship.</span>
             </h2>
             <p className="muted-copy">
-              We bring your website, payments, customer communication, reporting and
-              operational workflows together instead of leaving you to coordinate five
-              different vendors.
+              We put the website, WhatsApp, payments and records in your name — so the
+              next enquiry does not cost a lead fee, and the next order does not pay an
+              aggregator tax.
             </p>
             <div className="values">
-              <CheckItem>Business-first thinking</CheckItem>
-              <CheckItem>Clear scope & ownership</CheckItem>
-              <CheckItem>Fast, modern technology</CheckItem>
-              <CheckItem>Built to measure growth</CheckItem>
+              <CheckItem>You own the site, number and list</CheckItem>
+              <CheckItem>₹0 extra per organic lead</CheckItem>
+              <CheckItem>No marketplace commission on owned orders</CheckItem>
+              <CheckItem>One partner, one system</CheckItem>
             </div>
           </div>
         </div>
@@ -325,12 +374,12 @@ export default function Home() {
           <div className="cta-band">
             <div>
               <div className="eyebrow" style={{ color: "#70d7cb" }}>
-                <span className="dot" /> Ready when you are
+                <span className="dot" /> Own the next customer
               </div>
-              <h2>Build your digital growth engine.</h2>
+              <h2>Stop paying for people who already want you.</h2>
               <p>
-                Tell us where your business is today. We’ll help you identify the
-                highest-impact next move.
+                Build a website and WhatsApp system you control. Organic enquiries land
+                at ₹0 per lead — not as a Justdial bill.
               </p>
               <WhatsAppCta href={WA_CHAT}>Chat on WhatsApp</WhatsAppCta>
             </div>
