@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import "./pricing-ui.css";
 import { jetbrains, manrope, sora } from "./fonts";
-import { JsonLd } from "@/components/JsonLd";
 
 export const viewport: Viewport = {
   themeColor: "#0f766e",
@@ -39,10 +38,7 @@ export default function RootLayout({
       lang="en"
       className={`${sora.variable} ${manrope.variable} ${jetbrains.variable}`}
     >
-      <body className={manrope.className}>
-        <JsonLd />
-        {children}
-      </body>
+      <body className={manrope.className}>{children}</body>
     </html>
   );
 }
