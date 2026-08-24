@@ -80,16 +80,17 @@ button:not(:disabled),
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  font-size: 22px;
+  flex-shrink: 0;
 }
 .logo-img {
-  height: 40px;
+  height: 52px;
   width: auto;
+  max-width: none;
+  object-fit: contain;
+  object-position: left center;
   display: block;
   flex-shrink: 0;
+  overflow: visible;
 }
 .nav-links {
   display: flex;
@@ -743,11 +744,12 @@ textarea.input {
   display: flex;
   color: var(--ink);
   margin: 0 0 12px;
-  font-size: 22px;
 }
-.footer a.logo span {
+.footer a.logo:hover {
   color: var(--ink);
-  font-size: 22px;
+}
+.footer .logo-img {
+  height: 48px;
 }
 .footer-wa {
   margin-top: 16px !important;
@@ -1140,12 +1142,8 @@ textarea.input {
   .nav-inner {
     height: 68px;
   }
-  .logo {
-    font-size: 16px;
-    gap: 8px;
-  }
   .logo-img {
-    height: 32px;
+    height: 40px;
   }
   h1 {
     font-size: 42px;
