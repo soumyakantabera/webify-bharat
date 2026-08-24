@@ -3,19 +3,15 @@ type BrandLogoProps = {
 };
 
 export function BrandLogo({ variant = "light" }: BrandLogoProps) {
+  const src =
+    variant === "dark" ? "/images/logo/logo-dark.png" : "/images/logo/logo-light.png";
   return (
-    <span className={`brand-logo brand-logo-${variant}`}>
-      <img
-        src="/images/logo/wb-mark.png"
-        alt=""
-        className="brand-mark"
-        width={72}
-        height={48}
-      />
-      <span className="brand-wordmark">
-        <span className="brand-webify">Webify</span>
-        <span className="brand-bharat">Bharat</span>
-      </span>
-    </span>
+    <img
+      src={src}
+      alt="Webify Bharat"
+      className="brand-logo-img"
+      width={198}
+      height={60}
+    />
   );
 }

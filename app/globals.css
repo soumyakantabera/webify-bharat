@@ -89,35 +89,15 @@ button:not(:disabled),
   display: flex;
   align-items: center;
   flex-shrink: 0;
+  line-height: 0;
 }
-.brand-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.brand-mark {
-  height: 48px;
+.brand-logo-img {
+  height: 52px;
   width: auto;
   max-width: none;
   display: block;
   flex-shrink: 0;
 }
-.brand-wordmark {
-  display: flex;
-  flex-direction: column;
-  line-height: 0.9;
-  letter-spacing: -0.05em;
-}
-.brand-webify,
-.brand-bharat {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 20px;
-}
-.brand-webify { color: var(--ink); }
-.brand-bharat { color: var(--teal); }
-.brand-logo-dark .brand-webify { color: #c5cecb; }
-.brand-logo-dark .brand-bharat { color: #5ec4b8; }
 .nav-links {
   display: flex;
   align-items: center;
@@ -837,12 +817,8 @@ textarea.input {
 .footer a.logo:hover {
   color: var(--ink);
 }
-.footer .brand-mark {
-  height: 44px;
-}
-.footer .brand-webify,
-.footer .brand-bharat {
-  font-size: 18px;
+.footer .brand-logo-img {
+  height: 48px;
 }
 .footer-wa {
   margin-top: 16px !important;
@@ -1267,12 +1243,8 @@ textarea.input {
   .nav-inner {
     height: 68px;
   }
-  .brand-mark {
+  .brand-logo-img {
     height: 40px;
-  }
-  .brand-webify,
-  .brand-bharat {
-    font-size: 17px;
   }
   h1 {
     font-size: 42px;
