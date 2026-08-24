@@ -3,6 +3,8 @@ export const metadata: Metadata = { title: "Industries" };
 
 import Link from "next/link";
 import Layout from "@/components/Layout";
+import { ArticleBlock } from "@/components/ArticleBlock";
+import { industriesIndexArticle } from "@/lib/seo-copy";
 import { PageLead } from "@/components/PageIcons";
 import { FaqSection } from "@/components/FaqSection";
 import { getFaq } from "@/lib/faqs";
@@ -48,6 +50,8 @@ export default function IndustriesPage() {
           ))}
         </div>
       </section>
+      <ArticleBlock article={industriesIndexArticle} />
+
       <FaqSection block={getFaq("industries")} />
     </Layout>
   );

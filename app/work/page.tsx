@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 export const metadata: Metadata = { title: "Work" };
 
 import Layout from "@/components/Layout";
+import { ArticleBlock } from "@/components/ArticleBlock";
+import { workArticle } from "@/lib/seo-copy";
 import { PageLead } from "@/components/PageIcons";
 import { FaqSection } from "@/components/FaqSection";
 import { getFaq } from "@/lib/faqs";
@@ -35,6 +37,8 @@ export default function WorkPage() {
           ))}
         </div>
       </section>
+      <ArticleBlock article={workArticle} />
+
       <FaqSection block={getFaq("work")} />
     </Layout>
   );

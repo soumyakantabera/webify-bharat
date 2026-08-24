@@ -35,6 +35,23 @@ export const homeArticle: Article = {
   ],
 };
 
+export const searchResearchArticle: Article = {
+  kicker: "2026 search research",
+  title: "How Indian customers actually",
+  accent: "find a local business.",
+  paragraphs: [
+    "Local SEO research in 2026 is blunt. A large share of “near me” and category searches still open the Google Map Pack first — dentist in Noida, plumber near me, restaurant in Pune. Google Business Profile (GBP) gets most of its impressions from category queries, not branded ones. About four in ten local queries can trigger an AI Overview. If your name is missing from Maps, your site, and a citable paragraph, both Google and Bing Copilot skip you.",
+    "The journey after the pack is Indian-specific: call or WhatsApp, then a name search. 97% of people still check some online presence before they visit. A Justdial card or an Instagram grid is not a substitute for NAP-consistent GBP, a fast mobile website, and a click-to-chat button. Bing Places for Business is the free Microsoft twin — smaller than Google in India, but Copilot and Bing Chat read it. We set both when it is cheap insurance.",
+    "On-page still matters: dedicated service pages, city and category language, internal links, and photos that look like the shop. Reviews you reply to. Hours that are true on festival weeks. Webify Bharat builds the owned URL those listings point at — so the click is yours, not a directory’s.",
+  ],
+  bullets: [
+    "Google Business Profile + Maps pack for “near me” and category search",
+    "Owned website for the name search after WhatsApp or a shop board",
+    "Bing Places so Copilot and Bing have the same NAP as Google",
+    "WhatsApp and UPI on that URL — ₹0 extra per organic enquiry",
+  ],
+};
+
 export const serviceArticles: Record<string, Article> = {
   websites: {
     kicker: "Website design India",
@@ -42,8 +59,9 @@ export const serviceArticles: Record<string, Article> = {
     accent: "enquiries, not just traffic.",
     paragraphs: [
       "A business website in India is not a brochure. It is the page a customer opens after they saw you on Google Maps, Instagram or a shop board. If it is slow, English-only, or has no WhatsApp button, they message the next listing. Webify Bharat builds mobile-first websites for MSMEs: clear offer, real photos, click-to-call, click-to-WhatsApp, service pages, and on-page SEO for your city and category.",
-      "Local SEO still starts with your own URL. Google Search and AI answers (Gemini, ChatGPT, Perplexity) prefer a named business with an owned site, NAP consistency, and Google Business Profile — not a rented Justdial profile. We align titles, service copy and schema so “best clinic in [city]” or “[trade] near me” can cite you.",
-      "You keep the domain, hosting access and content. No marketplace tax when someone finds you organically. Optional add-ons: bilingual Hindi/English copy, GST invoice links, UPI checkout, and a blog that answers the questions your buyers already type.",
+      "Local SEO still starts with your own URL. Google Search and AI answers (Gemini, ChatGPT, Perplexity, Bing Copilot) prefer a named business with an owned site, NAP consistency, and Google Business Profile — not a rented Justdial profile. We align titles, service copy and schema so “best clinic in [city]” or “[trade] near me” can cite you.",
+      "Market rates in 2026 for a serious small-business site in India typically sit well above a ₹5,000 template: public quotes run from roughly ₹15,000–₹60,000 for a conversion-focused local site, and much more for catalogues. Webify Bharat Launch starts at ₹9,999 as a foundation; Growth and Command add payments and operations. Always ask if 18% GST is included.",
+      "You keep the domain (.in or .com), hosting access and content. No marketplace tax when someone finds you organically. Optional: bilingual Hindi/English copy, GST invoice links, UPI checkout, Core Web Vitals on mid-range Android, and a blog that answers the questions your buyers already type.",
     ],
     bullets: [
       "Mobile-first website design and development for Indian SMBs",
@@ -112,6 +130,7 @@ export const industryArticles: Record<string, Article> = {
     accent: "for kirana to brand retail.",
     paragraphs: [
       "Retail search intent in India is local: “shop near me”, Maps, then WhatsApp for stock and price. A Justdial listing rents that click. An owned site plus Google Business Profile plus UPI checkout keeps the customer and the margin. We connect catalogue, inventory notes, WhatsApp order chat and a daily collection view.",
+      "Kirana, boutiques and multi-store retail all hit the same leak: personal QR, stock in a notebook, and Instagram DMs that vanish. A WhatsApp catalogue or site catalogue with sizes and GST-ready bills is the upgrade. Marketplaces stay for extra reach; repeats should land on your number.",
     ],
   },
   restaurant: {
@@ -119,7 +138,8 @@ export const industryArticles: Record<string, Article> = {
     title: "QR menu and UPI — without",
     accent: "a 20% aggregator cut.",
     paragraphs: [
-      "Zomato and Swiggy are useful for discovery. Commission on every plate (often mid-teens to high twenties, plus ads) is expensive for guests who already know you. A restaurant website with menu, Google Maps embed, WhatsApp table or parcel chat, and QR-to-UPI on the table keeps regulars on your books. We build that stack so dine-in and direct parcel are not taxed by the aggregator.",
+      "Zomato and Swiggy are useful for discovery. Commission on every plate (often mid-teens to high twenties, plus ads) is expensive for guests who already know you. A restaurant website with menu, Google Maps embed, WhatsApp table or parcel chat, and QR-to-UPI on the table keeps regulars on your books.",
+      "Digital marketing for restaurants in India is Google for intent, WhatsApp for the regular, and the aggregator for overflow. If a large share of orders are repeats, moving even part of those off the platform is real margin. We do not tell you to delete Zomato. We stop you paying platform rent on people who would have come anyway.",
     ],
   },
   healthcare: {
@@ -127,7 +147,8 @@ export const industryArticles: Record<string, Article> = {
     title: "Appointments, reminders and",
     accent: "payments for Indian clinics.",
     paragraphs: [
-      "Patients Google the doctor, check Maps, then WhatsApp the clinic. No-shows drop when reminders go on WhatsApp. Collections improve when UPI links replace cash-only counters. We build clinic sites, appointment capture, reminder flows and a simple front-desk view — without claiming to be an EMR or replacing your clinical software.",
+      "Patients Google the doctor (“dentist near me”, “clinic in [area]”), check Maps, then WhatsApp the reception. No-shows drop when reminders go on WhatsApp. Collections improve when UPI links replace cash-only counters. Dedicated clinic software exists from a few hundred rupees a month — we are not an EMR. We are the public layer: clinic website, GBP, appointment capture, reminder copy, and named payments.",
+      "Do not buy ads into an unanswered phone. First: a page that proves the practice is real, a number that replies, and a receipt the accountant can file.",
     ],
   },
   education: {
@@ -135,7 +156,8 @@ export const industryArticles: Record<string, Article> = {
     title: "Admissions, fees and parent",
     accent: "WhatsApp for institutes.",
     paragraphs: [
-      "Tuition centres, schools and coaching brands lose admissions in the gap between Instagram and a missing website. Parents want fees on UPI, receipts, and a number that answers. Webify Bharat sets institute sites, enquiry forms, fee links and WhatsApp updates in the language the desk already uses.",
+      "Tuition centres, schools and coaching brands lose admissions in the gap between Instagram and a missing website. Parents want batch timings, fees on UPI, receipts, and a number that answers. CBSE/ICSE/state-board copy should be plain, not startup English.",
+      "Webify Bharat sets institute sites, enquiry forms, fee links and WhatsApp updates in the language the desk already uses. That is how “tuition classes near me” becomes an owned enquiry instead of a Justdial pack.",
     ],
   },
   "real-estate": {
@@ -143,7 +165,8 @@ export const industryArticles: Record<string, Article> = {
     title: "Project pages and lead follow-up",
     accent: "you actually own.",
     paragraphs: [
-      "Portals sell the same lead to five brokers. An owned site for a project or local desk, with listing pages, WhatsApp capture and a follow-up list, keeps the buyer on your number. We build that — photos, maps, site-visit CTAs — without locking you into a national portal’s auction.",
+      "Portals sell the same lead to five brokers. An owned site for a project or local desk, with listing pages, WhatsApp capture and a follow-up list, keeps the buyer on your number. Photos, maps, site-visit CTAs — without locking you into a national portal’s auction.",
+      "RERA-sensitive copy stays factual. We do not invent inventory. We make sure the Google search for the project name hits you first, not only a listing site.",
     ],
   },
   manufacturing: {
@@ -151,7 +174,8 @@ export const industryArticles: Record<string, Article> = {
     title: "Factory-direct presence vs",
     accent: "IndiaMART lead packs.",
     paragraphs: [
-      "IndiaMART works for some B2B discovery. Subscription plus competing quotes is rent. A manufacturer website with product specs, GST-ready enquiry, WhatsApp to the sales desk and a simple order status view lets repeat OEM and dealer buyers skip the portal. We build that factory-direct layer.",
+      "IndiaMART works for some B2B discovery. Subscription plus competing quotes is rent. A manufacturer website with product specs, GST-ready enquiry, WhatsApp to the sales desk and a simple order status view lets repeat OEM and dealer buyers skip the portal.",
+      "Buyers still search HS codes, material and city. Dedicated product pages beat a single PDF. We build that factory-direct layer so the RFQ is yours.",
     ],
   },
 };
@@ -172,8 +196,8 @@ export const pricingArticle: Article = {
   title: "What a business website",
   accent: "and stack costs in India.",
   paragraphs: [
-    "Search queries like “website cost for small business India”, “WhatsApp API setup charges” and “payment gateway integration price” are really asking: what do I pay once vs what do I pay forever. Webify Bharat’s Launch plan starts at ₹9,999 for a professional site, analytics and WhatsApp setup. Growth at ₹19,999 adds payment gateway and automation. Command at ₹39,999 adds BI and custom integrations.",
-    "Those are starting points. Scope depends on catalogue size, languages, KYC and integrations. Hosting and optional care are month-to-month after launch. Compare that to a year of Justdial or IndiaMART plus aggregator commission: owned systems usually win on unit economics once organic Google and WhatsApp traffic exists.",
+    "Search queries like “website cost for small business India”, “WhatsApp API setup charges” and “payment gateway integration price” are really asking: what do I pay once vs what do I pay forever. Public 2026 ranges for a local lead-gen site often sit around ₹15,000–₹60,000; e-commerce much higher. Webify Bharat’s Launch plan starts at ₹9,999 for a professional site, analytics and WhatsApp setup. Growth at ₹19,999 adds payment gateway and automation. Command at ₹39,999 adds BI and custom integrations.",
+    "Those are starting points, usually quoted exclusive of 18% GST unless we say otherwise — same rule as most Indian agencies, so compare like for like. Scope depends on catalogue size, languages, KYC and integrations. Hosting and optional care are month-to-month after launch. Compare that to a year of Justdial or IndiaMART plus aggregator commission: owned systems usually win on unit economics once organic Google and WhatsApp traffic exists.",
   ],
 };
 
@@ -184,5 +208,45 @@ export const servicesIndexArticle: Article = {
   paragraphs: [
     "Webify Bharat services map to how Indian customers buy: find you on Google or Maps, message WhatsApp, pay with UPI, expect a GST invoice. We offer website design and development, e-commerce and dealer portals, payment gateway setup, WhatsApp Business API and campaigns, analytics and BI, and bookkeeping/compliance workflows.",
     "Start with the leak — no site on name search, messy inbox, personal UPI, or blind reporting — then connect the next piece. You can buy a website only. We will still tell you if the rest of the loop is where money is leaking.",
+  ],
+};
+
+export const industriesIndexArticle: Article = {
+  kicker: "Industries we know",
+  title: "Retail, food, clinics, tuition,",
+  accent: "property and the factory floor.",
+  paragraphs: [
+    "Generic “digital transformation” decks fail because a restaurant’s leak is Zomato commission, a clinic’s leak is no-shows, and a factory’s leak is IndiaMART quote wars. Webify Bharat ships the same owned stack — site, WhatsApp, UPI, reporting — with copy and workflows that match the floor.",
+    "Pick your trade. Each industry page answers the search that owners actually type: restaurant website with QR menu, clinic appointment WhatsApp, tuition fee UPI, real-estate project page, manufacturer catalogue. Same partner, different bottleneck.",
+  ],
+};
+
+export const workArticle: Article = {
+  kicker: "Proof of work",
+  title: "Systems around shops, clinics",
+  accent: "and plants — not mock startups.",
+  paragraphs: [
+    "Case studies here are formatted around real Indian operations: retail catalogues, restaurant QR + WhatsApp, clinic reminders, reporting and compliance workflows. Named client logos go up only when publication is approved. Until then, the pattern is the product: enquiry you own, payment you can reconcile, a Monday number the owner believes.",
+    "If you are comparing agencies on Dribbble shots, look instead for UPI, GST and WhatsApp in the workflow. That is the work that ranks and converts in this market.",
+  ],
+};
+
+export const contactArticle: Article = {
+  kicker: "How to brief us",
+  title: "What to send for a useful",
+  accent: "first conversation.",
+  paragraphs: [
+    "Searches like “web design company near me”, “WhatsApp API agency India” and “UPI website developer” dump you into directories. Skip the pack. Send five lines: what you sell, city, what is breaking (Maps, inbox, collections, GST), and a link or photo of the current setup.",
+    "The first working conversation is free. We will say if you need a marketplace, a CA, or us. WhatsApp is the door because that is where Indian owners already are; a video call can follow.",
+  ],
+};
+
+export const blogIndexArticle: Article = {
+  kicker: "Insights",
+  title: "Guides we wrote because",
+  accent: "owners kept asking.",
+  paragraphs: [
+    "These notes track live Indian search demand: website cost, Justdial vs own site, Zomato commission, WhatsApp Business API, UPI vs personal QR, Google Business Profile, Razorpay vs Cashfree vs PayU, Hindi/Hinglish sites, clinic WhatsApp, Bing Places and Copilot. Written so Google, Bing and LLMs can cite a straight answer — not a keyword cloud.",
+    "Use them as a briefing. Then build the system, do not collect blog posts.",
   ],
 };

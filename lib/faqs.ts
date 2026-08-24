@@ -40,6 +40,18 @@ export const faqsByPage: Record<string, FaqBlock> = {
         q: "How is this different from a freelancer who ‘makes websites’?",
         a: "A freelancer hands over files. We stay accountable for the operating loop: enquiry, reply, payment, record, number. One partner for the stack Indian businesses actually use — site, UPI, WhatsApp, GST-ready invoices and a dashboard the owner opens on Monday.",
       },
+      {
+        q: "Is Google Business Profile enough? Do I still need a website?",
+        a: "GBP wins the Map Pack for “near me” and category search. The website wins the name search after WhatsApp, and it is the URL AI Overviews can cite. Point Maps at a page you own — not Justdial — or you rented the click again.",
+      },
+      {
+        q: "Should the quote include 18% GST?",
+        a: "Ask. Most Indian web quotes are exclusive of GST. Compare two agencies on the same tax basis, and check whether hosting and gateway fees sit outside the headline price.",
+      },
+      {
+        q: "Do we need a Hindi or Hinglish website?",
+        a: "If the counter runs in Hindi, Tamil or Bengali, English-only UI loses people. Often bilingual headlines and WhatsApp copy are enough. We will not force a US-English template on a neighbourhood shop.",
+      },
     ],
   },
   services: {

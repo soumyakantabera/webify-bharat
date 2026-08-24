@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Layout from "@/components/Layout";
 import { ArticleBlock } from "@/components/ArticleBlock";
-import { entityDefine, homeArticle } from "@/lib/seo-copy";
+import { entityDefine, homeArticle, searchResearchArticle } from "@/lib/seo-copy";
 import { PageLead } from "@/components/PageIcons";
 import { ProcessVisual } from "@/components/ProcessVisual";
 import { FaqSection } from "@/components/FaqSection";
@@ -370,6 +370,8 @@ export default function Home() {
 
       <ArticleBlock article={entityDefine} define />
       <ArticleBlock article={homeArticle} />
+
+      <ArticleBlock article={searchResearchArticle} />
 
       <FaqSection block={getFaq("home")} />
 

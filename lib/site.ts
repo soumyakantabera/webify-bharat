@@ -369,6 +369,101 @@ export const posts: Post[] = [
       "If you searched “UPI payment gateway for small business India” or “Razorpay vs personal QR”, the answer is: named gateway the moment volume or GST makes the mix painful. Webify Bharat integrates that into the site and inbox you already use.",
     ],
   },
+  {
+    slug: "google-business-profile-india",
+    title: "Google Business Profile in India: Maps pack, “near me”, and why the website still matters",
+    excerpt:
+      "Most GBP views are category searches, not your brand name. The profile wins the pack; the website you own wins the next click and the WhatsApp.",
+    image: "/images/blog/website.png",
+    body: [
+      "Local SEO statistics in 2026 keep repeating three facts. “Near me” intent is huge. The Map Pack sits above the blue links. A large share of Google Business Profile impressions come from category queries — dentist, plumber, restaurant — not from people who already know your name. Complete, verified GBP with the right primary category, photos, hours and review replies is how you enter that pack.",
+      "GBP is not a website. After the pack, Indian buyers still name-search you and open WhatsApp. If the URL in the profile is a Justdial page, you rented the click. Point GBP at a site you control, keep NAP identical (name, address, phone), and put click-to-call plus click-to-WhatsApp on mobile.",
+      "AI Overviews now answer a slice of local queries. They cite businesses with clear, owned pages and consistent listings. Webify Bharat builds that URL and lines it up with Maps — so category discovery becomes an enquiry you keep at ₹0 extra.",
+    ],
+  },
+  {
+    slug: "website-cost-india-2026",
+    title: "Website design cost in India in 2026 (and what ₹9,999 actually buys)",
+    excerpt:
+      "Public quotes run from a few thousand for a template to lakhs for a catalogue. Always ask if 18% GST is in the number.",
+    image: "/images/blog/website.png",
+    body: [
+      "There is no single “website making cost in India”. Freelancer templates can start around ₹5,000–₹12,000. Conversion-focused local sites with WhatsApp, Maps and basic SEO commonly land in the ₹15,000–₹60,000 band. Small e-commerce with gateway and GST often starts higher. Agency custom work can be ₹2 lakh and up. Reddit and agency blogs in 2026 all show that spread.",
+      "Webify Bharat Launch is ₹9,999 as a professional foundation: business website, analytics, WhatsApp setup, SEO basics. Growth (₹19,999) and Command (₹39,999) add payments, automation and BI. Compare scope, not the first integer. Confirm whether 18% GST is extra — most Indian quotes are exclusive unless stated.",
+      "The expensive choice is the cheap site you replace in six months, or a year of Justdial packs for people who would have Googled you anyway. Pay once for a URL you own.",
+    ],
+  },
+  {
+    slug: "razorpay-vs-cashfree-vs-payu",
+    title: "Razorpay vs Cashfree vs PayU for Indian SMEs: fees are not the whole story",
+    excerpt:
+      "Headline TDR sits near 2% on cards. UPI success rate, settlement time, KYC friction and dashboard quality decide who you actually keep.",
+    image: "/images/blog/payments.png",
+    body: [
+      "Founders search “cheapest payment gateway India 2026” and land on Razorpay, Cashfree, PayU, Instamojo, Easebuzz. Domestic card TDR clusters around 1.7–2%. UPI is cheaper. Annual maintenance and international cards change the total. Published comparisons in 2026 still warn: success rate and T+ settlement move net revenue more than 0.1% of TDR.",
+      "For most MSME websites we default to a well-documented Indian gateway the CA and staff will actually log into — often Razorpay or Cashfree — then match KYC to your entity. Instamojo-class tools can be enough for very small volume. The wrong choice is staying on a personal GPay QR once GST and refunds exist.",
+      "Webify Bharat is not a gateway reseller. We integrate checkout, payment links and WhatsApp receipts on your site, and we will say if KYC is the blocker before we pretend the button will go live tomorrow.",
+    ],
+  },
+  {
+    slug: "hindi-hinglish-business-website",
+    title: "Hindi and Hinglish websites: English-only UI loses the counter",
+    excerpt:
+      "If the shop runs in Hindi, Tamil or Bengali, the site and WhatsApp buttons should too. Bilingual beats a US-English template.",
+    image: "/images/blog/website.png",
+    body: [
+      "India’s internet is mobile and multilingual. A site that only speaks agency English fails the customer who thinks in Hindi, Hinglish, Tamil or Bengali. Buttons should say what the counter says: “WhatsApp karein”, “Fees bharein”, “Order now”. Google also uses on-page language as a relevance signal for vernacular queries.",
+      "You do not always need a full duplicate site. Often a Hindi headline, bilingual service names, and WhatsApp templates in the language staff already type are enough. Unicode, font loading (not just Latin), and avoiding broken krutidev leftovers matter.",
+      "Webify Bharat writes and builds that way when the business is not an English-first brand. The LLM-visible entity stays “Webify Bharat” in English; the customer-facing layer matches the floor.",
+    ],
+  },
+  {
+    slug: "local-seo-near-me-india",
+    title: "“Near me” SEO in India: Map Pack, service pages, and reviews you reply to",
+    excerpt:
+      "On-page city pages, GBP category, and real photos beat buying another directory listing.",
+    image: "/images/blog/growth.png",
+    body: [
+      "Local ranking factors still stack like this: relevance (category + on-page), distance, and prominence (reviews, links, brand searches). White-hat local SEO in India is not 200 fake citations. It is a verified Google Business Profile, matching NAP on an owned website, dedicated service pages (“AC repair in [area]”), and reviews you actually answer.",
+      "Directory spam (Justdial, Sulekha, IndiaMART) can help in a few trades and hurt in others. If the listing does not send unique, profitable work, stop paying. Put the same energy into photos, Q&A on GBP, and a page that loads on a mid-range Android over 4G.",
+      "Webify Bharat builds those service pages and lines them up with Maps. That is how “near me” becomes an owned WhatsApp, not a lead pack.",
+    ],
+  },
+  {
+    slug: "clinic-whatsapp-appointments-india",
+    title: "Clinic websites and WhatsApp appointments in India (without buying a hospital EMR)",
+    excerpt:
+      "Patients book and pay the way they already live: Google, WhatsApp, UPI. Reminders cut no-shows. You may not need a ₹50,000 clinic suite on day one.",
+    image: "/images/blog/whatsapp.png",
+    body: [
+      "Clinic software in India now starts in the low hundreds of rupees a month. WhatsApp-first reception products exist. Hospital EMRs cost much more. Most independent clinics need a simpler public layer first: a site that proves the doctor is real, GBP for “clinic near me”, a WhatsApp number that can take a slot, UPI for fees, and reminder messages the day before.",
+      "We do not replace your clinical record. We stop lost calls and cash-only chaos at the door. If you later add an Indian clinic OS, the website and WhatsApp should still be yours — not rented from a directory.",
+    ],
+  },
+  {
+    slug: "bing-places-copilot-india",
+    title: "Bing Places and Copilot: why Indian SMEs should still list off Google",
+    excerpt:
+      "Google wins Indian search. Copilot, Bing Chat and some Windows defaults still read Bing Places. NAP insurance is free.",
+    image: "/images/blog/analytics.png",
+    body: [
+      "Google is the default in India. Bing’s share is smaller, but Microsoft Copilot and Bing Chat retrieve Bing Places and web pages when they answer “best [trade] in [city]”. Listing on Bing Places for Business is free: Microsoft account, NAP, hours, photos, same as GBP.",
+      "Keep name, address and phone identical to Google and the website. Conflicting citations confuse both search engines and LLMs. Webify Bharat treats Bing Places as cheap insurance next to GBP — not as a paid directory.",
+      "If you only have time for one profile, do Google first. If you have twenty minutes, do Bing second. Then spend the rest of the week on the website those listings point to.",
+    ],
+  },
+  {
+    slug: "gst-website-quote-india",
+    title: "GST on website quotes in India: 18% and why “cheap” is not cheaper",
+    excerpt:
+      "Most agency and freelancer numbers are exclusive of GST. Ask. Then compare owned build cost to a year of lead packs.",
+    image: "/images/blog/gst.png",
+    body: [
+      "Indian web quotes are usually exclusive of 18% GST unless the line says inclusive. A ₹75,000 proposal becomes ₹88,500. A ₹9,999 Launch becomes more on the tax invoice if you are billed GST. Always line up two quotes on the same tax basis, and check whether hosting, WhatsApp BSP fees and gateway MDR are in or out.",
+      "GST-compliant invoices from your vendor are not optional theatre if you will claim input credit. The same discipline should apply to your own customer invoices — numbered, tied to a payment, exportable for your CA.",
+      "Webify Bharat will state tax treatment in the proposal. The strategic comparison is still: one owned system versus a year of Justdial, IndiaMART or aggregator commission on customers you already had.",
+    ],
+  },
 ];
 
 export function getPost(slug: string) {

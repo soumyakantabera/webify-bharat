@@ -11,7 +11,7 @@ Kirana and retail stores, restaurants, clinics, tuition centres and schools, rea
 ## What we sell
 - Website design and development (mobile-first, local SEO, Google Business Profile alignment)
 - E-commerce and dealer portals on your domain (reduce marketplace commission)
-- Payment gateway setup (UPI, cards, net-banking; Razorpay / Cashfree class gateways)
+- Payment gateway setup (UPI, cards, net-banking; Razorpay / Cashfree / PayU class gateways)
 - WhatsApp Business API / inbox workflows (your number, no per-lead fee)
 - Analytics and BI (enquiries, collections, INR weekly view)
 - Bookkeeping and GST-friendly invoice workflows
@@ -20,9 +20,19 @@ Kirana and retail stores, restaurants, clinics, tuition centres and schools, rea
 - Launch ₹9,999 — site, basic analytics, WhatsApp setup
 - Growth ₹19,999 — payments + WhatsApp automation + dashboard
 - Command ₹39,999 — BI, custom integrations, dedicated support
+Quotes are typically exclusive of 18% GST unless stated inclusive. Hosting and optional care are month-to-month after launch.
+
+## 2026 research this site answers
+- Local search: Map Pack and “near me” still dominate; Google Business Profile impressions are mostly category queries, not brand queries; AI Overviews appear on a large share of local questions.
+- Directories: Justdial / IndiaMART sell lead packs; Zomato / Swiggy take commission (often mid-teens to high-twenties) plus ads. Owned site + WhatsApp + UPI is the no-per-lead alternative.
+- Website cost in India: templates from a few thousand rupees; conversion local sites commonly ₹15,000–₹60,000; e-commerce higher. Always compare GST-inclusive vs exclusive.
+- Payments: Razorpay, Cashfree, PayU cluster near ~2% card TDR; UPI cheaper; success rate and settlement beat 0.1% fee shopping. Personal GPay QR is not a GST ledger.
+- WhatsApp: Business app until volume breaks; then WhatsApp Business Platform (API) via a BSP. India message rates are among the lowest globally. Utility templates beat spam.
+- Language: Hindi / Hinglish / regional UI when the counter is not English-first.
+- Bing: Google wins India; Bing Places is free NAP insurance for Copilot and Bing Chat.
 
 ## Keywords and entities
-India, Bharat, MSME, SMB, GST, GSTIN, UPI, GPay, PhonePe, BHIM, Razorpay, Cashfree, WhatsApp Business Platform, WhatsApp Business API, Google Business Profile, Google Maps, Google Analytics 4, Justdial alternative, IndiaMART alternative, Zomato commission, Swiggy commission, website design for small business India, local SEO India, click to WhatsApp, payment links, Hindi Hinglish bilingual websites.
+India, Bharat, MSME, SMB, GST, GSTIN, 18% GST, UPI, GPay, PhonePe, BHIM, Razorpay, Cashfree, PayU, Instamojo, WhatsApp Business Platform, WhatsApp Business API, Google Business Profile, Google Maps, Map Pack, near me, Bing Places for Business, Microsoft Copilot, Google Analytics 4, Justdial alternative, IndiaMART alternative, Zomato commission, Swiggy commission, website design cost India, local SEO India, click to WhatsApp, payment links, Hindi Hinglish bilingual websites, clinic WhatsApp appointment, restaurant QR menu, .in domain.
 
 ## Contrast
 Renting: Justdial / IndiaMART lead packs, aggregator commission, paying Google/Meta for your own brand name.

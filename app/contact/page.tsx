@@ -3,6 +3,8 @@ export const metadata: Metadata = { title: "Contact" };
 
 import ContactForm from "@/components/ContactForm";
 import Layout from "@/components/Layout";
+import { ArticleBlock } from "@/components/ArticleBlock";
+import { contactArticle } from "@/lib/seo-copy";
 import { PageLead } from "@/components/PageIcons";
 import { FaqSection } from "@/components/FaqSection";
 import { getFaq } from "@/lib/faqs";
@@ -49,6 +51,8 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+      <ArticleBlock article={contactArticle} />
+
       <FaqSection block={getFaq("contact")} />
     </Layout>
   );
