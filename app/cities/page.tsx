@@ -74,11 +74,14 @@ export default function CitiesPage() {
                     <Link
                       key={city.slug}
                       href={`/cities/${city.slug}`}
-                      className="industry-card real-photo"
+                      className="industry-card real-photo city-card"
                     >
                       <img
                         src={`/images/real/${city.photo}`}
                         alt={`${city.name} business digital systems`}
+                        width={640}
+                        height={400}
+                        loading="lazy"
                       />
                       <div className="content">
                         <span className="badge">{city.state}</span>
@@ -109,6 +112,9 @@ export default function CitiesPage() {
               <img
                 src="/images/real/growth-success.webp"
                 alt="Indian business owner growing with owned digital channels"
+                width={640}
+                height={400}
+                loading="lazy"
               />
             </div>
           </div>

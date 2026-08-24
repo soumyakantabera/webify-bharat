@@ -74,6 +74,9 @@ export default async function CityPage({
           <img
             src={`/images/real/${city.photo}`}
             alt={`${city.name} businesses going digital with Webify Bharat`}
+            width={800}
+            height={520}
+            loading="eager"
           />
         </div>
       </section>
@@ -197,7 +200,18 @@ export default async function CityPage({
             </div>
             <div className="industry-grid">
               {related.map((c) => (
-                <Link key={c.slug} href={`/cities/${c.slug}`} className="industry-card">
+                <Link
+                  key={c.slug}
+                  href={`/cities/${c.slug}`}
+                  className="industry-card real-photo city-card"
+                >
+                  <img
+                    src={`/images/real/${c.photo}`}
+                    alt={`${c.name} digital systems`}
+                    width={640}
+                    height={400}
+                    loading="lazy"
+                  />
                   <div className="content">
                     <span className="badge">{c.state}</span>
                     <h3 style={{ marginTop: 12 }}>{c.name}</h3>
@@ -227,6 +241,9 @@ export default async function CityPage({
               <img
                 src="/images/real/growth-success.webp"
                 alt={`${city.name} business growth with owned digital systems`}
+                width={640}
+                height={400}
+                loading="lazy"
               />
             </div>
           </div>
