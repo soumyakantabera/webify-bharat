@@ -43,25 +43,25 @@ export default function Home() {
                 <span className="trust-icon">
                   <IconKey />
                 </span>
-                Full control
+                <span className="trust-label">Full control</span>
               </div>
               <div className="trust-item">
                 <span className="trust-icon">
                   <IconRupee />
                 </span>
-                ₹0 / lead
+                <span className="trust-label">₹0 / lead</span>
               </div>
               <div className="trust-item">
                 <span className="trust-icon">
                   <IconUsers />
                 </span>
-                You own the list
+                <span className="trust-label">You own the list</span>
               </div>
               <div className="trust-item">
                 <span className="trust-icon">
                   <IconCheck />
                 </span>
-                No commission
+                <span className="trust-label">No commission</span>
               </div>
             </div>
           </div>
