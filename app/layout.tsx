@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import "./pricing-ui.css";
+import "./home-pricing.css";
 import { jetbrains, manrope, sora } from "./fonts";
 
 export const viewport: Viewport = {
