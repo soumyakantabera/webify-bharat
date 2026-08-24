@@ -49,6 +49,41 @@
   flex-shrink: 0;
 }
 
+.price-icon-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  margin-bottom: 14px;
+}
+
+.price-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: var(--mint);
+  color: var(--teal);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.price-icon-addon {
+  background: #fff5ef;
+  color: #c24e1f;
+}
+
+.price-card.popular .price-icon {
+  background: var(--teal);
+  color: #fff;
+}
+
+.price-card.popular .price-icon-addon {
+  background: var(--papaya);
+  color: #fff;
+}
+
 .badge-row {
   display: flex;
   flex-wrap: wrap;
@@ -74,6 +109,11 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   line-height: 1;
+}
+
+.badge-soft {
+  background: #f0f3f1;
+  color: var(--muted);
 }
 
 .badge-hot {
@@ -188,6 +228,12 @@
   .price-card .price {
     font-size: 32px;
     margin-top: 14px;
+  }
+
+  .price-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
   }
 
   .badge-row-spacer {

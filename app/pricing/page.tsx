@@ -2,6 +2,15 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/page-seo";
 export const metadata: Metadata = pageMetadata("pricing");
 
+import type { LucideIcon } from "lucide-react";
+import {
+  Gauge,
+  Layers,
+  Package,
+  Rocket,
+  Store,
+  TrendingUp,
+} from "lucide-react";
 import Layout from "@/components/Layout";
 import { SeoChunk } from "@/components/SeoChunk";
 import { ArticleBlock } from "@/components/ArticleBlock";
@@ -12,6 +21,18 @@ import { getFaq } from "@/lib/faqs";
 import { WhatsAppCta } from "@/components/icons";
 import { ecommerceAddons } from "@/lib/ecommerce-addons";
 import { plans, WA_PACKAGES } from "@/lib/site";
+
+const planIcons: Record<string, LucideIcon> = {
+  Launch: Rocket,
+  Growth: TrendingUp,
+  Command: Gauge,
+};
+
+const addonIcons: Record<string, LucideIcon> = {
+  Small: Package,
+  Medium: Store,
+  Expanding: Layers,
+};
 
 export default function PricingPage() {
   return (
@@ -51,40 +72,44 @@ export default function PricingPage() {
           </div>
 
           <div className="pricing-grid">
-            {plans.map((plan) => (
-              <div
-                className={`price-card${plan.popular ? " popular" : ""}`}
-                key={plan.name}
-              >
-                <div className="price-card-top">
-                  {plan.popular ? (
-                    <div className="badge-row">
-                      <span className="badge">Most popular</span>
+            {plans.map((plan) => {
+              const Icon = planIcons[plan.name] ?? Rocket;
+              return (
+                <div
+                  className={`price-card${plan.popular ? " popular" : ""}`}
+                  key={plan.name}
+                >
+                  <div className="price-card-top">
+                    <div className="price-icon-row">
+                      <span className="price-icon" aria-hidden="true">
+                        <Icon size={22} strokeWidth={2.2} />
+                      </span>
+                      {plan.popular ? (
+                        <span className="badge">Most popular</span>
+                      ) : (
+                        <span className="badge badge-soft">Package</span>
+                      )}
                     </div>
-                  ) : (
-                    <div className="badge-row badge-row-spacer" aria-hidden="true">
-                      <span className="badge badge-ghost">Package</span>
+                    <h2>{plan.name}</h2>
+                    <p className="price-desc">{plan.desc}</p>
+                    <div className="price">
+                      {plan.price}
+                      <small> starting</small>
                     </div>
-                  )}
-                  <h2>{plan.name}</h2>
-                  <p className="price-desc">{plan.desc}</p>
-                  <div className="price">
-                    {plan.price}
-                    <small> starting</small>
+                  </div>
+                  <ul className="list">
+                    {plan.features.map((feature) => (
+                      <li key={feature}>{feature}</li>
+                    ))}
+                  </ul>
+                  <div className="price-card-cta">
+                    <WhatsAppCta href={WA_PACKAGES} className="btn btn-primary price-cta">
+                      Choose {plan.name}
+                    </WhatsAppCta>
                   </div>
                 </div>
-                <ul className="list">
-                  {plan.features.map((feature) => (
-                    <li key={feature}>{feature}</li>
-                  ))}
-                </ul>
-                <div className="price-card-cta">
-                  <WhatsAppCta href={WA_PACKAGES} className="btn btn-primary price-cta">
-                    Choose {plan.name}
-                  </WhatsAppCta>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -110,37 +135,45 @@ export default function PricingPage() {
           </div>
 
           <div className="pricing-grid">
-            {ecommerceAddons.map((addon) => (
-              <div
-                className={`price-card price-card-addon${addon.popular ? " popular" : ""}`}
-                key={addon.name}
-              >
-                <div className="price-card-top">
-                  <div className="badge-row">
-                    <span className="badge">{addon.tag}</span>
-                    {addon.popular ? <span className="badge badge-hot">Most chosen</span> : null}
+            {ecommerceAddons.map((addon) => {
+              const Icon = addonIcons[addon.name] ?? Package;
+              return (
+                <div
+                  className={`price-card price-card-addon${addon.popular ? " popular" : ""}`}
+                  key={addon.name}
+                >
+                  <div className="price-card-top">
+                    <div className="price-icon-row">
+                      <span className="price-icon price-icon-addon" aria-hidden="true">
+                        <Icon size={22} strokeWidth={2.2} />
+                      </span>
+                      <span className="badge">{addon.tag}</span>
+                      {addon.popular ? (
+                        <span className="badge badge-hot">Most chosen</span>
+                      ) : null}
+                    </div>
+                    <h2>{addon.name}</h2>
+                    <p className="price-best-for">{addon.bestFor}</p>
+                    <p className="price-desc">{addon.desc}</p>
+                    <div className="price">
+                      {addon.price}
+                      <small> starting · addon</small>
+                    </div>
                   </div>
-                  <h2>{addon.name}</h2>
-                  <p className="price-best-for">{addon.bestFor}</p>
-                  <p className="price-desc">{addon.desc}</p>
-                  <div className="price">
-                    {addon.price}
-                    <small> starting · addon</small>
+                  <ul className="list">
+                    {addon.features.map((feature) => (
+                      <li key={feature}>{feature}</li>
+                    ))}
+                  </ul>
+                  <p className="price-note">{addon.note}</p>
+                  <div className="price-card-cta">
+                    <WhatsAppCta href={WA_PACKAGES} className="btn btn-primary price-cta">
+                      Discuss {addon.name} e-commerce
+                    </WhatsAppCta>
                   </div>
                 </div>
-                <ul className="list">
-                  {addon.features.map((feature) => (
-                    <li key={feature}>{feature}</li>
-                  ))}
-                </ul>
-                <p className="price-note">{addon.note}</p>
-                <div className="price-card-cta">
-                  <WhatsAppCta href={WA_PACKAGES} className="btn btn-primary price-cta">
-                    Discuss {addon.name} e-commerce
-                  </WhatsAppCta>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           <p className="pricing-footnote">
