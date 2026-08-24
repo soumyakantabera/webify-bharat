@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Layout from "@/components/Layout";
+import { PageLead } from "@/components/PageIcons";
 import { FaqSection } from "@/components/FaqSection";
 import { getFaq } from "@/lib/faqs";
 import { WhatsAppCta } from "@/components/icons";
@@ -34,9 +35,7 @@ export default async function ArticlePage({
     <Layout>
       <section className="page-hero">
         <div className="container article">
-          <div className="eyebrow">
-            <span className="dot" /> Insights
-          </div>
+          <PageLead icon="article" kicker="Insights" />
           <h1>{post.title}</h1>
           <p className="muted-copy">{post.excerpt}</p>
         </div>

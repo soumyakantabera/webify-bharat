@@ -44,7 +44,6 @@
 }
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 body {
   margin: 0;
@@ -52,7 +51,9 @@ body {
   color: var(--ink);
   font-family: "Manrope", Arial, Helvetica, sans-serif;
   line-height: 1.55;
-  overflow-x: hidden;
+}
+body.nav-open {
+  overflow: hidden;
 }
 a {
   text-decoration: none;
@@ -83,10 +84,12 @@ button:not(:disabled),
 .navbar {
   position: sticky;
   top: 0;
-  z-index: 40;
-  background: rgba(250, 250, 247, 0.92);
+  z-index: 80;
+  background: rgba(250, 250, 247, 0.94);
   backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(15, 118, 110, 0.09);
+  padding-top: env(safe-area-inset-top);
 }
 .nav-inner {
   height: 72px;
@@ -142,10 +145,22 @@ button:not(:disabled),
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 20px;
   font-size: 14px;
   font-weight: 700;
   flex-shrink: 0;
+  flex-wrap: nowrap;
+}
+.nav-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.nav-links a svg {
+  flex-shrink: 0;
+  opacity: 0.8;
+  display: none;
 }
 .nav-links a:hover,
 .nav-links a.active {
@@ -194,10 +209,30 @@ button:not(:disabled),
   align-items: center;
   gap: 8px;
   color: var(--teal);
-  font-weight: 900;
+  font-weight: 800;
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.12em;
+}
+.eyebrow-icon,
+.page-title-icon {
+  display: grid;
+  place-items: center;
+  background: var(--mint);
+  color: var(--teal);
+  flex-shrink: 0;
+}
+.eyebrow-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 7px;
+}
+.page-title-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  margin-bottom: 16px;
+  color: var(--teal);
 }
 .dot {
   width: 8px;
@@ -1220,11 +1255,23 @@ textarea.input {
     border-top: 1px solid var(--line);
   }
   .mobile-drawer a {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 12px;
     padding: 14px 0;
     font-weight: 800;
     border-bottom: 1px solid var(--line);
-    min-height: 44px;
+    min-height: 48px;
+  }
+  .drawer-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--mint);
+    color: var(--teal);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
   }
   .mobile-drawer .btn {
     display: inline-flex;

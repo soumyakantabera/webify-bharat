@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Layout from "@/components/Layout";
+import { PageLead } from "@/components/PageIcons";
 import { ProcessVisual } from "@/components/ProcessVisual";
 import { FaqSection } from "@/components/FaqSection";
 import {
@@ -20,9 +21,7 @@ export default function Home() {
       <section className="hero">
         <div className="container hero-grid">
           <div className="hero-copy">
-            <div className="eyebrow">
-              <span className="dot" /> Full control. Zero rupees per lead.
-            </div>
+            <PageLead icon="home" kicker="Full control. Zero rupees per lead." />
             <h1>
               Own your customers.
               <br />

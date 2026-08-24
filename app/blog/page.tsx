@@ -3,6 +3,7 @@ export const metadata: Metadata = { title: "Insights" };
 
 import Link from "next/link";
 import Layout from "@/components/Layout";
+import { PageLead } from "@/components/PageIcons";
 import { FaqSection } from "@/components/FaqSection";
 import { getFaq } from "@/lib/faqs";
 import { IconArrow } from "@/components/icons";
@@ -13,9 +14,7 @@ export default function BlogPage() {
     <Layout>
       <section className="page-hero">
         <div className="container">
-          <div className="eyebrow">
-            <span className="dot" /> Insights
-          </div>
+          <PageLead icon="blog" kicker="Insights" />
           <h1>
             Practical ideas for <span>smarter business.</span>
           </h1>

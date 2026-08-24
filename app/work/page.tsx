@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = { title: "Work" };
 
 import Layout from "@/components/Layout";
+import { PageLead } from "@/components/PageIcons";
 import { FaqSection } from "@/components/FaqSection";
 import { getFaq } from "@/lib/faqs";
 import { workItems } from "@/lib/site";
@@ -11,9 +12,7 @@ export default function WorkPage() {
     <Layout>
       <section className="page-hero">
         <div className="container">
-          <div className="eyebrow">
-            <span className="dot" /> Work
-          </div>
+          <PageLead icon="work" kicker="Work" />
           <h1>
             Systems designed around <span>real operations.</span>
           </h1>

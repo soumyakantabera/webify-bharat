@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Layout from "@/components/Layout";
+import { PageLead } from "@/components/PageIcons";
 import { FaqSection } from "@/components/FaqSection";
 import { getFaq } from "@/lib/faqs";
 import { WhatsAppCta } from "@/components/icons";
@@ -35,9 +36,7 @@ export default async function IndustryPage({
       <section className="page-hero">
         <div className="container wrap">
           <div>
-            <div className="eyebrow">
-              <span className="dot" /> Industry solution
-            </div>
+            <PageLead icon={industry.slug} kicker="Industry solution" />
             <h1>
               Digital systems for <span>{industry.title}</span>
             </h1>

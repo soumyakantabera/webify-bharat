@@ -3,6 +3,7 @@ export const metadata: Metadata = { title: "Contact" };
 
 import ContactForm from "@/components/ContactForm";
 import Layout from "@/components/Layout";
+import { PageLead } from "@/components/PageIcons";
 import { FaqSection } from "@/components/FaqSection";
 import { getFaq } from "@/lib/faqs";
 import { WhatsAppCta } from "@/components/icons";
@@ -13,9 +14,7 @@ export default function ContactPage() {
     <Layout>
       <section className="page-hero">
         <div className="container">
-          <div className="eyebrow">
-            <span className="dot" /> Contact
-          </div>
+          <PageLead icon="contact" kicker="Contact" />
           <h1>
             Tell us what you want to <span>improve.</span>
           </h1>

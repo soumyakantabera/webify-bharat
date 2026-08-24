@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { BrandLogo } from "@/components/BrandLogo";
+import { PageGlyph } from "@/components/PageIcons";
 import { WhatsAppCta } from "@/components/icons";
 import { navLinks, WA_CONSULT } from "@/lib/site";
 
@@ -21,6 +22,11 @@ export default function Header() {
     setOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    document.body.classList.toggle("nav-open", open);
+    return () => document.body.classList.remove("nav-open");
+  }, [open]);
+
   return (
     <header className="navbar">
       <div className="container nav-inner">
@@ -34,6 +40,7 @@ export default function Header() {
               href={item.to}
               className={isActive(pathname, item.to) ? "active" : undefined}
             >
+              <PageGlyph name={item.icon} size={15} />
               {item.label}
             </Link>
           ))}
@@ -56,10 +63,18 @@ export default function Header() {
         <div className="container mobile-drawer" id="mobile-nav">
           {navLinks.map((item) => (
             <Link key={item.to} href={item.to}>
+              <span className="drawer-icon">
+                <PageGlyph name={item.icon} size={18} />
+              </span>
               {item.label}
             </Link>
           ))}
-          <Link href="/contact">Contact</Link>
+          <Link href="/contact">
+            <span className="drawer-icon">
+              <PageGlyph name="contact" size={18} />
+            </span>
+            Contact
+          </Link>
           <WhatsAppCta href={WA_CONSULT} className="btn btn-primary">
             Talk to an Expert
           </WhatsAppCta>

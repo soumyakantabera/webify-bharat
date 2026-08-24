@@ -327,12 +327,12 @@ export function getPost(slug: string) {
 }
 
 export const navLinks = [
-  { to: "/services", label: "Services" },
-  { to: "/industries", label: "Industries" },
-  { to: "/work", label: "Work" },
-  { to: "/pricing", label: "Pricing" },
-  { to: "/about", label: "About" },
-  { to: "/blog", label: "Blog" },
+  { to: "/services", label: "Services", icon: "services" },
+  { to: "/industries", label: "Industries", icon: "industries" },
+  { to: "/work", label: "Work", icon: "work" },
+  { to: "/pricing", label: "Pricing", icon: "pricing" },
+  { to: "/about", label: "About", icon: "about" },
+  { to: "/blog", label: "Blog", icon: "blog" },
 ] as const;
 
 export const serviceFeatures = [

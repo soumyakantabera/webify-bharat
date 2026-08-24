@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = { title: "Pricing" };
 
 import Layout from "@/components/Layout";
+import { PageLead } from "@/components/PageIcons";
 import { FaqSection } from "@/components/FaqSection";
 import { getFaq } from "@/lib/faqs";
 import { WhatsAppCta } from "@/components/icons";
@@ -12,9 +13,7 @@ export default function PricingPage() {
     <Layout>
       <section className="page-hero">
         <div className="container">
-          <div className="eyebrow">
-            <span className="dot" /> Pricing
-          </div>
+          <PageLead icon="pricing" kicker="Pricing" />
           <h1>
             Start simple.
             <br />

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Layout from "@/components/Layout";
+import { PageLead } from "@/components/PageIcons";
 import { FaqSection } from "@/components/FaqSection";
 import { getFaq } from "@/lib/faqs";
 import { CheckItem, WhatsAppCta } from "@/components/icons";
@@ -34,9 +35,7 @@ export default async function ServicePage({
       <section className="page-hero">
         <div className="container wrap">
           <div>
-            <div className="eyebrow">
-              <span className="dot" /> Webify Bharat service
-            </div>
+            <PageLead icon={service.slug} kicker="Webify Bharat service" />
             <h1>{service.title}</h1>
             <p className="muted-copy">
               {service.description} We combine practical implementation with clean

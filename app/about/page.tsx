@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = { title: "About" };
 
 import Layout from "@/components/Layout";
+import { PageLead } from "@/components/PageIcons";
 import { FaqSection } from "@/components/FaqSection";
 import { getFaq } from "@/lib/faqs";
 
@@ -11,9 +12,7 @@ export default function AboutPage() {
       <section className="page-hero">
         <div className="container wrap">
           <div>
-            <div className="eyebrow">
-              <span className="dot" /> About Webify Bharat
-            </div>
+            <PageLead icon="about" kicker="About Webify Bharat" />
             <h1>
               Helping businesses operate <span>smarter online.</span>
             </h1>

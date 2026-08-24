@@ -3,6 +3,7 @@ export const metadata: Metadata = { title: "Industries" };
 
 import Link from "next/link";
 import Layout from "@/components/Layout";
+import { PageLead } from "@/components/PageIcons";
 import { FaqSection } from "@/components/FaqSection";
 import { getFaq } from "@/lib/faqs";
 import { WhatsAppCta } from "@/components/icons";
@@ -14,9 +15,7 @@ export default function IndustriesPage() {
       <section className="page-hero">
         <div className="container wrap">
           <div>
-            <div className="eyebrow">
-              <span className="dot" /> Industries
-            </div>
+            <PageLead icon="industries" kicker="Industries" />
             <h1>
               Built for <span>real businesses.</span>
             </h1>
