@@ -83,11 +83,9 @@ button:not(:disabled),
   flex-shrink: 0;
 }
 .logo-img {
-  height: 52px;
+  height: 58px;
   width: auto;
   max-width: none;
-  object-fit: contain;
-  object-position: left center;
   display: block;
   flex-shrink: 0;
   overflow: visible;
@@ -811,7 +809,7 @@ textarea.input {
   color: var(--ink);
 }
 .footer .logo-img {
-  height: 48px;
+  height: 52px;
 }
 .footer-wa {
   margin-top: 16px !important;
@@ -1237,7 +1235,7 @@ textarea.input {
     height: 68px;
   }
   .logo-img {
-    height: 40px;
+    height: 44px;
   }
   h1 {
     font-size: 42px;
