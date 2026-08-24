@@ -6,7 +6,7 @@ export const sora = localFont({
   display: "swap",
   weight: "400 800",
   preload: true,
-  adjustFontFallback: true,
+  adjustFontFallback: "Arial",
 });
 
 export const manrope = localFont({
@@ -15,7 +15,7 @@ export const manrope = localFont({
   display: "swap",
   weight: "400 800",
   preload: true,
-  adjustFontFallback: true,
+  adjustFontFallback: "Arial",
 });
 
 export const jetbrains = localFont({
@@ -24,5 +24,5 @@ export const jetbrains = localFont({
   display: "optional",
   weight: "400 700",
   preload: false,
-  adjustFontFallback: true,
+  adjustFontFallback: false,
 });
