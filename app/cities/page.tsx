@@ -6,9 +6,22 @@ import { PageLead } from "@/components/PageIcons";
 import { WhatsAppCta } from "@/components/icons";
 import { cities } from "@/lib/cities";
 import { WA_CHAT } from "@/lib/site";
-import { pageMetadata } from "@/lib/page-seo";
+import { citiesIndexSeo } from "@/lib/page-seo-cities";
 
-export const metadata: Metadata = pageMetadata("cities");
+export const metadata: Metadata = {
+  title: citiesIndexSeo.title,
+  description: citiesIndexSeo.description,
+  keywords: citiesIndexSeo.keywords,
+  alternates: { canonical: `https://webify-bharat.vercel.app${citiesIndexSeo.path}` },
+  openGraph: {
+    title: citiesIndexSeo.title,
+    description: citiesIndexSeo.description,
+    url: `https://webify-bharat.vercel.app${citiesIndexSeo.path}`,
+    locale: "en_IN",
+    type: "website",
+    siteName: "Webify Bharat",
+  },
+};
 
 const regions = ["North", "South", "East", "West", "Central", "Northeast", "UT"] as const;
 

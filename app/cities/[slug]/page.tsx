@@ -8,7 +8,7 @@ import { CheckItem, WhatsAppCta } from "@/components/icons";
 import { FaqSection } from "@/components/FaqSection";
 import { cities, getCity } from "@/lib/cities";
 import { WA_CHAT } from "@/lib/site";
-import { pageMetadata } from "@/lib/page-seo";
+import { cityPageSeo } from "@/lib/page-seo-cities";
 
 export function generateStaticParams() {
   return cities.map((c) => ({ slug: c.slug }));
@@ -20,7 +20,22 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  return pageMetadata(`city:${slug}`);
+  const seo = cityPageSeo(slug);
+  if (!seo) return { title: "City | Webify Bharat" };
+  return {
+    title: seo.title,
+    description: seo.description,
+    keywords: seo.keywords,
+    alternates: { canonical: `https://webify-bharat.vercel.app${seo.path}` },
+    openGraph: {
+      title: seo.title,
+      description: seo.description,
+      url: `https://webify-bharat.vercel.app${seo.path}`,
+      locale: "en_IN",
+      type: "website",
+      siteName: "Webify Bharat",
+    },
+  };
 }
 
 export default async function CityPage({
@@ -40,7 +55,9 @@ export default async function CityPage({
     items: city.faqs,
   };
 
-  const related = cities.filter((c) => c.region === city.region && c.slug !== city.slug).slice(0, 4);
+  const related = cities
+    .filter((c) => c.region === city.region && c.slug !== city.slug)
+    .slice(0, 4);
 
   return (
     <Layout>

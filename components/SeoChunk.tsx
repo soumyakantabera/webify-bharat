@@ -1,6 +1,15 @@
 import { getPageSeo, type PageSeo } from "@/lib/page-seo";
+import { citiesIndexSeo, cityPageSeo } from "@/lib/page-seo-cities";
 
 const BASE = "https://webify-bharat.vercel.app";
+
+function resolveSeo(pageKey: string): PageSeo {
+  if (pageKey === "cities") return citiesIndexSeo;
+  if (pageKey.startsWith("city:")) {
+    return cityPageSeo(pageKey.slice(5)) ?? getPageSeo("home");
+  }
+  return getPageSeo(pageKey);
+}
 
 function PageJsonLd({ seo }: { seo: PageSeo }) {
   const isArticle = seo.path.startsWith("/blog/") && seo.path !== "/blog";
@@ -64,7 +73,7 @@ export function KeyFacts({ facts }: { facts: PageSeo["facts"] }) {
 }
 
 export function SeoChunk({ pageKey }: { pageKey: string }) {
-  const seo = getPageSeo(pageKey);
+  const seo = resolveSeo(pageKey);
   return (
     <>
       <PageJsonLd seo={seo} />
