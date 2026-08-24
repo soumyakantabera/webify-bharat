@@ -1,0 +1,69 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
+import { navLinks, WA_CONSULT } from "@/lib/site";
+
+function isActive(pathname: string, to: string) {
+  if (to === "/") return pathname === "/";
+  return pathname === to || pathname.startsWith(`${to}/`);
+}
+
+export default function Header() {
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  return (
+    <header className="navbar">
+      <div className="container nav-inner">
+        <Link href="/" className="logo">
+          <span className="logo-mark">WB</span>
+          <span>Webify Bharat</span>
+        </Link>
+        <nav className="nav-links" aria-label="Primary">
+          {navLinks.map((item) => (
+            <Link
+              key={item.to}
+              href={item.to}
+              className={isActive(pathname, item.to) ? "active" : undefined}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+        <a className="btn btn-primary nav-cta" href={WA_CONSULT}>
+          Talk to an Expert
+        </a>
+        <button
+          type="button"
+          className="mobile-menu"
+          aria-expanded={open}
+          aria-controls="mobile-nav"
+          onClick={() => setOpen((v) => !v)}
+        >
+          {open ? <X size={22} /> : <Menu size={22} />}
+          {open ? "Close" : "Menu"}
+        </button>
+      </div>
+      {open ? (
+        <div className="container mobile-drawer" id="mobile-nav">
+          {navLinks.map((item) => (
+            <Link key={item.to} href={item.to}>
+              {item.label}
+            </Link>
+          ))}
+          <Link href="/contact">Contact</Link>
+          <a className="btn btn-primary" href={WA_CONSULT} style={{ marginTop: 12 }}>
+            Talk to an Expert
+          </a>
+        </div>
+      ) : null}
+    </header>
+  );
+}

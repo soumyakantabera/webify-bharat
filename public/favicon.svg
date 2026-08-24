@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Webify Bharat">
+  <rect width="32" height="32" rx="10" fill="#0F766E"/>
+  <path fill="#fff" d="M6.2 23.5L10 8.3h3.6L16 16.6l2.4-8.3H22L25.8 23.5h-3.8l-2.2-9.4-2.4 9.4h-2.8l-2.4-9.4-2.2 9.4z"/>
+  <circle cx="7" cy="6.2" r="3.1" fill="#FF7A45"/>
+</svg>

@@ -1,28 +1,32 @@
 # Webify Bharat
 
-## V3 Production Build
+Digital operations studio for Indian businesses — websites, payments, WhatsApp automation, analytics and compliance.
 
-Next.js website for Webify Bharat.
+**Live contact:** WhatsApp [+91 8336097642](https://wa.me/918336097642)
 
-Included:
-- Business-focused homepage
-- Service pages
-- Industry pages
-- Pricing, About, Work, Blog and Contact sections
-- Real business photography direction
-- SEO structure
-- WhatsApp conversion flow
-
-Run:
+## Run locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-Production:
+## Production
 
 ```bash
 npm run build
 npm start
 ```
+
+## Deploy
+
+This repo is a Next.js 15 App Router site. Connect it to Vercel (root directory, default build) and it will go live on every push to `main`.
+
+Set `NEXT_PUBLIC_SITE_URL` to your production domain for sitemap and robots.
+
+## Pages
+
+- `/` Home
+- `/services` and `/services/[slug]`
+- `/industries` and `/industries/[slug]`
+- `/work` `/pricing` `/about` `/blog` `/contact`
