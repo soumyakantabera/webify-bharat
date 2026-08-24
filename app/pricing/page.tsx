@@ -16,7 +16,7 @@ import { plans, WA_PACKAGES } from "@/lib/site";
 export default function PricingPage() {
   return (
     <Layout>
-      <section className="page-hero">
+      <section className="page-hero pricing-hero">
         <div className="container page-copy">
           <PageLead icon="pricing" kicker="Pricing" />
           <h1>
@@ -33,7 +33,7 @@ export default function PricingPage() {
 
       <SeoChunk pageKey="pricing" />
 
-      <section className="section">
+      <section className="section pricing-section">
         <div className="container">
           <div className="section-head">
             <div>
@@ -49,34 +49,47 @@ export default function PricingPage() {
               Add e-commerce below when you need a catalogue you own.
             </p>
           </div>
-        </div>
-        <div className="container pricing-grid">
-          {plans.map((plan) => (
-            <div
-              className={`price-card${plan.popular ? " popular" : ""}`}
-              key={plan.name}
-            >
-              {plan.popular ? <span className="badge">Most popular</span> : null}
-              <h2 style={{ marginTop: 12 }}>{plan.name}</h2>
-              <p className="muted-copy" style={{ fontSize: 15 }}>
-                {plan.desc}
-              </p>
-              <div className="price">
-                {plan.price}
-                <small> starting</small>
+
+          <div className="pricing-grid">
+            {plans.map((plan) => (
+              <div
+                className={`price-card${plan.popular ? " popular" : ""}`}
+                key={plan.name}
+              >
+                <div className="price-card-top">
+                  {plan.popular ? (
+                    <div className="badge-row">
+                      <span className="badge">Most popular</span>
+                    </div>
+                  ) : (
+                    <div className="badge-row badge-row-spacer" aria-hidden="true">
+                      <span className="badge badge-ghost">Package</span>
+                    </div>
+                  )}
+                  <h2>{plan.name}</h2>
+                  <p className="price-desc">{plan.desc}</p>
+                  <div className="price">
+                    {plan.price}
+                    <small> starting</small>
+                  </div>
+                </div>
+                <ul className="list">
+                  {plan.features.map((feature) => (
+                    <li key={feature}>{feature}</li>
+                  ))}
+                </ul>
+                <div className="price-card-cta">
+                  <WhatsAppCta href={WA_PACKAGES} className="btn btn-primary price-cta">
+                    Choose {plan.name}
+                  </WhatsAppCta>
+                </div>
               </div>
-              <ul className="list">
-                {plan.features.map((feature) => (
-                  <li key={feature}>{feature}</li>
-                ))}
-              </ul>
-              <WhatsAppCta href={WA_PACKAGES}>Choose {plan.name}</WhatsAppCta>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="section section-soft" id="ecommerce-addons">
+      <section className="section section-soft pricing-section" id="ecommerce-addons">
         <div className="container">
           <div className="section-head">
             <div>
@@ -95,46 +108,42 @@ export default function PricingPage() {
               ops, not by marketplace ambition.
             </p>
           </div>
-        </div>
-        <div className="container pricing-grid">
-          {ecommerceAddons.map((addon) => (
-            <div
-              className={`price-card${addon.popular ? " popular" : ""}`}
-              key={addon.name}
-            >
-              <span className="badge">{addon.tag}</span>
-              {addon.popular ? (
-                <span className="badge" style={{ marginLeft: 8 }}>
-                  Most chosen
-                </span>
-              ) : null}
-              <h2 style={{ marginTop: 12 }}>{addon.name}</h2>
-              <p className="muted-copy" style={{ fontSize: 14, fontWeight: 700 }}>
-                {addon.bestFor}
-              </p>
-              <p className="muted-copy" style={{ fontSize: 15 }}>
-                {addon.desc}
-              </p>
-              <div className="price">
-                {addon.price}
-                <small> starting · addon</small>
+
+          <div className="pricing-grid">
+            {ecommerceAddons.map((addon) => (
+              <div
+                className={`price-card price-card-addon${addon.popular ? " popular" : ""}`}
+                key={addon.name}
+              >
+                <div className="price-card-top">
+                  <div className="badge-row">
+                    <span className="badge">{addon.tag}</span>
+                    {addon.popular ? <span className="badge badge-hot">Most chosen</span> : null}
+                  </div>
+                  <h2>{addon.name}</h2>
+                  <p className="price-best-for">{addon.bestFor}</p>
+                  <p className="price-desc">{addon.desc}</p>
+                  <div className="price">
+                    {addon.price}
+                    <small> starting · addon</small>
+                  </div>
+                </div>
+                <ul className="list">
+                  {addon.features.map((feature) => (
+                    <li key={feature}>{feature}</li>
+                  ))}
+                </ul>
+                <p className="price-note">{addon.note}</p>
+                <div className="price-card-cta">
+                  <WhatsAppCta href={WA_PACKAGES} className="btn btn-primary price-cta">
+                    Discuss {addon.name} e-commerce
+                  </WhatsAppCta>
+                </div>
               </div>
-              <ul className="list">
-                {addon.features.map((feature) => (
-                  <li key={feature}>{feature}</li>
-                ))}
-              </ul>
-              <p className="muted-copy" style={{ fontSize: 13, marginBottom: 16 }}>
-                {addon.note}
-              </p>
-              <WhatsAppCta href={WA_PACKAGES}>
-                Discuss {addon.name} e-commerce
-              </WhatsAppCta>
-            </div>
-          ))}
-        </div>
-        <div className="container" style={{ marginTop: 28, maxWidth: 720 }}>
-          <p className="muted-copy" style={{ fontSize: 15 }}>
+            ))}
+          </div>
+
+          <p className="pricing-footnote">
             Gateway MDR, shipping partner fees and Meta/WhatsApp conversation charges stay
             outside these build fees. We list them on the proposal. E-commerce addons sit on
             top of a Launch, Growth or Command foundation — not instead of a site.

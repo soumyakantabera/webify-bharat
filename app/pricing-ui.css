@@ -1,0 +1,245 @@
+/* Pricing page — desktop + mobile refinements */
+
+.pricing-hero {
+  padding-bottom: 32px;
+}
+
+.pricing-section .section-head {
+  margin-bottom: 28px;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.price-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 28px 26px 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  box-shadow: 0 8px 24px rgba(28, 31, 29, 0.04);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.price-card:hover {
+  border-color: rgba(15, 118, 110, 0.28);
+  box-shadow: 0 14px 36px rgba(28, 31, 29, 0.08);
+}
+
+.price-card.popular {
+  border: 2px solid var(--teal);
+  box-shadow: var(--shadow);
+  transform: none;
+}
+
+@media (min-width: 901px) {
+  .price-card.popular {
+    transform: translateY(-6px);
+  }
+}
+
+.price-card-top {
+  flex-shrink: 0;
+}
+
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 28px;
+  margin-bottom: 12px;
+  align-items: center;
+}
+
+.badge-row-spacer .badge-ghost {
+  visibility: hidden;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  background: var(--mint);
+  color: var(--teal);
+  padding: 6px 10px;
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+.badge-hot {
+  background: rgba(255, 122, 69, 0.14);
+  color: #c24e1f;
+}
+
+.price-card h2 {
+  font-size: 28px;
+  letter-spacing: -0.04em;
+  margin: 0;
+  line-height: 1.15;
+}
+
+.price-best-for {
+  margin: 10px 0 0;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--teal);
+  letter-spacing: -0.01em;
+}
+
+.price-desc {
+  margin: 10px 0 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: none;
+}
+
+.price-card .price {
+  font-size: clamp(34px, 4vw, 44px);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  margin: 18px 0 0;
+  line-height: 1.05;
+  font-family: var(--font-display);
+}
+
+.price-card .price small {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: 0;
+  vertical-align: middle;
+}
+
+.price-card .list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+  flex: 1 1 auto;
+}
+
+.price-card .list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 9px 0;
+  border-bottom: 1px solid #edf0ee;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.price-card .list li:last-child {
+  border-bottom: 0;
+}
+
+.price-note {
+  margin: 14px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+  max-width: none;
+}
+
+.price-card-cta {
+  margin-top: 20px;
+  flex-shrink: 0;
+}
+
+.price-cta {
+  width: 100%;
+  justify-content: center;
+}
+
+.pricing-footnote {
+  margin: 28px 0 0;
+  max-width: 46rem;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .pricing-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .price-card {
+    padding: 22px 18px 20px;
+    border-radius: 22px;
+  }
+
+  .price-card h2 {
+    font-size: 24px;
+  }
+
+  .price-card .price {
+    font-size: 32px;
+    margin-top: 14px;
+  }
+
+  .badge-row-spacer {
+    display: none;
+  }
+}
+
+@media (max-width: 620px) {
+  .pricing-hero {
+    padding-bottom: 20px;
+  }
+
+  .pricing-section {
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .pricing-section .section-head {
+    margin-bottom: 22px;
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .price-card {
+    padding: 22px 18px 18px;
+  }
+
+  .price-card h2 {
+    font-size: 26px;
+  }
+
+  .price-card .price {
+    font-size: 36px;
+  }
+
+  .price-desc {
+    font-size: 14.5px;
+  }
+
+  .price-card .list {
+    margin-top: 16px;
+  }
+
+  .price-card-cta {
+    margin-top: 16px;
+  }
+
+  .pricing-footnote {
+    margin-top: 22px;
+    font-size: 14px;
+  }
+}

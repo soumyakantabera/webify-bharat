@@ -1,50 +1,48 @@
-import type { Metadata } from "next";
-import { sora, manrope, jetbrains } from "./fonts";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import "./pricing-ui.css";
+import { jetbrains, manrope, sora } from "./fonts";
+import { JsonLd } from "@/components/JsonLd";
+
+export const viewport: Viewport = {
+  themeColor: "#0f766e",
+  width: "device-width",
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://webify-bharat.vercel.app"),
   title: {
-    default: "Webify Bharat | Own your customers. ₹0 per lead.",
+    default: "Webify Bharat | Website, WhatsApp & UPI for Indian MSMEs",
     template: "%s",
   },
   description:
-    "Webify Bharat builds websites, WhatsApp Business, UPI gateways and analytics for Indian MSMEs. Own your customers. ₹0 per organic lead. No Justdial or Zomato tax.",
-  keywords: [
-    "Webify Bharat",
-    "website design for small business India",
-    "WhatsApp Business API India",
-    "UPI payment gateway",
-    "Justdial alternative",
-    "Zomato commission",
-    "MSME digital",
-    "Google Business Profile",
-    "local SEO India",
-  ],
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://webify-bharat.vercel.app"),
-  openGraph: {
-    title: "Webify Bharat | Digital Operations. Real Growth.",
-    description:
-      "Full control of your website, WhatsApp and customer list. No per-lead fee. No aggregator commission on people who already want you.",
-    images: ["/og.jpg"],
-  },
+    "Webify Bharat builds websites, WhatsApp Business, UPI gateways and analytics for Indian MSMEs. Own your customers. ₹0 per organic lead.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "48x48" },
       { url: "/favicon.svg", type: "image/svg+xml" },
       { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
     ],
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    apple: [{ url: "/apple-touch-icon.png" }],
+    shortcut: ["/favicon.ico"],
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html
       lang="en"
       className={`${sora.variable} ${manrope.variable} ${jetbrains.variable}`}
     >
-      <body className={manrope.className}>{children}</body>
+      <body className={manrope.className}>
+        <JsonLd />
+        {children}
+      </body>
     </html>
   );
 }
