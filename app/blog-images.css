@@ -1,0 +1,60 @@
+/* HD image presentation — blog first, shared sharpness rules */
+
+.blog-card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: linear-gradient(145deg, #f6fbf9, #fff5ef);
+}
+
+.blog-card-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  object-position: center;
+}
+
+.blog-card img,
+.blog-hero-img {
+  image-rendering: auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.blog-hero-media {
+  position: relative;
+  width: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  margin-bottom: 32px;
+  background: linear-gradient(145deg, #f6fbf9, #fff5ef);
+  aspect-ratio: 16 / 9;
+  max-height: 420px;
+}
+
+.blog-hero-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Sharper full-width photos site-wide */
+.card-media img,
+.photo-card img,
+.industry-card img,
+.hero-visual img,
+.about-photo img,
+.real-context-photo img,
+.cta-real-photo img {
+  image-rendering: auto;
+}
+
+@media (max-width: 620px) {
+  .blog-hero-media {
+    border-radius: 20px;
+    margin-bottom: 24px;
+    max-height: 260px;
+  }
+}

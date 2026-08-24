@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/page-seo";
 export const metadata: Metadata = pageMetadata("blog");
 
+import Image from "next/image";
 import Link from "next/link";
 import Layout from "@/components/Layout";
 import { SeoChunk } from "@/components/SeoChunk";
@@ -12,6 +13,7 @@ import { FaqSection } from "@/components/FaqSection";
 import { getFaq } from "@/lib/faqs";
 import { IconArrow } from "@/components/icons";
 import { posts } from "@/lib/site";
+import { hdSrc } from "@/lib/hd-images";
 
 export default function BlogPage() {
   return (
@@ -38,7 +40,17 @@ export default function BlogPage() {
               href={`/blog/${post.slug}`}
               className="blog-card"
             >
-              <img src={post.image} alt={post.title} />
+              <div className="blog-card-media">
+                <Image
+                  src={hdSrc(post.image)}
+                  alt={post.title}
+                  width={1200}
+                  height={720}
+                  quality={95}
+                  sizes="(max-width: 620px) 100vw, (max-width: 900px) 50vw, 380px"
+                  className="blog-card-img"
+                />
+              </div>
               <div className="content">
                 <span className="badge">Insights</span>
                 <h3 style={{ marginTop: 12 }}>{post.title}</h3>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/page-seo";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Layout from "@/components/Layout";
@@ -9,6 +10,7 @@ import { FaqSection } from "@/components/FaqSection";
 import { getFaq } from "@/lib/faqs";
 import { WhatsAppCta } from "@/components/icons";
 import { getPost, posts, WA_CHAT } from "@/lib/site";
+import { hdSrc } from "@/lib/hd-images";
 
 export function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
@@ -32,6 +34,8 @@ export default async function ArticlePage({
   const post = getPost(slug);
   if (!post) notFound();
 
+  const image = hdSrc(post.image);
+
   return (
     <Layout>
       <section className="page-hero">
@@ -45,17 +49,18 @@ export default async function ArticlePage({
       <SeoChunk pageKey={`blog:${post.slug}`} />
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container article">
-          <img
-            src={post.image}
-            alt={post.title}
-            style={{
-              width: "100%",
-              height: 320,
-              objectFit: "cover",
-              borderRadius: 28,
-              marginBottom: 32,
-            }}
-          />
+          <div className="blog-hero-media">
+            <Image
+              src={image}
+              alt={post.title}
+              width={1600}
+              height={900}
+              quality={95}
+              priority
+              sizes="(max-width: 760px) 100vw, 760px"
+              className="blog-hero-img"
+            />
+          </div>
           {post.body.map((paragraph) => (
             <p key={paragraph.slice(0, 40)}>{paragraph}</p>
           ))}
