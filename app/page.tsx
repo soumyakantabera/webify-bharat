@@ -150,7 +150,7 @@ export default function Home() {
                 <p>Digital systems should simplify the day, not add another thing to manage.</p>
               </div>
             </Link>
-            <Link to="/industries/$slug" params={{ slug: "retail" }} className="photo-card">
+            <Link href="/industries/retail" className="photo-card">
               <img
                 src="/images/real/retail.webp"
                 alt="Indian retail store owner serving a customer"
