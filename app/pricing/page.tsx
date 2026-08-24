@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 export const metadata: Metadata = { title: "Pricing" };
 
 import Layout from "@/components/Layout";
+import { ArticleBlock } from "@/components/ArticleBlock";
+import { pricingArticle } from "@/lib/seo-copy";
 import { PageLead } from "@/components/PageIcons";
 import { FaqSection } from "@/components/FaqSection";
 import { getFaq } from "@/lib/faqs";
@@ -51,6 +53,8 @@ export default function PricingPage() {
           ))}
         </div>
       </section>
+      <ArticleBlock article={pricingArticle} />
+
       <FaqSection block={getFaq("pricing")} />
     </Layout>
   );

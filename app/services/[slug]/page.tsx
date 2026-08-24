@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Layout from "@/components/Layout";
+import { ArticleBlock } from "@/components/ArticleBlock";
+import { serviceArticles } from "@/lib/seo-copy";
 import { PageLead } from "@/components/PageIcons";
 import { FaqSection } from "@/components/FaqSection";
 import { getFaq } from "@/lib/faqs";
@@ -98,6 +100,10 @@ export default async function ServicePage({
           </div>
         </div>
       </section>
+
+      {serviceArticles[service.slug] ? (
+        <ArticleBlock article={serviceArticles[service.slug]} />
+      ) : null}
 
       <FaqSection block={getFaq(`service:${service.slug}`)} />
 

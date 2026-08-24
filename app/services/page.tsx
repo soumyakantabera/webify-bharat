@@ -3,6 +3,8 @@ export const metadata: Metadata = { title: "Services" };
 
 import Link from "next/link";
 import Layout from "@/components/Layout";
+import { ArticleBlock } from "@/components/ArticleBlock";
+import { servicesIndexArticle } from "@/lib/seo-copy";
 import { PageLead } from "@/components/PageIcons";
 import { FaqSection } from "@/components/FaqSection";
 import { getFaq } from "@/lib/faqs";
@@ -46,6 +48,8 @@ export default function ServicesPage() {
           ))}
         </div>
       </section>
+      <ArticleBlock article={servicesIndexArticle} />
+
       <FaqSection block={getFaq("services")} />
     </Layout>
   );

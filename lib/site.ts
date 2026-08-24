@@ -2,7 +2,7 @@ export const SITE = {
   name: "Webify Bharat",
   tagline: "Own your customers. ₹0 per lead.",
   description:
-    "Websites, WhatsApp and payments Indian businesses own — full control of the customer, no per-lead fee, no aggregator commission on organic orders.",
+    "Webify Bharat builds websites, WhatsApp Business, UPI payment gateways and analytics for Indian MSMEs — own your customers, ₹0 per organic lead, no Justdial or Zomato tax.",
   whatsapp: "918336097642",
   whatsappDisplay: "8336097642",
 } as const;
@@ -250,7 +250,7 @@ export type Post = {
 export const posts: Post[] = [
   {
     slug: "website-growth",
-    title: "Website Growth",
+    title: "How to build a business website that gets enquiries in India",
     excerpt: "Best practices for websites that build trust and generate enquiries.",
     image: "/images/blog/website.png",
     body: [
@@ -262,7 +262,7 @@ export const posts: Post[] = [
   },
   {
     slug: "payment-trends",
-    title: "Payment Trends",
+    title: "UPI and checkout: payment trends Indian SMEs should know",
     excerpt: "What Indian businesses should know about smoother digital payments.",
     image: "/images/blog/payments.png",
     body: [
@@ -274,7 +274,7 @@ export const posts: Post[] = [
   },
   {
     slug: "whatsapp-automation",
-    title: "WhatsApp Automation",
+    title: "WhatsApp automation for Indian businesses (without sounding like a bot)",
     excerpt: "How to turn customer conversations into repeatable workflows.",
     image: "/images/blog/whatsapp.png",
     body: [
@@ -286,7 +286,7 @@ export const posts: Post[] = [
   },
   {
     slug: "analytics-guide",
-    title: "Analytics Guide",
+    title: "Analytics for MSMEs: the Monday numbers that matter",
     excerpt: "The business metrics worth tracking before building complex dashboards.",
     image: "/images/blog/analytics.png",
     body: [
@@ -298,7 +298,7 @@ export const posts: Post[] = [
   },
   {
     slug: "gst-compliance",
-    title: "GST & Compliance",
+    title: "GST compliance gets easier when operations produce the books",
     excerpt: "How better operational systems make compliance easier to manage.",
     image: "/images/blog/gst.png",
     body: [
@@ -310,7 +310,7 @@ export const posts: Post[] = [
   },
   {
     slug: "business-growth",
-    title: "Business Growth",
+    title: "From disconnected tools to one digital operating system",
     excerpt: "A practical roadmap from disconnected tools to one operating system.",
     image: "/images/blog/growth.png",
     body: [
@@ -318,6 +318,55 @@ export const posts: Post[] = [
       "A useful digital operating system is small. Website for demand. Payments for collection. WhatsApp for conversation. A simple record of customers and jobs. A weekly numbers view. Anything that does not serve those five is optional.",
       "Sequence matters. First, be findable and contactable. Second, collect money cleanly. Third, stop losing follow-ups. Fourth, measure. Fifth, automate the repetitive middle. Skipping to automation on a messy process only scales the mess.",
       "Pick one bottleneck this quarter — usually enquiries, payments, or follow-ups — and make it boringly reliable. Compounding comes from a system the team actually uses, not from buying the next platform.",
+    ],
+  },
+  {
+    slug: "justdial-vs-own-website",
+    title: "Justdial vs your own website: what Indian SMEs actually pay",
+    excerpt:
+      "Lead packs bill you every time someone already wanted you. An owned site, Maps pin and WhatsApp number do not.",
+    image: "/images/blog/website.png",
+    body: [
+      "Justdial and IndiaMART sell visibility. The invoice is a subscription or a lead pack. The customer who searched your category may also have searched your name. If they land on a directory instead of you, you pay rent on intent you already earned with your board, GSTIN and word of mouth.",
+      "IndiaMART tends to fit B2B product sellers who want inbound RFQs. Justdial fits local services. Both put the relationship on their login. Your own website plus Google Business Profile plus WhatsApp is the alternative: one-time build, hosting, and ₹0 extra when that person messages you.",
+      "Run the maths for a year. Pack fees plus time spent on junk leads versus a mobile-first site that ranks for your brand and locality. Most shops, clinics and factories that already have demand win with owned channels. Keep a directory only if it still sends unique, profitable work after you have a real URL.",
+      "Webify Bharat builds that owned layer — website design for small business India, local SEO, click-to-WhatsApp, UPI — so Google and Bing send you customers you keep.",
+    ],
+  },
+  {
+    slug: "zomato-commission-vs-own-ordering",
+    title: "Zomato commission vs your own QR, menu and UPI",
+    excerpt:
+      "Aggregators are discovery. Regulars should order on a channel you own — menu, WhatsApp, UPI — without a 15–30% cut.",
+    image: "/images/blog/growth.png",
+    body: [
+      "Zomato and Swiggy work when a stranger is browsing. They charge commission, plus ads to stay visible in their own app. For the guest who already likes your food, that tax is optional. A restaurant website with menu, Maps, WhatsApp parcel chat and table QR-to-UPI keeps dine-in and direct delivery on your books.",
+      "Digital marketing for restaurants in India is not “more Reels”. It is Google for intent, WhatsApp for the regular, and the aggregator for overflow. If 40% of orders are repeats, moving even half of those off the platform is real margin.",
+      "We do not pretend you should delete Zomato tomorrow. We make sure you are not paying platform rent on people who would have come anyway.",
+    ],
+  },
+  {
+    slug: "whatsapp-business-api-india",
+    title: "WhatsApp Business API in India: when the app is not enough",
+    excerpt:
+      "The Business app breaks at volume. The API adds inbox, templates and automation on your number — with India among the lowest message rates.",
+    image: "/images/blog/whatsapp.png",
+    body: [
+      "Search “best WhatsApp Business API provider India” and you will find BSPs — Gupshup, Infobip, Wati, Interakt and others. The API (WhatsApp Business Platform) is what you need when one phone cannot hold the queue: multi-agent inbox, message templates, catalogues, and flows for reminders and order status.",
+      "Utility and authentication messages in India are cheap compared with Western rate cards. Marketing templates cost more and need quality. The win for SMEs is operational: appointment reminders, fee receipts, dispatch updates — not spam blasts.",
+      "Webify Bharat does not pretend to be a BSP. We design the website-to-WhatsApp loop, the flows, and the integration so the number stays yours and no Justdial-style lead fee sits on the chat.",
+    ],
+  },
+  {
+    slug: "upi-payment-gateway-msme",
+    title: "UPI payment gateway for small business: stop using personal QR",
+    excerpt:
+      "Named checkout, payment links and WhatsApp receipts beat a GPay QR in the bio — for settlements, refunds and GST.",
+    image: "/images/blog/payments.png",
+    body: [
+      "Personal UPI is how India learned to pay. It is a poor ledger for a GSTIN. Mix personal and business, lose refund trails, and filing becomes screenshots. A payment gateway — Razorpay, Cashfree, PayU and peers — gives UPI, cards, net-banking, payment links and a settlement report.",
+      "KYC needs a bank account and business proof. That is the hurdle. After it, checkout on your website and WhatsApp receipts are the customer experience people already expect.",
+      "If you searched “UPI payment gateway for small business India” or “Razorpay vs personal QR”, the answer is: named gateway the moment volume or GST makes the mix painful. Webify Bharat integrates that into the site and inbox you already use.",
     ],
   },
 ];

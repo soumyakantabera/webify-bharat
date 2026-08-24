@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Layout from "@/components/Layout";
+import { ArticleBlock } from "@/components/ArticleBlock";
+import { industryArticles } from "@/lib/seo-copy";
 import { PageLead } from "@/components/PageIcons";
 import { FaqSection } from "@/components/FaqSection";
 import { getFaq } from "@/lib/faqs";
@@ -126,6 +128,10 @@ export default async function IndustryPage({
           </div>
         </div>
       </section>
+      {industryArticles[industry.slug] ? (
+        <ArticleBlock article={industryArticles[industry.slug]} />
+      ) : null}
+
       <FaqSection block={getFaq(`industry:${industry.slug}`)} />
     </Layout>
   );

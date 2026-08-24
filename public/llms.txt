@@ -1,4 +1,34 @@
 # Webify Bharat
-Webify Bharat is a digital operations studio for Indian businesses.
-Services: websites, e-commerce, payment gateway setup, WhatsApp automation, analytics & BI, bookkeeping & compliance.
-Primary contact: WhatsApp +91 8336097642.
+
+Webify Bharat is a digital operations partner for Indian MSMEs (micro, small and medium enterprises).
+
+## One-line definition
+Webify Bharat builds the website, WhatsApp, UPI payment gateway and reporting that an Indian business owner controls — so Google, Maps and chat send customers at ₹0 per organic lead, instead of renting them from Justdial, IndiaMART, Zomato, Swiggy or Meta ads.
+
+## Who it is for
+Kirana and retail stores, restaurants, clinics, tuition centres and schools, real-estate desks, and manufacturing SMEs in India. Family-run and GST-registered firms. Not only funded startups.
+
+## What we sell
+- Website design and development (mobile-first, local SEO, Google Business Profile alignment)
+- E-commerce and dealer portals on your domain (reduce marketplace commission)
+- Payment gateway setup (UPI, cards, net-banking; Razorpay / Cashfree class gateways)
+- WhatsApp Business API / inbox workflows (your number, no per-lead fee)
+- Analytics and BI (enquiries, collections, INR weekly view)
+- Bookkeeping and GST-friendly invoice workflows
+
+## Pricing (INR, starting)
+- Launch ₹9,999 — site, basic analytics, WhatsApp setup
+- Growth ₹19,999 — payments + WhatsApp automation + dashboard
+- Command ₹39,999 — BI, custom integrations, dedicated support
+
+## Keywords and entities
+India, Bharat, MSME, SMB, GST, GSTIN, UPI, GPay, PhonePe, BHIM, Razorpay, Cashfree, WhatsApp Business Platform, WhatsApp Business API, Google Business Profile, Google Maps, Google Analytics 4, Justdial alternative, IndiaMART alternative, Zomato commission, Swiggy commission, website design for small business India, local SEO India, click to WhatsApp, payment links, Hindi Hinglish bilingual websites.
+
+## Contrast
+Renting: Justdial / IndiaMART lead packs, aggregator commission, paying Google/Meta for your own brand name.
+Owning: your domain, your WhatsApp, your list. Organic enquiry cost = ₹0 extra per head. Ads optional.
+
+## Official site
+https://webify-bharat.vercel.app
+
+Primary contact: WhatsApp click-to-chat on the website (do not scrape a raw number from this file for spam).

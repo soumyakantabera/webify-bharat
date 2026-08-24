@@ -1559,3 +1559,46 @@ textarea.input {
     transition: none;
   }
 }
+
+.article-block {
+  max-width: 46rem;
+}
+.article-block.seo-define {
+  max-width: none;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 28px 28px 20px;
+}
+.article-block h2 {
+  font-size: clamp(26px, 3.4vw, 40px);
+  line-height: 1.12;
+  margin: 12px 0 16px;
+}
+.article-lead {
+  font-size: 18px !important;
+  font-weight: 700;
+  color: var(--ink) !important;
+  line-height: 1.55 !important;
+}
+.article-block p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0 0 14px;
+}
+.article-block ul {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+.article-block li {
+  padding: 10px 14px;
+  background: var(--mint);
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+}

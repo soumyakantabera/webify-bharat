@@ -8,7 +8,18 @@ export const metadata: Metadata = {
     template: "%s | Webify Bharat",
   },
   description:
-    "Full control of your website, WhatsApp and customer list. No per-lead fee. No aggregator commission on people who already want you.",
+    "Webify Bharat builds websites, WhatsApp Business, UPI gateways and analytics for Indian MSMEs. Own your customers. ₹0 per organic lead. No Justdial or Zomato tax.",
+  keywords: [
+    "Webify Bharat",
+    "website design for small business India",
+    "WhatsApp Business API India",
+    "UPI payment gateway",
+    "Justdial alternative",
+    "Zomato commission",
+    "MSME digital",
+    "Google Business Profile",
+    "local SEO India",
+  ],
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://webify-bharat.vercel.app"),
   openGraph: {
     title: "Webify Bharat | Digital Operations. Real Growth.",
