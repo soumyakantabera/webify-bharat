@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Layout from "@/components/Layout";
-import { getIndustry, industries, industryFeatures, WA_BARE } from "@/lib/site";
+import { WhatsAppCta } from "@/components/icons";
+import { getIndustry, industries, industryFeatures, WA_CHAT } from "@/lib/site";
 
 export function generateStaticParams() {
   return industries.map((i) => ({ slug: i.slug }));
@@ -42,9 +43,7 @@ export default async function IndustryPage({
               {industry.description} We connect the customer-facing experience with the
               operational tools behind it.
             </p>
-            <a className="btn btn-primary" href={WA_BARE}>
-              Discuss your business →
-            </a>
+            <WhatsAppCta href={WA_CHAT}>Discuss your business</WhatsAppCta>
           </div>
           <img src={`/images/real/${industry.photo}`} alt={industry.title} />
         </div>

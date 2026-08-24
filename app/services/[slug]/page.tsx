@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Layout from "@/components/Layout";
-import { getService, serviceFeatures, services, WA_BARE, WA_SERVICES } from "@/lib/site";
+import { CheckItem, WhatsAppCta } from "@/components/icons";
+import { getService, serviceFeatures, services, WA_CHAT, WA_SERVICES } from "@/lib/site";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -39,9 +40,7 @@ export default async function ServicePage({
               {service.description} We combine practical implementation with clean
               design and measurable business outcomes.
             </p>
-            <a className="btn btn-primary" href={WA_SERVICES}>
-              Discuss this service →
-            </a>
+            <WhatsAppCta href={WA_SERVICES}>Discuss this service</WhatsAppCta>
           </div>
           <img src={`/images/services/${service.image}`} alt={service.title} />
         </div>
@@ -62,10 +61,10 @@ export default async function ServicePage({
             <h2>{service.headline}</h2>
             <p>{service.story}</p>
             <div className="values">
-              <div className="value">✓ Less manual work</div>
-              <div className="value">✓ Better customer experience</div>
-              <div className="value">✓ Clearer visibility</div>
-              <div className="value">✓ Ready to scale</div>
+              <CheckItem>Less manual work</CheckItem>
+              <CheckItem>Better customer experience</CheckItem>
+              <CheckItem>Clearer visibility</CheckItem>
+              <CheckItem>Ready to scale</CheckItem>
             </div>
           </div>
         </div>
@@ -105,9 +104,7 @@ export default async function ServicePage({
             <div>
               <h2>Want to see what this could look like for your business?</h2>
               <p>Share your current setup and what you want to improve.</p>
-              <a className="btn btn-primary" href={WA_BARE}>
-                Talk to an expert →
-              </a>
+              <WhatsAppCta href={WA_CHAT}>Talk to an expert</WhatsAppCta>
             </div>
             <div className="cta-photo">
               <img

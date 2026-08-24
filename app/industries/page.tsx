@@ -3,7 +3,8 @@ export const metadata: Metadata = { title: "Industries" };
 
 import Link from "next/link";
 import Layout from "@/components/Layout";
-import { industries, WA_BARE } from "@/lib/site";
+import { WhatsAppCta } from "@/components/icons";
+import { industries, WA_CHAT } from "@/lib/site";
 
 export default function IndustriesPage() {
   return (
@@ -21,9 +22,7 @@ export default function IndustriesPage() {
               Practical digital systems for retail, restaurants, healthcare, education,
               real estate and manufacturing.
             </p>
-            <a className="btn btn-primary" href={WA_BARE}>
-              Talk to an expert →
-            </a>
+            <WhatsAppCta href={WA_CHAT}>Talk to an expert</WhatsAppCta>
           </div>
           <img
             src="/images/real/retail.webp"

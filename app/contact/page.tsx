@@ -3,7 +3,8 @@ export const metadata: Metadata = { title: "Contact" };
 
 import ContactForm from "@/components/ContactForm";
 import Layout from "@/components/Layout";
-import { SITE, WA_BARE } from "@/lib/site";
+import { WhatsAppCta } from "@/components/icons";
+import { WA_CHAT } from "@/lib/site";
 
 export default function ContactPage() {
   return (
@@ -40,9 +41,9 @@ export default function ContactPage() {
                 We’ll understand what you are trying to improve, what is already working
                 and what would create the biggest practical difference.
               </p>
-              <a className="btn btn-secondary" href={WA_BARE}>
-                WhatsApp {SITE.whatsappDisplay} →
-              </a>
+              <WhatsAppCta href={WA_CHAT} className="btn btn-secondary">
+                Chat on WhatsApp
+              </WhatsAppCta>
             </div>
           </div>
         </div>

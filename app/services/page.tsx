@@ -3,6 +3,7 @@ export const metadata: Metadata = { title: "Services" };
 
 import Link from "next/link";
 import Layout from "@/components/Layout";
+import { IconArrow } from "@/components/icons";
 import { services } from "@/lib/site";
 
 export default function ServicesPage() {
@@ -36,7 +37,9 @@ export default function ServicesPage() {
               <div className="card-body">
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>
-                <span className="card-link">Explore service →</span>
+                <span className="card-link">
+                  Explore service <IconArrow />
+                </span>
               </div>
             </Link>
           ))}

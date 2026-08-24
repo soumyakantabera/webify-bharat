@@ -1,6 +1,15 @@
 import Link from "next/link";
 import Layout from "@/components/Layout";
 import { ProcessVisual } from "@/components/ProcessVisual";
+import {
+  CheckItem,
+  IconArrow,
+  IconBolt,
+  IconCheck,
+  IconShield,
+  IconTrend,
+  WhatsAppCta,
+} from "@/components/icons";
 import { industries, services, WA_CHAT, WA_CONSULT } from "@/lib/site";
 
 export default function Home() {
@@ -22,25 +31,35 @@ export default function Home() {
               numbers and keep operations under control — with one digital partner.
             </p>
             <div className="hero-actions">
-              <a className="btn btn-primary" href={WA_CONSULT}>
-                Book a free consult →
-              </a>
+              <WhatsAppCta href={WA_CONSULT}>Book a free consult</WhatsAppCta>
               <a className="btn btn-secondary" href="#services">
                 Explore services
               </a>
             </div>
             <div className="trust">
               <div className="trust-item">
-                <span className="trust-icon">✓</span> Secure
+                <span className="trust-icon">
+                  <IconShield />
+                </span>
+                Secure
               </div>
               <div className="trust-item">
-                <span className="trust-icon">⚡</span> Fast
+                <span className="trust-icon">
+                  <IconBolt />
+                </span>
+                Fast
               </div>
               <div className="trust-item">
-                <span className="trust-icon">↗</span> Data-driven
+                <span className="trust-icon">
+                  <IconTrend />
+                </span>
+                Data-driven
               </div>
               <div className="trust-item">
-                <span className="trust-icon">✓</span> Compliant
+                <span className="trust-icon">
+                  <IconCheck />
+                </span>
+                Compliant
               </div>
             </div>
           </div>
@@ -141,7 +160,9 @@ export default function Home() {
                 <div className="card-body">
                   <h3>{service.title}</h3>
                   <p>{service.description}</p>
-                  <span className="card-link">Explore service →</span>
+                  <span className="card-link">
+                    Explore service <IconArrow />
+                  </span>
                 </div>
               </Link>
             ))}
@@ -217,10 +238,10 @@ export default function Home() {
               where customers get stuck and which manual tasks are costing you time.
             </p>
             <div className="values">
-              <div className="value">✓ Understand the workflow</div>
-              <div className="value">✓ Prioritize the highest impact</div>
-              <div className="value">✓ Build the right-sized system</div>
-              <div className="value">✓ Measure the outcome</div>
+              <CheckItem>Understand the workflow</CheckItem>
+              <CheckItem>Prioritize the highest impact</CheckItem>
+              <CheckItem>Build the right-sized system</CheckItem>
+              <CheckItem>Measure the outcome</CheckItem>
             </div>
           </div>
         </div>
@@ -286,10 +307,10 @@ export default function Home() {
               different vendors.
             </p>
             <div className="values">
-              <div className="value">✓ Business-first thinking</div>
-              <div className="value">✓ Clear scope & ownership</div>
-              <div className="value">✓ Fast, modern technology</div>
-              <div className="value">✓ Built to measure growth</div>
+              <CheckItem>Business-first thinking</CheckItem>
+              <CheckItem>Clear scope & ownership</CheckItem>
+              <CheckItem>Fast, modern technology</CheckItem>
+              <CheckItem>Built to measure growth</CheckItem>
             </div>
           </div>
         </div>
@@ -307,9 +328,7 @@ export default function Home() {
                 Tell us where your business is today. We’ll help you identify the
                 highest-impact next move.
               </p>
-              <a className="btn btn-primary" href={WA_CHAT}>
-                Chat on WhatsApp →
-              </a>
+              <WhatsAppCta href={WA_CHAT}>Chat on WhatsApp</WhatsAppCta>
             </div>
             <div className="image-wrap cta-real-photo">
               <img

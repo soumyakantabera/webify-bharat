@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Layout from "@/components/Layout";
+import { WhatsAppCta } from "@/components/icons";
 import { getPost, posts, WA_CHAT } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -55,9 +56,7 @@ export default async function ArticlePage({
             <p key={paragraph.slice(0, 40)}>{paragraph}</p>
           ))}
           <div className="hero-actions" style={{ marginTop: 28 }}>
-            <a className="btn btn-primary" href={WA_CHAT}>
-              Talk this through →
-            </a>
+            <WhatsAppCta href={WA_CHAT}>Talk this through</WhatsAppCta>
             <Link href="/blog" className="btn btn-secondary">
               All insights
             </Link>

@@ -1,4 +1,7 @@
 import Link from "next/link";
+import { BrandLogo } from "@/components/BrandLogo";
+import { WhatsAppCta } from "@/components/icons";
+import { WA_CHAT } from "@/lib/site";
 
 export default function Footer() {
   return (
@@ -6,15 +9,17 @@ export default function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div>
-            <div className="logo">
-              <span className="logo-mark">WB</span>
-              <span>Webify Bharat</span>
-            </div>
+            <Link href="/" className="logo" aria-label="Webify Bharat home">
+              <BrandLogo />
+            </Link>
             <p>Digital Operations. Real Growth.</p>
             <p>
               Websites, payments, WhatsApp automation, analytics and business systems for
               Indian businesses.
             </p>
+            <WhatsAppCta href={WA_CHAT} className="btn btn-primary footer-wa">
+              Chat on WhatsApp
+            </WhatsAppCta>
           </div>
           <div>
             <h4>Services</h4>

@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import { BrandLogo } from "@/components/BrandLogo";
+import { WhatsAppCta } from "@/components/icons";
 import { navLinks, WA_CONSULT } from "@/lib/site";
 
 function isActive(pathname: string, to: string) {
@@ -22,9 +24,8 @@ export default function Header() {
   return (
     <header className="navbar">
       <div className="container nav-inner">
-        <Link href="/" className="logo">
-          <span className="logo-mark">WB</span>
-          <span>Webify Bharat</span>
+        <Link href="/" className="logo" aria-label="Webify Bharat home">
+          <BrandLogo />
         </Link>
         <nav className="nav-links" aria-label="Primary">
           {navLinks.map((item) => (
@@ -37,9 +38,9 @@ export default function Header() {
             </Link>
           ))}
         </nav>
-        <a className="btn btn-primary nav-cta" href={WA_CONSULT}>
+        <WhatsAppCta href={WA_CONSULT} className="btn btn-primary nav-cta">
           Talk to an Expert
-        </a>
+        </WhatsAppCta>
         <button
           type="button"
           className="mobile-menu"
@@ -59,9 +60,9 @@ export default function Header() {
             </Link>
           ))}
           <Link href="/contact">Contact</Link>
-          <a className="btn btn-primary" href={WA_CONSULT} style={{ marginTop: 12 }}>
+          <WhatsAppCta href={WA_CONSULT} className="btn btn-primary">
             Talk to an Expert
-          </a>
+          </WhatsAppCta>
         </div>
       ) : null}
     </header>

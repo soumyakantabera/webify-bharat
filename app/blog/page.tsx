@@ -3,6 +3,7 @@ export const metadata: Metadata = { title: "Insights" };
 
 import Link from "next/link";
 import Layout from "@/components/Layout";
+import { IconArrow } from "@/components/icons";
 import { posts } from "@/lib/site";
 
 export default function BlogPage() {
@@ -35,7 +36,9 @@ export default function BlogPage() {
                 <span className="badge">Insights</span>
                 <h3 style={{ marginTop: 12 }}>{post.title}</h3>
                 <p>{post.excerpt}</p>
-                <span className="card-link">Read article →</span>
+                <span className="card-link">
+                  Read article <IconArrow />
+                </span>
               </div>
             </Link>
           ))}

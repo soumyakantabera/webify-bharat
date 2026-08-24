@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = { title: "Pricing" };
 
 import Layout from "@/components/Layout";
+import { WhatsAppCta } from "@/components/icons";
 import { faqs, plans, WA_PACKAGES } from "@/lib/site";
 
 export default function PricingPage() {
@@ -44,9 +45,7 @@ export default function PricingPage() {
                   <li key={feature}>{feature}</li>
                 ))}
               </ul>
-              <a className="btn btn-primary" href={WA_PACKAGES}>
-                Choose {plan.name}
-              </a>
+              <WhatsAppCta href={WA_PACKAGES}>Choose {plan.name}</WhatsAppCta>
             </div>
           ))}
         </div>

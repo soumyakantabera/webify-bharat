@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { IconWhatsApp } from "@/components/icons";
 import { waLink } from "@/lib/site";
 
 const needs = [
@@ -88,7 +89,8 @@ export default function ContactForm() {
         form backend is required.
       </div>
       <button className="btn btn-primary" type="submit">
-        Continue on WhatsApp →
+        <IconWhatsApp />
+        Continue on WhatsApp
       </button>
     </form>
   );
