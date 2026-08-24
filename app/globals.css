@@ -1325,10 +1325,10 @@ textarea.input {
     display: none;
   }
   .brand-mark {
-    height: 40px;
+    height: 36px;
   }
   .hero {
-    padding-top: 48px;
+    padding: 24px 0 32px;
   }
   .hero-grid,
   .process-wrap,
@@ -1338,12 +1338,29 @@ textarea.input {
   .cta-band,
   .control-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
   .hero-visual {
-    order: -1;
+    order: 1;
+    max-height: 200px;
+    overflow: hidden;
+  }
+  .hero-visual:before {
+    display: none;
+  }
+  .hero-visual img {
+    width: 120%;
+    max-width: none;
+    max-height: none;
+    margin: -6% 0 0 -10%;
   }
   .trust {
     grid-template-columns: repeat(2, 1fr);
+    margin-top: 18px;
+    gap: 8px;
+  }
+  .page-hero {
+    padding: 28px 0 24px;
   }
   .service-card,
   .service-card.featured {
@@ -1354,9 +1371,11 @@ textarea.input {
   .pricing-grid,
   .blog-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
   .footer-grid {
     grid-template-columns: 1fr 1fr;
+    gap: 24px;
   }
   .cta-band .image-wrap {
     display: none;
@@ -1375,7 +1394,7 @@ textarea.input {
     grid-template-columns: 1fr;
   }
   .story-photo-card img {
-    height: 300px;
+    height: 220px;
   }
   .price-card.popular {
     transform: none;
@@ -1384,26 +1403,66 @@ textarea.input {
 
 @media (max-width: 620px) {
   .container {
-    width: min(100% - 24px, 1180px);
+    width: min(100% - 28px, 1180px);
   }
   .nav-inner {
-    height: 64px;
+    height: 58px;
   }
-  .hero-copy h1,
+  .hero {
+    padding: 16px 0 28px;
+  }
+  .hero-copy h1 {
+    margin-top: 8px;
+    font-size: 30px;
+    line-height: 1.1;
+  }
   .page-copy h1 {
-    margin-top: 10px;
+    margin-top: 8px;
+    font-size: 28px;
+    line-height: 1.15;
   }
-  .hero-copy > p {
-    font-size: 16px;
+  .hero-copy > p,
+  .page-copy .muted-copy {
+    font-size: 15px;
+    line-height: 1.55;
+    margin-top: 12px;
+  }
+  .hero-actions {
+    margin-top: 16px;
+    gap: 8px;
+  }
+  .hero-actions .btn {
+    flex: 1 1 auto;
+    padding: 12px 16px;
+    font-size: 13px;
+  }
+  .trust {
+    margin-top: 16px;
+    gap: 8px;
+  }
+  .trust-item {
+    min-height: 44px;
+    padding: 8px 10px 8px 8px;
+    font-size: 12px;
+    border-radius: 14px;
   }
   .section {
-    padding: 62px 0;
+    padding: 40px 0;
+  }
+  .page-hero {
+    padding: 20px 0 20px;
   }
   .section-head {
     display: block;
+    margin-bottom: 20px;
+  }
+  .section-head h2 {
+    font-size: 28px;
+    margin-top: 8px;
   }
   .section-head p {
-    margin-top: 12px;
+    margin-top: 10px;
+    font-size: 15px;
   }
   .service-card,
   .service-card.featured {
@@ -1414,55 +1473,96 @@ textarea.input {
   .pricing-grid,
   .blog-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
   .industry-card img {
-    height: 265px;
+    height: 200px;
   }
   .values {
     grid-template-columns: 1fr;
   }
   .cta-band {
-    padding: 28px;
-    border-radius: 26px;
+    padding: 22px;
+    border-radius: 22px;
+    margin: 8px 0 28px;
+  }
+  .footer {
+    margin-top: 40px;
+    padding: 32px 0 22px;
   }
   .footer-grid {
     grid-template-columns: 1fr;
+    gap: 22px;
   }
   .footer-bottom {
     display: block;
+    margin-top: 20px;
+    padding-top: 14px;
   }
   .real-world {
-    padding-bottom: 56px;
+    padding-bottom: 36px;
   }
   .real-world-head {
     display: block;
+    margin-bottom: 16px;
   }
   .real-world-head p {
-    margin-top: 10px;
+    margin-top: 8px;
   }
   .photo-strip {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
   .photo-card:first-child {
     grid-column: auto;
   }
   .photo-card {
-    min-height: 285px;
+    min-height: 200px;
   }
   .real-context-photo,
   .real-context-photo img,
   .about-photo,
   .about-photo img {
-    min-height: 340px;
+    min-height: 220px;
   }
   .contact-story > img {
-    height: 270px;
+    height: 200px;
   }
   .story-photo-card img {
-    height: 260px;
+    height: 200px;
   }
   .display-h2 {
-    font-size: 34px;
+    font-size: 28px;
+    margin-top: 8px;
+  }
+  .control-section {
+    padding-top: 12px;
+  }
+  .control-card {
+    padding: 20px 18px 16px;
+    border-radius: 22px;
+  }
+  .control-card h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+  .faq-item summary {
+    padding: 14px 16px;
+    font-size: 16px;
+  }
+  .faq-item p {
+    padding: 0 16px 16px;
+    font-size: 14px;
+  }
+  .bento {
+    gap: 12px;
+  }
+  .form {
+    padding: 20px;
+    border-radius: 22px;
+  }
+  .price-card {
+    padding: 22px 18px;
   }
 }
 
