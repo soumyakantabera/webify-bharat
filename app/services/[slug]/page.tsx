@@ -11,6 +11,8 @@ import { getFaq } from "@/lib/faqs";
 import { CheckItem, WhatsAppCta } from "@/components/icons";
 import { getService, serviceFeatures, services, WA_CHAT, WA_SERVICES } from "@/lib/site";
 
+const BASE = "https://webify-bharat.vercel.app";
+
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
 }
@@ -33,8 +35,29 @@ export default async function ServicePage({
   const service = getService(slug);
   if (!service) notFound();
 
+  const serviceLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${BASE}/services/${service.slug}#service`,
+    name: service.title,
+    description: service.description,
+    url: `${BASE}/services/${service.slug}`,
+    image: `${BASE}/images/services/${service.image}`,
+    provider: {
+      "@type": "Organization",
+      name: "Webify Bharat",
+      url: BASE,
+    },
+    areaServed: { "@type": "Country", name: "India" },
+    serviceType: service.title,
+  };
+
   return (
     <Layout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }}
+      />
       <section className="page-hero">
         <div className="container wrap">
           <div className="page-copy">
@@ -46,7 +69,14 @@ export default async function ServicePage({
             </p>
             <WhatsAppCta href={WA_SERVICES}>Discuss this service</WhatsAppCta>
           </div>
-          <img src={`/images/services/${service.image}`} alt={service.title} />
+          <img
+            src={`/images/services/${service.image}`}
+            alt={service.title}
+            width={800}
+            height={600}
+            fetchPriority="high"
+            decoding="async"
+          />
         </div>
       </section>
 
@@ -58,6 +88,10 @@ export default async function ServicePage({
             <img
               src={`/images/real/${service.photo}`}
               alt={`${service.title} in a real business setting`}
+              width={800}
+              height={600}
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div className="real-context-copy">
@@ -122,6 +156,10 @@ export default async function ServicePage({
               <img
                 src="/images/real/growth-success.webp"
                 alt="Growing Indian business using better digital systems"
+                width={640}
+                height={400}
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>

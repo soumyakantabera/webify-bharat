@@ -1,0 +1,68 @@
+/* Performance + accessibility hardening from QA audit */
+
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -48px;
+  z-index: 200;
+  background: var(--teal);
+  color: #fff;
+  font-weight: 800;
+  font-size: 14px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 12px;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* Reserve space to limit CLS on photo cards */
+.industry-card img,
+.photo-card img,
+.story-photo-card img,
+.blog-card img,
+.real-context-photo img,
+.about-photo img,
+.cta-photo img,
+.cta-real-photo img {
+  background: linear-gradient(145deg, #e7f5f1, #fff5ef);
+}
+
+.hero-visual img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+}
+
+.page-hero img {
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(145deg, #e7f5f1, #fff5ef);
+}
+
+/* Prefer content-visibility for long below-fold sections */
+.section-soft,
+.blog-grid,
+.industry-grid,
+.faq {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 600px;
+}
+
+/* Ensure body text never uses papaya (contrast) — accent only */
+.eyebrow,
+.badge {
+  color: var(--teal);
+}
+
+/* Focus visible on cards/links */
+.industry-card:focus-visible,
+.blog-card:focus-visible,
+.card:focus-visible,
+.photo-card:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}

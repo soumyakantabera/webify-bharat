@@ -76,6 +76,10 @@ export default function Home() {
             <img
               src="/images/hero/digital-growth-dashboard.png"
               alt="Webify Bharat digital operations dashboard"
+              width={960}
+              height={720}
+              fetchPriority="high"
+              decoding="async"
             />
           </div>
         </div>
@@ -151,6 +155,10 @@ export default function Home() {
               <img
                 src="/images/real/business-owner.webp"
                 alt="Indian small business owner at her workspace"
+                width={800}
+                height={600}
+                loading="lazy"
+                decoding="async"
               />
               <div className="photo-caption">
                 <span>Small business</span>
@@ -162,6 +170,10 @@ export default function Home() {
               <img
                 src="/images/real/retail.webp"
                 alt="Indian retail store owner serving a customer"
+                width={640}
+                height={480}
+                loading="lazy"
+                decoding="async"
               />
               <div className="photo-caption">
                 <span>Retail</span>
@@ -169,13 +181,14 @@ export default function Home() {
                 <p>Catalog, payments and customer experience connected.</p>
               </div>
             </Link>
-            <Link
-              href="/industries/restaurant"
-              className="photo-card"
-            >
+            <Link href="/industries/restaurant" className="photo-card">
               <img
                 src="/images/real/restaurant.webp"
                 alt="Indian cafe owner operating his business"
+                width={640}
+                height={480}
+                loading="lazy"
+                decoding="async"
               />
               <div className="photo-caption">
                 <span>Restaurant</span>
@@ -214,6 +227,10 @@ export default function Home() {
                   <img
                     src={`/images/services/${service.image}`}
                     alt={service.title}
+                    width={640}
+                    height={400}
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div className="card-body">
@@ -328,6 +345,10 @@ export default function Home() {
             <img
               src="/images/real/consultation.webp"
               alt="Webify Bharat consultant discussing digital operations with a business owner"
+              width={800}
+              height={600}
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div className="real-context-copy">
@@ -377,6 +398,10 @@ export default function Home() {
                 <img
                   src={`/images/real/${industry.photo}`}
                   alt={industry.title}
+                  width={640}
+                  height={400}
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="content">
                   <h3>{industry.title}</h3>
@@ -394,6 +419,10 @@ export default function Home() {
             <img
               src="/images/real/business-owner.webp"
               alt="Indian small business owner using Webify Bharat digital systems"
+              width={800}
+              height={600}
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div>
@@ -422,7 +451,6 @@ export default function Home() {
 
       <ArticleBlock article={entityDefine} define />
       <ArticleBlock article={homeArticle} />
-
       <ArticleBlock article={searchResearchArticle} />
 
       <FaqSection block={getFaq("home")} />
@@ -441,7 +469,15 @@ export default function Home() {
               </p>
               <div className="hero-actions" style={{ marginTop: 8 }}>
                 <WhatsAppCta href={WA_CHAT}>Chat on WhatsApp</WhatsAppCta>
-                <Link className="btn btn-secondary" href="/pricing" style={{ background: "rgba(255,255,255,0.12)", color: "#fff", borderColor: "rgba(255,255,255,0.25)" }}>
+                <Link
+                  className="btn btn-secondary"
+                  href="/pricing"
+                  style={{
+                    background: "rgba(255,255,255,0.12)",
+                    color: "#fff",
+                    borderColor: "rgba(255,255,255,0.25)",
+                  }}
+                >
                   View pricing
                 </Link>
               </div>
@@ -450,6 +486,10 @@ export default function Home() {
               <img
                 src="/images/real/growth-success.webp"
                 alt="Successful Indian business owner in a growing retail operation"
+                width={640}
+                height={400}
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>

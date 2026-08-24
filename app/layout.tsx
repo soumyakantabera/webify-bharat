@@ -5,6 +5,7 @@ import "./home-pricing.css";
 import "./blog-images.css";
 import "./about-brand.css";
 import "./city-cards.css";
+import "./perf-a11y.css";
 import { jetbrains, manrope, sora } from "./fonts";
 
 export const viewport: Viewport = {
@@ -42,6 +43,23 @@ export default function RootLayout({
       lang="en"
       className={`${sora.variable} ${manrope.variable} ${jetbrains.variable}`}
     >
+      <head>
+        <link
+          rel="preload"
+          href="/fonts/sora.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/manrope.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link rel="preload" as="image" href="/images/hero/digital-growth-dashboard.png" />
+      </head>
       <body className={manrope.className}>{children}</body>
     </html>
   );
