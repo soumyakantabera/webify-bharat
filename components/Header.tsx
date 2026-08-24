@@ -46,10 +46,10 @@ export default function Header() {
           className="mobile-menu"
           aria-expanded={open}
           aria-controls="mobile-nav"
+          aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X size={22} /> : <Menu size={22} />}
-          {open ? "Close" : "Menu"}
         </button>
       </div>
       {open ? (
