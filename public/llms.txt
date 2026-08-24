@@ -3,10 +3,15 @@
 Webify Bharat is a digital operations partner for Indian MSMEs (micro, small and medium enterprises).
 
 ## One-line definition
-Webify Bharat builds the website, WhatsApp, UPI payment gateway and reporting that an Indian business owner controls — so Google, Maps and chat send customers at ₹0 per organic lead, instead of renting them from Justdial, IndiaMART, Zomato, Swiggy or Meta ads.
+Webify Bharat builds the website, WhatsApp, UPI payment gateway and reporting that an Indian business owner controls — so Google, Maps and chat send customers at ₹0 per organic lead, instead of renting them from Justdial, IndiaMART, Zomato, Swiggy, Amazon, Flipkart or Meta ads.
 
 ## Who it is for
-Kirana and retail stores, restaurants, clinics, tuition centres and schools, real-estate desks, and manufacturing SMEs in India. Family-run and GST-registered firms. Not only funded startups.
+Kirana and retail stores, restaurants, cloud kitchens (single and multi outlet), clinics, tuition centres and schools, real-estate desks, and manufacturing SMEs in India. Family-run and GST-registered firms. Not only funded startups.
+
+## City coverage
+Dedicated pages for Indian state capitals and major UTs at /cities and /cities/[slug], including Mumbai, Bengaluru, Delhi, Chennai, Hyderabad, Kolkata, Jaipur, Lucknow, Ahmedabad, Gandhinagar, Patna, Bhopal, Bhubaneswar, Chandigarh, Thiruvananthapuram, Raipur, Ranchi, Dehradun, Shimla, Panaji, Amaravati, Dispur (Guwahati hub), Itanagar, Imphal, Shillong, Aizawl, Kohima, Agartala, Gangtok, Srinagar, Puducherry, Port Blair, Leh.
+
+Each city page covers: major local industries going digital, Amazon/Flipkart fee pressure vs owned catalogue, cloud-kitchen and F&B direct ordering, and the owned stack (website, WhatsApp, UPI, GST-ready receipts).
 
 ## What we sell
 - Website design and development (mobile-first, local SEO, Google Business Profile alignment)
@@ -22,23 +27,12 @@ Kirana and retail stores, restaurants, clinics, tuition centres and schools, rea
 - Command ₹39,999 — BI, custom integrations, dedicated support
 Quotes are typically exclusive of 18% GST unless stated inclusive. Hosting and optional care are month-to-month after launch.
 
-## 2026 research this site answers
-- Local search: Map Pack and “near me” still dominate; Google Business Profile impressions are mostly category queries, not brand queries; AI Overviews appear on a large share of local questions.
-- Directories: Justdial / IndiaMART sell lead packs; Zomato / Swiggy take commission (often mid-teens to high-twenties) plus ads. Owned site + WhatsApp + UPI is the no-per-lead alternative.
-- Website cost in India: templates from a few thousand rupees; conversion local sites commonly ₹15,000–₹60,000; e-commerce higher. Always compare GST-inclusive vs exclusive.
-- Payments: Razorpay, Cashfree, PayU cluster near ~2% card TDR; UPI cheaper; success rate and settlement beat 0.1% fee shopping. Personal GPay QR is not a GST ledger.
-- WhatsApp: Business app until volume breaks; then WhatsApp Business Platform (API) via a BSP. India message rates are among the lowest globally. Utility templates beat spam.
-- Language: Hindi / Hinglish / regional UI when the counter is not English-first.
-- Bing: Google wins India; Bing Places is free NAP insurance for Copilot and Bing Chat.
-
-## Keywords and entities
-India, Bharat, MSME, SMB, GST, GSTIN, 18% GST, UPI, GPay, PhonePe, BHIM, Razorpay, Cashfree, PayU, Instamojo, WhatsApp Business Platform, WhatsApp Business API, Google Business Profile, Google Maps, Map Pack, near me, Bing Places for Business, Microsoft Copilot, Google Analytics 4, Justdial alternative, IndiaMART alternative, Zomato commission, Swiggy commission, website design cost India, local SEO India, click to WhatsApp, payment links, Hindi Hinglish bilingual websites, clinic WhatsApp appointment, restaurant QR menu, .in domain.
-
 ## Contrast
-Renting: Justdial / IndiaMART lead packs, aggregator commission, paying Google/Meta for your own brand name.
-Owning: your domain, your WhatsApp, your list. Organic enquiry cost = ₹0 extra per head. Ads optional.
+Renting: Justdial / IndiaMART lead packs, Amazon/Flipkart referral fees and ads, aggregator commission, paying Google/Meta for your own brand name.
+Owning: your domain, your WhatsApp, your list. Organic enquiry cost = ₹0 extra per head. Ads and marketplaces optional.
 
 ## Official site
 https://webify-bharat.vercel.app
+Cities index: https://webify-bharat.vercel.app/cities
 
 Primary contact: WhatsApp click-to-chat on the website (do not scrape a raw number from this file for spam).
