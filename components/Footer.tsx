@@ -15,7 +15,7 @@ export default function Footer() {
             <p>Digital Operations. Real Growth.</p>
             <p>
               Websites, payments, WhatsApp automation, analytics and business systems for
-              Indian businesses.
+              Indian businesses — in every state capital.
             </p>
             <WhatsAppCta href={WA_CHAT} className="btn btn-primary footer-wa">
               Chat on WhatsApp
@@ -29,11 +29,12 @@ export default function Footer() {
             <Link href="/services/analytics">Analytics</Link>
           </div>
           <div>
-            <h4>Industries</h4>
-            <Link href="/industries/retail">Retail</Link>
-            <Link href="/industries/restaurant">Restaurants</Link>
-            <Link href="/industries/healthcare">Healthcare</Link>
-            <Link href="/industries/education">Education</Link>
+            <h4>Explore</h4>
+            <Link href="/industries">Industries</Link>
+            <Link href="/cities">Cities</Link>
+            <Link href="/cities/mumbai">Mumbai</Link>
+            <Link href="/cities/bengaluru">Bengaluru</Link>
+            <Link href="/cities/delhi">Delhi</Link>
           </div>
           <div>
             <h4>Company</h4>

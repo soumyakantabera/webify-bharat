@@ -2,7 +2,7 @@ export const SITE = {
   name: "Webify Bharat",
   tagline: "Own your customers. ₹0 per lead.",
   description:
-    "Webify Bharat builds websites, WhatsApp Business, UPI payment gateways and analytics for Indian MSMEs — own your customers, ₹0 per organic lead, no Justdial or Zomato tax.",
+    "Webify Bharat builds websites, WhatsApp Business, UPI payment gateways and analytics for Indian MSMEs — own your customers, ₹0 per organic lead, no Justdial or Zomato tax. City pages for every state capital.",
   whatsapp: "918336097642",
   whatsappDisplay: "8336097642",
 } as const;
@@ -473,6 +473,7 @@ export function getPost(slug: string) {
 export const navLinks = [
   { to: "/services", label: "Services", icon: "services" },
   { to: "/industries", label: "Industries", icon: "industries" },
+  { to: "/cities", label: "Cities", icon: "industries" },
   { to: "/work", label: "Work", icon: "work" },
   { to: "/pricing", label: "Pricing", icon: "pricing" },
   { to: "/about", label: "About", icon: "about" },
