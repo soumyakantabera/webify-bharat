@@ -1,0 +1,179 @@
+/* Skeleton loading states */
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.skeleton {
+  display: block;
+  background: linear-gradient(
+    90deg,
+    #e8f0ed 0%,
+    #f4f9f7 40%,
+    #e8f0ed 80%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.35s ease-in-out infinite;
+  border-radius: 12px;
+  color: transparent !important;
+  pointer-events: none;
+  user-select: none;
+}
+
+.skeleton-text {
+  height: 0.9em;
+  margin: 0.35em 0;
+  border-radius: 6px;
+}
+
+.skeleton-text.short {
+  width: 42%;
+}
+
+.skeleton-text.medium {
+  width: 68%;
+}
+
+.skeleton-text.long {
+  width: 92%;
+}
+
+.skeleton-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.skeleton-btn {
+  height: 44px;
+  width: 140px;
+  border-radius: 999px;
+}
+
+/* Image / media skeleton wrapper */
+.skeleton-media {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: linear-gradient(
+    90deg,
+    #e8f0ed 0%,
+    #f4f9f7 40%,
+    #e8f0ed 80%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.35s ease-in-out infinite;
+}
+
+.skeleton-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 70%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.35s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.35s ease;
+}
+
+.skeleton-media > img {
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.skeleton-media.is-loaded {
+  animation: none;
+  background: transparent;
+}
+
+.skeleton-media.is-loaded::after {
+  opacity: 0;
+  animation: none;
+}
+
+.skeleton-media.is-loaded > img {
+  opacity: 1;
+}
+
+/* Card media slots */
+.card-media.skeleton-media,
+.photo-card.skeleton-media,
+.industry-card.skeleton-media,
+.blog-card .skeleton-media,
+.cta-photo.skeleton-media,
+.cta-real-photo.skeleton-media,
+.about-photo.skeleton-media,
+.real-context-photo.skeleton-media,
+.hero-visual.skeleton-media,
+.page-hero .skeleton-media {
+  min-height: 0;
+}
+
+.card-media.skeleton-media {
+  min-height: 235px;
+}
+
+.photo-card.skeleton-media {
+  min-height: 230px;
+}
+
+.blog-card .skeleton-media {
+  min-height: 205px;
+  width: 100%;
+  display: block;
+}
+
+.industry-card.skeleton-media img,
+.city-card.skeleton-media img {
+  display: block;
+  width: 100%;
+}
+
+/* Standalone img that we wrap conceptually via class on itself */
+img.skeleton-img {
+  background: linear-gradient(
+    90deg,
+    #e8f0ed 0%,
+    #f4f9f7 40%,
+    #e8f0ed 80%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.35s ease-in-out infinite;
+}
+
+img.skeleton-img.is-loaded {
+  animation: none;
+  background: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton,
+  .skeleton-media,
+  .skeleton-media::after,
+  img.skeleton-img {
+    animation: none !important;
+  }
+
+  .skeleton-media > img,
+  .skeleton-media.is-loaded > img {
+    opacity: 1 !important;
+    transition: none !important;
+  }
+
+  .skeleton-media::after {
+    display: none;
+  }
+}

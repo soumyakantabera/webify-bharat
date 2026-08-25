@@ -9,6 +9,7 @@ import "./perf-a11y.css";
 import "./button-anim.css";
 import "./site-motion.css";
 import "./lazy-load.css";
+import "./skeleton.css";
 import { jetbrains, manrope, sora } from "./fonts";
 
 export const viewport: Viewport = {
