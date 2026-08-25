@@ -8,6 +8,7 @@ import "./city-cards.css";
 import "./perf-a11y.css";
 import "./button-anim.css";
 import "./site-motion.css";
+import "./lazy-load.css";
 import { jetbrains, manrope, sora } from "./fonts";
 
 export const viewport: Viewport = {

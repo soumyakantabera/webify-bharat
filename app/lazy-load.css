@@ -1,0 +1,64 @@
+/* Lazy-load image animations */
+
+@keyframes lazy-shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+@keyframes lazy-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+/* Placeholder while loading */
+img.lazy-img {
+  opacity: 0;
+  background:
+    linear-gradient(
+      110deg,
+      #e7f5f1 0%,
+      #f5fbf9 40%,
+      #e7f5f1 80%
+    );
+  background-size: 200% 100%;
+  animation: lazy-shimmer 1.4s ease-in-out infinite;
+}
+
+/* Loaded state */
+img.lazy-img.lazy-img-loaded {
+  opacity: 1;
+  animation: lazy-fade-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  background: transparent;
+}
+
+/* Above-the-fold / eager images — soft entrance only, no shimmer loop */
+img.lazy-img-eager {
+  opacity: 0;
+}
+
+img.lazy-img-eager.lazy-img-loaded {
+  animation: lazy-fade-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  img.lazy-img,
+  img.lazy-img-eager {
+    opacity: 1 !important;
+    animation: none !important;
+    filter: none !important;
+    transform: none !important;
+    background: transparent !important;
+  }
+}
