@@ -1,0 +1,450 @@
+/* Sitewide motion system — polished, not flashy */
+
+:root {
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-fast: 0.22s;
+  --motion: 0.45s;
+  --motion-slow: 0.65s;
+}
+
+/* ——— Scroll reveal ——— */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity var(--motion-slow) var(--ease-out),
+    transform var(--motion-slow) var(--ease-out);
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger groups */
+.bento .reveal:nth-child(1),
+.industry-grid .reveal:nth-child(1),
+.blog-grid .reveal:nth-child(1),
+.feature-grid .reveal:nth-child(1),
+.pricing-grid .reveal:nth-child(1),
+.photo-strip .reveal:nth-child(1) {
+  transition-delay: 0.02s;
+}
+.bento .reveal:nth-child(2),
+.industry-grid .reveal:nth-child(2),
+.blog-grid .reveal:nth-child(2),
+.feature-grid .reveal:nth-child(2),
+.pricing-grid .reveal:nth-child(2),
+.photo-strip .reveal:nth-child(2) {
+  transition-delay: 0.08s;
+}
+.bento .reveal:nth-child(3),
+.industry-grid .reveal:nth-child(3),
+.blog-grid .reveal:nth-child(3),
+.feature-grid .reveal:nth-child(3),
+.pricing-grid .reveal:nth-child(3),
+.photo-strip .reveal:nth-child(3) {
+  transition-delay: 0.14s;
+}
+.bento .reveal:nth-child(4),
+.industry-grid .reveal:nth-child(4),
+.blog-grid .reveal:nth-child(4),
+.feature-grid .reveal:nth-child(4),
+.pricing-grid .reveal:nth-child(4),
+.photo-strip .reveal:nth-child(4) {
+  transition-delay: 0.2s;
+}
+.bento .reveal:nth-child(5),
+.industry-grid .reveal:nth-child(5),
+.blog-grid .reveal:nth-child(5),
+.feature-grid .reveal:nth-child(5) {
+  transition-delay: 0.26s;
+}
+.bento .reveal:nth-child(6),
+.industry-grid .reveal:nth-child(6),
+.blog-grid .reveal:nth-child(6),
+.feature-grid .reveal:nth-child(6) {
+  transition-delay: 0.32s;
+}
+
+.trust-item.reveal:nth-child(1) {
+  transition-delay: 0.05s;
+}
+.trust-item.reveal:nth-child(2) {
+  transition-delay: 0.1s;
+}
+.trust-item.reveal:nth-child(3) {
+  transition-delay: 0.15s;
+}
+.trust-item.reveal:nth-child(4) {
+  transition-delay: 0.2s;
+}
+
+/* ——— Cards ——— */
+.card,
+.service-card,
+.industry-card,
+.blog-card,
+.story-photo-card,
+.feature,
+.price-card,
+.pricing-card,
+.control-card,
+.key-facts > div {
+  transition:
+    transform var(--motion) var(--ease-out),
+    box-shadow var(--motion) var(--ease-out),
+    border-color var(--motion-fast) ease;
+}
+
+.card:hover,
+.service-card:hover,
+.industry-card:hover,
+.blog-card:hover,
+.story-photo-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 48px rgba(28, 31, 29, 0.1);
+  border-color: rgba(15, 118, 110, 0.22);
+}
+
+.feature:hover,
+.price-card:hover,
+.pricing-card:hover:not(.popular),
+.key-facts > div:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(28, 31, 29, 0.08);
+  border-color: rgba(15, 118, 110, 0.2);
+}
+
+.control-card.own:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.28);
+}
+
+.control-card.rent:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(28, 31, 29, 0.08);
+}
+
+/* ——— Photo cards ——— */
+.photo-card {
+  transition: transform var(--motion) var(--ease-out), box-shadow var(--motion) var(--ease-out);
+}
+
+.photo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 50px rgba(15, 25, 22, 0.28);
+}
+
+.photo-card img {
+  transition: transform 0.55s var(--ease-out);
+}
+
+.photo-card:hover img {
+  transform: scale(1.05);
+}
+
+.industry-card img,
+.blog-card img,
+.story-photo-card img,
+.cta-photo img,
+.about-photo img,
+.real-context-photo img {
+  transition: transform 0.5s var(--ease-out);
+}
+
+.industry-card:hover img,
+.blog-card:hover img,
+.story-photo-card:hover img {
+  transform: scale(1.04);
+}
+
+/* ——— Nav ——— */
+.nav-links a {
+  position: relative;
+  transition: color var(--motion-fast) ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: var(--teal);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.28s var(--ease-out);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  transform: scaleX(1);
+}
+
+.nav-links a svg {
+  transition: transform 0.25s var(--ease-out), opacity 0.25s ease;
+}
+
+.nav-links a:hover svg {
+  transform: translateY(-1px);
+  opacity: 1;
+}
+
+.mobile-drawer a {
+  transition: background var(--motion-fast) ease, color var(--motion-fast) ease, padding-left var(--motion-fast) ease;
+}
+
+.mobile-drawer a:hover {
+  color: var(--teal);
+  padding-left: 6px;
+}
+
+.mobile-menu {
+  transition: transform var(--motion-fast) var(--ease-out), background var(--motion-fast) ease;
+}
+
+.mobile-menu:hover {
+  transform: scale(1.05);
+}
+
+.mobile-menu:active {
+  transform: scale(0.96);
+}
+
+/* ——— Trust pills & values ——— */
+.trust-item,
+.value {
+  transition:
+    transform var(--motion) var(--ease-out),
+    box-shadow var(--motion) var(--ease-out),
+    border-color var(--motion-fast) ease;
+}
+
+.trust-item:hover,
+.value:hover {
+  transform: translateY(-3px);
+  border-color: rgba(15, 118, 110, 0.28);
+  box-shadow: 0 10px 24px rgba(15, 118, 110, 0.08);
+}
+
+.trust-icon {
+  transition: transform 0.3s var(--ease-out), background 0.25s ease;
+}
+
+.trust-item:hover .trust-icon {
+  transform: scale(1.08);
+  background: #d5efe9;
+}
+
+/* ——— Steps / process ——— */
+.step {
+  transition: transform var(--motion) var(--ease-out);
+}
+
+.step:hover {
+  transform: translateX(4px);
+}
+
+.step-num {
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s ease;
+}
+
+.step:hover .step-num {
+  transform: scale(1.08);
+  box-shadow: 0 8px 18px rgba(15, 118, 110, 0.25);
+}
+
+.pv-step {
+  transition: background 0.3s ease, transform 0.3s var(--ease-out);
+}
+
+.pv-step:hover {
+  background: rgba(15, 118, 110, 0.05);
+  transform: translateY(-3px);
+}
+
+/* ——— FAQ ——— */
+.faq-item {
+  transition:
+    transform var(--motion) var(--ease-out),
+    box-shadow var(--motion) var(--ease-out),
+    border-color var(--motion-fast) ease;
+}
+
+.faq-item:hover {
+  border-color: rgba(15, 118, 110, 0.25);
+  box-shadow: 0 10px 28px rgba(28, 31, 29, 0.06);
+}
+
+.faq-item[open] {
+  border-color: rgba(15, 118, 110, 0.3);
+  box-shadow: 0 12px 32px rgba(15, 118, 110, 0.08);
+}
+
+.faq-item summary {
+  transition: color var(--motion-fast) ease;
+}
+
+.faq-item summary:hover {
+  color: var(--teal);
+}
+
+.faq-item summary::after {
+  transition: transform 0.3s var(--ease-out);
+}
+
+.faq-item[open] summary::after {
+  transform: rotate(180deg);
+}
+
+/* ——— Footer links ——— */
+.footer a {
+  transition: color var(--motion-fast) ease, transform var(--motion-fast) var(--ease-out);
+}
+
+.footer a:hover {
+  color: var(--teal);
+}
+
+.footer-grid a:not(.logo):not(.footer-wa):hover {
+  transform: translateX(3px);
+}
+
+/* ——— Card link arrow ——— */
+.card-link {
+  transition: gap 0.25s var(--ease-out), color 0.25s ease;
+}
+
+.card:hover .card-link {
+  gap: 10px;
+}
+
+.card-link svg {
+  transition: transform 0.3s var(--ease-out);
+}
+
+.card:hover .card-link svg {
+  transform: translateX(4px);
+}
+
+/* ——— Badge / eyebrow ——— */
+.badge {
+  transition: transform 0.25s var(--ease-out), background 0.25s ease;
+}
+
+.industry-card:hover .badge,
+.blog-card:hover .badge {
+  transform: translateY(-1px);
+}
+
+.eyebrow .dot {
+  transition: transform 0.35s var(--ease-out);
+}
+
+.section-head:hover .eyebrow .dot,
+.page-copy:hover .eyebrow .dot {
+  transform: scale(1.25);
+}
+
+/* ——— Home pricing band ——— */
+.home-price-item {
+  transition:
+    transform var(--motion) var(--ease-out),
+    box-shadow var(--motion) var(--ease-out),
+    border-color var(--motion-fast) ease;
+}
+
+.home-price-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(15, 118, 110, 0.12);
+}
+
+/* ——— CTA band ——— */
+.cta-band {
+  transition: box-shadow var(--motion) var(--ease-out);
+}
+
+.cta-band:hover {
+  box-shadow: 0 28px 60px rgba(28, 31, 29, 0.18);
+}
+
+/* ——— Form inputs ——— */
+.input {
+  transition:
+    border-color var(--motion-fast) ease,
+    box-shadow var(--motion-fast) ease,
+    transform var(--motion-fast) var(--ease-out);
+}
+
+.input:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.12);
+}
+
+/* ——— Logo subtle ——— */
+.logo .brand-mark {
+  transition: transform 0.35s var(--ease-out);
+}
+
+.logo:hover .brand-mark {
+  transform: scale(1.04);
+}
+
+/* ——— Reduced motion ——— */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .card,
+  .service-card,
+  .industry-card,
+  .blog-card,
+  .story-photo-card,
+  .feature,
+  .price-card,
+  .pricing-card,
+  .control-card,
+  .photo-card,
+  .photo-card img,
+  .industry-card img,
+  .blog-card img,
+  .trust-item,
+  .value,
+  .step,
+  .faq-item,
+  .home-price-item,
+  .nav-links a::after,
+  .card-link,
+  .card-link svg,
+  .btn,
+  .btn::before,
+  .btn svg {
+    transition: none !important;
+  }
+
+  .card:hover,
+  .service-card:hover,
+  .industry-card:hover,
+  .blog-card:hover,
+  .photo-card:hover,
+  .feature:hover,
+  .price-card:hover,
+  .trust-item:hover,
+  .value:hover,
+  .step:hover,
+  .home-price-item:hover {
+    transform: none !important;
+  }
+
+  .photo-card:hover img,
+  .industry-card:hover img,
+  .blog-card:hover img {
+    transform: none !important;
+  }
+}
