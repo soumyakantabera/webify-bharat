@@ -1,0 +1,101 @@
+/* Photo cards: readable overlay text on any image */
+
+.photo-card {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Full readable gradient — stronger on the lower half where copy sits */
+.photo-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 16, 14, 0.05) 0%,
+    rgba(10, 16, 14, 0.15) 35%,
+    rgba(10, 16, 14, 0.55) 62%,
+    rgba(10, 16, 14, 0.88) 100%
+  );
+}
+
+.photo-caption {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  z-index: 3;
+  color: #fff;
+  padding: 14px 16px 16px;
+  border-radius: 16px;
+  background: rgba(8, 14, 12, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.photo-caption span {
+  display: inline-flex;
+  background: var(--teal);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.photo-caption h3 {
+  font-size: clamp(18px, 4.5vw, 22px);
+  letter-spacing: -0.03em;
+  color: #fff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  line-height: 1.2;
+}
+
+.photo-caption p {
+  font-size: 13px;
+  line-height: 1.45;
+  color: #f0f4f2 !important;
+  margin: 6px 0 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  opacity: 1;
+}
+
+/* Keep caption above skeleton media layers */
+.photo-card.skeleton-media .photo-caption {
+  z-index: 4;
+}
+
+.photo-card.skeleton-media::after {
+  z-index: 1;
+}
+
+.photo-card.skeleton-media > img {
+  z-index: 0;
+}
+
+@media (max-width: 620px) {
+  .photo-card {
+    min-height: 280px;
+  }
+
+  .photo-caption {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    padding: 12px 14px 14px;
+  }
+
+  .photo-caption h3 {
+    font-size: 18px;
+  }
+
+  .photo-caption p {
+    font-size: 12.5px;
+  }
+}
