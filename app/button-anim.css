@@ -1,4 +1,4 @@
-/* Button animations — hover and press only (no floating pulse) */
+/* Button animations — hover and press only (no always-on motion) */
 
 .btn {
   position: relative;
@@ -19,38 +19,38 @@
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.02);
   background: var(--teal-dark);
   box-shadow:
-    0 14px 28px rgba(15, 118, 110, 0.28),
+    0 16px 32px rgba(15, 118, 110, 0.32),
     0 2px 0 rgba(255, 255, 255, 0.14) inset;
 }
 
 .btn-primary:active {
-  transform: translateY(0);
+  transform: translateY(0) scale(0.98);
   box-shadow: 0 6px 14px rgba(15, 118, 110, 0.2);
   transition-duration: 0.12s;
 }
 
 .btn-secondary {
-  box-shadow: none;
+  box-shadow: 0 0 0 transparent;
 }
 
 .btn-secondary:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.02);
   background: var(--mint);
   border-color: var(--teal);
   color: var(--teal-dark);
-  box-shadow: 0 10px 22px rgba(15, 118, 110, 0.1);
+  box-shadow: 0 12px 28px rgba(15, 118, 110, 0.12);
 }
 
 .btn-secondary:active {
-  transform: translateY(0);
+  transform: translateY(0) scale(0.98);
   box-shadow: none;
   transition-duration: 0.12s;
 }
 
-/* Soft shine on hover only */
+/* Soft shine sweep on primary — only on hover */
 .btn-primary::after {
   content: "";
   position: absolute;
@@ -77,6 +77,7 @@
   z-index: 1;
 }
 
+/* Icon nudge on hover */
 .btn svg {
   transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
 }
