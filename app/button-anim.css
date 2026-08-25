@@ -1,94 +1,160 @@
-/* Button animations — hover and press only (no always-on motion) */
+/*
+  Button animation exploration (interaction only — no always-on float)
+
+  1. Lift + scale + shadow  → depth on hover
+  2. Press sink             → tactile active state
+  3. Shine sweep (primary)  → light catch on hover
+  4. Fill wipe (secondary)  → mint fill from left
+  5. Icon nudge             → arrow/WhatsApp moves slightly
+  6. Focus ring pulse once  → keyboard focus only
+*/
 
 .btn {
   position: relative;
   overflow: hidden;
   isolation: isolate;
   transition:
-    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1),
-    background-color 0.22s ease,
-    border-color 0.22s ease,
-    color 0.22s ease;
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
 }
 
+/* ——— Primary (teal fill) ——— */
 .btn-primary {
   box-shadow:
     0 10px 24px rgba(15, 118, 110, 0.22),
-    0 2px 0 rgba(255, 255, 255, 0.12) inset;
+    0 1px 0 rgba(255, 255, 255, 0.14) inset;
 }
 
 .btn-primary:hover {
-  transform: translateY(-3px) scale(1.02);
+  transform: translateY(-3px) scale(1.025);
   background: var(--teal-dark);
   box-shadow:
-    0 16px 32px rgba(15, 118, 110, 0.32),
-    0 2px 0 rgba(255, 255, 255, 0.14) inset;
+    0 18px 36px rgba(15, 118, 110, 0.3),
+    0 1px 0 rgba(255, 255, 255, 0.16) inset;
 }
 
 .btn-primary:active {
-  transform: translateY(0) scale(0.98);
-  box-shadow: 0 6px 14px rgba(15, 118, 110, 0.2);
-  transition-duration: 0.12s;
+  transform: translateY(1px) scale(0.985);
+  box-shadow: 0 4px 12px rgba(15, 118, 110, 0.2);
+  transition-duration: 0.1s;
 }
 
+/* Shine sweep — only while hovering */
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.32) 48%,
+    transparent 65%
+  );
+  transform: translateX(-130%);
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.btn-primary:hover::before {
+  transform: translateX(130%);
+}
+
+/* ——— Secondary (outline) ——— */
 .btn-secondary {
-  box-shadow: 0 0 0 transparent;
+  background: #fff;
+  box-shadow: none;
+}
+
+/* Mint fill rising from bottom-left */
+.btn-secondary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--mint);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 0;
+  pointer-events: none;
 }
 
 .btn-secondary:hover {
   transform: translateY(-3px) scale(1.02);
-  background: var(--mint);
   border-color: var(--teal);
   color: var(--teal-dark);
   box-shadow: 0 12px 28px rgba(15, 118, 110, 0.12);
 }
 
+.btn-secondary:hover::before {
+  transform: scaleX(1);
+}
+
 .btn-secondary:active {
-  transform: translateY(0) scale(0.98);
+  transform: translateY(1px) scale(0.985);
   box-shadow: none;
-  transition-duration: 0.12s;
+  transition-duration: 0.1s;
 }
 
-/* Soft shine sweep on primary — only on hover */
-.btn-primary::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    105deg,
-    transparent 35%,
-    rgba(255, 255, 255, 0.28) 48%,
-    transparent 62%
-  );
-  transform: translateX(-120%);
-  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.btn-primary:hover::after {
-  transform: translateX(120%);
-}
-
+/* Keep label + icon above overlays */
 .btn-primary > *,
 .btn-secondary > * {
   position: relative;
   z-index: 1;
 }
 
-/* Icon nudge on hover */
+/* Direct text nodes sit above ::before via z-index on the flex children;
+   WhatsAppCta wraps icon + text as children so this covers it. */
+.btn {
+  z-index: 0;
+}
+
+/* ——— Icon micro-motion ——— */
 .btn svg {
-  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  flex-shrink: 0;
 }
 
 .btn:hover svg {
-  transform: translateX(2px);
+  transform: translateX(3px);
+}
+
+.btn:active svg {
+  transform: translateX(1px);
+}
+
+/* ——— Focus (keyboard) — single soft ring, not looping ——— */
+.btn:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+  box-shadow:
+    0 0 0 4px rgba(15, 118, 110, 0.15),
+    0 10px 24px rgba(15, 118, 110, 0.18);
+}
+
+/* Dark CTA band: secondary on dark background */
+.cta-band .btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.cta-band .btn-secondary::before {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.cta-band .btn-secondary:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .btn,
-  .btn-primary::after,
+  .btn::before,
   .btn svg {
     transition: none !important;
   }
@@ -98,7 +164,8 @@
     transform: none;
   }
 
-  .btn-primary::after {
+  .btn-primary::before,
+  .btn-secondary::before {
     display: none;
   }
 }
