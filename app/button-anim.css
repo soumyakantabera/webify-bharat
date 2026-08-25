@@ -1,27 +1,24 @@
 /*
-  Button animation exploration (interaction only — no always-on float)
-
-  1. Lift + scale + shadow  → depth on hover
-  2. Press sink             → tactile active state
-  3. Shine sweep (primary)  → light catch on hover
-  4. Fill wipe (secondary)  → mint fill from left
-  5. Icon nudge             → arrow/WhatsApp moves slightly
-  6. Focus ring pulse once  → keyboard focus only
+  Button micro-interactions (hover / press / focus only)
+  — lift, press, shine, fill, ripple, icon, focus ring
 */
 
 .btn {
   position: relative;
   overflow: hidden;
   isolation: isolate;
+  -webkit-tap-highlight-color: transparent;
   transition:
-    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-    background-color 0.25s ease,
-    border-color 0.25s ease,
-    color 0.25s ease;
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    letter-spacing 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    gap 0.28s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* ——— Primary (teal fill) ——— */
+/* ——— Primary ——— */
 .btn-primary {
   box-shadow:
     0 10px 24px rgba(15, 118, 110, 0.22),
@@ -29,32 +26,39 @@
 }
 
 .btn-primary:hover {
-  transform: translateY(-3px) scale(1.025);
+  transform: translateY(-3px) scale(1.03);
   background: var(--teal-dark);
+  letter-spacing: 0.01em;
+  gap: 10px;
   box-shadow:
-    0 18px 36px rgba(15, 118, 110, 0.3),
+    0 18px 36px rgba(15, 118, 110, 0.32),
+    0 0 0 4px rgba(15, 118, 110, 0.12),
     0 1px 0 rgba(255, 255, 255, 0.16) inset;
 }
 
 .btn-primary:active {
-  transform: translateY(1px) scale(0.985);
-  box-shadow: 0 4px 12px rgba(15, 118, 110, 0.2);
-  transition-duration: 0.1s;
+  transform: translateY(1px) scale(0.97);
+  letter-spacing: 0;
+  gap: 8px;
+  box-shadow:
+    0 3px 10px rgba(15, 118, 110, 0.22),
+    0 1px 0 rgba(0, 0, 0, 0.08) inset;
+  transition-duration: 0.08s;
 }
 
-/* Shine sweep — only while hovering */
+/* Shine sweep */
 .btn-primary::before {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
     110deg,
-    transparent 30%,
-    rgba(255, 255, 255, 0.32) 48%,
-    transparent 65%
+    transparent 28%,
+    rgba(255, 255, 255, 0.34) 48%,
+    transparent 68%
   );
   transform: translateX(-130%);
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
   pointer-events: none;
   z-index: 0;
 }
@@ -63,13 +67,44 @@
   transform: translateX(130%);
 }
 
-/* ——— Secondary (outline) ——— */
+/* Click ripple (primary) */
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  margin: -6px 0 0 -6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  transform: scale(0);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.btn-primary:active::after {
+  animation: btn-ripple 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes btn-ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(18);
+    opacity: 0;
+  }
+}
+
+/* ——— Secondary ——— */
 .btn-secondary {
   background: #fff;
   box-shadow: none;
 }
 
-/* Mint fill rising from bottom-left */
 .btn-secondary::before {
   content: "";
   position: absolute;
@@ -77,16 +112,20 @@
   background: var(--mint);
   transform: scaleX(0);
   transform-origin: left center;
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
   z-index: 0;
   pointer-events: none;
 }
 
 .btn-secondary:hover {
-  transform: translateY(-3px) scale(1.02);
+  transform: translateY(-3px) scale(1.025);
   border-color: var(--teal);
   color: var(--teal-dark);
-  box-shadow: 0 12px 28px rgba(15, 118, 110, 0.12);
+  letter-spacing: 0.01em;
+  gap: 10px;
+  box-shadow:
+    0 12px 28px rgba(15, 118, 110, 0.12),
+    0 0 0 3px rgba(15, 118, 110, 0.08);
 }
 
 .btn-secondary:hover::before {
@@ -94,9 +133,11 @@
 }
 
 .btn-secondary:active {
-  transform: translateY(1px) scale(0.985);
+  transform: translateY(1px) scale(0.97);
+  letter-spacing: 0;
+  gap: 8px;
   box-shadow: none;
-  transition-duration: 0.1s;
+  transition-duration: 0.08s;
 }
 
 /* Keep label + icon above overlays */
@@ -106,36 +147,49 @@
   z-index: 1;
 }
 
-/* Direct text nodes sit above ::before via z-index on the flex children;
-   WhatsAppCta wraps icon + text as children so this covers it. */
-.btn {
-  z-index: 0;
-}
-
 /* ——— Icon micro-motion ——— */
 .btn svg {
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.28s ease;
   flex-shrink: 0;
 }
 
 .btn:hover svg {
-  transform: translateX(3px);
+  transform: translateX(3px) scale(1.06);
 }
 
 .btn:active svg {
-  transform: translateX(1px);
+  transform: translateX(1px) scale(0.96);
 }
 
-/* ——— Focus (keyboard) — single soft ring, not looping ——— */
+/* WhatsApp icon: slight bounce on hover */
+.btn-primary:hover svg {
+  animation: icon-nudge 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes icon-nudge {
+  0% {
+    transform: translateX(0) scale(1);
+  }
+  40% {
+    transform: translateX(4px) scale(1.1);
+  }
+  100% {
+    transform: translateX(3px) scale(1.06);
+  }
+}
+
+/* ——— Focus (keyboard) ——— */
 .btn:focus-visible {
   outline: 2px solid var(--teal);
   outline-offset: 3px;
   box-shadow:
-    0 0 0 4px rgba(15, 118, 110, 0.15),
+    0 0 0 5px rgba(15, 118, 110, 0.16),
     0 10px 24px rgba(15, 118, 110, 0.18);
 }
 
-/* Dark CTA band: secondary on dark background */
+/* Dark CTA band secondary */
 .cta-band .btn-secondary {
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
@@ -148,23 +202,35 @@
 
 .cta-band .btn-secondary:hover {
   color: #fff;
-  border-color: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+  border-color: rgba(255, 255, 255, 0.55);
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.25),
+    0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+/* Nav CTA slightly tighter */
+.nav-cta:hover {
+  transform: translateY(-2px) scale(1.02);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .btn,
   .btn::before,
+  .btn::after,
   .btn svg {
     transition: none !important;
+    animation: none !important;
   }
 
   .btn-primary:hover,
   .btn-secondary:hover {
     transform: none;
+    letter-spacing: normal;
+    gap: 8px;
   }
 
   .btn-primary::before,
+  .btn-primary::after,
   .btn-secondary::before {
     display: none;
   }
