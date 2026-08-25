@@ -1,4 +1,4 @@
-/* Button animations — homepage CTAs and global polish */
+/* Button animations — hover and press only (no floating pulse) */
 
 .btn {
   position: relative;
@@ -10,7 +10,6 @@
     background-color 0.22s ease,
     border-color 0.22s ease,
     color 0.22s ease;
-  will-change: transform;
 }
 
 .btn-primary {
@@ -20,38 +19,38 @@
 }
 
 .btn-primary:hover {
-  transform: translateY(-3px) scale(1.02);
+  transform: translateY(-2px);
   background: var(--teal-dark);
   box-shadow:
-    0 16px 32px rgba(15, 118, 110, 0.32),
+    0 14px 28px rgba(15, 118, 110, 0.28),
     0 2px 0 rgba(255, 255, 255, 0.14) inset;
 }
 
 .btn-primary:active {
-  transform: translateY(0) scale(0.98);
+  transform: translateY(0);
   box-shadow: 0 6px 14px rgba(15, 118, 110, 0.2);
   transition-duration: 0.12s;
 }
 
 .btn-secondary {
-  box-shadow: 0 0 0 transparent;
+  box-shadow: none;
 }
 
 .btn-secondary:hover {
-  transform: translateY(-3px) scale(1.02);
+  transform: translateY(-2px);
   background: var(--mint);
   border-color: var(--teal);
   color: var(--teal-dark);
-  box-shadow: 0 12px 28px rgba(15, 118, 110, 0.12);
+  box-shadow: 0 10px 22px rgba(15, 118, 110, 0.1);
 }
 
 .btn-secondary:active {
-  transform: translateY(0) scale(0.98);
+  transform: translateY(0);
   box-shadow: none;
   transition-duration: 0.12s;
 }
 
-/* Soft shine sweep on primary */
+/* Soft shine on hover only */
 .btn-primary::after {
   content: "";
   position: absolute;
@@ -78,34 +77,6 @@
   z-index: 1;
 }
 
-/* Homepage hero + pricing + CTA emphasis */
-.hero .btn-primary,
-.home-price-actions .btn-primary,
-.cta-band .btn-primary {
-  animation: btn-glow 2.8s ease-in-out infinite;
-}
-
-@keyframes btn-glow {
-  0%,
-  100% {
-    box-shadow:
-      0 10px 24px rgba(15, 118, 110, 0.22),
-      0 0 0 0 rgba(15, 118, 110, 0);
-  }
-  50% {
-    box-shadow:
-      0 12px 28px rgba(15, 118, 110, 0.28),
-      0 0 0 6px rgba(15, 118, 110, 0.08);
-  }
-}
-
-.hero .btn-primary:hover,
-.home-price-actions .btn-primary:hover,
-.cta-band .btn-primary:hover {
-  animation: none;
-}
-
-/* WhatsApp icon nudge on hover */
 .btn svg {
   transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -119,7 +90,6 @@
   .btn-primary::after,
   .btn svg {
     transition: none !important;
-    animation: none !important;
   }
 
   .btn-primary:hover,
