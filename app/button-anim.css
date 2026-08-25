@@ -1,0 +1,133 @@
+/* Button animations — homepage CTAs and global polish */
+
+.btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.22s ease,
+    border-color 0.22s ease,
+    color 0.22s ease;
+  will-change: transform;
+}
+
+.btn-primary {
+  box-shadow:
+    0 10px 24px rgba(15, 118, 110, 0.22),
+    0 2px 0 rgba(255, 255, 255, 0.12) inset;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.02);
+  background: var(--teal-dark);
+  box-shadow:
+    0 16px 32px rgba(15, 118, 110, 0.32),
+    0 2px 0 rgba(255, 255, 255, 0.14) inset;
+}
+
+.btn-primary:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 6px 14px rgba(15, 118, 110, 0.2);
+  transition-duration: 0.12s;
+}
+
+.btn-secondary {
+  box-shadow: 0 0 0 transparent;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-3px) scale(1.02);
+  background: var(--mint);
+  border-color: var(--teal);
+  color: var(--teal-dark);
+  box-shadow: 0 12px 28px rgba(15, 118, 110, 0.12);
+}
+
+.btn-secondary:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: none;
+  transition-duration: 0.12s;
+}
+
+/* Soft shine sweep on primary */
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.28) 48%,
+    transparent 62%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.btn-primary:hover::after {
+  transform: translateX(120%);
+}
+
+.btn-primary > *,
+.btn-secondary > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Homepage hero + pricing + CTA emphasis */
+.hero .btn-primary,
+.home-price-actions .btn-primary,
+.cta-band .btn-primary {
+  animation: btn-glow 2.8s ease-in-out infinite;
+}
+
+@keyframes btn-glow {
+  0%,
+  100% {
+    box-shadow:
+      0 10px 24px rgba(15, 118, 110, 0.22),
+      0 0 0 0 rgba(15, 118, 110, 0);
+  }
+  50% {
+    box-shadow:
+      0 12px 28px rgba(15, 118, 110, 0.28),
+      0 0 0 6px rgba(15, 118, 110, 0.08);
+  }
+}
+
+.hero .btn-primary:hover,
+.home-price-actions .btn-primary:hover,
+.cta-band .btn-primary:hover {
+  animation: none;
+}
+
+/* WhatsApp icon nudge on hover */
+.btn svg {
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn:hover svg {
+  transform: translateX(2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .btn-primary::after,
+  .btn svg {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .btn-primary:hover,
+  .btn-secondary:hover {
+    transform: none;
+  }
+
+  .btn-primary::after {
+    display: none;
+  }
+}
