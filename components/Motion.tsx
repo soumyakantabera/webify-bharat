@@ -7,8 +7,6 @@ const SELECTORS = [
   ".section",
   ".section-soft",
   ".section-head",
-  ".hero-copy",
-  ".hero-visual",
   ".card",
   ".service-card",
   ".industry-card",
@@ -28,12 +26,13 @@ const SELECTORS = [
   ".real-context",
   ".about-grid",
   ".process-wrap",
-  ".page-copy",
-  ".page-hero img",
   ".key-facts > div",
   ".story-photo-card",
   ".contact-story",
   ".form",
+  ".city-card",
+  ".pricing-cards > *",
+  ".addon-grid > *",
 ].join(", ");
 
 export default function Motion() {
@@ -49,6 +48,7 @@ export default function Motion() {
         el.classList.add("reveal");
         el.classList.add("reveal-ready");
       }
+      el.classList.remove("in");
     });
 
     const io = new IntersectionObserver(
@@ -60,17 +60,10 @@ export default function Motion() {
           }
         }
       },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+      { rootMargin: "0px 0px -6% 0px", threshold: 0.06 }
     );
 
-    nodes.forEach((el) => {
-      if (!el.classList.contains("in")) io.observe(el);
-    });
-
-    // Hero is above the fold — reveal immediately
-    document.querySelectorAll(".hero-copy, .hero-visual, .page-copy, .page-hero img").forEach((el) => {
-      el.classList.add("in");
-    });
+    nodes.forEach((el) => io.observe(el));
 
     return () => io.disconnect();
   }, [pathname]);

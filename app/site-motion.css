@@ -1,4 +1,8 @@
-/* Sitewide motion system — polished, not flashy */
+/*
+  Favourable sitewide motion
+  — scroll reveal, hover polish, one-shot keyframes
+  — no infinite float on buttons
+*/
 
 :root {
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
@@ -7,27 +11,133 @@
   --motion-slow: 0.65s;
 }
 
-/* ——— Scroll reveal ——— */
+/* ——— Keyframes (one-shot / utility) ——— */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-5px);
+  }
+  40% {
+    transform: translateX(5px);
+  }
+  60% {
+    transform: translateX(-3px);
+  }
+  80% {
+    transform: translateX(3px);
+  }
+}
+
+@keyframes check-pop {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ——— Hero / page load (once) ——— */
+.hero-copy {
+  animation: fade-up 0.7s var(--ease-out) both;
+}
+
+.hero-visual {
+  animation: scale-in 0.8s var(--ease-out) 0.12s both;
+}
+
+.page-copy {
+  animation: fade-up 0.65s var(--ease-out) both;
+}
+
+.page-hero img {
+  animation: scale-in 0.75s var(--ease-out) 0.1s both;
+}
+
+.navbar {
+  animation: slide-down 0.5s var(--ease-out) both;
+}
+
+.trust {
+  animation: fade-up 0.7s var(--ease-out) 0.2s both;
+}
+
+/* ——— Scroll reveal (IO + class) ——— */
 .reveal {
   opacity: 0;
-  transform: translateY(22px);
+  transform: translateY(22px) scale(0.99);
   transition:
     opacity var(--motion-slow) var(--ease-out),
     transform var(--motion-slow) var(--ease-out);
+  will-change: opacity, transform;
 }
 
 .reveal.in {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
+  will-change: auto;
 }
 
-/* Stagger groups */
+/* Stagger grids */
 .bento .reveal:nth-child(1),
 .industry-grid .reveal:nth-child(1),
 .blog-grid .reveal:nth-child(1),
 .feature-grid .reveal:nth-child(1),
 .pricing-grid .reveal:nth-child(1),
-.photo-strip .reveal:nth-child(1) {
+.photo-strip .reveal:nth-child(1),
+.pricing-cards .reveal:nth-child(1),
+.addon-grid .reveal:nth-child(1) {
   transition-delay: 0.02s;
 }
 .bento .reveal:nth-child(2),
@@ -35,36 +145,41 @@
 .blog-grid .reveal:nth-child(2),
 .feature-grid .reveal:nth-child(2),
 .pricing-grid .reveal:nth-child(2),
-.photo-strip .reveal:nth-child(2) {
-  transition-delay: 0.08s;
+.photo-strip .reveal:nth-child(2),
+.pricing-cards .reveal:nth-child(2),
+.addon-grid .reveal:nth-child(2) {
+  transition-delay: 0.09s;
 }
 .bento .reveal:nth-child(3),
 .industry-grid .reveal:nth-child(3),
 .blog-grid .reveal:nth-child(3),
 .feature-grid .reveal:nth-child(3),
 .pricing-grid .reveal:nth-child(3),
-.photo-strip .reveal:nth-child(3) {
-  transition-delay: 0.14s;
+.photo-strip .reveal:nth-child(3),
+.pricing-cards .reveal:nth-child(3),
+.addon-grid .reveal:nth-child(3) {
+  transition-delay: 0.16s;
 }
 .bento .reveal:nth-child(4),
 .industry-grid .reveal:nth-child(4),
 .blog-grid .reveal:nth-child(4),
 .feature-grid .reveal:nth-child(4),
 .pricing-grid .reveal:nth-child(4),
-.photo-strip .reveal:nth-child(4) {
-  transition-delay: 0.2s;
+.photo-strip .reveal:nth-child(4),
+.pricing-cards .reveal:nth-child(4) {
+  transition-delay: 0.23s;
 }
 .bento .reveal:nth-child(5),
 .industry-grid .reveal:nth-child(5),
 .blog-grid .reveal:nth-child(5),
 .feature-grid .reveal:nth-child(5) {
-  transition-delay: 0.26s;
+  transition-delay: 0.3s;
 }
 .bento .reveal:nth-child(6),
 .industry-grid .reveal:nth-child(6),
 .blog-grid .reveal:nth-child(6),
 .feature-grid .reveal:nth-child(6) {
-  transition-delay: 0.32s;
+  transition-delay: 0.37s;
 }
 
 .trust-item.reveal:nth-child(1) {
@@ -80,6 +195,30 @@
   transition-delay: 0.2s;
 }
 
+.faq .reveal:nth-child(1) {
+  transition-delay: 0.04s;
+}
+.faq .reveal:nth-child(2) {
+  transition-delay: 0.1s;
+}
+.faq .reveal:nth-child(3) {
+  transition-delay: 0.16s;
+}
+.faq .reveal:nth-child(4) {
+  transition-delay: 0.22s;
+}
+
+/* ——— Native scroll-driven (progressive) ——— */
+@supports (animation-timeline: view()) {
+  .cta-band,
+  .section-head,
+  .article-block {
+    animation: fade-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+}
+
 /* ——— Cards ——— */
 .card,
 .service-card,
@@ -90,7 +229,8 @@
 .price-card,
 .pricing-card,
 .control-card,
-.key-facts > div {
+.key-facts > div,
+.city-card {
   transition:
     transform var(--motion) var(--ease-out),
     box-shadow var(--motion) var(--ease-out),
@@ -101,7 +241,8 @@
 .service-card:hover,
 .industry-card:hover,
 .blog-card:hover,
-.story-photo-card:hover {
+.story-photo-card:hover,
+.city-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 22px 48px rgba(28, 31, 29, 0.1);
   border-color: rgba(15, 118, 110, 0.22);
@@ -126,7 +267,7 @@
   box-shadow: 0 16px 36px rgba(28, 31, 29, 0.08);
 }
 
-/* ——— Photo cards ——— */
+/* ——— Photo / media ——— */
 .photo-card {
   transition: transform var(--motion) var(--ease-out), box-shadow var(--motion) var(--ease-out);
 }
@@ -147,16 +288,23 @@
 .industry-card img,
 .blog-card img,
 .story-photo-card img,
-.cta-photo img,
-.about-photo img,
-.real-context-photo img {
+.city-card img {
   transition: transform 0.5s var(--ease-out);
 }
 
 .industry-card:hover img,
 .blog-card:hover img,
-.story-photo-card:hover img {
+.story-photo-card:hover img,
+.city-card:hover img {
   transform: scale(1.04);
+}
+
+.hero-visual img {
+  transition: transform 0.7s var(--ease-out);
+}
+
+.hero-visual:hover img {
+  transform: scale(1.02);
 }
 
 /* ——— Nav ——— */
@@ -194,7 +342,10 @@
 }
 
 .mobile-drawer a {
-  transition: background var(--motion-fast) ease, color var(--motion-fast) ease, padding-left var(--motion-fast) ease;
+  transition:
+    background var(--motion-fast) ease,
+    color var(--motion-fast) ease,
+    padding-left var(--motion-fast) ease;
 }
 
 .mobile-drawer a:hover {
@@ -214,7 +365,7 @@
   transform: scale(0.96);
 }
 
-/* ——— Trust pills & values ——— */
+/* ——— Trust / values ——— */
 .trust-item,
 .value {
   transition:
@@ -239,7 +390,7 @@
   background: #d5efe9;
 }
 
-/* ——— Steps / process ——— */
+/* ——— Process steps ——— */
 .step {
   transition: transform var(--motion) var(--ease-out);
 }
@@ -300,7 +451,15 @@
   transform: rotate(180deg);
 }
 
-/* ——— Footer links ——— */
+.faq-item p {
+  animation: fade-up 0.35s var(--ease-out) both;
+}
+
+.faq-item:not([open]) p {
+  animation: none;
+}
+
+/* ——— Footer ——— */
 .footer a {
   transition: color var(--motion-fast) ease, transform var(--motion-fast) var(--ease-out);
 }
@@ -313,7 +472,7 @@
   transform: translateX(3px);
 }
 
-/* ——— Card link arrow ——— */
+/* ——— Card CTA arrow ——— */
 .card-link {
   transition: gap 0.25s var(--ease-out), color 0.25s ease;
 }
@@ -336,7 +495,8 @@
 }
 
 .industry-card:hover .badge,
-.blog-card:hover .badge {
+.blog-card:hover .badge,
+.city-card:hover .badge {
   transform: translateY(-1px);
 }
 
@@ -349,7 +509,7 @@
   transform: scale(1.25);
 }
 
-/* ——— Home pricing band ——— */
+/* ——— Home pricing ——— */
 .home-price-item {
   transition:
     transform var(--motion) var(--ease-out),
@@ -364,14 +524,14 @@
 
 /* ——— CTA band ——— */
 .cta-band {
-  transition: box-shadow var(--motion) var(--ease-out);
+  transition: box-shadow var(--motion) var(--ease-out), transform var(--motion) var(--ease-out);
 }
 
 .cta-band:hover {
   box-shadow: 0 28px 60px rgba(28, 31, 29, 0.18);
 }
 
-/* ——— Form inputs ——— */
+/* ——— Forms ——— */
 .input {
   transition:
     border-color var(--motion-fast) ease,
@@ -384,7 +544,17 @@
   box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.12);
 }
 
-/* ——— Logo subtle ——— */
+.input.is-error,
+.form .input:invalid:not(:placeholder-shown):not(:focus) {
+  border-color: #d64545;
+  animation: shake 0.4s var(--ease-out);
+}
+
+.form-success {
+  animation: check-pop 0.45s var(--ease-out) both;
+}
+
+/* ——— Logo ——— */
 .logo .brand-mark {
   transition: transform 0.35s var(--ease-out);
 }
@@ -393,8 +563,42 @@
   transform: scale(1.04);
 }
 
+/* ——— Feature icon tiles ——— */
+.feature .icon {
+  transition: transform 0.3s var(--ease-out), background 0.25s ease;
+}
+
+.feature:hover .icon {
+  transform: scale(1.08) rotate(-3deg);
+  background: #d5efe9;
+}
+
+/* ——— Pricing popular card ——— */
+.price-card.popular,
+.pricing-card.popular {
+  transition: transform var(--motion) var(--ease-out), box-shadow var(--motion) var(--ease-out);
+}
+
+.price-card.popular:hover,
+.pricing-card.popular:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 50px rgba(15, 118, 110, 0.16);
+}
+
 /* ——— Reduced motion ——— */
 @media (prefers-reduced-motion: reduce) {
+  .hero-copy,
+  .hero-visual,
+  .page-copy,
+  .page-hero img,
+  .navbar,
+  .trust,
+  .faq-item p,
+  .form-success,
+  .input.is-error {
+    animation: none !important;
+  }
+
   .reveal {
     opacity: 1 !important;
     transform: none !important;
@@ -406,6 +610,7 @@
   .industry-card,
   .blog-card,
   .story-photo-card,
+  .city-card,
   .feature,
   .price-card,
   .pricing-card,
@@ -414,6 +619,7 @@
   .photo-card img,
   .industry-card img,
   .blog-card img,
+  .city-card img,
   .trust-item,
   .value,
   .step,
@@ -422,6 +628,7 @@
   .nav-links a::after,
   .card-link,
   .card-link svg,
+  .feature .icon,
   .btn,
   .btn::before,
   .btn svg {
@@ -432,19 +639,33 @@
   .service-card:hover,
   .industry-card:hover,
   .blog-card:hover,
+  .city-card:hover,
   .photo-card:hover,
   .feature:hover,
   .price-card:hover,
+  .pricing-card:hover,
   .trust-item:hover,
   .value:hover,
   .step:hover,
-  .home-price-item:hover {
+  .home-price-item:hover,
+  .price-card.popular:hover,
+  .pricing-card.popular:hover {
     transform: none !important;
   }
 
   .photo-card:hover img,
   .industry-card:hover img,
-  .blog-card:hover img {
+  .blog-card:hover img,
+  .city-card:hover img,
+  .hero-visual:hover img {
     transform: none !important;
+  }
+
+  @supports (animation-timeline: view()) {
+    .cta-band,
+    .section-head,
+    .article-block {
+      animation: none !important;
+    }
   }
 }
