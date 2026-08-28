@@ -1,7 +1,6 @@
 /*
-  Button micro-interactions
-  Overlays stay BEHIND label text so copy never disappears.
-  Hover polish only on real hover devices (avoids sticky mobile hover).
+  Sitewide button rules — labels always visible.
+  Overlays sit behind copy. Hover only on real pointers.
 */
 
 .btn {
@@ -24,11 +23,40 @@
   z-index: -1;
 }
 
-.btn svg {
+.btn svg,
+.btn .btn-label {
   position: relative;
   z-index: 1;
+}
+
+.btn svg {
   flex-shrink: 0;
   transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-label {
+  display: inline;
+}
+
+/* Force readable label colors on every button */
+.btn-primary,
+.btn-primary .btn-label {
+  color: #fff;
+}
+
+.btn-secondary,
+.btn-secondary .btn-label {
+  color: var(--teal);
+}
+
+.cta-band .btn-secondary,
+.cta-band .btn-secondary .btn-label {
+  color: #fff;
+}
+
+.footer-wa,
+.footer-wa .btn-label {
+  color: #fff !important;
 }
 
 /* ——— Primary ——— */
@@ -90,13 +118,13 @@
 /* ——— Secondary: no covering fill ——— */
 .btn-secondary {
   background: #fff;
-  color: var(--teal);
   border-color: rgba(15, 118, 110, 0.35);
   box-shadow: none;
 }
 
 .btn-secondary::before {
-  content: none;
+  content: none !important;
+  display: none !important;
 }
 
 .btn-secondary:active {
@@ -104,7 +132,6 @@
   transition-duration: 0.08s;
 }
 
-/* Real hover only — phones won't keep a stuck mint overlay */
 @media (hover: hover) and (pointer: fine) {
   .btn-primary:hover {
     transform: translateY(-2px);
@@ -126,8 +153,12 @@
     transform: translateY(-2px);
     background: var(--mint);
     border-color: var(--teal);
-    color: var(--teal-dark);
     box-shadow: 0 10px 22px rgba(15, 118, 110, 0.1);
+  }
+
+  .btn-secondary:hover,
+  .btn-secondary:hover .btn-label {
+    color: var(--teal-dark);
   }
 
   .btn-secondary:hover svg {
@@ -136,6 +167,13 @@
 
   .nav-cta:hover {
     transform: translateY(-2px);
+  }
+
+  .cta-band .btn-secondary:hover,
+  .cta-band .btn-secondary:hover .btn-label {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.5);
   }
 }
 
@@ -146,16 +184,7 @@
 
 .cta-band .btn-secondary {
   background: rgba(255, 255, 255, 0.1);
-  color: #fff;
   border-color: rgba(255, 255, 255, 0.28);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .cta-band .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.18);
-    color: #fff;
-    border-color: rgba(255, 255, 255, 0.5);
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

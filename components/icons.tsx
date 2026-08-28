@@ -71,7 +71,7 @@ export function WhatsAppCta({
   return (
     <a className={className} href={href} target="_blank" rel="noopener noreferrer">
       <IconWhatsApp />
-      {children}
+      <span className="btn-label">{children}</span>
     </a>
   );
 }
