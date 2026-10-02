@@ -561,9 +561,10 @@
 }
 .pair-orb strong {
   font-family: var(--font-display);
-  font-size: 28px;
+  font-size: 24px;
   letter-spacing: -0.04em;
   line-height: 1;
+  white-space: nowrap;
 }
 .pair-orb span {
   margin-top: 6px;

@@ -196,7 +196,7 @@ export default function PricingPage() {
               <Link href="/pricing/small">See Small</Link>
             </article>
             <div className="pair-orb">
-              <strong>₹5,000</strong>
+              <strong>+₹5,000</strong>
               <span>buys a shop, not more rows</span>
             </div>
             <article className="pair-card pair-shop">
