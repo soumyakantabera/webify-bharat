@@ -26,9 +26,9 @@ export default function Footer() {
               <br />
               {BUSINESS.address}
               <br />
-              GSTIN: {BUSINESS.gstin || "To be added"}
+              GSTIN: {BUSINESS.gstin}
               <br />
-              Call fallback: {BUSINESS.phone || "To be added"}
+              Call fallback: {BUSINESS.phone}
               <br />
               <a href={`mailto:${BUSINESS.email}`}>{BUSINESS.email}</a>
             </p>

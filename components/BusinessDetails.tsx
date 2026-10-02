@@ -1,16 +1,16 @@
 import { BUSINESS } from "@/lib/site";
 
-const pending = "To be added";
-
 const rows = [
   ["Legal name", BUSINESS.legalName],
   ["Constitution", BUSINESS.constitution],
   ["Registered address", BUSINESS.address],
-  ["GSTIN", BUSINESS.gstin || pending],
-  ["Udyam", BUSINESS.udyam || pending],
-  ["Call fallback", BUSINESS.phone || pending],
+  ["GSTIN", BUSINESS.gstin],
+  ["Udyam", BUSINESS.udyam],
+  ["Call fallback", BUSINESS.phone],
   ["Email", BUSINESS.email],
 ] as const;
+
+const skeleton = new Set(["xxxx", "....", "..."]);
 
 export function BusinessDetails() {
   return (
@@ -18,7 +18,7 @@ export function BusinessDetails() {
       {rows.map(([label, value]) => (
         <div
           key={label}
-          className={[value === pending ? "is-pending" : "", label === "Registered address" ? "biz-wide" : ""]
+          className={[skeleton.has(value) ? "is-pending" : "", label === "Registered address" ? "biz-wide" : ""]
             .filter(Boolean)
             .join(" ")}
         >

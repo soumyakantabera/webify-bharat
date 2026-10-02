@@ -12,9 +12,9 @@ export const BUSINESS = {
   legalName: "Webify Bharat India",
   constitution: "Sole proprietorship",
   address: "108, Shri Krishna Nagar, Kolkata 700 056, India",
-  gstin: "",
-  udyam: "",
-  phone: "+91 83360 97642",
+  gstin: "xxxx",
+  udyam: "....",
+  phone: "...",
   email: SITE.email,
 } as const;
 

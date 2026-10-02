@@ -65,7 +65,7 @@ export default function ContactPage() {
               </div>
               <h2>Who you are writing to.</h2>
             </div>
-            <p>The name, address, and call fallback are on record. GSTIN and Udyam go in the empty rows.</p>
+            <p>Name and address are filled in. GSTIN, Udyam, and the call fallback are still the skeleton.</p>
           </div>
           <BusinessDetails />
         </div>
