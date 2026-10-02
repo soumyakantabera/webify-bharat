@@ -2,6 +2,7 @@ export const ecommerceAddons = [
   {
     name: "Small",
     price: "₹999",
+    managed: "₹1,999",
     tag: "One page",
     desc: "You add the products and prices. They scroll one list and pay with a link.",
     bestFor: "Choose Small if you manage the list and it fits on one page.",
@@ -19,6 +20,7 @@ export const ecommerceAddons = [
   {
     name: "Medium",
     price: "₹2,999",
+    managed: "₹4,999",
     tag: "A shop",
     desc: "You load the catalogue. They browse categories, see a pincode before they pay, and you see today’s orders.",
     bestFor: "Choose Medium if you manage the shop and staff currently hunt the product in chat.",
@@ -36,6 +38,7 @@ export const ecommerceAddons = [
   {
     name: "Expanding",
     price: "₹6,999",
+    managed: "₹9,999",
     tag: "Dealer shelf",
     desc: "More than one product line, plus one path for a dealer. Not a second shop.",
     bestFor: "Several lines · one dealer enquiry · still one outlet",

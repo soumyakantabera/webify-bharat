@@ -7,6 +7,7 @@ export type Offer = {
   kind: OfferKind;
   name: string;
   price: string;
+  managed?: string;
   bestFor: string;
   desc: string;
   headline: string;
@@ -39,7 +40,8 @@ export const addonMatrix: { label: string; cells: Record<string, CompareCell> }[
   { label: "After they pay", cells: { small: "WhatsApp only", medium: "Today’s order list", expanding: "List + GST invoice" } },
   { label: "Delivery promise", cells: { small: "Typed in chat", medium: "Pincode before pay", expanding: "Pincode before pay" } },
   { label: "Dealer enquiry", cells: { small: "no", medium: "no", expanding: "yes" } },
-  { label: "Price, incl. GST", cells: { small: "\u20b9999", medium: "\u20b92,999", expanding: "\u20b96,999" } },
+  { label: "You manage the products", cells: { small: "\u20b9999", medium: "\u20b92,999", expanding: "\u20b96,999" } },
+  { label: "We manage, from", cells: { small: "\u20b91,999", medium: "\u20b94,999", expanding: "\u20b99,999" } },
 ];
 
 export const offers: Offer[] = [
@@ -144,6 +146,7 @@ export const offers: Offer[] = [
     kind: "addon",
     name: "Small",
     price: "\u20b9999",
+    managed: "\u20b91,999",
     bestFor: "Choose this if the whole catalogue fits on one page",
     desc: "They scroll, pay with a link, and the order is a WhatsApp message.",
     headline: "One page.",
@@ -176,6 +179,7 @@ export const offers: Offer[] = [
     kind: "addon",
     name: "Medium",
     price: "\u20b92,999",
+    managed: "\u20b94,999",
     bestFor: "Choose this if customers must browse before they buy",
     desc: "Categories, a pincode before payment, and today’s orders on one screen.",
     headline: "A shop.",
@@ -208,6 +212,7 @@ export const offers: Offer[] = [
     kind: "addon",
     name: "Expanding",
     price: "\u20b96,999",
+    managed: "\u20b99,999",
     bestFor: "Several product lines \u00b7 one dealer enquiry \u00b7 still one outlet",
     desc: "More than one line, and a path for the dealer.",
     headline: "The dealer shelf.",

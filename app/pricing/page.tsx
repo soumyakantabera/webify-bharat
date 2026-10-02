@@ -191,6 +191,7 @@ export default function PricingPage() {
                 </div>
                 <strong>₹999</strong>
               </header>
+              <p className="price-managed">We manage from ₹1,999</p>
               <ul>
                 <li><span className="tile tile-green"><ScrollText size={18} /></span>They scroll one list</li>
                 <li><span className="tile tile-green"><MessageCircle size={18} /></span>The order is a WhatsApp message</li>
@@ -213,6 +214,7 @@ export default function PricingPage() {
                 </div>
                 <strong>₹2,999</strong>
               </header>
+              <p className="price-managed">We manage from ₹4,999</p>
               <ul>
                 <li><span className="tile tile-mango"><Store size={18} /></span>They open a category</li>
                 <li><span className="tile tile-mango"><ClipboardList size={18} /></span>Today’s orders on one screen</li>
@@ -250,8 +252,9 @@ export default function PricingPage() {
                     <p className="price-desc">{addon.desc}</p>
                     <div className="price">
                       {addon.price}
-                      <small>incl. GST</small>
+                      <small>you manage · incl. GST</small>
                     </div>
+                    <p className="price-managed">We manage from {addon.managed}</p>
                     <p className="price-fence">{fences[addon.name]}</p>
                   </div>
                   <ul className="list">

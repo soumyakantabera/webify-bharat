@@ -72,8 +72,9 @@ export default async function OfferPage({
           <p className="muted-copy">{offer.lead}</p>
           <div className="offer-price">
             {offer.price}
-            <small>incl. GST</small>
+            <small>{offer.managed ? "you manage · incl. GST" : "incl. GST"}</small>
           </div>
+          {offer.managed ? <p className="price-managed">We manage the products from {offer.managed}, incl. GST.</p> : null}
           <p className="price-best-for">{offer.bestFor}</p>
           {offer.kind === "package" ? (
             <div className="gift-band">
