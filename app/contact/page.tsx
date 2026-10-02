@@ -11,6 +11,7 @@ import { PageLead } from "@/components/PageIcons";
 import { FaqSection } from "@/components/FaqSection";
 import { getFaq } from "@/lib/faqs";
 import { WhatsAppCta } from "@/components/icons";
+import { BusinessDetails } from "@/components/BusinessDetails";
 import { WA_CHAT } from "@/lib/site";
 
 export default function ContactPage() {
@@ -53,6 +54,20 @@ export default function ContactPage() {
               </WhatsAppCta>
             </div>
           </div>
+        </div>
+      </section>
+      <section className="section section-soft">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <div className="eyebrow">
+                <span className="dot" /> The business
+              </div>
+              <h2>Who you are writing to.</h2>
+            </div>
+            <p>The name and address are on record. GSTIN, Udyam, and a call number go in the empty rows.</p>
+          </div>
+          <BusinessDetails />
         </div>
       </section>
       <ArticleBlock article={contactArticle} />

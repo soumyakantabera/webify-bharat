@@ -5,6 +5,17 @@ export const SITE = {
     "Webify Bharat builds websites, WhatsApp and UPI checkout Indian shops own. The card price includes 18% GST. Organic enquiries after that have no per-lead fee. GST, Udyam and IEC filings are a separate line.",
   whatsapp: "918336097642",
   whatsappDisplay: "8336097642",
+  email: "webifybharat@gmail.com",
+} as const;
+
+export const BUSINESS = {
+  legalName: "Webify Bharat India",
+  constitution: "Sole proprietorship",
+  address: "108, Shri Krishna Nagar, Kolkata 700 056, India",
+  gstin: "",
+  udyam: "",
+  phone: "",
+  email: SITE.email,
 } as const;
 
 export function waLink(text: string) {

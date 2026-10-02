@@ -960,9 +960,49 @@ textarea.input {
   gap: 5px;
   width: fit-content;
 }
-.footer-legal a.privacy-link {
-  display: inline-flex;
+.footer .footer-biz a {
+  display: inline;
   margin: 0;
+}
+.biz {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  max-width: 52rem;
+}
+.biz > div {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 14px 16px;
+}
+.biz-wide {
+  grid-column: 1 / -1;
+}
+.biz dt {
+  margin: 0 0 4px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.biz dd {
+  margin: 0;
+  font-weight: 750;
+  line-height: 1.45;
+}
+.biz .is-pending dd {
+  color: var(--muted);
+  font-weight: 650;
+}
+.biz a {
+  color: var(--teal);
+}
+@media (max-width: 700px) {
+  .biz {
+    grid-template-columns: 1fr;
+  }
 }
 .legal-doc {
   max-width: 42rem;

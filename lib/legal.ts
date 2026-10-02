@@ -1,3 +1,5 @@
+import { BUSINESS } from "@/lib/site";
+
 export type LegalSection = { heading: string; body: string[] };
 
 export const legalUpdated = "2 October 2026";
@@ -6,7 +8,7 @@ export const terms: LegalSection[] = [
   {
     heading: "Who you are dealing with",
     body: [
-      "These terms are between you and Webify Bharat India. This website is fully managed and developed by Webify Bharat India, and solely owned by Webify Bharat India.",
+      `These terms are between you and ${BUSINESS.legalName}, a sole proprietorship at ${BUSINESS.address}. This website is fully managed and developed by ${BUSINESS.legalName}, and solely owned by ${BUSINESS.legalName}. Write to ${BUSINESS.email}.`,
       "A package, an addon, or a filing on this site is the work described on that page. It is not a promise of enquiries, rankings, or sales.",
     ],
   },

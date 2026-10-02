@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ShieldCheck } from "lucide-react";
 import { BrandLogo } from "@/components/BrandLogo";
 import { WhatsAppCta } from "@/components/icons";
-import { SITE, WA_CHAT } from "@/lib/site";
+import { BUSINESS, SITE, WA_CHAT } from "@/lib/site";
 
 export default function Footer() {
   return (
@@ -20,6 +20,13 @@ export default function Footer() {
             </p>
             <p>
               <a href={`https://wa.me/${SITE.whatsapp}`}>+91 83360 97642</a>
+            </p>
+            <p className="footer-biz">
+              {BUSINESS.legalName}, {BUSINESS.constitution.toLowerCase()}
+              <br />
+              {BUSINESS.address}
+              <br />
+              <a href={`mailto:${BUSINESS.email}`}>{BUSINESS.email}</a>
             </p>
             <WhatsAppCta href={WA_CHAT} className="btn btn-primary footer-wa">
               Chat on WhatsApp
