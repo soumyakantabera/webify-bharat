@@ -1,132 +1,159 @@
-/* Site tiles use the whole palette, not teal alone. */
+/* Temporary palette. Core brand stays teal / papaya / gold / ink.
+   These extras are for tiles only and can be pulled later. */
+:root {
+  --saffron: #f5a524;
+  --indigo: #3a3f92;
+  --rose: #e15b6a;
+  --mango: #ff8a1e;
+  --leaf: #1aa37a;
+  --sky: #3b82c4;
+}
 
 .claim-facts > div:nth-child(4n + 1) {
-  background: #fff4ee;
-  border: 1px solid #ffd4c2;
+  background: #ffe8df;
+  border: 1px solid #ffc2a8;
 }
 .claim-facts > div:nth-child(4n + 2) {
-  background: #fff8e4;
-  border: 1px solid #f3e0a4;
+  background: #fff1c9;
+  border: 1px solid #f5d27a;
 }
 .claim-facts > div:nth-child(4n + 3) {
-  background: #e7f6f2;
-  border: 1px solid #c5e6de;
+  background: #d9f6ee;
+  border: 1px solid #8ed9c4;
 }
 .claim-facts > div:nth-child(4n + 4) {
-  background: #f7f4ef;
-  border: 1px solid #e4ddd2;
+  background: #e4e7fb;
+  border: 1px solid #b7bdef;
 }
 .claim-facts > div:nth-child(4n + 1) .trust-icon {
-  background: #ffe0d2;
-  color: #c24e1f;
+  background: var(--mango);
+  color: #fff;
 }
 .claim-facts > div:nth-child(4n + 2) .trust-icon {
-  background: #ffe9a8;
-  color: #8a6410;
+  background: var(--saffron);
+  color: #1c1f1d;
 }
 .claim-facts > div:nth-child(4n + 3) .trust-icon {
-  background: #d7f0ea;
-  color: var(--teal-dark);
+  background: var(--leaf);
+  color: #fff;
 }
 .claim-facts > div:nth-child(4n + 4) .trust-icon {
-  background: var(--ink);
-  color: var(--gold);
+  background: var(--indigo);
+  color: #fff;
+}
+.claim-zero {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(245, 165, 36, 0.45), transparent 42%),
+    radial-gradient(circle at 0% 100%, rgba(225, 91, 106, 0.35), transparent 40%),
+    var(--ink);
 }
 .claim-zero strong {
-  color: var(--gold);
+  color: var(--saffron);
 }
 
-.trust-item:nth-child(4n + 1) .trust-icon {
-  background: #ffe0d2;
-  color: #c24e1f;
+.trust-item:nth-child(4n + 1) {
+  background: #fff1ea;
+  border-color: #ffc2a8;
 }
-.trust-item:nth-child(4n + 2) .trust-icon {
-  background: #ffe9a8;
-  color: #8a6410;
+.trust-item:nth-child(4n + 2) {
+  background: #fff8e0;
+  border-color: #f5d27a;
 }
-.trust-item:nth-child(4n + 3) .trust-icon {
-  background: #d7f0ea;
-  color: var(--teal-dark);
+.trust-item:nth-child(4n + 3) {
+  background: #e7f8f3;
+  border-color: #8ed9c4;
 }
-.trust-item:nth-child(4n + 4) .trust-icon {
-  background: var(--ink);
-  color: var(--gold);
+.trust-item:nth-child(4n + 4) {
+  background: #eef0fb;
+  border-color: #c5c9f2;
 }
+.trust-item:nth-child(4n + 1) .trust-icon { background: var(--rose); color: #fff; }
+.trust-item:nth-child(4n + 2) .trust-icon { background: var(--saffron); color: #1c1f1d; }
+.trust-item:nth-child(4n + 3) .trust-icon { background: var(--leaf); color: #fff; }
+.trust-item:nth-child(4n + 4) .trust-icon { background: var(--sky); color: #fff; }
 
+.pricing-grid .price-card {
+  border-top: 6px solid var(--mango);
+}
 .pricing-grid .price-card:nth-child(3n + 1) {
-  background: linear-gradient(180deg, #fff 62%, #fff4ee);
+  background: linear-gradient(180deg, #fff4ec 0%, #fff 42%);
+  border-top-color: var(--mango);
 }
 .pricing-grid .price-card:nth-child(3n + 1) .price-icon {
-  background: #ffe0d2;
-  color: #c24e1f;
+  background: var(--mango);
+  color: #fff;
 }
 .pricing-grid .price-card:nth-child(3n + 2) {
-  background: linear-gradient(180deg, #fff 62%, #eef8f5);
+  background: linear-gradient(180deg, #e7f8f3 0%, #fff 42%);
+  border-top-color: var(--leaf);
+}
+.pricing-grid .price-card:nth-child(3n + 2) .price-icon {
+  background: var(--leaf);
+  color: #fff;
 }
 .pricing-grid .price-card:nth-child(3n) {
-  background: linear-gradient(180deg, #fff 62%, #fff8e4);
+  background: linear-gradient(180deg, #eceefe 0%, #fff 42%);
+  border-top-color: var(--indigo);
 }
 .pricing-grid .price-card:nth-child(3n) .price-icon {
-  background: #ffe9a8;
-  color: #8a6410;
+  background: var(--indigo);
+  color: #fff;
 }
-.pricing-grid .price-card:nth-child(3n + 1):hover {
-  border-color: rgba(255, 122, 69, 0.45);
+.pricing-grid .price-card.popular {
+  border-color: var(--leaf);
+  border-top-color: var(--leaf);
 }
-.pricing-grid .price-card:nth-child(3n):hover {
-  border-color: rgba(224, 161, 6, 0.7);
-}
+.pricing-grid .price-card:nth-child(3n + 1):hover { border-color: var(--mango); }
+.pricing-grid .price-card:nth-child(3n):hover { border-color: var(--indigo); }
 
-.feature:nth-child(3n + 1) {
-  background: #fff8f5;
-}
-.feature:nth-child(3n + 1) .icon {
-  background: #ffe0d2;
-  color: #c24e1f;
-}
-.feature:nth-child(3n + 2) {
-  background: #fffdf6;
-}
-.feature:nth-child(3n + 2) .icon {
-  background: #ffe9a8;
-  color: #8a6410;
-}
-.feature:nth-child(3n) .icon {
-  background: var(--ink);
-  color: var(--gold);
-}
+.feature:nth-child(3n + 1) { background: #fff1ea; border-color: #ffc2a8; }
+.feature:nth-child(3n + 1) .icon { background: var(--rose); color: #fff; }
+.feature:nth-child(3n + 2) { background: #fff6dc; border-color: #f5d27a; }
+.feature:nth-child(3n + 2) .icon { background: var(--saffron); color: #1c1f1d; }
+.feature:nth-child(3n) { background: #e8f6ff; border-color: #b9d9f2; }
+.feature:nth-child(3n) .icon { background: var(--sky); color: #fff; }
 
-.service-card:nth-child(3n + 1) {
-  box-shadow: inset 4px 0 0 var(--papaya);
-}
-.service-card:nth-child(3n + 2) {
-  box-shadow: inset 4px 0 0 var(--teal);
-}
-.service-card:nth-child(3n) {
-  box-shadow: inset 4px 0 0 var(--gold);
-}
-.industry-card:nth-child(3n + 1) {
-  box-shadow: inset 0 4px 0 var(--papaya);
-}
-.industry-card:nth-child(3n + 2) {
-  box-shadow: inset 0 4px 0 var(--teal);
-}
-.industry-card:nth-child(3n) {
-  box-shadow: inset 0 4px 0 var(--gold);
+.service-card:nth-child(6n + 1) { box-shadow: inset 5px 0 0 var(--mango); }
+.service-card:nth-child(6n + 2) { box-shadow: inset 5px 0 0 var(--leaf); }
+.service-card:nth-child(6n + 3) { box-shadow: inset 5px 0 0 var(--indigo); }
+.service-card:nth-child(6n + 4) { box-shadow: inset 5px 0 0 var(--rose); }
+.service-card:nth-child(6n + 5) { box-shadow: inset 5px 0 0 var(--saffron); }
+.service-card:nth-child(6n) { box-shadow: inset 5px 0 0 var(--sky); }
+
+.industry-card:nth-child(6n + 1) { box-shadow: inset 0 5px 0 var(--mango); }
+.industry-card:nth-child(6n + 2) { box-shadow: inset 0 5px 0 var(--leaf); }
+.industry-card:nth-child(6n + 3) { box-shadow: inset 0 5px 0 var(--indigo); }
+.industry-card:nth-child(6n + 4) { box-shadow: inset 0 5px 0 var(--rose); }
+.industry-card:nth-child(6n + 5) { box-shadow: inset 0 5px 0 var(--saffron); }
+.industry-card:nth-child(6n) { box-shadow: inset 0 5px 0 var(--sky); }
+
+.step:nth-child(3) .step-num { background: var(--indigo); }
+.step:nth-child(4) .step-num { background: var(--rose); }
+.step:nth-child(1) .step-num { background: var(--leaf); }
+.step:nth-child(2) .step-num { background: var(--mango); }
+
+.offer-switch a:nth-child(3n + 1) { background: #fff1ea; border-color: #ffc2a8; }
+.offer-switch a:nth-child(3n + 2) { background: #fff6dc; border-color: #f5d27a; }
+.offer-switch a:nth-child(3n) { background: #e8f4ff; border-color: #b9d9f2; }
+.offer-switch a.is-on {
+  background: var(--indigo);
+  color: #fff;
+  border-color: var(--indigo);
 }
 
 .control-card.rent {
-  background: linear-gradient(165deg, #fff, #fff3ec);
-  border-color: #ffd4c2;
+  background: linear-gradient(165deg, #fff6f2, #ffe1d4);
+  border-color: #ffb89a;
 }
-.control-card.rent .control-kicker {
-  color: #c24e1f;
-}
+.control-card.rent .control-kicker { color: var(--rose); }
 .control-card.own {
   background:
-    radial-gradient(circle at 100% 0%, rgba(242, 199, 68, 0.28), transparent 36%),
+    radial-gradient(circle at 100% 0%, rgba(245, 165, 36, 0.5), transparent 36%),
+    radial-gradient(circle at 0% 100%, rgba(59, 130, 196, 0.35), transparent 42%),
     var(--ink);
 }
-.control-card.own .control-kicker {
-  color: var(--gold);
-}
+.control-card.own .control-kicker { color: var(--saffron); }
+
+.badge { background: #ffe1d2; color: #c2410c; }
+.badge-hot { background: var(--rose); color: #fff; }
+.price-card.popular .badge { background: var(--leaf); color: #fff; }
