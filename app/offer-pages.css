@@ -356,6 +356,21 @@
   font-weight: 650;
   line-height: 1.4;
 }
+.price-card-filing .price-card-top {
+  flex: 1;
+  min-height: 0;
+}
+@media (min-width: 901px) {
+  .filings-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  .filings-grid .price-card:nth-child(-n + 3) {
+    grid-column: span 2;
+  }
+  .filings-grid .price-card:nth-child(n + 4) {
+    grid-column: span 3;
+  }
+}
 .staged-note {
   margin: 8px 0 0;
   font-size: 12px;

@@ -21,6 +21,7 @@ import { FaqSection } from "@/components/FaqSection";
 import { getFaq } from "@/lib/faqs";
 import { WhatsAppCta } from "@/components/icons";
 import { ecommerceAddons } from "@/lib/ecommerce-addons";
+import { registrationChat, registrations } from "@/lib/registrations";
 import { plans, WA_PACKAGES } from "@/lib/site";
 
 const planIcons: Record<string, LucideIcon> = {
@@ -68,9 +69,10 @@ export default function PricingPage() {
             <span>Build as you grow.</span>
           </h1>
           <p className="muted-copy">
-            All package and addon prices below include 18% GST. Final scope still depends on
-            your workflow and integrations — the number on the card is the tax-inclusive
-            starting fee, not a surprise invoice later.
+            The number on a shop card is the invoice. 18% GST is already inside it, for the
+            fence written under the price. A bigger site is a new number, agreed before you
+            pay. Filings are further down. Their government fee is a second number, never
+            folded in.
           </p>
         </div>
       </section>
@@ -233,6 +235,67 @@ export default function PricingPage() {
             fees and Meta/WhatsApp conversation charges stay outside these build fees — we
             list them on the <Link href="/registrations/charges">additional charges</Link> page. E-commerce addons sit on top of a Launch, Growth or
             Command foundation — not instead of a site.
+          </p>
+        </div>
+      </section>
+
+      <section className="section pricing-section" id="filings">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <div className="eyebrow">
+                <span className="dot" /> Filings
+              </div>
+              <h2>
+                Paper, priced apart
+                <br />
+                <span>from the website.</span>
+              </h2>
+            </div>
+            <p>
+              Not a ₹499 mill. Documents checked, one clean refile of the same facts
+              included. India has no general VAT for a normal shop. VAT here is the UK
+              and the EU only.
+            </p>
+          </div>
+          <div className="pricing-grid filings-grid">
+            {registrations.map((item) => (
+              <article className="price-card price-card-filing" key={item.slug}>
+                <div className="price-card-top">
+                  <p className="price-best-for">Filed on {item.portal}</p>
+                  <h2>
+                    <Link href={`/registrations/${item.slug}`}>{item.name}</Link>
+                  </h2>
+                  <p className="price-desc">{item.forWhom}</p>
+                  <div className="reg-prices">
+                    <div>
+                      <span>Our fee</span>
+                      <strong>{item.ourFee}</strong>
+                      <small>incl. GST</small>
+                    </div>
+                    <div>
+                      <span>Government</span>
+                      <strong>{item.govFee}</strong>
+                      <small>separate</small>
+                    </div>
+                  </div>
+                </div>
+                <div className="price-card-cta">
+                  <Link className="btn btn-secondary price-cta" href={`/registrations/${item.slug}`}>
+                    What you need
+                  </Link>
+                  <WhatsAppCta href={registrationChat(item)} className="btn btn-primary price-cta">
+                    Start filing
+                  </WhatsAppCta>
+                </div>
+              </article>
+            ))}
+          </div>
+          <p className="pricing-footnote">
+            Hosting, the domain, gateway MDR, a digital signature, and the EU
+            intermediary are on the{" "}
+            <Link href="/registrations/charges">additional charges</Link> page. They are
+            not inside these fees.
           </p>
         </div>
       </section>
