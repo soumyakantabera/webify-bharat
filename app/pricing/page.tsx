@@ -41,9 +41,9 @@ const fences: Record<string, string> = {
   Launch: "Up to 5 pages · 1 language · 2 revision rounds · 2–4 weeks if your content is in. Not category leads.",
   Growth: "Launch, plus a gateway on your account · up to 4 WhatsApp flows · 3–5 weeks. KYC can add time.",
   Command: "Growth, plus up to 3 connections · one Monday view · 4–6 weeks. Not an open rebuild.",
-  Small: "About 50 products · sits on Launch or Growth · 2 revision rounds. Not a second gateway invoice.",
-  Medium: "About 200 products · includes Small. Do not buy both.",
-  Expanding: "Multi-category catalogue and one dealer enquiry path · includes Medium. Not a second outlet.",
+  Small: "About 50 products · one flat list · payment link, not a gateway.",
+  Medium: "About 200 products in categories · pincode zones · includes Small.",
+  Expanding: "Several lines and one dealer path · includes Medium · not a second outlet.",
 };
 
 const planSlugs: Record<string, string> = {
@@ -227,16 +227,16 @@ export default function PricingPage() {
 
           <div className="stack-grid">
             <article>
-              <strong>₹18,998</strong>
-              <span>Launch + Small. Five-page site and about 50 products. Both prices include GST.</span>
+              <strong>₹14,998</strong>
+              <span>Launch + Small. The site, plus a flat list of about 50 products.</span>
             </article>
             <article>
-              <strong>₹38,998</strong>
-              <span>Growth + Medium. Medium includes Small. Do not buy both. The gateway is the Growth account, not a second invoice.</span>
+              <strong>₹29,998</strong>
+              <span>Growth + Medium. Categories and a daily order list. Medium includes Small.</span>
             </article>
             <article>
-              <strong>₹54,998</strong>
-              <span>Growth + Expanding. Expanding includes Medium. One dealer enquiry path. Not a second outlet.</span>
+              <strong>₹39,998</strong>
+              <span>Growth + Expanding. Adds the dealer path. Expanding includes Medium.</span>
             </article>
           </div>
           <p className="pricing-footnote">
