@@ -28,20 +28,27 @@
 /* ---------- staggered prints: big one top-right, two smaller ones overlapping it ---------- */
 .hero-shot-frame {
   display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  grid-template-areas:
+    "shot-c shot-a"
+    "shot-b shot-slip";
+  gap: 10px;
   width: 100%;
   max-width: 100%;
-  aspect-ratio: 5 / 4;
-  max-height: min(640px, 76vh);
+  aspect-ratio: auto;
+  max-height: none;
+  align-items: stretch;
 }
 .hero-shot-collage {
-  position: absolute;
-  inset: 0;
+  display: contents;
 }
 .page-hero .hero-shot-collage img,
 .hero-shot-collage img {
-  position: absolute;
+  position: relative;
   display: block;
   box-sizing: border-box;
+  width: 100%;
+  height: 100%;
   max-width: none;
   max-height: none;
   aspect-ratio: auto;
@@ -54,38 +61,26 @@
   box-shadow: 0 10px 22px rgba(28, 31, 29, 0.16);
   animation: shot-in 0.7s var(--ease-out) both;
 }
-/* A: the lead photo */
 .page-hero .hero-shot-collage img.hero-shot-photo-a,
 .hero-shot-collage img.hero-shot-photo-a {
-  z-index: 2;
-  top: 0;
-  right: 0;
-  width: 84%;
-  height: 68%;
+  grid-area: shot-a;
+  z-index: 1;
+  min-height: 190px;
   object-position: center 40%;
-  border-width: 0;
-  border-radius: 18px;
-  box-shadow: 0 12px 24px rgba(28, 31, 29, 0.18);
 }
-/* B: small print, white border, overlaps A's lower-left corner */
 .page-hero .hero-shot-collage img.hero-shot-photo-b,
 .hero-shot-collage img.hero-shot-photo-b {
-  z-index: 3;
-  left: 1%;
-  top: 36%;
-  width: 46%;
-  height: 48%;
+  grid-area: shot-b;
+  z-index: 1;
+  min-height: 210px;
   object-position: center 40%;
   animation: shot-from-left 0.75s var(--ease-out) 0.15s both;
 }
-/* C: peeks out from behind A, top-left */
 .page-hero .hero-shot-collage img.hero-shot-photo-c,
 .hero-shot-collage img.hero-shot-photo-c {
+  grid-area: shot-c;
   z-index: 1;
-  left: 0;
-  top: 5%;
-  width: 46%;
-  height: 34%;
+  min-height: 190px;
   object-position: center 40%;
   animation: shot-from-top 0.75s var(--ease-out) 0.3s both;
 }
@@ -94,8 +89,8 @@
 .hero-shot-badge {
   position: absolute;
   z-index: 6;
-  top: -22px;
-  right: 14px;
+  top: 8px;
+  right: 8px;
   width: 78px;
   height: 78px;
   animation: shot-pop 0.6s var(--ease-out) 0.35s both;
@@ -134,11 +129,11 @@
 /* ---------- the slip ---------- */
 .hero-shot-card {
   position: relative;
-  z-index: 5; /* always above the photos, whatever Motion.tsx does to images */
-  grid-area: 1 / 1;
-  align-self: end;
-  justify-self: end;
-  width: 58%;
+  z-index: 2;
+  grid-area: shot-slip;
+  align-self: stretch;
+  justify-self: stretch;
+  width: 100%;
   min-width: 0;
   margin: 0;
   animation: shot-card 0.75s var(--ease-out) 0.2s both;
@@ -316,6 +311,13 @@
 
 @media (max-width: 800px) {
   .hero-shot { order: -1; width: 100%; max-width: 100%; margin: 0; padding: 16px 0 4px; }
+  .hero-shot-frame {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "shot-c shot-a"
+      "shot-b shot-b"
+      "shot-slip shot-slip";
+  }
   .hero-shot-badge { width: 68px; height: 68px; }
   .hero-shot-disc strong { font-size: 18px; }
 }
