@@ -3,7 +3,7 @@ import Link from "next/link";
 import { pageMetadata } from "@/lib/page-seo";
 import { notFound } from "next/navigation";
 import Layout from "@/components/Layout";
-import { ComparisonChart, FamilyChart } from "@/components/ComparisonChart";
+import { RivalBoard } from "@/components/RivalBoard";
 import { SeoChunk } from "@/components/SeoChunk";
 import { ArticleBlock } from "@/components/ArticleBlock";
 import { serviceArticles } from "@/lib/seo-copy";
@@ -11,19 +11,10 @@ import { PageLead } from "@/components/PageIcons";
 import { FaqSection } from "@/components/FaqSection";
 import { getFaq } from "@/lib/faqs";
 import { CheckItem, WhatsAppCta } from "@/components/icons";
-import { getServiceCompare, serviceMatrix } from "@/lib/service-compare";
+import { getServiceCompare } from "@/lib/service-compare";
 import { getService, serviceFeatures, services, WA_CHAT, WA_SERVICES } from "@/lib/site";
 
 const BASE = "https://webify-bharat.vercel.app";
-
-const serviceScores: Record<string, Record<string, number>> = {
-  websites: { Ownership: 92, "Leak closed": 80, "Package fit": 70 },
-  ecommerce: { Ownership: 88, "Leak closed": 84, "Package fit": 60 },
-  payments: { Ownership: 86, "Leak closed": 90, "Package fit": 78 },
-  whatsapp: { Ownership: 94, "Leak closed": 82, "Package fit": 75 },
-  analytics: { Ownership: 74, "Leak closed": 70, "Package fit": 85 },
-  compliance: { Ownership: 72, "Leak closed": 76, "Package fit": 68 },
-};
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -47,17 +38,6 @@ export default async function ServicePage({
   const service = getService(slug);
   const compare = getServiceCompare(slug);
   if (!service || !compare) notFound();
-  const metricNames = Object.keys(serviceScores[service.slug] ?? {});
-  const metrics = metricNames.map((label) => ({
-    label,
-    points: services.map((item) => ({
-      name: item.title.split("&")[0].trim(),
-      href: `/services/${item.slug}`,
-      value: serviceScores[item.slug]?.[label] ?? 0,
-      note: item.description,
-      current: item.slug === service.slug,
-    })),
-  }));
 
   const serviceLd = {
     "@context": "https://schema.org",
@@ -103,19 +83,16 @@ export default async function ServicePage({
         <div className="container">
           <div className="section-head">
             <div>
-              <div className="eyebrow"><span className="dot" /> Comparison</div>
-              <h2>{compare.rentLabel} <span>vs this service.</span></h2>
+              <div className="eyebrow"><span className="dot" /> Against their stages</div>
+              <h2>How the other options get more expensive. <span>Why this does not.</span></h2>
             </div>
-            <p>Hover a row to pin the note. Toggle a series off. Click another service to open its chart.</p>
+            <p>Not a chart of our own services against each other. Their product ladder — free, then a pack, then ads — versus work that stays on your side.</p>
           </div>
-          <div className="offer-viz">
-            <ComparisonChart title="Where the customer goes" rentLabel={compare.rentLabel} ownLabel={service.title.split("&")[0].trim()} rows={compare.bars} />
-            <FamilyChart title="All six services" metrics={metrics} />
-          </div>
+          <RivalBoard slug={service.slug} />
           <div className="control-grid" style={{ marginTop: 18 }}>
             <article className="control-card rent">
               <p className="control-kicker">{compare.rentLabel}</p>
-              <h3>Rent on people who already wanted you.</h3>
+              <h3>What you keep paying them for.</h3>
               <ul>{compare.vs.map((row) => <li key={row.they}>{row.they}</li>)}</ul>
             </article>
             <article className="control-card own">
@@ -124,39 +101,6 @@ export default async function ServicePage({
               <ul>{compare.vs.map((row) => <li key={row.you}>{row.you}</li>)}</ul>
             </article>
           </div>
-        </div>
-      </section>
-
-      <section className="section section-soft">
-        <div className="container">
-          <div className="section-head">
-            <div>
-              <div className="eyebrow"><span className="dot" /> All six services</div>
-              <h2>Same stack. <span>{service.title} is highlighted.</span></h2>
-            </div>
-          </div>
-          <table className="offer-matrix">
-            <thead>
-              <tr>
-                <th> </th>
-                {services.map((item) => (
-                  <th key={item.slug} className={item.slug === service.slug ? "is-current" : undefined}>
-                    <Link href={`/services/${item.slug}`}>{item.title.split("&")[0].trim()}</Link>
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {serviceMatrix.map((row) => (
-                <tr key={row.label}>
-                  <td>{row.label}</td>
-                  {services.map((item) => (
-                    <td key={item.slug} className={item.slug === service.slug ? "is-current" : undefined}>{row.cells[item.slug]}</td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
         </div>
       </section>
 

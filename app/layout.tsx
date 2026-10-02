@@ -14,6 +14,8 @@ import "./photo-caption.css";
 import "./claim-panel.css";
 import "./offer-pages.css";
 import "./pro-chart.css";
+import "./rival-board.css";
+import "./color-tiles.css";
 import { jetbrains, manrope, sora } from "./fonts";
 
 export const viewport: Viewport = {
