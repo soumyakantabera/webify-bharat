@@ -37,3 +37,23 @@
     height: 180px;
   }
 }
+
+.city-search {
+  display: grid;
+  gap: 8px;
+  max-width: 420px;
+  margin: 0 0 28px;
+  font-weight: 750;
+}
+.city-search input {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 14px;
+  padding: 12px 14px;
+  font: inherit;
+  box-shadow: 0 10px 24px rgba(28, 31, 29, 0.06);
+}
+.city-region { margin-bottom: 48px; }
+.city-region > h3 { margin: 0 0 16px; }
+.city-region .content h3 { margin-top: 12px; }

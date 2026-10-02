@@ -189,3 +189,25 @@
 .badge { background: #ffe1d2; color: #c2410c; }
 .badge-hot { background: var(--rose); color: #fff; }
 .price-card.popular .badge { background: var(--leaf); color: #fff; }
+
+/* Paper tiles. Color stays on the icon. One soft shadow, no side bars. */
+.claim-facts > div,
+.trust-item,
+.feature,
+.control-card.rent,
+.offer-switch a,
+.pricing-grid .price-card,
+.pricing-grid .price-card:nth-child(3n + 1),
+.pricing-grid .price-card:nth-child(3n + 2),
+.pricing-grid .price-card:nth-child(3n),
+.pricing-grid .price-card:hover {
+  background: #fff;
+  border-color: var(--line);
+  box-shadow: 0 14px 32px rgba(28, 31, 29, 0.08);
+}
+.service-card,
+.service-card:hover,
+.industry-card,
+.bento:has(.service-card) .service-card {
+  box-shadow: 0 14px 32px rgba(28, 31, 29, 0.08);
+}

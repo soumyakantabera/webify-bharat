@@ -100,21 +100,21 @@ export function ProcessVisual() {
         <strong>Our process</strong>
         <span>Simple. Transparent. Effective.</span>
       </div>
-      <ol className="process-visual-steps">
+      <div className="process-visual-steps">
         {steps.map((step) => {
           const Icon = step.icon;
           return (
-            <li key={step.title} className={`pv-step pv-${step.tone}`}>
+            <div key={step.title} className={`pv-step pv-${step.tone}`}>
               <span className="pv-num">{step.n}</span>
               <div className="pv-icon">
                 <Icon />
               </div>
               <h3>{step.title}</h3>
               <p>{step.copy}</p>
-            </li>
+            </div>
           );
         })}
-      </ol>
+      </div>
     </div>
   );
 }

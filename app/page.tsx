@@ -5,8 +5,6 @@ export const metadata: Metadata = pageMetadata("home");
 import Link from "next/link";
 import Layout from "@/components/Layout";
 import { SeoChunk } from "@/components/SeoChunk";
-import { ArticleBlock } from "@/components/ArticleBlock";
-import { entityDefine, homeArticle, searchResearchArticle } from "@/lib/seo-copy";
 import { PageLead } from "@/components/PageIcons";
 import { ProcessVisual } from "@/components/ProcessVisual";
 import { FaqSection } from "@/components/FaqSection";
@@ -74,7 +72,7 @@ export default function Home() {
           </div>
           <div className="hero-visual">
             <img
-              src="/images/hero/digital-growth-dashboard.png"
+              src="/images/hero/digital-growth-dashboard.webp"
               alt="Webify Bharat digital operations dashboard"
               width={960}
               height={720}
@@ -413,45 +411,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section">
-        <div className="container about-grid">
-          <div className="about-photo">
-            <img
-              src="/images/real/business-owner.webp"
-              alt="Indian small business owner using Webify Bharat digital systems"
-              width={800}
-              height={600}
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <div>
-            <div className="eyebrow">
-              <span className="dot" /> Why Webify Bharat
-            </div>
-            <h2 className="display-h2">
-              Full control of the
-              <br />
-              <span>customer relationship.</span>
-            </h2>
-            <p className="muted-copy">
-              We put the website, WhatsApp, payments and records in your name — so the
-              next enquiry does not cost a lead fee, and the next order does not pay an
-              aggregator tax.
-            </p>
-            <div className="values">
-              <CheckItem>You own the site, number and list</CheckItem>
-              <CheckItem>₹0 extra per organic lead</CheckItem>
-              <CheckItem>No marketplace commission on owned orders</CheckItem>
-              <CheckItem>One partner, one system</CheckItem>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <ArticleBlock article={entityDefine} define />
-      <ArticleBlock article={homeArticle} />
-      <ArticleBlock article={searchResearchArticle} />
 
       <FaqSection block={getFaq("home")} />
 

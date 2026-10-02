@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Layout from "@/components/Layout";
 import { SeoChunk } from "@/components/SeoChunk";
 import { PageLead } from "@/components/PageIcons";
 import { WhatsAppCta } from "@/components/icons";
 import { cities } from "@/lib/cities";
+import { CityBrowser } from "@/components/CityBrowser";
 import { WA_CHAT } from "@/lib/site";
 import { citiesIndexSeo } from "@/lib/page-seo-cities";
 
@@ -22,8 +22,6 @@ export const metadata: Metadata = {
     siteName: "Webify Bharat",
   },
 };
-
-const regions = ["North", "South", "East", "West", "Central", "Northeast", "UT"] as const;
 
 export default function CitiesPage() {
   return (
@@ -63,37 +61,16 @@ export default function CitiesPage() {
             </p>
           </div>
 
-          {regions.map((region) => {
-            const list = cities.filter((c) => c.region === region);
-            if (!list.length) return null;
-            return (
-              <div key={region} style={{ marginBottom: 48 }}>
-                <h3 style={{ marginBottom: 16 }}>{region}</h3>
-                <div className="industry-grid">
-                  {list.map((city) => (
-                    <Link
-                      key={city.slug}
-                      href={`/cities/${city.slug}`}
-                      className="industry-card real-photo city-card"
-                    >
-                      <img
-                        src={`/images/real/${city.photo}`}
-                        alt={`${city.name} business digital systems`}
-                        width={640}
-                        height={400}
-                        loading="lazy"
-                      />
-                      <div className="content">
-                        <span className="badge">{city.state}</span>
-                        <h3 style={{ marginTop: 12 }}>{city.name}</h3>
-                        <p>{city.headline}</p>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            );
-          })}
+          <CityBrowser
+            cities={cities.map((city) => ({
+              slug: city.slug,
+              name: city.name,
+              state: city.state,
+              region: city.region,
+              photo: city.photo,
+              headline: city.headline,
+            }))}
+          />
         </div>
       </section>
 
