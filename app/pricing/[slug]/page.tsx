@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Layout from "@/components/Layout";
+import { ComparisonChart, FamilyChart } from "@/components/ComparisonChart";
 import { PageLead } from "@/components/PageIcons";
 import { CheckItem, WhatsAppCta } from "@/components/icons";
 import {
@@ -15,6 +16,15 @@ import {
 import { waLink } from "@/lib/site";
 
 const BASE = "https://webify-bharat.vercel.app";
+
+const familyScores: Record<string, Record<string, number>> = {
+  launch: { Fit: 55, Payments: 15, Automation: 35, Support: 40 },
+  growth: { Fit: 88, Payments: 90, Automation: 85, Support: 72 },
+  command: { Fit: 100, Payments: 100, Automation: 95, Support: 100 },
+  small: { Fit: 60, Catalogue: 50, Ops: 30, Dealers: 8 },
+  medium: { Fit: 86, Catalogue: 80, Ops: 75, Dealers: 20 },
+  expanding: { Fit: 100, Catalogue: 100, Ops: 95, Dealers: 90 },
+};
 
 export function generateStaticParams() {
   return offers.map((o) => ({ slug: o.slug }));
@@ -55,6 +65,17 @@ export default async function OfferPage({
   const family = offerFamily(offer.kind);
   const matrix = offer.kind === "package" ? packageMatrix : addonMatrix;
   const chat = waLink(`Hi, I want the ${offer.name} ${offer.kind} (${offer.price} incl. GST)`);
+  const metricNames = Object.keys(familyScores[offer.slug] ?? {});
+  const metrics = metricNames.map((label) => ({
+    label,
+    points: family.map((item) => ({
+      name: item.name,
+      href: `/pricing/${item.slug}`,
+      value: familyScores[item.slug]?.[label] ?? 0,
+      note: item.bestFor,
+      current: item.slug === offer.slug,
+    })),
+  }));
   const ld = {
     "@context": "https://schema.org",
     "@type": "Offer",
@@ -111,36 +132,11 @@ export default async function OfferPage({
                 {offer.rentLabel} <span>vs {offer.name}.</span>
               </h2>
             </div>
-            <p>Longer bar is the leak. Teal is what you keep. Same story as the rest of the site: own the relationship, stop renting it.</p>
+            <p>Hover a row to pin the note. Toggle papaya or teal to hide a series. Click a sibling bar to open that page.</p>
           </div>
           <div className="offer-viz">
-            <article className="offer-meter">
-              <h3>Where the money and the customer go</h3>
-              {offer.bars.map((bar, i) => (
-                <div className="meter-row" key={bar.label}>
-                  <div className="meter-label">
-                    <span>{bar.label}</span>
-                  </div>
-                  <div className="meter-track">
-                    <div className="meter-fill rent" style={{ width: `${bar.rent}%`, animationDelay: `${i * 0.12}s` }} />
-                    <div className="meter-fill own" style={{ width: `${bar.own}%`, animationDelay: `${0.08 + i * 0.12}s` }} />
-                  </div>
-                  <div className="meter-notes">
-                    <span>{bar.rentNote}</span>
-                    <span>{bar.ownNote}</span>
-                  </div>
-                </div>
-              ))}
-            </article>
-            <article className="control-card own">
-              <p className="control-kicker">{offer.ownLabel}</p>
-              <h3>You keep the relationship.</h3>
-              <ul>
-                {offer.vs.map((row) => (
-                  <li key={row.you}>{row.you}</li>
-                ))}
-              </ul>
-            </article>
+            <ComparisonChart title="Where the money and the customer go" rentLabel={offer.rentLabel} ownLabel={offer.name} rows={offer.bars} />
+            <FamilyChart title="Compare the family" metrics={metrics} />
           </div>
           <div className="control-grid" style={{ marginTop: 18 }}>
             <article className="control-card rent">
@@ -153,11 +149,11 @@ export default async function OfferPage({
               </ul>
             </article>
             <article className="control-card own">
-              <p className="control-kicker">Included</p>
+              <p className="control-kicker">{offer.ownLabel}</p>
               <h3>{offer.desc}</h3>
               <ul>
-                {offer.features.map((feature) => (
-                  <li key={feature}>{feature}</li>
+                {offer.vs.map((row) => (
+                  <li key={row.you}>{row.you}</li>
                 ))}
               </ul>
             </article>
@@ -241,20 +237,11 @@ export default async function OfferPage({
           <div className="cta-band">
             <div>
               <h2>Start with {offer.name}.</h2>
-              <p>
-                {offer.price} incl. GST to build. Not a fee on the next organic customer.
-              </p>
+              <p>{offer.price} incl. GST to build. Not a fee on the next organic customer.</p>
               <WhatsAppCta href={chat}>Chat about {offer.name}</WhatsAppCta>
             </div>
             <div className="image-wrap cta-real-photo">
-              <img
-                src="/images/real/growth-success.webp"
-                alt="Indian business owner after setting up an owned website and UPI"
-                width={640}
-                height={400}
-                loading="lazy"
-                decoding="async"
-              />
+              <img src="/images/real/growth-success.webp" alt="Indian business owner after setting up an owned website and UPI" width={640} height={400} loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
