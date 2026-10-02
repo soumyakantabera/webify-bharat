@@ -175,27 +175,34 @@ export default function PricingPage() {
             </p>
           </div>
 
-          <div className="fork" aria-label="Small compared with Medium">
-            <div className="fork-row fork-head">
-              <span />
-              <span>Small · ₹4,999</span>
-              <span>Medium · ₹9,999</span>
+          <div className="split" aria-label="Small compared with Medium">
+            <article className="split-card split-small">
+              <p className="split-kicker">Small</p>
+              <p className="split-title">A page.</p>
+              <p className="split-price">₹4,999 <small>incl. GST</small></p>
+              <ul>
+                <li><span>Find</span> They scroll one list</li>
+                <li><span>Pay</span> A UPI link</li>
+                <li><span>Then</span> A WhatsApp message</li>
+                <li><span>Delivery</span> You answer in chat</li>
+              </ul>
+            </article>
+            <div className="split-gap" aria-hidden="true">
+              <span>₹5,000 more</span>
             </div>
-            {[
-              ["What you are buying", "One page of products", "A shop people browse"],
-              ["Finding an item", "They scroll", "They open a category"],
-              ["Payment", "A UPI link", "A gateway, if Growth is underneath"],
-              ["After they pay", "A WhatsApp message", "A row on today’s order list"],
-              ["Delivery", "You answer in chat", "The pincode is shown before they pay"],
-            ].map((row) => (
-              <div className="fork-row" key={row[0]}>
-                {row.map((cell) => (
-                  <span key={cell}>{cell}</span>
-                ))}
-              </div>
-            ))}
+            <article className="split-card split-medium">
+              <p className="split-kicker">Medium</p>
+              <p className="split-title">A shop.</p>
+              <p className="split-price">₹9,999 <small>incl. GST</small></p>
+              <ul>
+                <li><span>Find</span> They open a category</li>
+                <li><span>Pay</span> A gateway, with Growth</li>
+                <li><span>Then</span> Today’s order list</li>
+                <li><span>Delivery</span> Pincode before they pay</li>
+              </ul>
+            </article>
           </div>
-          <p className="pricing-footnote fork-note">
+          <p className="split-more">
             Expanding is Medium plus one dealer enquiry. It is not a bigger Small.
           </p>
 
