@@ -113,10 +113,10 @@ export default async function OfferPage({
             kind="pricing"
             kicker={offer.name}
             figure={offer.price}
-            note="incl. 18% GST"
+            note="The number on the card is the invoice."
             points={[
               offer.bestFor,
-              "18% GST is inside our fee.",
+              "No fee on an organic enquiry.",
               offer.kind === "package"
                 ? "The filings on this card ride in the price."
                 : "This sits on top of a website package.",

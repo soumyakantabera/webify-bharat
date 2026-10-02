@@ -23,7 +23,7 @@ const SHOTS: Record<string, Shot> = {
     alt: "An owner checking a single price card",
     kicker: "Packages start at",
     figure: "₹9,999",
-    note: "incl. 18% GST",
+    note: "One invoice for the whole card",
     points: ["Launch includes GST and Udyam", "Growth adds IEC", "A portal fee stays in your name"],
     footer: "No per-lead fee after delivery",
   },
@@ -103,7 +103,7 @@ const SHOTS: Record<string, Shot> = {
 
 const BADGES: Record<string, { badge: string; sub: string }> = {
   services: { badge: "₹0", sub: "EXTRA" },
-  pricing: { badge: "18%", sub: "GST" },
+  pricing: { badge: "ONE", sub: "BILL" },
   registrations: { badge: "₹0", sub: "IN" },
   charges: { badge: "2", sub: "BILLS" },
   cities: { badge: "IN", sub: "CITY" },
