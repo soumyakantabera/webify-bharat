@@ -165,6 +165,7 @@ export const plans = [
     desc: "Get a professional digital foundation.",
     features: [
       "Business website",
+      "GST and Udyam filings, our fee included",
       "Basic analytics",
       "WhatsApp setup",
       "Core SEO foundation",
@@ -178,6 +179,7 @@ export const plans = [
     desc: "Connect sales, payments and automation.",
     features: [
       "Everything in Launch",
+      "IEC filing, our fee included",
       "Payment gateway",
       "WhatsApp automation",
       "Analytics dashboard",
@@ -191,6 +193,7 @@ export const plans = [
     desc: "A connected operating system for growth.",
     features: [
       "Everything in Growth",
+      "UK VAT and EU IOSS coordination included",
       "Advanced BI dashboard",
       "Custom integrations",
       "Operational automation",

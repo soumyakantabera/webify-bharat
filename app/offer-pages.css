@@ -371,6 +371,47 @@
     grid-column: span 3;
   }
 }
+.filing-pack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+.filing-chip {
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.2;
+  box-shadow: 0 8px 16px rgba(28, 31, 29, 0.06);
+}
+.filing-chip b {
+  margin-left: 6px;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.chip-gst { background: #e5f6ee; color: #0d6b45; }
+.chip-udyam { background: #fff1e4; color: #9a3412; }
+.chip-iec { background: #ecebff; color: #3a3f92; }
+.chip-uk-vat { background: #e7f1fb; color: #1d4e89; }
+.chip-eu-vat { background: #fde8ec; color: #9f3040; }
+.fee-was {
+  text-decoration: line-through;
+  color: #8a938f;
+}
+.fee-in { background: #e7f7ef !important; }
+.fee-in strong { color: #0d6b45; }
+.gift-band {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: #16182a;
+  color: #fff;
+  max-width: 640px;
+}
+.gift-band p { margin: 6px 0 0; color: #d9d6ea; font-size: 14px; }
+.gift-band strong { color: #fff; }
 .staged-note {
   margin: 8px 0 0;
   font-size: 12px;

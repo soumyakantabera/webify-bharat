@@ -56,7 +56,15 @@ export default async function RegistrationPage({
               <small>not inside our fee</small>
             </div>
           </div>
-          <p className="price-best-for">{item.govNote}</p>
+          <div className="gift-band">
+            <strong>Our fee is ₹0 with {item.ridesWith}.</strong>
+            <p>
+              {item.ourFee} is only if you want the filing and no website.{" "}
+              {item.govFee === "₹0"
+                ? "The portal does not charge either."
+                : `The government line stays ${item.govFee}, paid to them, not marked up.`}
+            </p>
+          </div>
           <div className="offer-actions">
             <WhatsAppCta href={registrationChat(item)}>Start {item.name}</WhatsAppCta>
             <Link className="btn btn-secondary" href="/registrations/charges">Additional charges</Link>

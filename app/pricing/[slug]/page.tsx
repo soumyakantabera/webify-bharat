@@ -6,6 +6,7 @@ import { RivalBoard } from "@/components/RivalBoard";
 import { PageLead } from "@/components/PageIcons";
 import { CheckItem, WhatsAppCta } from "@/components/icons";
 import { getOffer, offerFamily, offers } from "@/lib/offers";
+import { filingsIn } from "@/lib/registrations";
 import { waLink } from "@/lib/site";
 
 const BASE = "https://webify-bharat.vercel.app";
@@ -71,6 +72,28 @@ export default async function OfferPage({
             <small>incl. GST</small>
           </div>
           <p className="price-best-for">{offer.bestFor}</p>
+          {offer.kind === "package" ? (
+            <div className="gift-band">
+              <strong>
+                {offer.name === "Launch" && "GST and Udyam ride in this price."}
+                {offer.name === "Growth" && "GST, Udyam, and IEC ride in this price."}
+                {offer.name === "Command" && "Every filing we sell rides in this price."}
+              </strong>
+              <p>
+                Our fee is ₹0. You do not get a second invoice for the paperwork.
+                {offer.name !== "Launch" ? " IEC still pays ₹500 to DGFT, in your name." : ""}
+                {offer.name === "Command" ? " An EU intermediary, if the shop needs one, is still their bill." : ""}
+              </p>
+              <div className="filing-pack">
+                {filingsIn(offer.name as "Launch" | "Growth" | "Command").map((item) => (
+                  <span className={`filing-chip chip-${item.slug}`} key={item.slug}>
+                    {item.name.replace(" registration", "").replace(" (import export code)", "").replace(" coordination", "")}
+                    <b>in</b>
+                  </span>
+                ))}
+              </div>
+            </div>
+          ) : null}
           <div className="offer-actions">
             <WhatsAppCta href={chat}>Choose {offer.name}</WhatsAppCta>
             <Link className="btn btn-secondary" href="/pricing">All packages</Link>

@@ -21,7 +21,7 @@ import { FaqSection } from "@/components/FaqSection";
 import { getFaq } from "@/lib/faqs";
 import { WhatsAppCta } from "@/components/icons";
 import { ecommerceAddons } from "@/lib/ecommerce-addons";
-import { registrationChat, registrations } from "@/lib/registrations";
+import { filingsIn, registrationChat, registrations } from "@/lib/registrations";
 import { plans, WA_PACKAGES } from "@/lib/site";
 
 const planIcons: Record<string, LucideIcon> = {
@@ -91,9 +91,10 @@ export default function PricingPage() {
               </h2>
             </div>
             <p>
-              Launch, Growth and Command cover the site, WhatsApp and payments stack.
-              Prices start from ₹9,999 incl. GST. Add e-commerce below when you need a
-              catalogue you own.
+              The paperwork rides with the package. Launch carries GST and Udyam. Growth
+              adds IEC. Command carries every filing we sell, including UK VAT and EU
+              IOSS. Our fee is inside the card. A government receipt, if there is one,
+              stays in your name.
             </p>
           </div>
 
@@ -126,6 +127,14 @@ export default function PricingPage() {
                       <small>incl. GST</small>
                     </div>
                     <p className="price-fence">{fences[plan.name]}</p>
+                    <div className="filing-pack" aria-label={`Filings included with ${plan.name}`}>
+                      {filingsIn(plan.name as "Launch" | "Growth" | "Command").map((item) => (
+                        <span className={`filing-chip chip-${item.slug}`} key={item.slug}>
+                          {item.name.replace(" registration", "").replace(" (import export code)", "").replace(" coordination", "")}
+                          <b>in</b>
+                        </span>
+                      ))}
+                    </div>
                   </div>
                   <ul className="list">
                     {plan.features.map((feature) => (
@@ -247,15 +256,15 @@ export default function PricingPage() {
                 <span className="dot" /> Filings
               </div>
               <h2>
-                Paper, priced apart
+                Buy the filing alone,
                 <br />
-                <span>from the website.</span>
+                <span>or let the package carry it.</span>
               </h2>
             </div>
             <p>
-              Not a ₹499 mill. Documents checked, one clean refile of the same facts
-              included. India has no general VAT for a normal shop. VAT here is the UK
-              and the EU only.
+              Same desk either way. Take a package and our filing fee drops to zero.
+              The portal still gets its own receipt. IEC is ₹500 to DGFT. The EU
+              intermediary, if you need one, is still their invoice.
             </p>
           </div>
           <div className="pricing-grid filings-grid">
@@ -269,14 +278,14 @@ export default function PricingPage() {
                   <p className="price-desc">{item.forWhom}</p>
                   <div className="reg-prices">
                     <div>
-                      <span>Our fee</span>
-                      <strong>{item.ourFee}</strong>
-                      <small>incl. GST</small>
+                      <span>Alone</span>
+                      <strong className="fee-was">{item.ourFee}</strong>
+                      <small>our fee, if you skip the site</small>
                     </div>
-                    <div>
-                      <span>Government</span>
-                      <strong>{item.govFee}</strong>
-                      <small>separate</small>
+                    <div className="fee-in">
+                      <span>With {item.ridesWith}</span>
+                      <strong>₹0</strong>
+                      <small>our fee is in that package</small>
                     </div>
                   </div>
                 </div>

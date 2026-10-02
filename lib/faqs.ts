@@ -486,7 +486,7 @@ export const faqsByPage: Record<string, FaqBlock> = {
       },
       {
         q: "Is GST extra?",
-        a: "No. Every card price on this site is the invoice. 18% GST is already inside it. A government fee, such as ₹500 for a new IEC, is a different line and is never marked up.",
+        a: "No. Every shop card is the invoice, 18% GST inside. Launch includes our GST and Udyam filing fees. Growth adds IEC. Command adds UK VAT and EU IOSS coordination. A portal receipt, such as ₹500 for a new IEC, is still paid to the department in your name.",
       },
       {
         q: "Do you take equity, revenue share or ‘growth retainers’ forever?",

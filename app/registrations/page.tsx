@@ -26,10 +26,9 @@ export default function RegistrationsPage() {
             <span>Not a ₹499 mill.</span>
           </h1>
           <p className="muted-copy">
-            Documents checked, one clean refile of the same facts included, and the
-            government fee shown on its own line. We are not the department. India has
-            no general VAT registration for a normal shop — GST replaced it. VAT here
-            means the UK and the EU only.
+            Take Launch and our GST and Udyam fees are already in it. Growth adds IEC.
+            Command takes the lot, UK and EU included. Buying a filing on its own is the
+            price below. The department’s receipt, if any, is never our markup.
           </p>
           <div className="offer-actions">
             <WhatsAppCta href={chat}>Ask which filing you need</WhatsAppCta>
@@ -51,7 +50,7 @@ export default function RegistrationsPage() {
           </div>
           <div className="pricing-grid">
             {registrations.slice(0, 3).map((item) => (
-              <RegCard key={item.slug} slug={item.slug} name={item.name} ourFee={item.ourFee} govFee={item.govFee} portal={item.portal} forWhom={item.forWhom} />
+              <RegCard key={item.slug} slug={item.slug} name={item.name} ourFee={item.ourFee} ridesWith={item.ridesWith} portal={item.portal} forWhom={item.forWhom} />
             ))}
           </div>
         </div>
@@ -68,7 +67,7 @@ export default function RegistrationsPage() {
           </div>
           <div className="pricing-grid">
             {registrations.slice(3).map((item) => (
-              <RegCard key={item.slug} slug={item.slug} name={item.name} ourFee={item.ourFee} govFee={item.govFee} portal={item.portal} forWhom={item.forWhom} />
+              <RegCard key={item.slug} slug={item.slug} name={item.name} ourFee={item.ourFee} ridesWith={item.ridesWith} portal={item.portal} forWhom={item.forWhom} />
             ))}
           </div>
         </div>
@@ -81,14 +80,14 @@ function RegCard({
   slug,
   name,
   ourFee,
-  govFee,
+  ridesWith,
   portal,
   forWhom,
 }: {
   slug: string;
   name: string;
   ourFee: string;
-  govFee: string;
+  ridesWith: string;
   portal: string;
   forWhom: string;
 }) {
@@ -102,14 +101,14 @@ function RegCard({
         <p className="price-desc">{forWhom}</p>
         <div className="reg-prices">
           <div>
-            <span>Our fee</span>
+            <span>Alone</span>
             <strong>{ourFee}</strong>
-            <small>incl. GST</small>
+            <small>no website</small>
           </div>
-          <div>
-            <span>Government</span>
-            <strong>{govFee}</strong>
-            <small>separate</small>
+          <div className="fee-in">
+            <span>With {ridesWith}</span>
+            <strong>₹0</strong>
+            <small>our fee</small>
           </div>
         </div>
       </div>

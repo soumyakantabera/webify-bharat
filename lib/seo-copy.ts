@@ -196,7 +196,7 @@ export const pricingArticle: Article = {
   title: "What a business website",
   accent: "and stack costs in India.",
   paragraphs: [
-    "The number on the card is the invoice, 18% GST inside, for the fence written under it. Launch is ₹9,999 for up to five pages, one language, and two revision rounds. Growth is ₹19,999. Command is ₹39,999 for up to three connections and one Monday view. Store addons sit on top: Small ₹8,999, Medium ₹18,999, Expanding ₹34,999. Medium includes Small. Do not buy both.",
+    "Launch is ₹9,999 and our GST and Udyam filing fees are inside it. Growth is ₹19,999 and adds IEC. Command is ₹39,999 and adds UK VAT and EU IOSS coordination. The ₹500 IEC receipt still goes to DGFT. Store addons sit on top: Small ₹8,999, Medium ₹18,999, Expanding ₹34,999.",
     "GST registration is ₹4,999, Udyam ₹2,499, IEC ₹4,999 plus ₹500 paid to DGFT. UK VAT support is ₹29,999. EU IOSS coordination is ₹24,999, and the intermediary’s fee is separate. Those are not bundled into a website. Hosting, the domain, and gateway MDR are quoted before you pay.",
   ],
 };

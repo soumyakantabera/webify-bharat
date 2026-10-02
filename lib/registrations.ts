@@ -12,6 +12,7 @@ export type Registration = {
   refuse: string;
   documents: string[];
   notIncluded: string[];
+  ridesWith: "Launch" | "Growth" | "Command";
 };
 
 export const registrations: Registration[] = [
@@ -27,6 +28,7 @@ export const registrations: Registration[] = [
     refuse: "This is a registration filing. It is not a return plan, not input-credit advice, and not a CA opinion.",
     documents: ["PAN", "Aadhaar", "Bank proof", "Address proof", "Photograph", "Authorised signatory, if it is a company"],
     notIncluded: ["Monthly or quarterly returns", "A notice reply", "A second entity"],
+    ridesWith: "Launch",
   },
   {
     slug: "udyam",
@@ -40,6 +42,7 @@ export const registrations: Registration[] = [
     refuse: "Not a loan, not a subsidy application, and not a tender qualification.",
     documents: ["Aadhaar of the proprietor or authorised person", "PAN", "Bank account"],
     notIncluded: ["MSME schemes", "A loan file", "A change of activity after the certificate"],
+    ridesWith: "Launch",
   },
   {
     slug: "iec",
@@ -53,6 +56,7 @@ export const registrations: Registration[] = [
     refuse: "Not a customs broker, not shipping, and not an export-incentive claim.",
     documents: ["PAN", "Address proof", "Bank proof", "Aadhaar e-sign, or a DSC if the entity cannot e-sign"],
     notIncluded: ["A digital signature token", "A bank certificate if the bank rejects a PDF", "A detail change after issue (DGFT charges ₹200 for that)"],
+    ridesWith: "Growth",
   },
   {
     slug: "uk-vat",
@@ -66,6 +70,7 @@ export const registrations: Registration[] = [
     refuse: "We do not promise a number HMRC will not issue. If your goods or setup need a UK presence we cannot provide, we say so before the invoice.",
     documents: ["Business proof and PAN", "Passport or equivalent of the authorised person", "Shop URL", "What you sell and where the goods ship from"],
     notIncluded: ["VAT returns after the number", "A fiscal representative", "Goods above £135"],
+    ridesWith: "Command",
   },
   {
     slug: "eu-vat",
@@ -79,8 +84,15 @@ export const registrations: Registration[] = [
     refuse: "We are not your IOSS number. Marketplace-only orders are often covered by the marketplace. Consignments over €150 are a different customs path.",
     documents: ["The intermediary’s document list, not a shorter one we invent", "Shop URL", "What you sell and the ship-from country"],
     notIncluded: ["The intermediary’s own fee", "Monthly IOSS returns, unless scoped later", "Customs brokerage"],
+    ridesWith: "Command",
   },
 ];
+
+const rank = { Launch: 1, Growth: 2, Command: 3 } as const;
+
+export function filingsIn(plan: "Launch" | "Growth" | "Command") {
+  return registrations.filter((item) => rank[item.ridesWith] <= rank[plan]);
+}
 
 export function getRegistration(slug: string) {
   return registrations.find((item) => item.slug === slug);
