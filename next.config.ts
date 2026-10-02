@@ -2,6 +2,10 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  // Gzip text responses when this app is served by `next start`.
+  // On Vercel the edge already sends Brotli or gzip, so this does not
+  // double-compress production HTML, CSS, or JS.
+  compress: true,
   images: {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
