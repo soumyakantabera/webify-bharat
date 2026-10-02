@@ -14,7 +14,7 @@ export const BUSINESS = {
   address: "108, Shri Krishna Nagar, Kolkata 700 056, India",
   gstin: "",
   udyam: "",
-  phone: "",
+  phone: "+91 83360 97642",
   email: SITE.email,
 } as const;
 

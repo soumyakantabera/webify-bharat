@@ -26,6 +26,10 @@ export default function Footer() {
               <br />
               {BUSINESS.address}
               <br />
+              GSTIN: {BUSINESS.gstin || "To be added"}
+              <br />
+              Call fallback: {BUSINESS.phone || "To be added"}
+              <br />
               <a href={`mailto:${BUSINESS.email}`}>{BUSINESS.email}</a>
             </p>
             <WhatsAppCta href={WA_CHAT} className="btn btn-primary footer-wa">

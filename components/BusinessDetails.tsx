@@ -8,7 +8,7 @@ const rows = [
   ["Registered address", BUSINESS.address],
   ["GSTIN", BUSINESS.gstin || pending],
   ["Udyam", BUSINESS.udyam || pending],
-  ["Call", BUSINESS.phone || pending],
+  ["Call fallback", BUSINESS.phone || pending],
   ["Email", BUSINESS.email],
 ] as const;
 
