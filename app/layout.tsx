@@ -13,6 +13,7 @@ import "./skeleton.css";
 import "./photo-caption.css";
 import "./claim-panel.css";
 import "./offer-pages.css";
+import "./pro-chart.css";
 import { jetbrains, manrope, sora } from "./fonts";
 
 export const viewport: Viewport = {
@@ -46,25 +47,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${sora.variable} ${manrope.variable} ${jetbrains.variable}`}
-    >
+    <html lang="en" className={`${sora.variable} ${manrope.variable} ${jetbrains.variable}`}>
       <head>
-        <link
-          rel="preload"
-          href="/fonts/sora.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/manrope.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
+        <link rel="preload" href="/fonts/sora.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/manrope.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" as="image" href="/images/hero/digital-growth-dashboard.png" />
       </head>
       <body className={manrope.className}>{children}</body>

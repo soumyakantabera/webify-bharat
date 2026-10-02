@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export type ChartRow = {
   label: string;
@@ -18,6 +18,10 @@ const PAD = { l: 36, r: 12, t: 16, b: 46 };
 function yOf(value: number) {
   const plot = H - PAD.t - PAD.b;
   return PAD.t + plot - (Math.max(0, Math.min(100, value)) / 100) * plot;
+}
+
+function short(label: string) {
+  return label.length > 18 ? `${label.slice(0, 16)}\u2026` : label;
 }
 
 export function ComparisonChart({
@@ -66,18 +70,12 @@ export function ComparisonChart({
           ))}
           {rows.map((item, i) => {
             const cx = PAD.l + group * i + group / 2;
-            const rentH = yOf(0) - yOf(item.rent);
-            const ownH = yOf(0) - yOf(item.own);
             return (
               <g key={item.label} onMouseEnter={() => setActive(i)} onClick={() => setActive(i)}>
                 <rect x={PAD.l + group * i + 4} y={PAD.t} width={group - 8} height={H - PAD.t - PAD.b} className={i === active ? "pro-hit is-on" : "pro-hit"} />
-                {showRent ? (
-                  <rect x={cx - barW - 2} y={yOf(item.rent)} width={barW} height={rentH} rx={4} className="pro-bar rent" />
-                ) : null}
-                {showOwn ? (
-                  <rect x={cx + 2} y={yOf(item.own)} width={barW} height={ownH} rx={4} className="pro-bar own" />
-                ) : null}
-                <text x={cx} y={H - 18} className="pro-label">{item.label.split(" ").slice(0, 3).join(" ")}</text>
+                {showRent ? <rect x={cx - barW - 2} y={yOf(item.rent)} width={barW} height={yOf(0) - yOf(item.rent)} rx={4} className="pro-bar rent" /> : null}
+                {showOwn ? <rect x={cx + 2} y={yOf(item.own)} width={barW} height={yOf(0) - yOf(item.own)} rx={4} className="pro-bar own" /> : null}
+                <text x={cx} y={H - 16} className="pro-label">{short(item.label)}</text>
               </g>
             );
           })}
@@ -87,7 +85,7 @@ export function ComparisonChart({
             <strong>{row.label}</strong>
             <span><i className="rent" /> {rentLabel}: {row.rent} \u00b7 {row.rentNote}</span>
             <span><i className="own" /> {ownLabel}: {row.own} \u00b7 {row.ownNote}</span>
-            <em>{delta > 0 ? `${delta} points less rent` : "Owned side is level or higher"}</em>
+            <em>{delta > 0 ? `${delta} points less rent on the owned path` : "Owned side is level or higher"}</em>
           </div>
         ) : null}
       </div>
@@ -111,6 +109,7 @@ export function FamilyChart({
   title: string;
   metrics: { label: string; points: FamilyPoint[] }[];
 }) {
+  const router = useRouter();
   const [metric, setMetric] = useState(0);
   const [hover, setHover] = useState<number | null>(null);
   const current = metrics[metric] ?? metrics[0];
@@ -145,16 +144,13 @@ export function FamilyChart({
           ))}
           {current.points.map((item, i) => {
             const cx = PAD.l + group * i + group / 2;
-            const h = yOf(0) - yOf(item.value);
             return (
-              <Link key={item.name} href={item.href}>
-                <g onMouseEnter={() => setHover(i)} onFocus={() => setHover(i)}>
-                  <rect x={PAD.l + group * i + 4} y={PAD.t} width={group - 8} height={H - PAD.t - PAD.b} className={i === focus ? "pro-hit is-on" : "pro-hit"} />
-                  <rect x={cx - barW / 2} y={yOf(item.value)} width={barW} height={h} rx={5} className={item.current ? "pro-bar own" : "pro-bar muted"} />
-                  <text x={cx} y={yOf(item.value) - 6} className="pro-value">{item.value}</text>
-                  <text x={cx} y={H - 18} className="pro-label">{item.name}</text>
-                </g>
-              </Link>
+              <g key={item.name} onMouseEnter={() => setHover(i)} onClick={() => router.push(item.href)} style={{ cursor: "pointer" }}>
+                <rect x={PAD.l + group * i + 4} y={PAD.t} width={group - 8} height={H - PAD.t - PAD.b} className={i === focus ? "pro-hit is-on" : "pro-hit"} />
+                <rect x={cx - barW / 2} y={yOf(item.value)} width={barW} height={yOf(0) - yOf(item.value)} rx={5} className={item.current ? "pro-bar own" : "pro-bar muted"} />
+                <text x={cx} y={yOf(item.value) - 6} className="pro-value">{item.value}</text>
+                <text x={cx} y={H - 16} className="pro-label">{short(item.name)}</text>
+              </g>
             );
           })}
         </svg>
@@ -166,7 +162,7 @@ export function FamilyChart({
           </div>
         ) : null}
       </div>
-      <p className="pro-note">Click a column to open that page. Highlighted column is the one you are on.</p>
+      <p className="pro-note">Click a column to open that page. The teal column is the one you are on.</p>
     </article>
   );
 }
