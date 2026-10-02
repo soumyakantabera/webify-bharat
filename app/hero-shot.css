@@ -16,28 +16,45 @@
   z-index: 0;
   opacity: 1;
 }
-.page-hero .hero-shot-frame img,
-.hero-shot-frame img {
+.hero-shot-collage {
+  display: grid;
+  grid-template-columns: 1.4fr 0.9fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 6px;
+  aspect-ratio: 4 / 3;
+  padding: 6px;
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 18px 40px rgba(28, 31, 29, 0.12);
+  overflow: hidden;
+}
+.hero-shot-collage img:first-child {
+  grid-row: 1 / span 2;
+}
+.page-hero .hero-shot-collage img,
+.hero-shot-collage img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
   max-height: none;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: auto;
   object-fit: cover;
   object-position: center 18%;
   margin: 0;
   padding: 0;
-  border-radius: 28px;
+  border-radius: 18px;
   background: #efe8df;
-  box-shadow: 0 18px 40px rgba(28, 31, 29, 0.12);
-  animation: shot-in 0.55s var(--ease-out) both, shot-drift 16s ease-in-out 0.6s infinite alternate;
+  box-shadow: none;
+  animation: shot-in 0.55s var(--ease-out) both;
 }
+.hero-shot-collage img:nth-child(2) { animation-delay: 0.08s; }
+.hero-shot-collage img:nth-child(3) { animation-delay: 0.16s; }
 .hero-shot-polaroid {
   position: absolute;
   z-index: 3;
-  right: 6%;
-  bottom: -10px;
-  width: min(74%, 270px);
+  right: 8%;
+  bottom: 10px;
+  width: min(68%, 250px);
   padding: 10px 10px 8px;
   background: #fffdf8;
   border-radius: 3px;
@@ -160,7 +177,7 @@
   .hero-shot-polaroid { width: min(80%, 280px); bottom: 8px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-shot-frame img,
+  .hero-shot-collage img,
   .hero-shot-polaroid,
   .hero-shot-copy strong,
   .hero-shot-copy li {
