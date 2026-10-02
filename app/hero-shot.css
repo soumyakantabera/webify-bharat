@@ -4,8 +4,9 @@
 .hero-shot {
   min-width: 0;
   align-self: center;
-  width: min(100%, 380px);
-  margin-left: auto;
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
   padding: 18px 0 8px;
 }
 .hero-shot-frame {
@@ -27,7 +28,10 @@
 /* ---------- staggered prints: big one top-right, two smaller ones overlapping it ---------- */
 .hero-shot-frame {
   display: grid;
-  aspect-ratio: 1 / 1;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 5 / 4;
+  max-height: min(560px, 68vh);
 }
 .hero-shot-collage {
   position: absolute;
@@ -311,7 +315,7 @@
 }
 
 @media (max-width: 800px) {
-  .hero-shot { order: -1; width: min(100%, 340px); margin: 0 auto; padding: 16px 0 4px; }
+  .hero-shot { order: -1; width: 100%; max-width: 100%; margin: 0; padding: 16px 0 4px; }
   .hero-shot-badge { width: 68px; height: 68px; }
   .hero-shot-disc strong { font-size: 18px; }
 }
