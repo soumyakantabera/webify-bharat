@@ -85,14 +85,17 @@ export function HeroShot({
     <aside className="hero-shot" aria-label={`Summary: ${heading}`}>
       <div className="hero-shot-frame">
         <img src={shot.image} alt={shot.alt} width={1600} height={1200} />
-        <div className="hero-shot-copy">
-          <p className="hero-shot-kicker">This page</p>
-          <strong>{heading}</strong>
-          <ul>
-            {points.map((line) => (
-              <li key={line}>{line}</li>
-            ))}
-          </ul>
+        <div className="hero-shot-polaroid">
+          <span className="hero-shot-tape" aria-hidden />
+          <div className="hero-shot-copy">
+            <strong>{heading}</strong>
+            <ul>
+              {points.map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
+            <em>Webify Bharat</em>
+          </div>
         </div>
       </div>
     </aside>
