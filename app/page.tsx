@@ -72,7 +72,7 @@ export default function Home() {
           </div>
           <div className="hero-visual">
             <img
-              src="/images/hero/digital-growth-dashboard.png"
+              src="/images/hero/digital-growth-dashboard.webp"
               alt="Webify Bharat digital operations dashboard"
               width={960}
               height={720}

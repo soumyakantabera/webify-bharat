@@ -28,6 +28,56 @@ export default function WorkPage() {
 
       <SeoChunk pageKey="work" />
       <section className="section">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <div className="eyebrow">
+                <span className="dot" /> Illustrative, not a client claim
+              </div>
+              <h2>
+                Same search. <span>Different owner.</span>
+              </h2>
+            </div>
+            <p>
+              A published customer number waits until that business approves it. This is
+              the pattern: the enquiry moves off a directory and onto a site you control.
+            </p>
+          </div>
+          <div className="control-grid">
+            <article className="control-card rent">
+              <img
+                src="/images/blog/directory.webp"
+                alt="Directory listing illustration in the Webify Bharat style"
+                width={800}
+                height={800}
+              />
+              <p className="control-kicker">Before</p>
+              <h3>The enquiry sits on a directory.</h3>
+              <ul>
+                <li>A lead pack or listing fee</li>
+                <li>The follow-up belongs to their login</li>
+                <li>You pay again when they already wanted you</li>
+              </ul>
+            </article>
+            <article className="control-card own">
+              <img
+                src="/images/services/website.webp"
+                alt="Owned website illustration in the Webify Bharat style"
+                width={800}
+                height={800}
+              />
+              <p className="control-kicker">After</p>
+              <h3>That search lands on your site.</h3>
+              <ul>
+                <li>Website, Maps and WhatsApp in your name</li>
+                <li>The chat stays on your number</li>
+                <li>No extra fee on that organic enquiry</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section className="section">
         <div className="container industry-grid">
           {workItems.map((item) => (
             <article className="industry-card real-photo" key={item.title}>

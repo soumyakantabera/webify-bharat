@@ -483,7 +483,7 @@ export const cities: City[] = [
     region: "Central",
     photo: "healthcare.webp",
     industries: ["Education", "Healthcare", "Retail", "Government services", "F&B"],
-    headline: "Bhopal MSMEs — clear site, WhatsApp, UPI",
+    headline: "Bhopal shops and clinics — site, WhatsApp and UPI on your name",
     lead: "Madhya Pradesh’s capital needs practical digital, not startup theatre. Webify Bharat builds owned systems for institutes, clinics and shops.",
     answer: "Webify Bharat builds websites, WhatsApp and UPI for Bhopal and MP businesses so local enquiries stay free of per-lead directory fees.",
     sections: [
@@ -519,7 +519,7 @@ export const cities: City[] = [
     region: "East",
     photo: "retail.webp",
     industries: ["IT & services", "Education", "Healthcare", "Retail", "Tourism & F&B"],
-    headline: "Bhubaneswar digital for Odisha MSMEs",
+    headline: "Bhubaneswar trade — keep Odisha buyers off the lead pack",
     lead: "Odisha’s capital is growing services, education and hospitality. Webify Bharat builds owned websites and WhatsApp-UPI so local brands are not only living on marketplaces and aggregators.",
     answer: "Webify Bharat helps Bhubaneswar businesses own digital channels so Google and WhatsApp leads avoid per-lead and high marketplace fees.",
     sections: [
@@ -663,7 +663,7 @@ export const cities: City[] = [
     region: "East",
     photo: "education.webp",
     industries: ["Education", "Mining services", "Retail", "Healthcare", "F&B"],
-    headline: "Ranchi digital for Jharkhand MSMEs",
+    headline: "Ranchi clinics and shops — Hindi WhatsApp, owned site",
     lead: "Ranchi’s institutes, services and retail need practical websites and UPI. Webify Bharat builds owned systems without marketplace-only dependence.",
     answer: "Webify Bharat helps Ranchi businesses own websites, WhatsApp and UPI so enquiries avoid per-lead fees.",
     sections: [
@@ -989,7 +989,7 @@ export const cities: City[] = [
     region: "Northeast",
     photo: "retail.webp",
     industries: ["Retail", "Services", "Education", "Hospitality"],
-    headline: "Aizawl local business digital",
+    headline: "Aizawl shops — a site and WhatsApp the town can find",
     lead: "Mizoram’s capital retailers and services need simple owned digital presence. Webify Bharat builds WhatsApp-first websites and UPI.",
     answer: "Webify Bharat helps Aizawl MSMEs own websites, WhatsApp and UPI for local enquiries.",
     sections: [
@@ -1025,7 +1025,7 @@ export const cities: City[] = [
     region: "Northeast",
     photo: "consultation.webp",
     industries: ["Tourism", "Retail", "Hospitality", "Services"],
-    headline: "Kohima tourism and trade online",
+    headline: "Kohima stays and shops — book direct, not only on an app",
     lead: "Nagaland’s capital needs clear digital booking and retail presence. Webify Bharat builds owned sites and WhatsApp flows.",
     answer: "Webify Bharat helps Kohima businesses own websites and WhatsApp-UPI for tourism and local trade.",
     sections: [
@@ -1061,7 +1061,7 @@ export const cities: City[] = [
     region: "Northeast",
     photo: "retail.webp",
     industries: ["Trade & retail", "Education", "Services", "F&B"],
-    headline: "Agartala trade digital",
+    headline: "Agartala traders — catalogue and UPI without portal rent",
     lead: "Tripura’s capital retailers and institutes need owned digital channels. Webify Bharat builds practical websites and UPI.",
     answer: "Webify Bharat helps Agartala MSMEs own websites, WhatsApp and UPI for local business growth.",
     sections: [
