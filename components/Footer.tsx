@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ShieldCheck } from "lucide-react";
 import { BrandLogo } from "@/components/BrandLogo";
 import { WhatsAppCta } from "@/components/icons";
 import { SITE, WA_CHAT } from "@/lib/site";
@@ -47,7 +48,10 @@ export default function Footer() {
             <Link href="/pricing">Pricing</Link>
             <Link href="/contact">Contact</Link>
             <Link href="/terms">Terms</Link>
-            <Link href="/privacy">Privacy</Link>
+            <Link href="/privacy" className="privacy-link">
+              <ShieldCheck size={14} strokeWidth={2.2} aria-hidden />
+              Privacy
+            </Link>
             <Link href="/refund">Refunds</Link>
           </div>
         </div>
@@ -58,7 +62,10 @@ export default function Footer() {
           </p>
           <nav className="footer-legal" aria-label="Policies">
             <Link href="/terms">Terms</Link>
-            <Link href="/privacy">Privacy</Link>
+            <Link href="/privacy" className="privacy-link">
+              <ShieldCheck size={14} strokeWidth={2.2} aria-hidden />
+              Privacy
+            </Link>
             <Link href="/refund">Refunds</Link>
           </nav>
         </div>

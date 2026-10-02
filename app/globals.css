@@ -954,10 +954,14 @@ textarea.input {
   gap: 14px;
   flex-shrink: 0;
 }
-.footer-legal a {
-  display: inline;
-  color: inherit;
-  font-weight: 750;
+.footer a.privacy-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  width: fit-content;
+}
+.footer-legal a.privacy-link {
+  display: inline-flex;
   margin: 0;
 }
 .legal-doc {
