@@ -55,13 +55,13 @@ export default function AboutPage() {
           <div className="about-visual">
             <img
               className="about-team-img"
-              src="/images/brand/about-team.webp"
+              src="/images/brand/about-team.png"
               alt="Webify Bharat brand story illustration"
             />
             <div className="about-logo-plate">
               <img
                 className="about-logo-plate-img"
-                src="/images/logo/webify-bharat-logo.webp"
+                src="/images/logo/webify-bharat-logo.png"
                 alt="Webify Bharat"
               />
               <p className="about-logo-plate-tag">

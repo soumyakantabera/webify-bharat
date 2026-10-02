@@ -46,7 +46,7 @@ export default function WorkPage() {
           <div className="control-grid">
             <article className="control-card rent">
               <img
-                src="/images/blog/directory.webp"
+                src="/images/services/ecommerce.png"
                 alt="Directory listing illustration in the Webify Bharat style"
                 width={800}
                 height={800}
@@ -61,7 +61,7 @@ export default function WorkPage() {
             </article>
             <article className="control-card own">
               <img
-                src="/images/services/website.webp"
+                src="/images/services/website.png"
                 alt="Owned website illustration in the Webify Bharat style"
                 width={800}
                 height={800}
