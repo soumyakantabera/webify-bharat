@@ -14,17 +14,17 @@ export function RivalBoard({ slug }: { slug: string }) {
               <h3>{rival.name}</h3>
               <p>{rival.blurb}</p>
             </header>
-            <ol>
+            <div className="rival-stages">
               {rival.stages.map((stage, index) => (
-                <li key={stage.name} style={{ animationDelay: `${0.05 + index * 0.08}s` }}>
-                  <span className="rival-step">{index + 1}</span>
-                  <div>
+                <div className="rival-stage" key={stage.name}>
+                  <span className="rival-step" aria-hidden="true">{index + 1}</span>
+                  <div className="rival-copy">
                     <strong>{stage.name}</strong>
                     <span>{stage.detail}</span>
                   </div>
-                </li>
+                </div>
               ))}
-            </ol>
+            </div>
           </article>
         ))}
       </div>
