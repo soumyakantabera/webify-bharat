@@ -152,15 +152,19 @@ export function HeroShot({
             <strong>{mark.badge}</strong>
             <small>{mark.sub}</small>
           </span>
-          <p className="hero-shot-kicker">{kicker ?? shot.kicker}</p>
-          <p className="hero-shot-figure">{figure ?? shot.figure}</p>
-          <p className="hero-shot-note">{note ?? shot.note}</p>
-          <ul>
-            {rows.map((line) => (
-              <li key={line}>{line}</li>
-            ))}
-          </ul>
-          <p className="hero-shot-foot">{footer ?? shot.footer}</p>
+          <div className="hero-shot-main">
+            <p className="hero-shot-kicker">{kicker ?? shot.kicker}</p>
+            <p className="hero-shot-figure">{figure ?? shot.figure}</p>
+          </div>
+          <div className="hero-shot-side">
+            <p className="hero-shot-note">{note ?? shot.note}</p>
+            <ul>
+              {rows.map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
+            <p className="hero-shot-foot">{footer ?? shot.footer}</p>
+          </div>
         </div>
       </div>
     </aside>
