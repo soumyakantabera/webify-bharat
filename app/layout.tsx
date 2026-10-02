@@ -54,7 +54,7 @@ export default function RootLayout({
       <head>
         <link rel="preload" href="/fonts/sora.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/manrope.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" as="image" href="/images/hero/digital-growth-dashboard.webp" />
+        <link rel="preload" as="image" href="/images/hero/digital-growth-dashboard.png" />
       </head>
       <body className={manrope.className}>{children}</body>
     </html>
