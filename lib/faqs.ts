@@ -26,7 +26,7 @@ export const faqsByPage: Record<string, FaqBlock> = {
       },
       {
         q: "Is this only for funded startups in Bengaluru?",
-        a: "No. Most of our work is for family-run and MSME businesses that already sell — they just lose enquiries, collect money on personal UPI, and run the day from memory. If you have customers, a GSTIN or even a shop board, you are in the right place.",
+        a: "No. The work is for businesses that already sell and are losing the follow-up: a personal UPI QR, a chat thread, a directory pack. If you have customers, a GSTIN, or a shop board, you are in the right place. We will not claim a client count we cannot show.",
       },
       {
         q: "Do I need a Pvt Ltd, GST and a CA before we start?",
@@ -118,7 +118,7 @@ export const faqsByPage: Record<string, FaqBlock> = {
     items: [
       {
         q: "Should I just sell on Amazon / Flipkart / Meesho?",
-        a: "Use them for reach. Own the relationship for repeat. Marketplaces own the customer, the search slot, and the fee. A simple store plus WhatsApp catalogue is how you keep the second order without giving away 20–40% again.",
+        a: "Use a marketplace for a stranger’s first order. Repeat orders can sit on your domain, WhatsApp, and UPI. Read your own fee schedule. We do not quote a single percent, because referral, ads, and shipping are different lines.",
       },
       {
         q: "COD is 70% of my orders. Will prepaid even work?",
@@ -482,11 +482,11 @@ export const faqsByPage: Record<string, FaqBlock> = {
     items: [
       {
         q: "Is ₹9,999 the all-in price for a company website?",
-        a: "It is a starting point for a focused Launch scope — not a 80-page portal with three languages and a custom ERP. You get a written scope before we take a rupee. If your needs are bigger, the number moves, in the open.",
+        a: "₹9,999 is the Launch invoice, 18% GST inside, for up to five pages, one language, and two revision rounds. It is not an 80-page portal. If the scope is bigger, the number moves before you pay.",
       },
       {
-        q: "Plus GST?",
-        a: "Yes. Professional work in India is typically billed with GST (18% for most digital services). The card shows the professional fee. Invoice will show tax as applicable to your GSTIN.",
+        q: "Is GST extra?",
+        a: "No. Every card price on this site is the invoice. 18% GST is already inside it. A government fee, such as ₹500 for a new IEC, is a different line and is never marked up.",
       },
       {
         q: "Do you take equity, revenue share or ‘growth retainers’ forever?",

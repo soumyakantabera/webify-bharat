@@ -23,8 +23,8 @@ export default function ServicesPage() {
             Digital systems that connect to <span>real work.</span>
           </h1>
           <p className="muted-copy">
-            Illustrations explain the technology. Real photography shows the business
-            context it is meant to improve.
+            Photographs on this page are staged. Not a customer. The drawings are the
+            product UI, in the same teal frame as the rest of the site.
           </p>
         </div>
       </section>

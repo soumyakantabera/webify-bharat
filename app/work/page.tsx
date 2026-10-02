@@ -39,8 +39,8 @@ export default function WorkPage() {
               </h2>
             </div>
             <p>
-              A published customer number waits until that business approves it. This is
-              the pattern: the enquiry moves off a directory and onto a site you control.
+              A worked example, not a client. A published number waits until that business
+              approves it. Nothing on this page is a result.
             </p>
           </div>
           <div className="control-grid">
@@ -81,7 +81,8 @@ export default function WorkPage() {
         <div className="container industry-grid">
           {workItems.map((item) => (
             <article className="industry-card real-photo" key={item.title}>
-              <img src={item.image} alt={item.title} />
+              <img src={item.image} alt="" />
+              <p className="staged-note">Staged. Not a customer.</p>
               <div className="content">
                 <span className="badge">{item.industry}</span>
                 <h3 style={{ marginTop: 12 }}>{item.title}</h3>

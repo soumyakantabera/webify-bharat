@@ -35,6 +35,15 @@ const addonIcons: Record<string, LucideIcon> = {
   Expanding: Layers,
 };
 
+const fences: Record<string, string> = {
+  Launch: "Up to 5 pages · 1 language · 2 revision rounds · 2–4 weeks if your content is in. Not category leads.",
+  Growth: "Launch, plus a gateway on your account · up to 4 WhatsApp flows · 3–5 weeks. KYC can add time.",
+  Command: "Growth, plus up to 3 connections · one Monday view · 4–6 weeks. Not an open rebuild.",
+  Small: "About 50 products · sits on Launch or Growth · 2 revision rounds. Not a second gateway invoice.",
+  Medium: "About 200 products · includes Small. Do not buy both.",
+  Expanding: "Multi-category catalogue and one dealer enquiry path · includes Medium. Not a second outlet.",
+};
+
 const planSlugs: Record<string, string> = {
   Launch: "launch",
   Growth: "growth",
@@ -112,8 +121,9 @@ export default function PricingPage() {
                     <p className="price-desc">{plan.desc}</p>
                     <div className="price">
                       {plan.price}
-                      <small> starting · incl. GST</small>
+                      <small>incl. GST</small>
                     </div>
+                    <p className="price-fence">{fences[plan.name]}</p>
                   </div>
                   <ul className="list">
                     {plan.features.map((feature) => (
@@ -149,9 +159,9 @@ export default function PricingPage() {
               </h2>
             </div>
             <p>
-              Add a catalogue and checkout on your domain so repeat buyers skip Amazon and
-              Flipkart fee stacks. Small, Medium or Expanding — pick by product count and
-              ops. Every addon price includes 18% GST.
+              Add a catalogue on your domain. Keep a marketplace for a stranger’s first
+              order. Small, Medium, and Expanding are sized by product count. Every addon
+              price includes 18% GST and sits on top of a site.
             </p>
           </div>
 
@@ -181,8 +191,9 @@ export default function PricingPage() {
                     <p className="price-desc">{addon.desc}</p>
                     <div className="price">
                       {addon.price}
-                      <small> starting · incl. GST</small>
+                      <small>incl. GST</small>
                     </div>
+                    <p className="price-fence">{fences[addon.name]}</p>
                   </div>
                   <ul className="list">
                     {addon.features.map((feature) => (
@@ -203,10 +214,24 @@ export default function PricingPage() {
             })}
           </div>
 
+          <div className="stack-grid">
+            <article>
+              <strong>₹18,998</strong>
+              <span>Launch + Small. Five-page site and about 50 products. Both prices include GST.</span>
+            </article>
+            <article>
+              <strong>₹38,998</strong>
+              <span>Growth + Medium. Medium includes Small. Do not buy both. The gateway is the Growth account, not a second invoice.</span>
+            </article>
+            <article>
+              <strong>₹54,998</strong>
+              <span>Growth + Expanding. Expanding includes Medium. One dealer enquiry path. Not a second outlet.</span>
+            </article>
+          </div>
           <p className="pricing-footnote">
             Package and addon build fees include 18% GST. Gateway MDR, shipping partner
             fees and Meta/WhatsApp conversation charges stay outside these build fees — we
-            list them on the proposal. E-commerce addons sit on top of a Launch, Growth or
+            list them on the <Link href="/registrations/charges">additional charges</Link> page. E-commerce addons sit on top of a Launch, Growth or
             Command foundation — not instead of a site.
           </p>
         </div>

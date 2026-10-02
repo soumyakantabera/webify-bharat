@@ -68,7 +68,7 @@ export default async function OfferPage({
           <p className="muted-copy">{offer.lead}</p>
           <div className="offer-price">
             {offer.price}
-            <small>starting · incl. GST</small>
+            <small>incl. GST</small>
           </div>
           <p className="price-best-for">{offer.bestFor}</p>
           <div className="offer-actions">

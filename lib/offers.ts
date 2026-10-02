@@ -72,7 +72,7 @@ export const offers: Offer[] = [
       { title: "Name and city", detail: "What you sell, where, and the number customers already use." },
       { title: "Site you own", detail: "Mobile-first pages, WhatsApp button, on-page SEO." },
       { title: "Maps aligned", detail: "Google Business Profile points at your URL, not a listing." },
-      { title: "Go live", detail: "Launch support until the first real enquiry lands." },
+      { title: "Go live", detail: "Launch support through go-live. We do not promise the first enquiry." },
     ],
   },
   {

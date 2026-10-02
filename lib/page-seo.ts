@@ -267,7 +267,7 @@ const industrySeo: Record<
 };
 
 const ANSWERS: Record<string, string> = {
-  home: "Webify Bharat is a digital operations partner for Indian MSMEs: we build the website, WhatsApp and UPI checkout you own, so Google, Maps and chat send customers at ₹0 per organic lead — not a Justdial pack or Zomato cut.",
+  home: "Webify Bharat builds the website, WhatsApp, and UPI checkout an Indian business owns. Card prices include 18% GST. An organic enquiry after that has no per-lead fee. It does not replace a directory for category search.",
   services: "Webify Bharat services are the Indian MSME stack: website design, e-commerce on your domain, UPI payment gateway, WhatsApp Business API, analytics and GST-ready invoices. Start with the leak, then connect the next piece.",
   industries: "We ship the same owned stack for retail, restaurants, clinics, tuition, real estate and manufacturing — each trade has a different leak (Justdial, Zomato, no-shows, IndiaMART) and a matching workflow.",
   work: "Webify Bharat work is systems around UPI, WhatsApp and GST for real Indian operations. Named case studies publish only with client permission.",

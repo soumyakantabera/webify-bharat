@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { cities } from "@/lib/cities";
+import { registrations } from "@/lib/registrations";
 import { offers } from "@/lib/offers";
 import { industries, posts, services } from "@/lib/site";
 
@@ -12,6 +13,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/cities",
     "/work",
     "/pricing",
+    "/registrations",
+    "/registrations/charges",
+    ...registrations.map((item) => `/registrations/${item.slug}`),
     "/about",
     "/blog",
     "/contact",

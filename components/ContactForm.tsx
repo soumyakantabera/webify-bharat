@@ -10,6 +10,10 @@ const needs = [
   "Payments",
   "WhatsApp automation",
   "Analytics / BI",
+  "GST registration",
+  "Udyam",
+  "IEC",
+  "UK VAT or EU IOSS",
   "Compliance / operations",
 ];
 

@@ -1,8 +1,8 @@
 export const SITE = {
   name: "Webify Bharat",
-  tagline: "Own your customers. ₹0 per lead.",
+  tagline: "Own your customers. Pay to build, not per lead.",
   description:
-    "Webify Bharat builds websites, WhatsApp Business, UPI payment gateways and analytics for Indian MSMEs — own your customers, ₹0 per organic lead, no Justdial or Zomato tax. City pages for every state capital.",
+    "Webify Bharat builds websites, WhatsApp and UPI checkout Indian shops own. The card price includes 18% GST. Organic enquiries after that have no per-lead fee. GST, Udyam and IEC filings are a separate line.",
   whatsapp: "918336097642",
   whatsappDisplay: "8336097642",
 } as const;
@@ -34,7 +34,7 @@ export const services: Service[] = [
     slug: "websites",
     title: "Website & Digital Presence",
     description:
-      "A website you own — so Google and WhatsApp send you customers at ₹0 per lead, not a Justdial bill.",
+      "A website you own — so people who already search your name land on you, not a Justdial pack. Category leads are a different job.",
     image: "website.png",
     photo: "business-owner.webp",
     headline: "Own the front door. Stop renting it.",
@@ -79,7 +79,7 @@ export const services: Service[] = [
     title: "Analytics & BI",
     description: "Tracking, reports and dashboards that turn business activity into decisions.",
     image: "analytics.png",
-    photo: "analytics-review.webp",
+    photo: "consultation.webp",
     headline: "Numbers should lead to decisions",
     story:
       "We bring the important numbers into one view so owners and managers can review performance without digging through disconnected tools.",
@@ -120,7 +120,7 @@ export const industries: Industry[] = [
   {
     slug: "restaurant",
     title: "Restaurants",
-    description: "QR ordering, UPI and WhatsApp on your terms — not a 25% aggregator cut on every plate.",
+    description: "QR ordering, UPI and WhatsApp on your terms. Read your own aggregator contract. We do not quote a single percent.",
     photo: "restaurant.webp",
     illustration: "restaurant.png",
   },
@@ -223,7 +223,7 @@ export const workItems = [
     title: "Management reporting system",
     industry: "Analytics",
     summary: "KPIs + reporting + decision visibility",
-    image: "/images/real/analytics-review.webp",
+    image: "/images/services/analytics.png",
   },
   {
     title: "Finance operations workflow",
@@ -471,13 +471,11 @@ export function getPost(slug: string) {
 }
 
 export const navLinks = [
-  { to: "/services", label: "Services", icon: "services" },
-  { to: "/industries", label: "Industries", icon: "industries" },
-  { to: "/cities", label: "Cities", icon: "industries" },
-  { to: "/work", label: "Work", icon: "work" },
+  { to: "/services", label: "Shop", icon: "services" },
+  { to: "/registrations", label: "Registrations", icon: "registrations" },
   { to: "/pricing", label: "Pricing", icon: "pricing" },
+  { to: "/work", label: "Work", icon: "work" },
   { to: "/about", label: "About", icon: "about" },
-  { to: "/blog", label: "Blog", icon: "blog" },
 ] as const;
 
 export const serviceFeatures = [

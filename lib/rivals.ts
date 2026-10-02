@@ -12,7 +12,7 @@ export const rivals: RivalSet[] = [
   {
     slug: "launch",
     youTitle: "A site they cannot invoice again.",
-    youLine: "Justdial and IndiaMART sell the next stage. Launch stops the ladder.",
+    youLine: "Justdial and Sulekha sell the next stage of a category listing. Launch is for a name people already search. It does not buy stranger leads.",
     rivals: [
       {
         name: "Justdial",
@@ -24,26 +24,26 @@ export const rivals: RivalSet[] = [
         ],
       },
       {
-        name: "IndiaMART",
-        blurb: "Built for RFQs, not for a shop people already know.",
+        name: "Sulekha",
+        blurb: "The same ladder, for a job the customer searched by category.",
         stages: [
-          { name: "Catalogue tile", detail: "The buyer relationship stays on their login." },
-          { name: "Subscription", detail: "Visibility is a plan, not your name." },
-          { name: "Featured seller", detail: "The next enquiry is still rented." },
+          { name: "Listing", detail: "You sit beside every other name in the trade." },
+          { name: "Paid leads", detail: "The enquiry is rented, not introduced." },
+          { name: "More ads", detail: "The bill grows because the listing did not." },
         ],
       },
     ],
     wins: [
       { label: "Your URL", detail: "Google and Maps land on you, not a directory." },
       { label: "Your number", detail: "WhatsApp opens on the phone you already use." },
-      { label: "\u20b90 next enquiry", detail: "Organic does not renew like a pack." },
+      { label: "No per-lead fee", detail: "An organic enquiry does not renew like a pack. Ads still cost money." },
       { label: "No competitor column", detail: "The page sells only your shop." },
     ],
   },
   {
     slug: "growth",
-    youTitle: "Regulars should not fund their ads.",
-    youLine: "Zomato climbs from discovery to commission to ads. A personal QR never becomes a book.",
+    youTitle: "Shop money stays in the business account.",
+    youLine: "A personal QR mixes the shop with a pocket. An aggregator is for a stranger, and only if your own contract still makes sense.",
     rivals: [
       {
         name: "Zomato / Swiggy",
@@ -67,14 +67,14 @@ export const rivals: RivalSet[] = [
     wins: [
       { label: "Named gateway", detail: "UPI, cards and links on a business settlement." },
       { label: "WhatsApp flow", detail: "Hours, menu, reminder. Human when it is odd." },
-      { label: "Aggregator optional", detail: "Keep it for strangers. Not for regulars." },
+      { label: "Refund path", detail: "A failed payment is a record, not a missing screenshot." },
       { label: "One Monday number", detail: "Enquiries and collections, not a feeling." },
     ],
   },
   {
     slug: "command",
     youTitle: "One view. Not five logins.",
-    youLine: "The usual stack adds a stage every time the outlet grows. None of them talk.",
+    youLine: "Command is up to three connections and one Monday view: enquiries, collections, what is stuck. It is not an open rebuild.",
     rivals: [
       {
         name: "The tool pile",
@@ -198,7 +198,7 @@ export const rivals: RivalSet[] = [
   {
     slug: "websites",
     youTitle: "Be the result. Not a row in theirs.",
-    youLine: "Directories have stages. A website you own does not climb them.",
+    youLine: "A directory still sells category search. A site you own is where your name should land. It does not buy the stranger who never heard of you.",
     rivals: [
       {
         name: "Justdial",
@@ -229,7 +229,7 @@ export const rivals: RivalSet[] = [
   {
     slug: "ecommerce",
     youTitle: "The shelf is only yours.",
-    youLine: "Marketplaces stage you from seller to advertiser. The customer never leaves.",
+    youLine: "Keep the marketplace for a stranger’s first order. The repeat can live on your domain. Read your own fee schedule.",
     rivals: [
       {
         name: "Amazon / Flipkart",

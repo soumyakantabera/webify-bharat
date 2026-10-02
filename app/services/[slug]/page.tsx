@@ -12,9 +12,60 @@ import { FaqSection } from "@/components/FaqSection";
 import { getFaq } from "@/lib/faqs";
 import { CheckItem, WhatsAppCta } from "@/components/icons";
 import { getServiceCompare } from "@/lib/service-compare";
-import { getService, serviceFeatures, services, WA_CHAT, WA_SERVICES } from "@/lib/site";
+import { getService, services, WA_CHAT, WA_SERVICES } from "@/lib/site";
 
 const BASE = "https://webify-bharat.vercel.app";
+
+const buildSteps: Record<string, { title: string; detail: string }[]> = {
+  websites: [
+    { title: "Page map", detail: "Up to five pages. Home, what you sell, contact, and the two that match the trade." },
+    { title: "One language", detail: "The language the counter already uses. A second language is a quoted extra." },
+    { title: "WhatsApp click", detail: "Opens the number you already answer. Not a new inbox we own." },
+    { title: "Maps link", detail: "Google Business Profile points at your URL. The pin is still free, and still yours." },
+    { title: "Two revision rounds", detail: "After that, changes are a written extra, not a surprise." },
+    { title: "Go-live list", detail: "Domain login in your name, form tested, no promise of a ranking or a lead count." },
+  ],
+  ecommerce: [
+    { title: "SKU cap", detail: "Small is about 50. Medium is about 200. Past that, the number moves first." },
+    { title: "Your catalogue", detail: "Products live on your domain. A marketplace can stay for the first stranger." },
+    { title: "Checkout", detail: "Uses the gateway account from Growth if you already have it. Not a second invoice." },
+    { title: "WhatsApp handoff", detail: "The order can land in the chat your staff already open." },
+    { title: "Pincode honesty", detail: "Medium states zones before payment. We do not invent a courier rate." },
+    { title: "Dealer path", detail: "Only Expanding. One enquiry path. Not a second outlet and not stock software." },
+  ],
+  payments: [
+    { title: "Your account", detail: "Razorpay, Cashfree, or PayU in the business name. Not our merchant ID." },
+    { title: "UPI and cards", detail: "The methods that account already supports. MDR is their rate." },
+    { title: "Settlement", detail: "Shop money lands in the business account, not a personal QR history." },
+    { title: "Refund path", detail: "A failed or returned payment is a record, not a screenshot." },
+    { title: "Invoice line", detail: "A GST-ready invoice option. We are not your CA." },
+    { title: "What is outside", detail: "MDR, and any WhatsApp conversation charge, stay off the build fee." },
+  ],
+  whatsapp: [
+    { title: "Your number", detail: "The chat stays on the phone the shop already uses." },
+    { title: "Four flows", detail: "On Growth: hours, status, a reminder, and one you name. Not an unlimited bot." },
+    { title: "A person", detail: "Odd cases go to a human. The bot does not pretend to be the doctor." },
+    { title: "Business app or API", detail: "The free app when it is enough. API only when you ask, with Meta’s charges named." },
+    { title: "Staff", detail: "Who answers is written down. Not a shared handset with no owner." },
+    { title: "No lead pack", detail: "This does not buy enquiries. It answers the ones you already get." },
+  ],
+  analytics: [
+    { title: "Three numbers", detail: "Enquiries, collections, and what is stuck. Not a forty-tile board." },
+    { title: "One Monday view", detail: "Command joins up to three systems into that view." },
+    { title: "Source", detail: "The site and the gateway you own. Not a rented dashboard login." },
+    { title: "No vanity", detail: "We do not show a sample revenue chart as if it were yours." },
+    { title: "Who looks", detail: "The owner, on Monday. Not a report nobody opens." },
+    { title: "Outside", detail: "A data warehouse, and ads reporting, are a different quote." },
+  ],
+  compliance: [
+    { title: "Invoice habit", detail: "GST-ready invoices from the checkout. Not a return filing." },
+    { title: "A drawer, sorted", detail: "Bills in one place the accountant can open." },
+    { title: "We are not the CA", detail: "Registration filings are a separate page, with the government fee shown." },
+    { title: "GST, Udyam, IEC", detail: "Those have their own prices. They are not bundled into a website." },
+    { title: "Due dates", detail: "A reminder of what you told us. Not legal advice." },
+    { title: "Your login", detail: "The GST portal stays in your name. We do not keep the only access." },
+  ],
+};
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -107,7 +158,8 @@ export default async function ServicePage({
       <section className="section">
         <div className="container real-context">
           <div className="real-context-photo">
-            <img src={`/images/real/${service.photo}`} alt={`${service.title} in a real Indian business`} width={800} height={600} loading="lazy" decoding="async" />
+            <img src={`/images/real/${service.photo}`} alt="" width={800} height={600} loading="lazy" decoding="async" />
+            <p className="staged-note">Staged. Not a customer.</p>
           </div>
           <div className="real-context-copy">
             <div className="eyebrow"><span className="dot" /> In the real business</div>
@@ -128,11 +180,11 @@ export default async function ServicePage({
             </div>
           </div>
           <div className="feature-grid">
-            {serviceFeatures.map((feature, index) => (
-              <div className="feature" key={feature}>
+            {buildSteps[service.slug].map((step, index) => (
+              <div className="feature" key={step.title}>
                 <div className="icon">{index + 1}</div>
-                <h3>{feature}</h3>
-                <p>Configured to be clear, maintainable and ready for the next stage of growth.</p>
+                <h3>{step.title}</h3>
+                <p>{step.detail}</p>
               </div>
             ))}
           </div>

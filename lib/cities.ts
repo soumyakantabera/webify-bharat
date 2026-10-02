@@ -25,19 +25,19 @@ function cityFaqs(name: string, state: string): CityFaq[] {
   return [
     {
       q: `Do ${name} businesses still need Amazon or Flipkart?`,
-      a: `Marketplaces are fine for discovery and long-tail SKUs. Repeat buyers in ${name} should order on your own site, WhatsApp catalogue and UPI so you keep margin and the customer list. Webify Bharat builds that owned layer for ${state} MSMEs.`,
+      a: `Keep a marketplace for a stranger’s first order if you already use one. Repeat buyers in ${name} can order on your site, WhatsApp, and UPI. Read your own fee schedule. We do not quote one percent for every category.`,
     },
     {
-      q: `What does a cloud kitchen in ${name} need beyond Zomato?`,
-      a: `A menu page that ranks for your brand, QR or WhatsApp ordering for regulars, named UPI/gateway settlements, and a simple order log. Aggregators stay for strangers; regulars should not pay 15–30% forever.`,
+      q: `I run a clinic in ${name}, not a shop. Is this for me?`,
+      a: `A clinic page is appointments, reminders, and UPI. It is not an EMR and not a hospital system. Restaurants are the only place we talk about food apps. A ${state} clinic does not need a cloud-kitchen pitch.`,
     },
     {
       q: `Can a single-outlet shop in ${name} afford a real website?`,
-      a: `Yes. Webify Bharat Launch starts at ₹9,999 for a professional site, analytics and WhatsApp setup. Growth adds payments. Compare that to a year of Justdial packs or marketplace ads on your own brand name.`,
+      a: `Launch is ₹9,999 including 18% GST, for up to five pages, one language, and two revision rounds. It is for people who already search your name. It does not replace Justdial or a free Maps pin for category search.`,
     },
     {
       q: `Will this work if customers message in the local language?`,
-      a: `Yes. Buttons, menus and WhatsApp flows can match the counter — Hindi, Hinglish, Tamil, Bengali, Marathi or other languages staff already type.`,
+      a: `Launch includes one language, the one your counter already uses. A second language is quoted before you pay. It is not silently included.`,
     },
   ];
 }

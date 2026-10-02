@@ -23,8 +23,8 @@ export default function ContactPage() {
             Tell us what you want to <span>improve.</span>
           </h1>
           <p className="muted-copy">
-            Website, payments, WhatsApp, analytics or a messy combination of all four —
-            start with the business problem.
+            Website, a filing, or both. WhatsApp +91 83360 97642, same day in business
+            hours. The message from this form includes what you selected.
           </p>
         </div>
       </section>

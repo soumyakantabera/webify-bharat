@@ -26,35 +26,38 @@ export default function Home() {
       <section className="hero">
         <div className="container hero-grid">
           <div className="hero-copy">
-            <PageLead icon="home" kicker="Full control. Zero rupees per lead." />
+            <PageLead icon="home" kicker="You pay to build. Not per organic lead." />
             <h1>
               Own your customers.
               <br />
               <span>Stop renting them.</span>
             </h1>
             <p>
-              Your website, your WhatsApp, your list. No Justdial pack. No Zomato tax on
-              the guest who already wants you. No paying Google for the same name twice.
-              Enquiries that come through what you own cost you nothing extra per lead.
+              Your website, your WhatsApp, your list. For people who already look you up
+              by name. Ads, gateway fees, and WhatsApp conversation charges are extra.
+              Category leads from a directory are a different product.
             </p>
             <div className="hero-actions">
-              <WhatsAppCta href={WA_CONSULT}>Book a free consult</WhatsAppCta>
-              <Link className="btn btn-secondary" href="/pricing">
-                Pricing from ₹9,999
+              <Link className="btn btn-primary" href="/services">
+                Run the shop
               </Link>
+              <Link className="btn btn-secondary" href="/registrations">
+                Get registered
+              </Link>
+              <WhatsAppCta href={WA_CONSULT}>Book a free consult</WhatsAppCta>
             </div>
             <div className="trust">
               <div className="trust-item">
                 <span className="trust-icon">
                   <IconKey />
                 </span>
-                <span className="trust-label">Full control</span>
+                <span className="trust-label">You own the URL</span>
               </div>
               <div className="trust-item">
                 <span className="trust-icon">
                   <IconRupee />
                 </span>
-                <span className="trust-label">₹0 / lead</span>
+                <span className="trust-label">GST inside the price</span>
               </div>
               <div className="trust-item">
                 <span className="trust-icon">
@@ -66,7 +69,7 @@ export default function Home() {
                 <span className="trust-icon">
                   <IconCheck />
                 </span>
-                <span className="trust-label">No commission</span>
+                <span className="trust-label">No per-lead fee</span>
               </div>
             </div>
           </div>
@@ -93,13 +96,13 @@ export default function Home() {
                 <span className="dot" /> Owned, not rented
               </div>
               <h2>
-                Full control. <span>No rupees per lead.</span>
+                Pay for the build. <span>Not for the next organic enquiry.</span>
               </h2>
             </div>
             <p>
-              When someone finds you on Google, walks in, or WhatsApps your number —
-              that customer is yours. You do not pay Justdial, IndiaMART, Zomato or Meta
-              for that enquiry.
+              When someone already knows your name and finds the site, the Maps pin, or
+              your WhatsApp, that enquiry has no extra fee. Ads are optional. A normal
+              Google result is not a per-click bill.
             </p>
           </div>
           <div className="control-grid">
@@ -107,15 +110,15 @@ export default function Home() {
               <p className="control-kicker">Renting customers</p>
               <h3>Pay every time someone wants you.</h3>
               <ul>
-                <li>Zomato / Swiggy take a cut of the order</li>
-                <li>Justdial / IndiaMART bill per lead pack</li>
-                <li>Google and Meta charge for every click</li>
-                <li>They own the relationship — you rent it</li>
+                <li>Aggregators take a cut you can read in your own contract</li>
+                <li>Justdial bills a lead pack for category search</li>
+                <li>Ads are optional. A Maps pin is not a per-click bill</li>
+                <li>The directory keeps the relationship</li>
               </ul>
             </article>
             <article className="control-card own">
               <p className="control-kicker">Owning customers</p>
-              <h3>Your site. Your WhatsApp. ₹0 per lead.</h3>
+              <h3>Your site. Your WhatsApp. No fee on that organic enquiry.</h3>
               <ul>
                 <li>Website + Maps + WhatsApp you control</li>
                 <li>No extra rupee when a customer messages you</li>

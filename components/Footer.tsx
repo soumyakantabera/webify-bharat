@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { BrandLogo } from "@/components/BrandLogo";
 import { WhatsAppCta } from "@/components/icons";
-import { WA_CHAT } from "@/lib/site";
+import { SITE, WA_CHAT } from "@/lib/site";
 
 export default function Footer() {
   return (
@@ -12,21 +12,24 @@ export default function Footer() {
             <Link href="/" className="logo" aria-label="Webify Bharat home">
               <BrandLogo variant="dark" />
             </Link>
-            <p>Digital Operations. Real Growth.</p>
+            <p>Websites, WhatsApp, UPI, and the filings around them.</p>
             <p>
-              Websites, payments, WhatsApp automation, analytics and business systems for
-              Indian businesses — in every state capital.
+              Launch is for a name people already search. GST, Udyam, and IEC are priced
+              separately, with the government fee on its own line.
+            </p>
+            <p>
+              <a href={`https://wa.me/${SITE.whatsapp}`}>+91 83360 97642</a>
             </p>
             <WhatsAppCta href={WA_CHAT} className="btn btn-primary footer-wa">
               Chat on WhatsApp
             </WhatsAppCta>
           </div>
           <div>
-            <h4>Services</h4>
-            <Link href="/services/websites">Websites</Link>
-            <Link href="/services/payments">Payments</Link>
-            <Link href="/services/whatsapp">WhatsApp</Link>
-            <Link href="/services/analytics">Analytics</Link>
+            <h4>Filings</h4>
+            <Link href="/registrations/gst">GST</Link>
+            <Link href="/registrations/udyam">Udyam</Link>
+            <Link href="/registrations/iec">IEC</Link>
+            <Link href="/registrations/charges">Additional charges</Link>
           </div>
           <div>
             <h4>Explore</h4>
@@ -40,6 +43,7 @@ export default function Footer() {
             <h4>Company</h4>
             <Link href="/about">About</Link>
             <Link href="/work">Work</Link>
+            <Link href="/blog">Blog</Link>
             <Link href="/pricing">Pricing</Link>
             <Link href="/contact">Contact</Link>
           </div>

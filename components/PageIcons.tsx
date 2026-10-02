@@ -43,6 +43,7 @@ const ICONS: Record<string, LucideIcon> = {
   manufacturing: Factory,
   work: Images,
   pricing: IndianRupee,
+  registrations: FileCheck,
   about: Users,
   blog: Newspaper,
   article: BookOpen,
