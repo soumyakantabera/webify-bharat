@@ -119,7 +119,7 @@
 }
 .hero-shot-disc small {
   margin-top: 4px;
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
   font-size: 10.5px;
   font-weight: 800;
   letter-spacing: 0.1em;
@@ -169,7 +169,7 @@
   border-radius: 0 0 20px 20px;
   background: #f4e8d0;
   color: #3a352b;
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
   font-size: 12.5px;
   font-weight: 800;
   letter-spacing: 0.03em;
@@ -188,7 +188,7 @@
   margin: 0;
   max-width: none;
   color: #92400e;
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -211,7 +211,7 @@
   margin: 8px 0 0;
   max-width: none;
   color: #2b2f2d;
-  font-family: var(--font-body);
+  font-family: var(--font-display);
   font-size: 15px;
   font-weight: 800;
   line-height: 1.3;
@@ -250,7 +250,7 @@
   height: auto;
   background: none;
   color: #92400e;
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
   font-size: 11px;
   font-weight: 800;
 }
@@ -261,13 +261,13 @@
   letter-spacing: -0.02em;
 }
 .hero-shot-lines li:nth-child(2) {
-  font-family: var(--font-body);
+  font-family: var(--font-display);
   font-size: 15px;
   font-weight: 800;
   color: #0b5d56;
 }
 .hero-shot-lines li:nth-child(3) {
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
   font-size: 12.5px;
   font-weight: 700;
   color: #4a4438;
