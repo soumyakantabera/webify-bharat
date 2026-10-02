@@ -27,6 +27,10 @@ const SELECTORS = [
   ".about-grid",
   ".process-wrap",
   ".key-facts > div",
+  ".claim-panel",
+  ".claim-zero",
+  ".claim-not",
+  ".claim-pill",
   ".story-photo-card",
   ".contact-story",
   ".form",
@@ -44,7 +48,6 @@ function markMediaLoaded(img: HTMLImageElement) {
   const parent = img.closest(".skeleton-media");
   if (parent) parent.classList.add("is-loaded");
 
-  // Blog/story: wrap img area if parent is card with direct img
   const card = img.closest(".blog-card, .industry-card, .city-card, .story-photo-card");
   if (card && card.classList.contains("skeleton-media")) {
     card.classList.add("is-loaded");
@@ -60,13 +63,11 @@ function setupSkeletonForImage(img: HTMLImageElement) {
     img.getAttribute("fetchpriority") === "high" ||
     !!img.closest(".hero, .page-hero, .navbar");
 
-  // Prefer wrapping parent as skeleton media
   let media =
     img.closest(
       ".card-media, .photo-card, .cta-photo, .cta-real-photo, .about-photo, .real-context-photo, .hero-visual"
     ) || img.parentElement;
 
-  // For cards where img is direct child of the card link
   if (
     img.parentElement &&
     (img.parentElement.classList.contains("industry-card") ||
@@ -127,7 +128,6 @@ export default function Motion() {
     mo.observe(document.body, { childList: true, subtree: true });
 
     if (reduced) {
-      // Instantly mark everything loaded so no stuck skeletons
       document.querySelectorAll(".skeleton-media, img.skeleton-img").forEach((el) => {
         el.classList.add("is-loaded");
       });
