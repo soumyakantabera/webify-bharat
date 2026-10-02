@@ -52,10 +52,10 @@
 .hero-shot-polaroid {
   position: absolute;
   z-index: 3;
-  right: 8%;
-  bottom: 10px;
-  width: min(68%, 250px);
-  padding: 10px 10px 8px;
+  right: 5%;
+  bottom: 8px;
+  width: min(82%, 320px);
+  padding: 14px 14px 10px;
   background: #fffdf8;
   border-radius: 3px;
   transform: rotate(-4deg);
@@ -82,55 +82,57 @@
   box-shadow: none;
 }
 .hero-shot-copy strong {
-  display: inline;
-  font-size: 16px;
-  letter-spacing: -0.03em;
-  line-height: 1.25;
+  display: block;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  color: #17191f;
   background-image: linear-gradient(#ffe08a, #ffe08a);
   background-repeat: no-repeat;
-  background-size: 0% 0.36em;
-  background-position: 0 90%;
+  background-size: 0% 0.32em;
+  background-position: 0 92%;
   animation: shot-mark 0.7s var(--ease-out) 0.55s forwards;
 }
 .hero-shot-copy ul {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  margin: 8px 0 0;
+  gap: 2px;
+  margin: 10px 0 0;
   padding: 0;
   list-style: none;
 }
 .hero-shot-copy li {
   margin: 0;
-  padding: 0 0 1px;
+  padding: 0;
   border-radius: 0;
   background: none;
   box-shadow: none;
-  color: #1c1f1d;
-  font-size: 12.5px;
-  font-weight: 750;
-  line-height: 1.35;
-  background-repeat: no-repeat;
-  background-size: 100% 0.28em;
-  background-position: 0 100%;
+  font-weight: 800;
+  line-height: 1.25;
   animation: shot-line 0.45s var(--ease-out) both;
 }
 .hero-shot-copy li:nth-child(1) {
   animation-delay: 0.45s;
-  background-image: linear-gradient(#ffd0bd, #ffd0bd);
-  color: #9a3412;
+  font-size: 13px;
+  color: #c2410c;
 }
 .hero-shot-copy li:nth-child(2) {
   animation-delay: 0.57s;
-  background-image: linear-gradient(#b7eadc, #b7eadc);
+  font-size: 17px;
   color: #0d6b45;
 }
 .hero-shot-copy li:nth-child(3) {
   animation-delay: 0.69s;
-  background-image: linear-gradient(#ffe08a, #ffe08a);
-  color: #8a4b08;
+  font-size: 14px;
+  font-weight: 750;
+  color: #3a3f92;
 }
-.hero-shot-copy li:nth-child(4) { animation-delay: 0.81s; }
+.hero-shot-copy li:nth-child(4) {
+  animation-delay: 0.81s;
+  font-size: 12px;
+  color: #1d4ed8;
+}
 .hero-shot-copy em {
   display: block;
   margin-top: 8px;
@@ -166,7 +168,7 @@
   to { transform: rotate(-2.5deg) translateY(-4px); }
 }
 @keyframes shot-mark {
-  to { background-size: 100% 0.36em; }
+  to { background-size: 100% 0.32em; }
 }
 @keyframes shot-line {
   from { opacity: 0; transform: translateX(10px); }
@@ -184,5 +186,5 @@
     animation: none !important;
   }
   .hero-shot-polaroid { transform: rotate(-4deg); }
-  .hero-shot-copy strong { background-size: 100% 0.36em; }
+  .hero-shot-copy strong { background-size: 100% 0.32em; }
 }
