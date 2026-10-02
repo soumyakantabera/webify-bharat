@@ -195,7 +195,7 @@ export default function PricingPage() {
                       Compare {addon.name}
                     </Link>
                     <WhatsAppCta href={WA_PACKAGES} className="btn btn-primary price-cta">
-                      Discuss {addon.name} e-commerce
+                      Choose {addon.name}
                     </WhatsAppCta>
                   </div>
                 </div>
