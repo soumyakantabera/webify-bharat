@@ -62,19 +62,23 @@
   margin: 14px 0 0;
   padding: 0;
   display: grid;
-  gap: 8px;
+  gap: 10px;
   flex: 1;
 }
 .rival-co li {
-  display: grid;
-  grid-template-columns: 28px 1fr;
-  gap: 10px;
+  display: flex;
   align-items: center;
-  min-height: 72px;
-  padding: 10px 12px;
+  gap: 12px;
+  height: 84px;
+  min-height: 84px;
+  padding: 12px 14px;
   border-radius: 16px;
   box-sizing: border-box;
+  overflow: hidden;
   animation: rival-in 0.7s var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1)) both;
+}
+.rival-co li::marker {
+  content: none;
 }
 .rival-co li:nth-child(1) { background: #ffd9cc; }
 .rival-co li:nth-child(2) { background: #ffe7a8; }
@@ -83,13 +87,17 @@
 .rival-ladders .rival-co:nth-child(2) li:nth-child(2) { background: #d8f5ea; }
 .rival-ladders .rival-co:nth-child(2) li:nth-child(3) { background: #ffe0e4; }
 .rival-step {
+  flex: 0 0 28px;
   width: 28px;
   height: 28px;
+  margin: 0;
+  position: static;
   border-radius: 10px;
   display: grid;
   place-items: center;
   font-size: 13px;
   font-weight: 800;
+  line-height: 1;
   color: #fff;
   background: var(--mango, #ff8a1e);
 }
@@ -172,24 +180,15 @@
   transition: box-shadow 0.25s ease;
 }
 @keyframes rival-in {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: none; }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 @media (min-width: 901px) {
-  .rival-ladders {
-    grid-template-rows: auto repeat(3, minmax(72px, auto));
-  }
   .rival-co {
-    display: grid;
-    grid-template-rows: subgrid;
-    grid-row: span 4;
+    height: 100%;
   }
   .rival-co ol {
-    display: grid;
-    grid-template-rows: subgrid;
-    grid-row: span 3;
-    margin: 0;
-    gap: 0;
+    align-content: start;
   }
 }
 @media (max-width: 900px) {
