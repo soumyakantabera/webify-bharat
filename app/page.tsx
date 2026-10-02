@@ -6,6 +6,7 @@ import Link from "next/link";
 import Layout from "@/components/Layout";
 import { SeoChunk } from "@/components/SeoChunk";
 import { PageLead } from "@/components/PageIcons";
+import { HeroShot } from "@/components/HeroShot";
 import { ProcessVisual } from "@/components/ProcessVisual";
 import { FaqSection } from "@/components/FaqSection";
 import {
@@ -75,6 +76,7 @@ export default function Home() {
           </div>
           <div className="hero-visual">
             <img
+              className="hero-dash"
               src="/images/hero/digital-growth-dashboard.png"
               alt="Webify Bharat digital operations dashboard"
               width={960}
@@ -82,6 +84,7 @@ export default function Home() {
               fetchPriority="high"
               decoding="async"
             />
+            <HeroShot kind="services" />
           </div>
         </div>
       </section>

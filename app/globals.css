@@ -310,6 +310,29 @@ h2 span {
 }
 .hero-visual {
   position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(210px, 0.85fr);
+  gap: 14px;
+  align-items: center;
+}
+.hero-visual .hero-dash {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+}
+.hero-visual .hero-shot {
+  width: 100%;
+  margin: 0;
+  padding: 8px 0 0;
+}
+.hero-visual .hero-shot-frame {
+  display: block;
+}
+.hero-visual .hero-shot-collage {
+  display: none;
+}
+.hero-visual .hero-shot-card {
+  width: 100%;
 }
 .hero-visual:before {
   content: "";
@@ -1423,17 +1446,19 @@ textarea.input {
   }
   .hero-visual {
     order: 1;
-    max-height: 240px;
-    overflow: hidden;
+    max-height: none;
+    overflow: visible;
+    grid-template-columns: 1fr;
   }
   .hero-visual:before {
     display: none;
   }
-  .hero-visual img {
-    width: 120%;
-    max-width: none;
-    max-height: none;
-    margin: -6% 0 0 -10%;
+  .hero-visual .hero-dash {
+    width: 100%;
+    max-width: 100%;
+    max-height: 280px;
+    margin: 0;
+    object-fit: contain;
   }
   .trust {
     grid-template-columns: repeat(2, 1fr);
