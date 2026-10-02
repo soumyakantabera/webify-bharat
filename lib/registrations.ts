@@ -13,6 +13,8 @@ export type Registration = {
   documents: string[];
   notIncluded: string[];
   ridesWith: "Launch" | "Growth" | "Command";
+  short: string;
+  mark: string;
 };
 
 export const registrations: Registration[] = [
@@ -29,6 +31,8 @@ export const registrations: Registration[] = [
     documents: ["PAN", "Aadhaar", "Bank proof", "Address proof", "Photograph", "Authorised signatory, if it is a company"],
     notIncluded: ["Monthly or quarterly returns", "A notice reply", "A second entity"],
     ridesWith: "Launch",
+    short: "GST",
+    mark: "GST",
   },
   {
     slug: "udyam",
@@ -43,6 +47,8 @@ export const registrations: Registration[] = [
     documents: ["Aadhaar of the proprietor or authorised person", "PAN", "Bank account"],
     notIncluded: ["MSME schemes", "A loan file", "A change of activity after the certificate"],
     ridesWith: "Launch",
+    short: "Udyam",
+    mark: "UD",
   },
   {
     slug: "iec",
@@ -57,6 +63,8 @@ export const registrations: Registration[] = [
     documents: ["PAN", "Address proof", "Bank proof", "Aadhaar e-sign, or a DSC if the entity cannot e-sign"],
     notIncluded: ["A digital signature token", "A bank certificate if the bank rejects a PDF", "A detail change after issue (DGFT charges ₹200 for that)"],
     ridesWith: "Growth",
+    short: "IEC",
+    mark: "IEC",
   },
   {
     slug: "uk-vat",
@@ -71,6 +79,8 @@ export const registrations: Registration[] = [
     documents: ["Business proof and PAN", "Passport or equivalent of the authorised person", "Shop URL", "What you sell and where the goods ship from"],
     notIncluded: ["VAT returns after the number", "A fiscal representative", "Goods above £135"],
     ridesWith: "Command",
+    short: "UK VAT",
+    mark: "UK",
   },
   {
     slug: "eu-vat",
@@ -85,6 +95,8 @@ export const registrations: Registration[] = [
     documents: ["The intermediary’s document list, not a shorter one we invent", "Shop URL", "What you sell and the ship-from country"],
     notIncluded: ["The intermediary’s own fee", "Monthly IOSS returns, unless scoped later", "Customs brokerage"],
     ridesWith: "Command",
+    short: "EU IOSS",
+    mark: "EU",
   },
 ];
 

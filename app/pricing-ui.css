@@ -357,3 +357,96 @@
     font-size: 14px;
   }
 }
+
+.price-card.tone-launch {
+  box-shadow: 0 16px 34px rgba(13, 107, 69, 0.12);
+}
+.price-card.tone-growth,
+.price-card.popular.tone-growth {
+  box-shadow: 0 16px 34px rgba(154, 52, 18, 0.14);
+}
+.price-card.tone-command {
+  box-shadow: 0 16px 34px rgba(58, 63, 146, 0.14);
+}
+.price-card.tone-gst { box-shadow: 0 14px 28px rgba(13, 107, 69, 0.12); }
+.price-card.tone-udyam { box-shadow: 0 14px 28px rgba(154, 52, 18, 0.12); }
+.price-card.tone-iec { box-shadow: 0 14px 28px rgba(58, 63, 146, 0.14); }
+.price-card.tone-uk-vat { box-shadow: 0 14px 28px rgba(29, 78, 137, 0.14); }
+.price-card.tone-eu-vat { box-shadow: 0 14px 28px rgba(159, 48, 64, 0.12); }
+
+.price-card .filing-pack {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  margin: 18px 0 4px;
+  min-height: 72px;
+  align-items: start;
+}
+.filing-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  text-align: center;
+}
+.filing-slot em {
+  font-style: normal;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+.mark {
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  flex-shrink: 0;
+  box-shadow: 0 8px 16px rgba(28, 31, 29, 0.14);
+}
+.mark-gst { background: linear-gradient(160deg, #2fbe7a, #0d6b45); }
+.mark-udyam { background: linear-gradient(160deg, #ffb15a, #c2410c); }
+.mark-iec { background: linear-gradient(160deg, #8b8cff, #3730a3); }
+.mark-uk-vat { background: linear-gradient(160deg, #7eb6ef, #1d4e89); }
+.mark-eu-vat { background: linear-gradient(160deg, #f3a0ad, #9f3040); }
+
+.filing-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  margin-bottom: 4px;
+}
+.filing-head .price-best-for {
+  margin: 0;
+}
+.portal-fee {
+  margin: 12px 0 0;
+  font-size: 12px;
+  font-weight: 750;
+  line-height: 1.4;
+  color: var(--muted);
+}
+.price-card-filing .reg-prices {
+  gap: 10px;
+  margin-top: 16px;
+}
+.price-card-filing .reg-prices strong {
+  font-size: 24px;
+}
+.price-card-filing .reg-prices small {
+  margin-top: 4px;
+  line-height: 1.35;
+}
+.gift-band .filing-slot em {
+  color: #fff;
+}
+.gift-band .filing-pack {
+  margin-top: 12px;
+  min-height: 0;
+}

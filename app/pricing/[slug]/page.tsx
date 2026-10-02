@@ -6,6 +6,7 @@ import { RivalBoard } from "@/components/RivalBoard";
 import { PageLead } from "@/components/PageIcons";
 import { CheckItem, WhatsAppCta } from "@/components/icons";
 import { getOffer, offerFamily, offers } from "@/lib/offers";
+import { FilingMark } from "@/components/FilingMark";
 import { filingsIn } from "@/lib/registrations";
 import { waLink } from "@/lib/site";
 
@@ -86,9 +87,9 @@ export default async function OfferPage({
               </p>
               <div className="filing-pack">
                 {filingsIn(offer.name as "Launch" | "Growth" | "Command").map((item) => (
-                  <span className={`filing-chip chip-${item.slug}`} key={item.slug}>
-                    {item.name.replace(" registration", "").replace(" (import export code)", "").replace(" coordination", "")}
-                    <b>in</b>
+                  <span className="filing-slot" key={item.slug}>
+                    <FilingMark slug={item.slug} mark={item.mark} />
+                    <em>{item.short}</em>
                   </span>
                 ))}
               </div>

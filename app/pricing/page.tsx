@@ -20,6 +20,7 @@ import { PageLead } from "@/components/PageIcons";
 import { FaqSection } from "@/components/FaqSection";
 import { getFaq } from "@/lib/faqs";
 import { WhatsAppCta } from "@/components/icons";
+import { FilingMark } from "@/components/FilingMark";
 import { ecommerceAddons } from "@/lib/ecommerce-addons";
 import { filingsIn, registrationChat, registrations } from "@/lib/registrations";
 import { plans, WA_PACKAGES } from "@/lib/site";
@@ -64,15 +65,14 @@ export default function PricingPage() {
         <div className="container page-copy">
           <PageLead icon="pricing" kicker="Pricing" />
           <h1>
-            Start simple.
+            One price.
             <br />
-            <span>Build as you grow.</span>
+            <span>The site and the paper.</span>
           </h1>
           <p className="muted-copy">
-            The number on a shop card is the invoice. 18% GST is already inside it, for the
-            fence written under the price. A bigger site is a new number, agreed before you
-            pay. Filings are further down. Their government fee is a second number, never
-            folded in.
+            The number on a shop card is the invoice. 18% GST is already inside it.
+            Launch carries GST and Udyam. Growth adds IEC. Command carries every filing.
+            A portal receipt, if the department charges one, stays in your name.
           </p>
         </div>
       </section>
@@ -87,7 +87,7 @@ export default function PricingPage() {
                 <span className="dot" /> Core packages
               </div>
               <h2>
-                Website and digital ops <span>foundations.</span>
+                Pick a package. <span>The filings come with it.</span>
               </h2>
             </div>
             <p>
@@ -104,7 +104,7 @@ export default function PricingPage() {
               const slug = planSlugs[plan.name];
               return (
                 <div
-                  className={`price-card${plan.popular ? " popular" : ""}`}
+                  className={`price-card tone-${slug}${plan.popular ? " popular" : ""}`}
                   key={plan.name}
                 >
                   <div className="price-card-top">
@@ -127,14 +127,14 @@ export default function PricingPage() {
                       <small>incl. GST</small>
                     </div>
                     <p className="price-fence">{fences[plan.name]}</p>
-                    <div className="filing-pack" aria-label={`Filings included with ${plan.name}`}>
-                      {filingsIn(plan.name as "Launch" | "Growth" | "Command").map((item) => (
-                        <span className={`filing-chip chip-${item.slug}`} key={item.slug}>
-                          {item.name.replace(" registration", "").replace(" (import export code)", "").replace(" coordination", "")}
-                          <b>in</b>
-                        </span>
-                      ))}
-                    </div>
+                  </div>
+                  <div className="filing-pack" aria-label={`Filings included with ${plan.name}`}>
+                    {filingsIn(plan.name as "Launch" | "Growth" | "Command").map((item) => (
+                      <span className="filing-slot" key={item.slug}>
+                        <FilingMark slug={item.slug} mark={item.mark} />
+                        <em>{item.short}</em>
+                      </span>
+                    ))}
                   </div>
                   <ul className="list">
                     {plan.features.map((feature) => (
@@ -269,9 +269,12 @@ export default function PricingPage() {
           </div>
           <div className="pricing-grid filings-grid">
             {registrations.map((item) => (
-              <article className="price-card price-card-filing" key={item.slug}>
+              <article className={`price-card price-card-filing tone-${item.slug}`} key={item.slug}>
                 <div className="price-card-top">
-                  <p className="price-best-for">Filed on {item.portal}</p>
+                  <div className="filing-head">
+                    <FilingMark slug={item.slug} mark={item.mark} size={48} />
+                    <p className="price-best-for">Filed on {item.portal}</p>
+                  </div>
                   <h2>
                     <Link href={`/registrations/${item.slug}`}>{item.name}</Link>
                   </h2>
@@ -280,14 +283,15 @@ export default function PricingPage() {
                     <div>
                       <span>Alone</span>
                       <strong className="fee-was">{item.ourFee}</strong>
-                      <small>our fee, if you skip the site</small>
+                      <small>filing only</small>
                     </div>
                     <div className="fee-in">
                       <span>With {item.ridesWith}</span>
                       <strong>₹0</strong>
-                      <small>our fee is in that package</small>
+                      <small>included</small>
                     </div>
                   </div>
+                  <p className="portal-fee">Portal fee {item.govFee}. Not marked up.</p>
                 </div>
                 <div className="price-card-cta">
                   <Link className="btn btn-secondary price-cta" href={`/registrations/${item.slug}`}>
