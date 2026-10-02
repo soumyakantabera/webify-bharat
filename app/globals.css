@@ -680,8 +680,15 @@ h2 span {
 }
 .cta-band .image-wrap {
   background: linear-gradient(145deg, #173c38, #2a211c);
-  border-radius: 28px;
-  padding: 12px;
+  border-radius: var(--radius);
+  padding: 10px;
+  overflow: hidden;
+}
+.cta-band .image-wrap img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
 }
 .page-hero {
   padding: 56px 0 48px;
@@ -1749,4 +1756,8 @@ textarea.input {
   .key-facts {
     grid-template-columns: 1fr;
   }
+}
+
+img:not([src$=".svg"]) {
+  border-radius: var(--radius);
 }
