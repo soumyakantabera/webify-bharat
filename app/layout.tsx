@@ -16,6 +16,7 @@ import "./offer-pages.css";
 import "./pro-chart.css";
 import "./rival-board.css";
 import "./color-tiles.css";
+import "./service-grid.css";
 import { jetbrains, manrope, sora } from "./fonts";
 
 export const viewport: Viewport = {
