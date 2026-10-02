@@ -47,11 +47,9 @@ export default async function ArticlePage({
           <p className="muted-copy">{post.excerpt}</p>
           </div>
           <HeroShot
-            frames={[
-              { src: image, alt: post.title, label: "This guide" },
-              { src: "/images/blog/website.png", alt: "Website guide snapshot", label: "The site" },
-              { src: "/images/blog/payments.png", alt: "Payments guide snapshot", label: "Payments" },
-            ]}
+            kind="blog"
+            title={post.title}
+            lines={[post.excerpt]}
           />
         </div>
       </section>

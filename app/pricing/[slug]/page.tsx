@@ -109,7 +109,17 @@ export default async function OfferPage({
             ))}
           </div>
           </div>
-          <HeroShot kind="pricing" />
+          <HeroShot
+            kind="pricing"
+            title={`${offer.name} · ${offer.price}`}
+            lines={[
+              offer.bestFor,
+              "18% GST is inside our fee.",
+              offer.kind === "package"
+                ? "The filings on this card ride in the price."
+                : "This sits on top of a website package.",
+            ]}
+          />
         </div>
       </section>
 

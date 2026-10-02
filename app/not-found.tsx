@@ -26,7 +26,7 @@ export default function NotFound() {
             </Link>
           </div>
           </div>
-          <HeroShot kind="cities" />
+          <HeroShot kind="missing" />
         </div>
       </section>
     </Layout>

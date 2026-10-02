@@ -83,7 +83,15 @@ export default async function RegistrationPage({
             ))}
           </div>
           </div>
-          <HeroShot kind="registrations" />
+          <HeroShot
+            kind="registrations"
+            title={item.name}
+            lines={[
+              `Our fee ${item.ourFee}. Government ${item.govFee}.`,
+              `Our fee is ₹0 with ${item.ridesWith}.`,
+              `Filed on ${item.portal}.`,
+            ]}
+          />
         </div>
       </section>
 

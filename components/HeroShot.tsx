@@ -1,90 +1,99 @@
-"use client";
-
-import { useEffect, useState } from "react";
-
-type Frame = { src: string; alt: string; label: string };
-
-const SETS: Record<string, Frame[]> = {
-  services: [
-    { src: "/images/services/website.png", alt: "Website product snapshot", label: "The site" },
-    { src: "/images/services/whatsapp.png", alt: "WhatsApp product snapshot", label: "WhatsApp" },
-    { src: "/images/services/payments.png", alt: "Payments product snapshot", label: "UPI" },
-  ],
-  pricing: [
-    { src: "/images/services/payments.png", alt: "Checkout snapshot", label: "The price" },
-    { src: "/images/services/ecommerce.png", alt: "Shop snapshot", label: "The shop" },
-    { src: "/images/services/analytics.png", alt: "Orders snapshot", label: "The orders" },
-  ],
-  registrations: [
-    { src: "/images/services/compliance.png", alt: "Filing snapshot", label: "The filing" },
-    { src: "/images/services/website.png", alt: "Site snapshot", label: "With the site" },
-    { src: "/images/blog/gst.png", alt: "GST snapshot", label: "GST" },
-  ],
-  cities: [
-    { src: "/images/services/website.png", alt: "City site snapshot", label: "Your city" },
-    { src: "/images/services/whatsapp.png", alt: "Local WhatsApp snapshot", label: "The chat" },
-    { src: "/images/services/analytics.png", alt: "Local enquiries snapshot", label: "Enquiries" },
-  ],
-  blog: [
-    { src: "/images/blog/website.png", alt: "Guide snapshot", label: "A guide" },
-    { src: "/images/blog/payments.png", alt: "Payments guide snapshot", label: "Payments" },
-    { src: "/images/blog/analytics.png", alt: "Analytics guide snapshot", label: "The numbers" },
-  ],
-  work: [
-    { src: "/images/services/website.png", alt: "Work snapshot", label: "The system" },
-    { src: "/images/services/ecommerce.png", alt: "Shop work snapshot", label: "The shop" },
-    { src: "/images/services/analytics.png", alt: "Reporting snapshot", label: "The report" },
-  ],
-  contact: [
-    { src: "/images/services/whatsapp.png", alt: "WhatsApp snapshot", label: "WhatsApp" },
-    { src: "/images/services/website.png", alt: "Site snapshot", label: "The brief" },
-    { src: "/images/services/payments.png", alt: "Payments snapshot", label: "The scope" },
-  ],
-  legal: [
-    { src: "/images/services/compliance.png", alt: "Policy snapshot", label: "The terms" },
-    { src: "/images/services/website.png", alt: "Site snapshot", label: "The site" },
-    { src: "/images/services/payments.png", alt: "Fee snapshot", label: "The fee" },
-  ],
+type Shot = {
+  image: string;
+  alt: string;
+  title: string;
+  lines: string[];
 };
 
-export function HeroShot({ kind = "services", frames }: { kind?: string; frames?: Frame[] }) {
-  const slides = frames?.length ? frames : SETS[kind] ?? SETS.services;
-  const [index, setIndex] = useState(0);
-  const frame = slides[index] ?? slides[0];
+const SHOTS: Record<string, Shot> = {
+  services: {
+    image: "/images/snapshots/services.webp",
+    alt: "A shop owner with her website and WhatsApp open",
+    title: "Site, chat, and checkout.",
+    lines: ["You own the URL and the list", "No fee on an organic enquiry", "GST is already in the card"],
+  },
+  pricing: {
+    image: "/images/snapshots/pricing.webp",
+    alt: "An owner checking a single price card",
+    title: "One invoice. GST inside.",
+    lines: ["Launch includes GST and Udyam", "Growth adds IEC", "A portal fee stays in your name"],
+  },
+  registrations: {
+    image: "/images/snapshots/registrations.webp",
+    alt: "A person preparing a business filing",
+    title: "The paper, filed once.",
+    lines: ["Our fee and the department's fee are separate", "Launch carries GST and Udyam", "We are not the portal"],
+  },
+  charges: {
+    image: "/images/snapshots/pricing.webp",
+    alt: "An owner checking what is not in the price",
+    title: "Two bills. Both named.",
+    lines: ["Hosting, domain, gateway, WhatsApp", "A department receipt stays theirs", "Quoted before you pay"],
+  },
+  cities: {
+    image: "/images/snapshots/cities.webp",
+    alt: "A shopkeeper in the doorway of a city shop",
+    title: "Your city. Your front door.",
+    lines: ["For people who already search your name", "Directories stay optional", "Every state capital"],
+  },
+  blog: {
+    image: "/images/snapshots/blog.webp",
+    alt: "Someone writing a short business guide",
+    title: "A short answer. Then the work.",
+    lines: ["Websites, payments, WhatsApp", "Written for an owner", "No promise of more sales"],
+  },
+  work: {
+    image: "/images/snapshots/work.webp",
+    alt: "Two people reviewing the day's orders",
+    title: "The system, not a mockup.",
+    lines: ["Orders, chat, and the ledger", "Shown as a format until a client agrees", "You keep the login"],
+  },
+  contact: {
+    image: "/images/snapshots/contact.webp",
+    alt: "A shop owner and a consultant talking",
+    title: "Five lines. Then we talk.",
+    lines: ["WhatsApp +91 83360 97642", "Same day in business hours", "A site, a filing, or both"],
+  },
+  legal: {
+    image: "/images/snapshots/legal.webp",
+    alt: "Reading the terms of the work",
+    title: "Delivery is the output.",
+    lines: ["Not a rise in sales", "No refund after delivery", "Kolkata, sole proprietorship"],
+  },
+  missing: {
+    image: "/images/snapshots/cities.webp",
+    alt: "A shopkeeper outside a city shop",
+    title: "This page is not here.",
+    lines: ["The link may be old", "Go home, or write to us", "Nothing else was on this URL"],
+  },
+};
 
-  useEffect(() => {
-    if (slides.length < 2) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const timer = window.setInterval(() => {
-      setIndex((current) => (current + 1) % slides.length);
-    }, 4200);
-    return () => window.clearInterval(timer);
-  }, [slides.length]);
+export function HeroShot({
+  kind = "services",
+  title,
+  lines,
+}: {
+  kind?: string;
+  title?: string;
+  lines?: string[];
+}) {
+  const shot = SHOTS[kind] ?? SHOTS.services;
+  const heading = title ?? shot.title;
+  const points = lines?.length ? lines : shot.lines;
 
   return (
-    <aside className="hero-shot" aria-label="Product snapshot">
+    <aside className="hero-shot" aria-label={`Summary: ${heading}`}>
       <div className="hero-shot-frame">
-        <div className="hero-shot-bar" aria-hidden>
-          <span />
-          <span />
-          <span />
-          <em>{frame.label}</em>
+        <img src={shot.image} alt={shot.alt} width={1600} height={1200} />
+        <div className="hero-shot-copy">
+          <strong>{heading}</strong>
+          <ul>
+            {points.map((line) => (
+              <li key={line}>{line}</li>
+            ))}
+          </ul>
         </div>
-        <img key={frame.src} src={frame.src} alt={frame.alt} />
       </div>
-      {slides.length > 1 ? (
-        <div className="hero-shot-dots">
-          {slides.map((slide, dot) => (
-            <button
-              key={slide.src}
-              type="button"
-              className={dot === index ? "is-on" : undefined}
-              aria-label={slide.label}
-              onClick={() => setIndex(dot)}
-            />
-          ))}
-        </div>
-      ) : null}
     </aside>
   );
 }

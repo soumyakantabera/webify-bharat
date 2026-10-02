@@ -46,7 +46,7 @@ export default function ChargesPage() {
           </p>
           <Link className="btn btn-secondary" href="/registrations">All filings</Link>
           </div>
-          <HeroShot kind="registrations" />
+          <HeroShot kind="charges" />
         </div>
       </section>
       <section className="section">
