@@ -41,8 +41,8 @@ const fences: Record<string, string> = {
   Launch: "Up to 5 pages · 1 language · 2 revision rounds · 2–4 weeks if your content is in. Not category leads.",
   Growth: "Launch, plus a gateway on your account · up to 4 WhatsApp flows · 3–5 weeks. KYC can add time.",
   Command: "Growth, plus up to 3 connections · one Monday view · 4–6 weeks. Not an open rebuild.",
-  Small: "About 50 products · one flat list · payment link, not a gateway.",
-  Medium: "About 200 products in categories · pincode zones · includes Small.",
+  Small: "One page of products. Scroll, pay by link, chat the order.",
+  Medium: "A shop. Categories, pincode before pay, today's orders on a screen.",
   Expanding: "Several lines and one dealer path · includes Medium · not a second outlet.",
 };
 
@@ -170,11 +170,34 @@ export default function PricingPage() {
               </h2>
             </div>
             <p>
-              Add a catalogue on your domain. Keep a marketplace for a stranger’s first
-              order. Small, Medium, and Expanding are sized by product count. Every addon
-              price includes 18% GST and sits on top of a site.
+              Small is a page. Medium is a shop. The extra ₹5,000 is not more of the
+              same list. It is categories, a pincode before payment, and an order desk.
             </p>
           </div>
+
+          <div className="fork" aria-label="Small compared with Medium">
+            <div className="fork-row fork-head">
+              <span />
+              <span>Small · ₹4,999</span>
+              <span>Medium · ₹9,999</span>
+            </div>
+            {[
+              ["What you are buying", "One page of products", "A shop people browse"],
+              ["Finding an item", "They scroll", "They open a category"],
+              ["Payment", "A UPI link", "A gateway, if Growth is underneath"],
+              ["After they pay", "A WhatsApp message", "A row on today’s order list"],
+              ["Delivery", "You answer in chat", "The pincode is shown before they pay"],
+            ].map((row) => (
+              <div className="fork-row" key={row[0]}>
+                {row.map((cell) => (
+                  <span key={cell}>{cell}</span>
+                ))}
+              </div>
+            ))}
+          </div>
+          <p className="pricing-footnote fork-note">
+            Expanding is Medium plus one dealer enquiry. It is not a bigger Small.
+          </p>
 
           <div className="pricing-grid">
             {ecommerceAddons.map((addon) => {
