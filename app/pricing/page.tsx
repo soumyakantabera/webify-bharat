@@ -47,9 +47,9 @@ const fences: Record<string, string> = {
   Launch: "Up to 5 pages · 1 language · 2 revision rounds · 2–4 weeks if your content is in. Not category leads.",
   Growth: "Launch, plus a gateway on your account · up to 4 WhatsApp flows · 3–5 weeks. KYC can add time.",
   Command: "Growth, plus up to 3 connections · one Monday view · 4–6 weeks. Not an open rebuild.",
-  Small: "One page of products. Scroll, pay by link, chat the order.",
-  Medium: "A shop. Categories, pincode before pay, today's orders on a screen.",
-  Expanding: "Several lines and one dealer path · includes Medium · not a second outlet.",
+  Small: "You add the products. One page. Scroll, pay by link, chat the order.",
+  Medium: "You load the catalogue. Categories, pincode before pay, today’s orders.",
+  Expanding: "You manage the lines. One dealer path · includes Medium.",
 };
 
 const planSlugs: Record<string, string> = {
@@ -177,7 +177,7 @@ export default function PricingPage() {
               </h2>
             </div>
             <p>
-              The extra ₹5,000 is not a longer list. It is categories, a pincode before
+              The extra ₹2,000 is not a longer list. It is categories, a pincode before
               payment, and an order desk.
             </p>
           </div>
@@ -189,7 +189,7 @@ export default function PricingPage() {
                   <p>Small</p>
                   <h3>A page.</h3>
                 </div>
-                <strong>₹4,999</strong>
+                <strong>₹999</strong>
               </header>
               <ul>
                 <li><span className="tile tile-green"><ScrollText size={18} /></span>They scroll one list</li>
@@ -201,7 +201,7 @@ export default function PricingPage() {
             </article>
             <div className="pair-orb">
               <strong>
-                <span className="pair-plus">+</span>₹5,000
+                <span className="pair-plus">+</span>₹2,000
               </strong>
               <span>buys a shop, not more rows</span>
             </div>
@@ -211,7 +211,7 @@ export default function PricingPage() {
                   <p>Medium</p>
                   <h3>A shop.</h3>
                 </div>
-                <strong>₹9,999</strong>
+                <strong>₹2,999</strong>
               </header>
               <ul>
                 <li><span className="tile tile-mango"><Store size={18} /></span>They open a category</li>
@@ -275,15 +275,15 @@ export default function PricingPage() {
 
           <div className="stack-grid">
             <article>
-              <strong>₹14,998</strong>
-              <span>Launch + Small. The site, plus a flat list of about 50 products.</span>
+              <strong>₹10,998</strong>
+              <span>Launch + Small. The site, plus a list you keep up to date.</span>
             </article>
             <article>
-              <strong>₹29,998</strong>
+              <strong>₹22,998</strong>
               <span>Growth + Medium. Categories and a daily order list. Medium includes Small.</span>
             </article>
             <article>
-              <strong>₹39,998</strong>
+              <strong>₹26,998</strong>
               <span>Growth + Expanding. Adds the dealer path. Expanding includes Medium.</span>
             </article>
           </div>

@@ -196,7 +196,7 @@ export const pricingArticle: Article = {
   title: "What a business website",
   accent: "and stack costs in India.",
   paragraphs: [
-    "Launch is ₹9,999 and our GST and Udyam filing fees are inside it. Growth is ₹19,999 and adds IEC. Command is ₹39,999 and adds UK VAT and EU IOSS coordination. The ₹500 IEC receipt still goes to DGFT. Store addons sit on top: Small ₹4,999 for a flat list, Medium ₹9,999 for categories and an order desk, Expanding ₹19,999 for a dealer path. Medium includes Small. Expanding includes Medium.",
+    "Launch is ₹9,999 and our GST and Udyam filing fees are inside it. Growth is ₹19,999 and adds IEC. Command is ₹39,999 and adds UK VAT and EU IOSS coordination. The ₹500 IEC receipt still goes to DGFT. If you manage the store, the shelf starts at ₹999 (Small), ₹2,999 (Medium) and ₹6,999 (Expanding). You load the products. Medium includes Small. Expanding includes Medium.",
     "GST registration is ₹4,999, Udyam ₹2,499, IEC ₹4,999 plus ₹500 paid to DGFT. UK VAT support is ₹29,999. EU IOSS coordination is ₹24,999, and the intermediary’s fee is separate. Those are not bundled into a website. Hosting, the domain, and gateway MDR are quoted before you pay.",
   ],
 };

@@ -39,7 +39,7 @@ export const addonMatrix: { label: string; cells: Record<string, CompareCell> }[
   { label: "After they pay", cells: { small: "WhatsApp only", medium: "Today’s order list", expanding: "List + GST invoice" } },
   { label: "Delivery promise", cells: { small: "Typed in chat", medium: "Pincode before pay", expanding: "Pincode before pay" } },
   { label: "Dealer enquiry", cells: { small: "no", medium: "no", expanding: "yes" } },
-  { label: "Price, incl. GST", cells: { small: "\u20b94,999", medium: "\u20b99,999", expanding: "\u20b919,999" } },
+  { label: "Price, incl. GST", cells: { small: "\u20b9999", medium: "\u20b92,999", expanding: "\u20b96,999" } },
 ];
 
 export const offers: Offer[] = [
@@ -143,7 +143,7 @@ export const offers: Offer[] = [
     slug: "small",
     kind: "addon",
     name: "Small",
-    price: "\u20b94,999",
+    price: "\u20b9999",
     bestFor: "Choose this if the whole catalogue fits on one page",
     desc: "They scroll, pay with a link, and the order is a WhatsApp message.",
     headline: "One page.",
@@ -175,7 +175,7 @@ export const offers: Offer[] = [
     slug: "medium",
     kind: "addon",
     name: "Medium",
-    price: "\u20b99,999",
+    price: "\u20b92,999",
     bestFor: "Choose this if customers must browse before they buy",
     desc: "Categories, a pincode before payment, and today’s orders on one screen.",
     headline: "A shop.",
@@ -207,7 +207,7 @@ export const offers: Offer[] = [
     slug: "expanding",
     kind: "addon",
     name: "Expanding",
-    price: "\u20b919,999",
+    price: "\u20b96,999",
     bestFor: "Several product lines \u00b7 one dealer enquiry \u00b7 still one outlet",
     desc: "More than one line, and a path for the dealer.",
     headline: "The dealer shelf.",

@@ -1,10 +1,10 @@
 export const ecommerceAddons = [
   {
     name: "Small",
-    price: "₹4,999",
+    price: "₹999",
     tag: "One page",
-    desc: "The customer already knows the item. They scroll a single list and pay with a link.",
-    bestFor: "Choose Small if the whole catalogue fits on one page.",
+    desc: "You add the products and prices. They scroll one list and pay with a link.",
+    bestFor: "Choose Small if you manage the list and it fits on one page.",
     features: [
       "About 50 products, no categories",
       "No search. They scroll.",
@@ -13,15 +13,15 @@ export const ecommerceAddons = [
       "Delivery is answered in chat",
       "No order desk for the staff",
     ],
-    note: "A kirana shelf, a clinic menu, a maker with a short list. If people must browse, this is the wrong card.",
+    note: "This price is for a store you manage. We set the page. You keep the products current.",
     popular: false,
   },
   {
     name: "Medium",
-    price: "₹9,999",
+    price: "₹2,999",
     tag: "A shop",
-    desc: "The customer has to look before they buy. Categories, a pincode before payment, and today's orders on one screen.",
-    bestFor: "Choose Medium if staff currently hunt the product in chat.",
+    desc: "You load the catalogue. They browse categories, see a pincode before they pay, and you see today’s orders.",
+    bestFor: "Choose Medium if you manage the shop and staff currently hunt the product in chat.",
     features: [
       "About 200 products, in categories",
       "Includes Small. Do not buy both.",
@@ -30,12 +30,12 @@ export const ecommerceAddons = [
       "A gateway only if Growth is underneath",
       "A status template, not a typed paragraph",
     ],
-    note: "This is a shop, not a longer Small. The extra ₹5,000 is the order desk and the delivery answer.",
+    note: "You manage the products. The extra ₹2,000 over Small is the order desk, not more rows.",
     popular: true,
   },
   {
     name: "Expanding",
-    price: "₹19,999",
+    price: "₹6,999",
     tag: "Dealer shelf",
     desc: "More than one product line, plus one path for a dealer. Not a second shop.",
     bestFor: "Several lines · one dealer enquiry · still one outlet",
@@ -47,7 +47,7 @@ export const ecommerceAddons = [
       "Not a second outlet",
       "Not stock software",
     ],
-    note: "Marketplaces can stay for a stranger’s first order. The dealer should not have to find you there.",
+    note: "You manage the lines. We set one dealer path. Not a second shop.",
     popular: false,
   },
 ] as const;
