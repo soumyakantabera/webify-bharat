@@ -4,6 +4,7 @@ export const metadata: Metadata = pageMetadata("pricing");
 
 import type { LucideIcon } from "lucide-react";
 import {
+  ArrowRight,
   ClipboardList,
   CreditCard,
   Gauge,
@@ -178,45 +179,45 @@ export default function PricingPage() {
             </p>
           </div>
 
-          <div className="stage" aria-label="Small compared with Medium">
-            <article className="stage-side stage-page">
-              <header>
-                <span className="stage-index">01</span>
-                <div>
-                  <p>Small</p>
-                  <h3>A page.</h3>
-                </div>
-                <strong>₹4,999</strong>
-              </header>
-              <ul>
-                <li><ScrollText size={18} /> They scroll one list</li>
-                <li><MessageCircle size={18} /> The order is a WhatsApp message</li>
-                <li><CreditCard size={18} /> They pay with a UPI link</li>
-                <li><MapPin size={18} /> Delivery is answered in chat</li>
-              </ul>
-              <Link href="/pricing/small">See Small</Link>
-            </article>
-            <div className="stage-bridge">
-              <strong>₹5,000</strong>
-              <span>buys a shop, not more rows</span>
+          <div className="board" aria-label="Small compared with Medium">
+            <div className="board-head">
+              <Link href="/pricing/small" className="board-plan">
+                <span>Small</span>
+                <strong>A page.</strong>
+                <em>₹4,999</em>
+              </Link>
+              <p className="board-delta">
+                <b>₹5,000</b>
+                more, for a shop
+              </p>
+              <Link href="/pricing/medium" className="board-plan board-plan-right">
+                <span>Medium</span>
+                <strong>A shop.</strong>
+                <em>₹9,999</em>
+              </Link>
             </div>
-            <article className="stage-side stage-shop">
-              <header>
-                <span className="stage-index">02</span>
-                <div>
-                  <p>Medium</p>
-                  <h3>A shop.</h3>
-                </div>
-                <strong>₹9,999</strong>
-              </header>
-              <ul>
-                <li><Store size={18} /> They open a category</li>
-                <li><ClipboardList size={18} /> Today’s orders on one screen</li>
-                <li><CreditCard size={18} /> A gateway, if Growth is underneath</li>
-                <li><MapPin size={18} /> The pincode shows before they pay</li>
-              </ul>
-              <Link href="/pricing/medium">See Medium</Link>
-            </article>
+            <div className="board-rows">
+              <div className="board-row">
+                <p><span className="tile tile-green"><ScrollText size={18} /></span>They scroll one list</p>
+                <ArrowRight size={18} />
+                <p><span className="tile tile-mango"><Store size={18} /></span>They open a category</p>
+              </div>
+              <div className="board-row">
+                <p><span className="tile tile-green"><MessageCircle size={18} /></span>The order is a WhatsApp message</p>
+                <ArrowRight size={18} />
+                <p><span className="tile tile-mango"><ClipboardList size={18} /></span>Today’s orders on one screen</p>
+              </div>
+              <div className="board-row">
+                <p><span className="tile tile-green"><CreditCard size={18} /></span>They pay with a UPI link</p>
+                <ArrowRight size={18} />
+                <p><span className="tile tile-mango"><CreditCard size={18} /></span>A gateway, if Growth is underneath</p>
+              </div>
+              <div className="board-row">
+                <p><span className="tile tile-green"><MapPin size={18} /></span>Delivery is answered in chat</p>
+                <ArrowRight size={18} />
+                <p><span className="tile tile-mango"><MapPin size={18} /></span>The pincode shows before they pay</p>
+              </div>
+            </div>
           </div>
           <p className="stage-more">Expanding is Medium plus one dealer enquiry. Not a bigger Small.</p>
 
