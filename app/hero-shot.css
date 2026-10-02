@@ -84,8 +84,8 @@
 .hero-shot-copy strong {
   display: block;
   font-family: var(--font-display);
-  font-size: 24px;
-  font-weight: 800;
+  font-size: 28px;
+  font-weight: 600;
   letter-spacing: -0.03em;
   line-height: 1.15;
   color: #17191f;
@@ -115,31 +115,31 @@
 .hero-shot-copy li:nth-child(1) {
   animation-delay: 0.45s;
   font-family: var(--font-mono);
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 500;
   letter-spacing: -0.03em;
   color: #7c2d12;
 }
 .hero-shot-copy li:nth-child(2) {
   animation-delay: 0.57s;
   font-family: var(--font-display);
-  font-size: 19px;
-  font-weight: 800;
+  font-size: 22px;
+  font-weight: 600;
   letter-spacing: -0.03em;
   color: #065f46;
 }
 .hero-shot-copy li:nth-child(3) {
   animation-delay: 0.69s;
   font-family: var(--font-body);
-  font-size: 16px;
-  font-weight: 750;
+  font-size: 18px;
+  font-weight: 600;
   color: #1e1b4b;
 }
 .hero-shot-copy li:nth-child(4) {
   animation-delay: 0.81s;
   font-family: var(--font-mono);
-  font-size: 15px;
-  font-weight: 700;
+  font-size: 17px;
+  font-weight: 500;
   color: #1e3a5f;
 }
 .hero-shot-copy em {
@@ -147,8 +147,8 @@
   margin-top: 12px;
   font-family: var(--font-mono);
   font-style: normal;
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #5c564c;
