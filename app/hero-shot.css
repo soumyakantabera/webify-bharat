@@ -62,7 +62,7 @@
   right: 0;
   width: 72%;
   height: 57%;
-  object-position: center 22%;
+  object-position: center 40%;
   border-width: 0;
   border-radius: 18px;
   box-shadow: 0 12px 24px rgba(28, 31, 29, 0.18);
@@ -75,7 +75,7 @@
   top: 36%;
   width: 38%;
   height: 41%;
-  object-position: center 20%;
+  object-position: center 40%;
   animation: shot-from-left 0.75s var(--ease-out) 0.15s both;
 }
 /* C: peeks out from behind A, top-left */
@@ -86,7 +86,7 @@
   top: 5%;
   width: 38%;
   height: 27%;
-  object-position: center 22%;
+  object-position: center 40%;
   animation: shot-from-top 0.75s var(--ease-out) 0.3s both;
 }
 

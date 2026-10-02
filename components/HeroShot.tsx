@@ -10,8 +10,8 @@ type Shot = {
 
 const SHOTS: Record<string, Shot> = {
   services: {
-    images: ["/images/snapshots/services.webp", "/images/snapshots/contact.webp", "/images/snapshots/work.webp"],
-    alt: "A shop owner with her website and WhatsApp open",
+    images: ["/images/snapshots/market-mandi.webp", "/images/snapshots/market-textile.webp", "/images/snapshots/market-spice.webp"],
+    alt: "Traders in an Indian vegetable wholesale market",
     kicker: "Extra per organic lead",
     figure: "₹0",
     note: "After the site is yours",
@@ -19,8 +19,8 @@ const SHOTS: Record<string, Shot> = {
     footer: "WhatsApp · +91 83360 97642",
   },
   pricing: {
-    images: ["/images/snapshots/pricing.webp", "/images/snapshots/services.webp", "/images/snapshots/legal.webp"],
-    alt: "An owner checking a single price card",
+    images: ["/images/snapshots/market-electronics.webp", "/images/snapshots/market-grain.webp", "/images/snapshots/market-textile.webp"],
+    alt: "A buyer at an Indian electronics wholesale counter",
     kicker: "Packages start at",
     figure: "₹9,999",
     note: "One invoice for the whole card",
@@ -28,8 +28,8 @@ const SHOTS: Record<string, Shot> = {
     footer: "No per-lead fee after delivery",
   },
   registrations: {
-    images: ["/images/snapshots/registrations.webp", "/images/snapshots/legal.webp", "/images/snapshots/pricing.webp"],
-    alt: "A person preparing a business filing",
+    images: ["/images/snapshots/market-spice.webp", "/images/snapshots/market-mandi.webp", "/images/snapshots/market-flower.webp"],
+    alt: "Sacks being weighed in an Indian spice godown",
     kicker: "GST filing from",
     figure: "₹4,999",
     note: "incl. GST · portal fee separate",
@@ -37,8 +37,8 @@ const SHOTS: Record<string, Shot> = {
     footer: "Udyam from ₹2,499",
   },
   charges: {
-    images: ["/images/snapshots/pricing.webp", "/images/snapshots/registrations.webp", "/images/snapshots/legal.webp"],
-    alt: "An owner checking what is not in the price",
+    images: ["/images/snapshots/market-grain.webp", "/images/snapshots/market-electronics.webp", "/images/snapshots/market-spice.webp"],
+    alt: "Rice sacks moving through an Indian wholesale yard",
     kicker: "Not in the card",
     figure: "Extra",
     note: "Quoted before you pay",
@@ -46,8 +46,8 @@ const SHOTS: Record<string, Shot> = {
     footer: "Nothing folded into the card",
   },
   cities: {
-    images: ["/images/snapshots/cities.webp", "/images/snapshots/services.webp", "/images/snapshots/work.webp"],
-    alt: "A shopkeeper in the doorway of a city shop",
+    images: ["/images/snapshots/market-flower.webp", "/images/snapshots/market-mandi.webp", "/images/snapshots/market-grain.webp"],
+    alt: "A flower wholesale market before sunrise",
     kicker: "For a name people search",
     figure: "Local",
     note: "Not a directory lead",
@@ -55,8 +55,8 @@ const SHOTS: Record<string, Shot> = {
     footer: "WhatsApp · +91 83360 97642",
   },
   blog: {
-    images: ["/images/snapshots/blog.webp", "/images/snapshots/contact.webp", "/images/snapshots/services.webp"],
-    alt: "Someone writing a short business guide",
+    images: ["/images/snapshots/market-textile.webp", "/images/snapshots/market-flower.webp", "/images/snapshots/market-electronics.webp"],
+    alt: "Cloth rolls in an Indian textile wholesale lane",
     kicker: "Written for an owner",
     figure: "Guide",
     note: "No promise of more sales",
@@ -64,8 +64,8 @@ const SHOTS: Record<string, Shot> = {
     footer: "Same facts as the pricing page",
   },
   work: {
-    images: ["/images/snapshots/work.webp", "/images/snapshots/cities.webp", "/images/snapshots/services.webp"],
-    alt: "Two people reviewing the day's orders",
+    images: ["/images/snapshots/market-grain.webp", "/images/snapshots/market-textile.webp", "/images/snapshots/market-mandi.webp"],
+    alt: "Workers moving stock in an Indian wholesale yard",
     kicker: "Not a mockup",
     figure: "Live",
     note: "Until a client says we can show it",
@@ -73,8 +73,8 @@ const SHOTS: Record<string, Shot> = {
     footer: "Illustrative until approved",
   },
   contact: {
-    images: ["/images/snapshots/contact.webp", "/images/snapshots/services.webp", "/images/snapshots/blog.webp"],
-    alt: "A shop owner and a consultant talking",
+    images: ["/images/snapshots/market-mandi.webp", "/images/snapshots/market-flower.webp", "/images/snapshots/market-textile.webp"],
+    alt: "A trader in an Indian wholesale market",
     kicker: "Then we talk",
     figure: "5 lines",
     note: "is enough to start",
@@ -82,8 +82,8 @@ const SHOTS: Record<string, Shot> = {
     footer: "webifybharat@gmail.com",
   },
   legal: {
-    images: ["/images/snapshots/legal.webp", "/images/snapshots/registrations.webp", "/images/snapshots/contact.webp"],
-    alt: "Reading the terms of the work",
+    images: ["/images/snapshots/market-spice.webp", "/images/snapshots/market-electronics.webp", "/images/snapshots/market-grain.webp"],
+    alt: "A spice wholesale godown in India",
     kicker: "What you pay for",
     figure: "Output",
     note: "Not a rise in sales",
@@ -91,8 +91,8 @@ const SHOTS: Record<string, Shot> = {
     footer: "webifybharat@gmail.com",
   },
   missing: {
-    images: ["/images/snapshots/cities.webp", "/images/snapshots/blog.webp", "/images/snapshots/contact.webp"],
-    alt: "A shopkeeper outside a city shop",
+    images: ["/images/snapshots/market-flower.webp", "/images/snapshots/market-grain.webp", "/images/snapshots/market-textile.webp"],
+    alt: "An Indian wholesale market lane",
     kicker: "This page",
     figure: "404",
     note: "The link may be old",
