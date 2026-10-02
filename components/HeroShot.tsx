@@ -101,6 +101,19 @@ const SHOTS: Record<string, Shot> = {
   },
 };
 
+const BADGES: Record<string, { badge: string; sub: string }> = {
+  services: { badge: "₹0", sub: "EXTRA" },
+  pricing: { badge: "18%", sub: "GST" },
+  registrations: { badge: "₹0", sub: "IN" },
+  charges: { badge: "2", sub: "BILLS" },
+  cities: { badge: "IN", sub: "CITY" },
+  blog: { badge: "0", sub: "HYPE" },
+  work: { badge: "YOU", sub: "OWN" },
+  contact: { badge: "WA", sub: "NOW" },
+  legal: { badge: "NO", sub: "REFUND" },
+  missing: { badge: "?", sub: "GONE" },
+};
+
 export function HeroShot({
   kind = "services",
   kicker,
@@ -117,6 +130,7 @@ export function HeroShot({
   footer?: string;
 }) {
   const shot = SHOTS[kind] ?? SHOTS.services;
+  const mark = BADGES[kind] ?? BADGES.services;
   const rows = points?.length ? points.slice(0, 3) : shot.points;
 
   return (
@@ -133,14 +147,11 @@ export function HeroShot({
             />
           ))}
         </div>
-        <img
-          className="hero-shot-round"
-          src={shot.images[1]}
-          alt=""
-          width={400}
-          height={400}
-        />
         <div className="hero-shot-card">
+          <span className="hero-shot-badge">
+            <strong>{mark.badge}</strong>
+            <small>{mark.sub}</small>
+          </span>
           <p className="hero-shot-kicker">{kicker ?? shot.kicker}</p>
           <p className="hero-shot-figure">{figure ?? shot.figure}</p>
           <p className="hero-shot-note">{note ?? shot.note}</p>
