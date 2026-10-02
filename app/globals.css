@@ -769,7 +769,6 @@ h2 span {
 }
 .price-card.popular {
   border: 2px solid var(--teal);
-  transform: translateY(-10px);
   box-shadow: var(--shadow);
 }
 .badge {
