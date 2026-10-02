@@ -143,17 +143,117 @@
   color: #fff;
   border-color: var(--ink);
 }
+.ix-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.ix-head h3 {
+  margin: 0;
+}
+.ix-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.ix-legend button {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--muted);
+  cursor: pointer;
+}
+.ix-legend button.is-on.rent {
+  background: #fff1ea;
+  color: #c2410c;
+  border-color: #ffd0c2;
+}
+.ix-legend button.is-on.own {
+  background: var(--mint);
+  color: var(--teal-dark);
+  border-color: #b7e4da;
+}
+.ix-rows,
+.ix-family {
+  display: grid;
+  gap: 8px;
+}
+.ix-row,
+.ix-family-row {
+  display: grid;
+  gap: 6px;
+  width: 100%;
+  text-align: left;
+  border: 1px solid transparent;
+  background: var(--surface);
+  border-radius: 14px;
+  padding: 10px 12px;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.ix-row.is-on,
+.ix-family-row.is-current,
+.ix-family-row:hover {
+  border-color: rgba(15, 118, 110, 0.28);
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(28, 31, 29, 0.05);
+}
+.ix-row-label {
+  font-size: 13px;
+  font-weight: 800;
+}
+.ix-bars {
+  display: grid;
+  gap: 4px;
+}
+.ix-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 36px;
+  height: 18px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 0 8px;
+  transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.ix-bar.rent { background: var(--papaya); }
+.ix-bar.own { background: var(--teal); }
+.ix-detail {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 10px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+.ix-detail p,
+.ix-detail strong {
+  display: block;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 800;
+}
+.ix-detail span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
 @media (max-width: 800px) {
-  .offer-viz {
-    grid-template-columns: 1fr;
-  }
-  .offer-matrix {
-    display: block;
-    overflow-x: auto;
-  }
+  .offer-viz { grid-template-columns: 1fr; }
+  .offer-matrix { display: block; overflow-x: auto; }
+  .ix-detail { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .meter-fill {
-    animation: none;
-  }
+  .meter-fill, .ix-bar { animation: none; transition: none; }
 }
