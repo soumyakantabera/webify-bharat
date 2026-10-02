@@ -12,6 +12,7 @@ import "./lazy-load.css";
 import "./skeleton.css";
 import "./photo-caption.css";
 import "./claim-panel.css";
+import "./offer-pages.css";
 import { jetbrains, manrope, sora } from "./fonts";
 
 export const viewport: Viewport = {
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     template: "%s",
   },
   description:
-    "Webify Bharat builds websites, WhatsApp Business, UPI gateways and analytics for Indian MSMEs. Own your customers. ₹0 per organic lead.",
+    "Webify Bharat builds websites, WhatsApp Business, UPI gateways and analytics for Indian MSMEs. Own your customers. \u20b90 per organic lead.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "48x48" },
