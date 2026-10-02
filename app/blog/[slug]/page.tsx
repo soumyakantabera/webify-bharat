@@ -46,11 +46,7 @@ export default async function ArticlePage({
           <h1>{post.title}</h1>
           <p className="muted-copy">{post.excerpt}</p>
           </div>
-          <HeroShot
-            kind="blog"
-            title={post.title}
-            lines={[post.excerpt]}
-          />
+          <HeroShot kind="blog" note={post.title} />
         </div>
       </section>
 

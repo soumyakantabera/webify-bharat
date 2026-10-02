@@ -1,88 +1,165 @@
+import { Check, MessageCircle, ShieldCheck } from "lucide-react";
+
 type Shot = {
   images: [string, string, string];
   alt: string;
-  title: string;
-  lines: string[];
+  pill: string;
+  kicker: string;
+  figure: string;
+  note: string;
+  points: string[];
+  footer: string;
+  badge: string;
+  badgeSub: string;
 };
 
 const SHOTS: Record<string, Shot> = {
   services: {
     images: ["/images/snapshots/services.webp", "/images/snapshots/contact.webp", "/images/snapshots/work.webp"],
     alt: "A shop owner with her website and WhatsApp open",
-    title: "Site, chat, and checkout.",
-    lines: ["You own the URL and the list", "No fee on an organic enquiry", "GST is already in the card"],
+    pill: "You own it",
+    kicker: "Extra per organic lead",
+    figure: "₹0",
+    note: "After the site is yours",
+    points: ["You own the URL and the list", "WhatsApp and UPI, your login", "GST is already in the card"],
+    footer: "WhatsApp · +91 83360 97642",
+    badge: "GST",
+    badgeSub: "IN",
   },
   pricing: {
     images: ["/images/snapshots/pricing.webp", "/images/snapshots/services.webp", "/images/snapshots/legal.webp"],
     alt: "An owner checking a single price card",
-    title: "One invoice. GST inside.",
-    lines: ["Launch includes GST and Udyam", "Growth adds IEC", "A portal fee stays in your name"],
+    pill: "One invoice",
+    kicker: "Packages start at",
+    figure: "₹9,999",
+    note: "incl. 18% GST",
+    points: ["Launch includes GST and Udyam", "Growth adds IEC", "A portal fee stays in your name"],
+    footer: "No per-lead fee after delivery",
+    badge: "18%",
+    badgeSub: "GST",
   },
   registrations: {
     images: ["/images/snapshots/registrations.webp", "/images/snapshots/legal.webp", "/images/snapshots/pricing.webp"],
     alt: "A person preparing a business filing",
-    title: "The paper, filed once.",
-    lines: ["Our fee and the department's fee are separate", "Launch carries GST and Udyam", "We are not the portal"],
+    pill: "Two bills",
+    kicker: "GST filing from",
+    figure: "₹4,999",
+    note: "incl. GST · portal fee separate",
+    points: ["Our fee and the department’s fee", "₹0 when it rides with a package", "We are not the portal"],
+    footer: "Udyam from ₹2,499",
+    badge: "₹0",
+    badgeSub: "IN",
   },
   charges: {
     images: ["/images/snapshots/pricing.webp", "/images/snapshots/registrations.webp", "/images/snapshots/legal.webp"],
     alt: "An owner checking what is not in the price",
-    title: "Two bills. Both named.",
-    lines: ["Hosting, domain, gateway, WhatsApp", "A department receipt stays theirs", "Quoted before you pay"],
+    pill: "Named first",
+    kicker: "Not in the card",
+    figure: "Extra",
+    note: "Quoted before you pay",
+    points: ["Hosting, domain, gateway", "WhatsApp conversation charges", "A department receipt stays theirs"],
+    footer: "Nothing folded into the card",
+    badge: "2",
+    badgeSub: "BILLS",
   },
   cities: {
     images: ["/images/snapshots/cities.webp", "/images/snapshots/services.webp", "/images/snapshots/work.webp"],
     alt: "A shopkeeper in the doorway of a city shop",
-    title: "Your city. Your front door.",
-    lines: ["For people who already search your name", "Directories stay optional", "Every state capital"],
+    pill: "Your city",
+    kicker: "For a name people search",
+    figure: "Local",
+    note: "Not a directory lead",
+    points: ["Every state capital", "Directories stay optional", "You keep the customer"],
+    footer: "WhatsApp · +91 83360 97642",
+    badge: "IN",
+    badgeSub: "CITY",
   },
   blog: {
     images: ["/images/snapshots/blog.webp", "/images/snapshots/contact.webp", "/images/snapshots/services.webp"],
     alt: "Someone writing a short business guide",
-    title: "A short answer. Then the work.",
-    lines: ["Websites, payments, WhatsApp", "Written for an owner", "No promise of more sales"],
+    pill: "A short read",
+    kicker: "Written for an owner",
+    figure: "Guide",
+    note: "No promise of more sales",
+    points: ["Websites, payments, WhatsApp", "The work, not a slogan", "Then you decide"],
+    footer: "Same facts as the pricing page",
+    badge: "0",
+    badgeSub: "HYPE",
   },
   work: {
     images: ["/images/snapshots/work.webp", "/images/snapshots/cities.webp", "/images/snapshots/services.webp"],
     alt: "Two people reviewing the day's orders",
-    title: "The system, not a mockup.",
-    lines: ["Orders, chat, and the ledger", "Shown as a format until a client agrees", "You keep the login"],
+    pill: "The system",
+    kicker: "Not a mockup",
+    figure: "Live",
+    note: "Until a client says we can show it",
+    points: ["Orders, chat, and the ledger", "A format, not a fake case", "You keep the login"],
+    footer: "Illustrative until approved",
+    badge: "YOU",
+    badgeSub: "OWN",
   },
   contact: {
     images: ["/images/snapshots/contact.webp", "/images/snapshots/services.webp", "/images/snapshots/blog.webp"],
     alt: "A shop owner and a consultant talking",
-    title: "Five lines. Then we talk.",
-    lines: ["WhatsApp +91 83360 97642", "Same day in business hours", "A site, a filing, or both"],
+    pill: "Same day",
+    kicker: "Then we talk",
+    figure: "5",
+    note: "lines is enough to start",
+    points: ["A site, a filing, or both", "WhatsApp +91 83360 97642", "Business hours, not a bot"],
+    footer: "webifybharat@gmail.com",
+    badge: "WA",
+    badgeSub: "NOW",
   },
   legal: {
     images: ["/images/snapshots/legal.webp", "/images/snapshots/registrations.webp", "/images/snapshots/contact.webp"],
     alt: "Reading the terms of the work",
-    title: "Delivery is the output.",
-    lines: ["Not a rise in sales", "No refund after delivery", "Kolkata, sole proprietorship"],
+    pill: "After delivery",
+    kicker: "What you pay for",
+    figure: "Output",
+    note: "Not a rise in sales",
+    points: ["The site, the filing, or the note", "No refund once that is handed over", "Kolkata · sole proprietorship"],
+    footer: "webifybharat@gmail.com",
+    badge: "NO",
+    badgeSub: "REFUND",
   },
   missing: {
     images: ["/images/snapshots/cities.webp", "/images/snapshots/blog.webp", "/images/snapshots/contact.webp"],
     alt: "A shopkeeper outside a city shop",
-    title: "This page is not here.",
-    lines: ["The link may be old", "Go home, or write to us", "Nothing else was on this URL"],
+    pill: "Not on this URL",
+    kicker: "This page",
+    figure: "404",
+    note: "The link may be old",
+    points: ["Go home", "Or write to us", "Nothing else was here"],
+    footer: "WhatsApp · +91 83360 97642",
+    badge: "?",
+    badgeSub: "GONE",
   },
 };
 
+const ICONS = [Check, ShieldCheck, MessageCircle];
+
 export function HeroShot({
   kind = "services",
-  title,
-  lines,
+  kicker,
+  figure,
+  note,
+  points,
+  footer,
+  pill,
 }: {
   kind?: string;
-  title?: string;
-  lines?: string[];
+  kicker?: string;
+  figure?: string;
+  note?: string;
+  points?: string[];
+  footer?: string;
+  pill?: string;
 }) {
   const shot = SHOTS[kind] ?? SHOTS.services;
-  const heading = title ?? shot.title;
-  const points = lines?.length ? lines : shot.lines;
+  const rows = points?.length ? points.slice(0, 3) : shot.points;
 
   return (
-    <aside className="hero-shot" aria-label={`Summary: ${heading}`}>
+    <aside className="hero-shot" aria-label={`Summary: ${figure ?? shot.figure}`}>
       <div className="hero-shot-frame">
         <div className="hero-shot-collage">
           {shot.images.map((src, index) => (
@@ -95,17 +172,34 @@ export function HeroShot({
             />
           ))}
         </div>
-        <div className="hero-shot-polaroid">
-          <span className="hero-shot-tape" aria-hidden />
-          <div className="hero-shot-copy">
-            <strong>{heading}</strong>
-            <ul>
-              {points.map((line) => (
-                <li key={line}>{line}</li>
-              ))}
-            </ul>
-            <em>Webify Bharat</em>
-          </div>
+        <div className="hero-shot-card">
+          <span className="hero-shot-badge">
+            <strong>{shot.badge}</strong>
+            <small>{shot.badgeSub}</small>
+          </span>
+          <p className="hero-shot-pill">
+            <i />
+            {pill ?? shot.pill}
+          </p>
+          <p className="hero-shot-kicker">{kicker ?? shot.kicker}</p>
+          <p className="hero-shot-figure">
+            {figure ?? shot.figure}
+          </p>
+          <p className="hero-shot-note">{note ?? shot.note}</p>
+          <ul>
+            {rows.map((line, index) => {
+              const Icon = ICONS[index] ?? Check;
+              return (
+                <li key={line}>
+                  <span>
+                    <Icon size={15} strokeWidth={2.4} aria-hidden />
+                  </span>
+                  {line}
+                </li>
+              );
+            })}
+          </ul>
+          <p className="hero-shot-foot">{footer ?? shot.footer}</p>
         </div>
       </div>
     </aside>

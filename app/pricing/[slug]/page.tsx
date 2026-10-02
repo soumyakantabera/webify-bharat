@@ -111,8 +111,10 @@ export default async function OfferPage({
           </div>
           <HeroShot
             kind="pricing"
-            title={`${offer.name} · ${offer.price}`}
-            lines={[
+            kicker={offer.name}
+            figure={offer.price}
+            note="incl. 18% GST"
+            points={[
               offer.bestFor,
               "18% GST is inside our fee.",
               offer.kind === "package"
