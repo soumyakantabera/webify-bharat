@@ -3,6 +3,7 @@ import Link from "next/link";
 import Layout from "@/components/Layout";
 import { PageLead } from "@/components/PageIcons";
 import { WhatsAppCta } from "@/components/icons";
+import { FilingMark } from "@/components/FilingMark";
 import { registrations } from "@/lib/registrations";
 import { waLink } from "@/lib/site";
 
@@ -50,7 +51,7 @@ export default function RegistrationsPage() {
           </div>
           <div className="pricing-grid">
             {registrations.slice(0, 3).map((item) => (
-              <RegCard key={item.slug} slug={item.slug} name={item.name} ourFee={item.ourFee} ridesWith={item.ridesWith} portal={item.portal} forWhom={item.forWhom} />
+              <RegCard key={item.slug} item={item} />
             ))}
           </div>
         </div>
@@ -67,7 +68,7 @@ export default function RegistrationsPage() {
           </div>
           <div className="pricing-grid">
             {registrations.slice(3).map((item) => (
-              <RegCard key={item.slug} slug={item.slug} name={item.name} ourFee={item.ourFee} ridesWith={item.ridesWith} portal={item.portal} forWhom={item.forWhom} />
+              <RegCard key={item.slug} item={item} />
             ))}
           </div>
         </div>
@@ -76,44 +77,33 @@ export default function RegistrationsPage() {
   );
 }
 
-function RegCard({
-  slug,
-  name,
-  ourFee,
-  ridesWith,
-  portal,
-  forWhom,
-}: {
-  slug: string;
-  name: string;
-  ourFee: string;
-  ridesWith: string;
-  portal: string;
-  forWhom: string;
-}) {
+function RegCard({ item }: { item: (typeof registrations)[number] }) {
   return (
-    <article className="price-card">
+    <article className={`price-card price-card-filing tone-${item.slug}`}>
       <div className="price-card-top">
-        <p className="price-best-for">Filed on {portal}</p>
+        <div className="filing-head">
+          <FilingMark slug={item.slug} mark={item.mark} size={48} />
+          <p className="price-best-for">Filed on {item.portal}</p>
+        </div>
         <h2>
-          <Link href={`/registrations/${slug}`}>{name}</Link>
+          <Link href={`/registrations/${item.slug}`}>{item.name}</Link>
         </h2>
-        <p className="price-desc">{forWhom}</p>
+        <p className="price-desc">{item.forWhom}</p>
         <div className="reg-prices">
           <div>
             <span>Alone</span>
-            <strong>{ourFee}</strong>
+            <strong>{item.ourFee}</strong>
             <small>no website</small>
           </div>
           <div className="fee-in">
-            <span>With {ridesWith}</span>
+            <span>With {item.ridesWith}</span>
             <strong>₹0</strong>
             <small>our fee</small>
           </div>
         </div>
       </div>
       <div className="price-card-cta">
-        <Link className="btn btn-secondary price-cta" href={`/registrations/${slug}`}>
+        <Link className="btn btn-secondary price-cta" href={`/registrations/${item.slug}`}>
           What you need
         </Link>
         <Link className="btn btn-primary price-cta" href="/registrations/charges">

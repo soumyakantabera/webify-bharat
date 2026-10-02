@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Layout from "@/components/Layout";
 import { PageLead } from "@/components/PageIcons";
 import { WhatsAppCta } from "@/components/icons";
+import { FilingMark } from "@/components/FilingMark";
 import { getRegistration, registrationChat, registrations } from "@/lib/registrations";
 
 export function generateStaticParams() {
@@ -37,6 +38,9 @@ export default async function RegistrationPage({
     <Layout>
       <section className="page-hero offer-hero">
         <div className="container page-copy">
+          <div className="reg-logo">
+            <FilingMark slug={item.slug} mark={item.mark} size={64} />
+          </div>
           <PageLead icon="registrations" kicker="Registration" />
           <h1>
             {item.name}

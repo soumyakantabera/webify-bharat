@@ -398,22 +398,16 @@
   letter-spacing: 0;
 }
 .mark {
-  display: grid;
-  place-items: center;
-  border-radius: 14px;
-  color: #fff;
-  font-size: 11px;
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  line-height: 1;
+  display: block;
   flex-shrink: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  line-height: 0;
   box-shadow: 0 8px 16px rgba(28, 31, 29, 0.14);
 }
-.mark-gst { background: linear-gradient(160deg, #2fbe7a, #0d6b45); }
-.mark-udyam { background: linear-gradient(160deg, #ffb15a, #c2410c); }
-.mark-iec { background: linear-gradient(160deg, #8b8cff, #3730a3); }
-.mark-uk-vat { background: linear-gradient(160deg, #7eb6ef, #1d4e89); }
-.mark-eu-vat { background: linear-gradient(160deg, #f3a0ad, #9f3040); }
+.reg-logo { margin-bottom: 14px; }
+.mark svg { display: block; width: 100%; height: 100%; }
+.mark-gst, .mark-udyam, .mark-iec, .mark-uk-vat, .mark-eu-vat { background: none; }
 
 .filing-head {
   display: flex;
