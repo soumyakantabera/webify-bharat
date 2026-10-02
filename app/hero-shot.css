@@ -33,7 +33,7 @@
   padding: 0;
   border-radius: 0;
   background: #efe8df;
-  animation: shot-in 0.45s var(--ease-out);
+  animation: shot-in 0.55s var(--ease-out) both, shot-drift 16s ease-in-out 0.6s infinite alternate;
 }
 .hero-shot-copy {
   position: absolute;
@@ -46,6 +46,7 @@
   background: linear-gradient(180deg, #fff 0%, #fff8ee 100%);
   border: 1px solid rgba(255, 255, 255, 0.9);
   box-shadow: 0 18px 40px rgba(20, 24, 22, 0.32);
+  animation: shot-card 0.6s var(--ease-out) 0.15s both, shot-float 3.8s ease-in-out 0.9s infinite alternate;
 }
 .hero-shot-kicker {
   display: inline-flex;
@@ -58,6 +59,7 @@
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  animation: shot-line 0.4s var(--ease-out) 0.28s both;
 }
 .hero-shot-copy strong {
   display: inline;
@@ -67,8 +69,9 @@
   line-height: 1.25;
   background-image: linear-gradient(#ffe08a, #ffe08a);
   background-repeat: no-repeat;
-  background-size: 100% 0.38em;
+  background-size: 0% 0.38em;
   background-position: 0 88%;
+  animation: shot-mark 0.7s var(--ease-out) 0.5s forwards;
 }
 .hero-shot-copy ul {
   display: flex;
@@ -85,7 +88,12 @@
   font-size: 13px;
   font-weight: 800;
   line-height: 1.35;
+  animation: shot-line 0.45s var(--ease-out) both;
 }
+.hero-shot-copy li:nth-child(1) { animation-delay: 0.42s; }
+.hero-shot-copy li:nth-child(2) { animation-delay: 0.54s; }
+.hero-shot-copy li:nth-child(3) { animation-delay: 0.66s; }
+.hero-shot-copy li:nth-child(4) { animation-delay: 0.78s; }
 .hero-shot-copy li:nth-child(3n + 1) {
   background: #ffe8df;
   color: #9a3412;
@@ -109,12 +117,40 @@
   top: 96px;
 }
 @keyframes shot-in {
-  from { opacity: 0; transform: translateY(12px); }
+  from { opacity: 0; transform: scale(1.04); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes shot-drift {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
+}
+@keyframes shot-card {
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes shot-float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-5px); }
+}
+@keyframes shot-mark {
+  to { background-size: 100% 0.38em; }
+}
+@keyframes shot-line {
+  from { opacity: 0; transform: translateX(12px); }
   to { opacity: 1; transform: none; }
 }
 @media (max-width: 800px) {
   .hero-shot { order: -1; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-shot-frame img { animation: none; }
+  .hero-shot-frame img,
+  .hero-shot-copy,
+  .hero-shot-kicker,
+  .hero-shot-copy strong,
+  .hero-shot-copy li {
+    animation: none !important;
+  }
+  .hero-shot-copy strong {
+    background-size: 100% 0.38em;
+  }
 }
