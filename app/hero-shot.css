@@ -54,11 +54,11 @@
   z-index: 3;
   right: 5%;
   bottom: 8px;
-  width: min(82%, 320px);
-  padding: 14px 14px 10px;
-  background: #fffdf8;
+  width: min(88%, 340px);
+  padding: 16px 16px 12px;
+  background: #fff;
   border-radius: 3px;
-  transform: rotate(-4deg);
+  transform: rotate(-2deg);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.8) inset,
     0 22px 36px rgba(32, 22, 12, 0.34),
@@ -83,10 +83,10 @@
 }
 .hero-shot-copy strong {
   display: block;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1.1;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
   color: #17191f;
   background-image: linear-gradient(#ffe08a, #ffe08a);
   background-repeat: no-repeat;
@@ -97,7 +97,7 @@
 .hero-shot-copy ul {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 6px;
   margin: 10px 0 0;
   padding: 0;
   list-style: none;
@@ -108,30 +108,30 @@
   border-radius: 0;
   background: none;
   box-shadow: none;
-  font-weight: 800;
-  line-height: 1.25;
+  font-weight: 750;
+  line-height: 1.4;
   animation: shot-line 0.45s var(--ease-out) both;
 }
 .hero-shot-copy li:nth-child(1) {
   animation-delay: 0.45s;
-  font-size: 13px;
-  color: #c2410c;
+  font-size: 15px;
+  color: #7c2d12;
 }
 .hero-shot-copy li:nth-child(2) {
   animation-delay: 0.57s;
-  font-size: 17px;
-  color: #0d6b45;
+  font-size: 16px;
+  color: #065f46;
 }
 .hero-shot-copy li:nth-child(3) {
   animation-delay: 0.69s;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 750;
-  color: #3a3f92;
+  color: #1e1b4b;
 }
 .hero-shot-copy li:nth-child(4) {
   animation-delay: 0.81s;
-  font-size: 12px;
-  color: #1d4ed8;
+  font-size: 15px;
+  color: #1e3a5f;
 }
 .hero-shot-copy em {
   display: block;
@@ -161,11 +161,11 @@
 }
 @keyframes shot-card {
   from { opacity: 0; transform: rotate(-8deg) translateY(18px); }
-  to { opacity: 1; transform: rotate(-4deg); }
+  to { opacity: 1; transform: rotate(-2deg); }
 }
 @keyframes shot-float {
-  from { transform: rotate(-4deg) translateY(0); }
-  to { transform: rotate(-2.5deg) translateY(-4px); }
+  from { transform: rotate(-2deg) translateY(0); }
+  to { transform: rotate(-1.5deg) translateY(-2px); }
 }
 @keyframes shot-mark {
   to { background-size: 100% 0.32em; }
@@ -185,6 +185,6 @@
   .hero-shot-copy li {
     animation: none !important;
   }
-  .hero-shot-polaroid { transform: rotate(-4deg); }
+  .hero-shot-polaroid { transform: rotate(-2deg); }
   .hero-shot-copy strong { background-size: 100% 0.32em; }
 }
