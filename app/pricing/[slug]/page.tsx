@@ -8,6 +8,7 @@ import { CheckItem, WhatsAppCta } from "@/components/icons";
 import { getOffer, offerFamily, offers } from "@/lib/offers";
 import { FilingMark } from "@/components/FilingMark";
 import { filingsIn } from "@/lib/registrations";
+import { HeroShot } from "@/components/HeroShot";
 import { waLink } from "@/lib/site";
 
 const BASE = "https://webify-bharat.vercel.app";
@@ -60,7 +61,8 @@ export default async function OfferPage({
     <Layout>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
       <section className="page-hero offer-hero">
-        <div className="container page-copy">
+        <div className="container wrap">
+          <div className="page-copy">
           <PageLead icon="pricing" kicker={offer.kind === "package" ? "Package" : "E-commerce addon"} />
           <h1>
             {offer.headline}
@@ -106,6 +108,8 @@ export default async function OfferPage({
               </Link>
             ))}
           </div>
+          </div>
+          <HeroShot kind="pricing" />
         </div>
       </section>
 

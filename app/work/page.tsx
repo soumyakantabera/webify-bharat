@@ -9,13 +9,15 @@ import { workArticle } from "@/lib/seo-copy";
 import { PageLead } from "@/components/PageIcons";
 import { FaqSection } from "@/components/FaqSection";
 import { getFaq } from "@/lib/faqs";
+import { HeroShot } from "@/components/HeroShot";
 import { workItems } from "@/lib/site";
 
 export default function WorkPage() {
   return (
     <Layout>
       <section className="page-hero">
-        <div className="container page-copy">
+        <div className="container wrap">
+          <div className="page-copy">
           <PageLead icon="work" kicker="Work" />
           <h1>
             Systems designed around <span>real operations.</span>
@@ -23,6 +25,8 @@ export default function WorkPage() {
           <p className="muted-copy">
             Illustrative case-study formats until client work is approved for publication.
           </p>
+          </div>
+          <HeroShot kind="work" />
         </div>
       </section>
 

@@ -11,13 +11,15 @@ import { PageLead } from "@/components/PageIcons";
 import { FaqSection } from "@/components/FaqSection";
 import { getFaq } from "@/lib/faqs";
 import { IconArrow } from "@/components/icons";
+import { HeroShot } from "@/components/HeroShot";
 import { services } from "@/lib/site";
 
 export default function ServicesPage() {
   return (
     <Layout>
       <section className="page-hero">
-        <div className="container page-copy">
+        <div className="container wrap">
+          <div className="page-copy">
           <PageLead icon="services" kicker="Services" />
           <h1>
             Digital systems that connect to <span>real work.</span>
@@ -26,6 +28,8 @@ export default function ServicesPage() {
             Photographs on this page are staged. Not a customer. The drawings are the
             product UI, in the same teal frame as the rest of the site.
           </p>
+          </div>
+          <HeroShot kind="services" />
         </div>
       </section>
 

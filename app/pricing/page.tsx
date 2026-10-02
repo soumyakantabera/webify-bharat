@@ -25,6 +25,7 @@ import { PageLead } from "@/components/PageIcons";
 import { FaqSection } from "@/components/FaqSection";
 import { getFaq } from "@/lib/faqs";
 import { WhatsAppCta } from "@/components/icons";
+import { HeroShot } from "@/components/HeroShot";
 import { FilingMark } from "@/components/FilingMark";
 import { ecommerceAddons } from "@/lib/ecommerce-addons";
 import { filingsIn, registrationChat, registrations } from "@/lib/registrations";
@@ -67,7 +68,8 @@ export default function PricingPage() {
   return (
     <Layout>
       <section className="page-hero pricing-hero">
-        <div className="container page-copy">
+        <div className="container wrap">
+          <div className="page-copy">
           <PageLead icon="pricing" kicker="Pricing" />
           <h1>
             One price.
@@ -79,6 +81,8 @@ export default function PricingPage() {
             Launch carries GST and Udyam. Growth adds IEC. Command carries every filing.
             A portal receipt, if the department charges one, stays in your name.
           </p>
+          </div>
+          <HeroShot kind="pricing" />
         </div>
       </section>
 

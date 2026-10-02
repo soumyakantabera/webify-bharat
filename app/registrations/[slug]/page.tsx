@@ -5,6 +5,7 @@ import Layout from "@/components/Layout";
 import { PageLead } from "@/components/PageIcons";
 import { WhatsAppCta } from "@/components/icons";
 import { FilingMark } from "@/components/FilingMark";
+import { HeroShot } from "@/components/HeroShot";
 import { getRegistration, registrationChat, registrations } from "@/lib/registrations";
 
 export function generateStaticParams() {
@@ -37,7 +38,8 @@ export default async function RegistrationPage({
   return (
     <Layout>
       <section className="page-hero offer-hero">
-        <div className="container page-copy">
+        <div className="container wrap">
+          <div className="page-copy">
           <div className="reg-logo">
             <FilingMark slug={item.slug} mark={item.mark} size={64} />
           </div>
@@ -80,6 +82,8 @@ export default async function RegistrationPage({
               </Link>
             ))}
           </div>
+          </div>
+          <HeroShot kind="registrations" />
         </div>
       </section>
 

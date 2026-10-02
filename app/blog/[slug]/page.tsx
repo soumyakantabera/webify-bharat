@@ -10,6 +10,7 @@ import { FaqSection } from "@/components/FaqSection";
 import { getFaq } from "@/lib/faqs";
 import { WhatsAppCta } from "@/components/icons";
 import { getPost, posts, WA_CHAT } from "@/lib/site";
+import { HeroShot } from "@/components/HeroShot";
 import { hdSrc } from "@/lib/hd-images";
 
 export function generateStaticParams() {
@@ -39,10 +40,19 @@ export default async function ArticlePage({
   return (
     <Layout>
       <section className="page-hero">
-        <div className="container article page-copy">
+        <div className="container wrap">
+          <div className="article page-copy">
           <PageLead icon="article" kicker="Insights" />
           <h1>{post.title}</h1>
           <p className="muted-copy">{post.excerpt}</p>
+          </div>
+          <HeroShot
+            frames={[
+              { src: image, alt: post.title, label: "This guide" },
+              { src: "/images/blog/website.png", alt: "Website guide snapshot", label: "The site" },
+              { src: "/images/blog/payments.png", alt: "Payments guide snapshot", label: "Payments" },
+            ]}
+          />
         </div>
       </section>
 

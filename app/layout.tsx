@@ -17,6 +17,7 @@ import "./pro-chart.css";
 import "./rival-board.css";
 import "./color-tiles.css";
 import "./service-grid.css";
+import "./hero-shot.css";
 import { jetbrains, manrope, sora } from "./fonts";
 
 export const viewport: Viewport = {

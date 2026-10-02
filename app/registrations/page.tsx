@@ -5,6 +5,7 @@ import { PageLead } from "@/components/PageIcons";
 import { WhatsAppCta } from "@/components/icons";
 import { FilingMark } from "@/components/FilingMark";
 import { registrations } from "@/lib/registrations";
+import { HeroShot } from "@/components/HeroShot";
 import { waLink } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -19,7 +20,8 @@ export default function RegistrationsPage() {
   return (
     <Layout>
       <section className="page-hero">
-        <div className="container page-copy">
+        <div className="container wrap">
+          <div className="page-copy">
           <PageLead icon="registrations" kicker="Registrations" />
           <h1>
             The paper, filed properly.
@@ -37,6 +39,8 @@ export default function RegistrationsPage() {
               Additional charges
             </Link>
           </div>
+          </div>
+          <HeroShot kind="registrations" />
         </div>
       </section>
 

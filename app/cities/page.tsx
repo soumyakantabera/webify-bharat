@@ -5,6 +5,7 @@ import { PageLead } from "@/components/PageIcons";
 import { WhatsAppCta } from "@/components/icons";
 import { cities } from "@/lib/cities";
 import { CityBrowser } from "@/components/CityBrowser";
+import { HeroShot } from "@/components/HeroShot";
 import { WA_CHAT } from "@/lib/site";
 import { citiesIndexSeo } from "@/lib/page-seo-cities";
 
@@ -27,7 +28,8 @@ export default function CitiesPage() {
   return (
     <Layout>
       <section className="page-hero">
-        <div className="container page-copy">
+        <div className="container wrap">
+          <div className="page-copy">
           <PageLead icon="industries" kicker="Cities across India" />
           <h1>
             Digital systems for every <span>state capital.</span>
@@ -38,6 +40,8 @@ export default function CitiesPage() {
             customer relationship. Pick your city.
           </p>
           <WhatsAppCta href={WA_CHAT}>Talk about your city business</WhatsAppCta>
+          </div>
+          <HeroShot kind="cities" />
         </div>
       </section>
 

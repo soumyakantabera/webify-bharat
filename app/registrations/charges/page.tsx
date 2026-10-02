@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Layout from "@/components/Layout";
+import { HeroShot } from "@/components/HeroShot";
 import { PageLead } from "@/components/PageIcons";
 
 export const metadata: Metadata = {
@@ -30,7 +31,8 @@ export default function ChargesPage() {
   return (
     <Layout>
       <section className="page-hero">
-        <div className="container page-copy">
+        <div className="container wrap">
+          <div className="page-copy">
           <PageLead icon="pricing" kicker="Additional charges" />
           <h1>
             Two bills, both visible.
@@ -43,6 +45,8 @@ export default function ChargesPage() {
             you pay.
           </p>
           <Link className="btn btn-secondary" href="/registrations">All filings</Link>
+          </div>
+          <HeroShot kind="registrations" />
         </div>
       </section>
       <section className="section">

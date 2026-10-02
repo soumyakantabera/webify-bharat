@@ -11,6 +11,7 @@ import { PageLead } from "@/components/PageIcons";
 import { FaqSection } from "@/components/FaqSection";
 import { getFaq } from "@/lib/faqs";
 import { WhatsAppCta } from "@/components/icons";
+import { HeroShot } from "@/components/HeroShot";
 import { BusinessDetails } from "@/components/BusinessDetails";
 import { WA_CHAT } from "@/lib/site";
 
@@ -18,7 +19,8 @@ export default function ContactPage() {
   return (
     <Layout>
       <section className="page-hero">
-        <div className="container page-copy">
+        <div className="container wrap">
+          <div className="page-copy">
           <PageLead icon="contact" kicker="Contact" />
           <h1>
             Tell us what you want to <span>improve.</span>
@@ -27,6 +29,8 @@ export default function ContactPage() {
             Website, a filing, or both. WhatsApp +91 83360 97642, same day in business
             hours. The message from this form includes what you selected.
           </p>
+          </div>
+          <HeroShot kind="contact" />
         </div>
       </section>
 

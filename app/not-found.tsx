@@ -1,11 +1,13 @@
 import Link from "next/link";
 import Layout from "@/components/Layout";
+import { HeroShot } from "@/components/HeroShot";
 
 export default function NotFound() {
   return (
     <Layout>
       <section className="page-hero">
-        <div className="container page-copy">
+        <div className="container wrap">
+          <div className="page-copy">
           <div className="eyebrow">
             <span className="dot" /> Page not found
           </div>
@@ -23,6 +25,8 @@ export default function NotFound() {
               Contact
             </Link>
           </div>
+          </div>
+          <HeroShot kind="cities" />
         </div>
       </section>
     </Layout>

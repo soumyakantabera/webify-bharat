@@ -12,6 +12,7 @@ import { PageLead } from "@/components/PageIcons";
 import { FaqSection } from "@/components/FaqSection";
 import { getFaq } from "@/lib/faqs";
 import { IconArrow } from "@/components/icons";
+import { HeroShot } from "@/components/HeroShot";
 import { posts } from "@/lib/site";
 import { hdSrc } from "@/lib/hd-images";
 
@@ -19,7 +20,8 @@ export default function BlogPage() {
   return (
     <Layout>
       <section className="page-hero">
-        <div className="container page-copy">
+        <div className="container wrap">
+          <div className="page-copy">
           <PageLead icon="blog" kicker="Insights" />
           <h1>
             Practical ideas for <span>smarter business.</span>
@@ -28,6 +30,8 @@ export default function BlogPage() {
             Straightforward guides on websites, payments, WhatsApp, analytics and
             digital operations.
           </p>
+          </div>
+          <HeroShot kind="blog" />
         </div>
       </section>
 
