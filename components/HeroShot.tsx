@@ -133,6 +133,13 @@ export function HeroShot({
             />
           ))}
         </div>
+        <img
+          className="hero-shot-round"
+          src={shot.images[1]}
+          alt=""
+          width={400}
+          height={400}
+        />
         <div className="hero-shot-card">
           <p className="hero-shot-kicker">{kicker ?? shot.kicker}</p>
           <p className="hero-shot-figure">{figure ?? shot.figure}</p>
