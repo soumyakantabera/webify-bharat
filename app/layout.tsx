@@ -11,6 +11,7 @@ import "./site-motion.css";
 import "./lazy-load.css";
 import "./skeleton.css";
 import "./photo-caption.css";
+import "./claim-panel.css";
 import { jetbrains, manrope, sora } from "./fonts";
 
 export const viewport: Viewport = {
