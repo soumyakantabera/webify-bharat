@@ -937,9 +937,57 @@ textarea.input {
   margin-top: 34px;
   padding-top: 20px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px 28px;
   color: var(--muted);
   font-size: 12px;
+}
+.footer-bottom p {
+  margin: 0;
+  max-width: 46rem;
+  line-height: 1.55;
+}
+.footer-legal {
+  display: flex;
+  gap: 14px;
+  flex-shrink: 0;
+}
+.footer-legal a {
+  display: inline;
+  color: inherit;
+  font-weight: 750;
+  margin: 0;
+}
+.legal-doc {
+  max-width: 42rem;
+}
+.legal-doc h1 {
+  font-size: clamp(32px, 4vw, 48px);
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+  margin: 10px 0 0;
+}
+.legal-doc h2 {
+  font-size: 22px;
+  letter-spacing: -0.03em;
+  margin: 28px 0 8px;
+}
+.legal-doc p {
+  margin: 0 0 12px;
+  line-height: 1.6;
+}
+.legal-updated {
+  font-size: 13px;
+  font-weight: 750;
+  color: var(--muted);
+}
+.legal-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 28px;
+  font-weight: 800;
 }
 .mobile-menu {
   display: none;

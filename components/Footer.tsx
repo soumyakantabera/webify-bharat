@@ -46,11 +46,21 @@ export default function Footer() {
             <Link href="/blog">Blog</Link>
             <Link href="/pricing">Pricing</Link>
             <Link href="/contact">Contact</Link>
+            <Link href="/terms">Terms</Link>
+            <Link href="/privacy">Privacy</Link>
+            <Link href="/refund">Refunds</Link>
           </div>
         </div>
         <div className="footer-bottom">
-          <span>© 2026 Webify Bharat.</span>
-          <span>Built for fast, secure digital growth.</span>
+          <p>
+            © Webify Bharat India. This site is fully managed and developed by Webify Bharat
+            India, and solely owned by Webify Bharat India.
+          </p>
+          <nav className="footer-legal" aria-label="Policies">
+            <Link href="/terms">Terms</Link>
+            <Link href="/privacy">Privacy</Link>
+            <Link href="/refund">Refunds</Link>
+          </nav>
         </div>
       </div>
     </footer>
