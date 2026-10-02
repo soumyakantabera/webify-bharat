@@ -104,14 +104,14 @@ const SHOTS: Record<string, Shot> = {
 const BADGES: Record<string, { badge: string; sub: string }> = {
   services: { badge: "₹0", sub: "EXTRA" },
   pricing: { badge: "ONE", sub: "BILL" },
-  registrations: { badge: "₹0", sub: "IN" },
-  charges: { badge: "2", sub: "BILLS" },
-  cities: { badge: "IN", sub: "CITY" },
+  registrations: { badge: "2", sub: "FEES" },
+  charges: { badge: "SEEN", sub: "FIRST" },
+  cities: { badge: "YOUR", sub: "CITY" },
   blog: { badge: "0", sub: "HYPE" },
   work: { badge: "YOU", sub: "OWN" },
-  contact: { badge: "WA", sub: "NOW" },
+  contact: { badge: "WA", sub: "CHAT" },
   legal: { badge: "NO", sub: "REFUND" },
-  missing: { badge: "?", sub: "GONE" },
+  missing: { badge: "?", sub: "LOST" },
 };
 
 export function HeroShot({
@@ -140,6 +140,7 @@ export function HeroShot({
           {shot.images.map((src, index) => (
             <img
               key={src + index}
+              className={`hero-shot-photo hero-shot-photo-${["a", "b", "c"][index]}`}
               src={src}
               alt={index === 0 ? shot.alt : ""}
               width={1600}
@@ -147,22 +148,24 @@ export function HeroShot({
             />
           ))}
         </div>
-        <div className="hero-shot-card">
-          <span className="hero-shot-badge">
+        <span className="hero-shot-badge" aria-hidden="true">
+          <span className="hero-shot-disc">
             <strong>{mark.badge}</strong>
             <small>{mark.sub}</small>
           </span>
-          <div className="hero-shot-main">
-            <p className="hero-shot-kicker">{kicker ?? shot.kicker}</p>
-            <p className="hero-shot-figure">{figure ?? shot.figure}</p>
-          </div>
-          <div className="hero-shot-side">
-            <p className="hero-shot-note">{note ?? shot.note}</p>
-            <ul>
-              {rows.map((line) => (
-                <li key={line}>{line}</li>
-              ))}
-            </ul>
+        </span>
+        <div className="hero-shot-card">
+          <div className="hero-shot-slip">
+            <div className="hero-shot-body">
+              <p className="hero-shot-kicker">{kicker ?? shot.kicker}</p>
+              <p className="hero-shot-figure">{figure ?? shot.figure}</p>
+              <p className="hero-shot-note">{note ?? shot.note}</p>
+              <ul className="hero-shot-lines">
+                {rows.map((line) => (
+                  <li key={line}>{line}</li>
+                ))}
+              </ul>
+            </div>
             <p className="hero-shot-foot">{footer ?? shot.footer}</p>
           </div>
         </div>
