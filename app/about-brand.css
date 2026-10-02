@@ -28,13 +28,20 @@
   border: 1px solid rgba(15, 118, 110, 0.08);
 }
 
-.about-logo-plate-img {
+.about-logo-lockup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.about-logo-lockup img {
   height: 48px;
   width: auto;
-  max-width: 100%;
-  margin: 0 auto;
-  object-fit: contain;
   display: block;
+}
+.about-logo-lockup .brand-webify,
+.about-logo-lockup .brand-bharat {
+  font-size: 22px;
 }
 
 .about-logo-plate-tag {
@@ -55,9 +62,9 @@
     padding: 12px 14px 10px;
     border-radius: 14px;
   }
-  .about-logo-plate-img {
-    height: 40px;
-  }
+  .about-logo-lockup img { height: 40px; }
+  .about-logo-lockup .brand-webify,
+  .about-logo-lockup .brand-bharat { font-size: 18px; }
   .about-logo-plate-tag {
     font-size: 11px;
   }
@@ -69,9 +76,9 @@
     bottom: 2.5%;
     padding: 10px 12px 8px;
   }
-  .about-logo-plate-img {
-    height: 34px;
-  }
+  .about-logo-lockup img { height: 34px; }
+  .about-logo-lockup .brand-webify,
+  .about-logo-lockup .brand-bharat { font-size: 16px; }
   .about-logo-plate-tag {
     font-size: 10px;
     max-width: 32ch;

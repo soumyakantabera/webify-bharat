@@ -59,11 +59,13 @@ export default function AboutPage() {
               alt="Webify Bharat brand story illustration"
             />
             <div className="about-logo-plate">
-              <img
-                className="about-logo-plate-img"
-                src="/images/logo/webify-bharat-logo.png"
-                alt="Webify Bharat"
-              />
+            <div className="about-logo-lockup" aria-label="Webify Bharat">
+              <img src="/images/logo/wb-mark.svg" alt="" width={88} height={71} />
+              <span className="brand-wordmark">
+                <span className="brand-webify">Webify</span>
+                <span className="brand-bharat">Bharat</span>
+              </span>
+            </div>
               <p className="about-logo-plate-tag">
                 We help Indian businesses go digital, automate operations and grow
                 with smart technology solutions.

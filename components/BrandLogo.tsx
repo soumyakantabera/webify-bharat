@@ -6,7 +6,7 @@ export function BrandLogo({ variant = "light" }: BrandLogoProps) {
   return (
     <span className={`brand-logo brand-logo-${variant}`}>
       <img
-        src="/images/logo/wb-mark.png"
+        src="/images/logo/wb-mark.svg"
         alt=""
         className="brand-mark"
         width={56}
