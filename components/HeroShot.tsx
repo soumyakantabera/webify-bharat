@@ -86,6 +86,7 @@ export function HeroShot({
       <div className="hero-shot-frame">
         <img src={shot.image} alt={shot.alt} width={1600} height={1200} />
         <div className="hero-shot-copy">
+          <p className="hero-shot-kicker">This page</p>
           <strong>{heading}</strong>
           <ul>
             {points.map((line) => (

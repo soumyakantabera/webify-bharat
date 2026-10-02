@@ -55,6 +55,7 @@ function markMediaLoaded(img: HTMLImageElement) {
 }
 
 function setupSkeletonForImage(img: HTMLImageElement) {
+  if (img.closest(".hero-shot")) return;
   if (img.classList.contains("skeleton-bound")) return;
   img.classList.add("skeleton-bound");
 
