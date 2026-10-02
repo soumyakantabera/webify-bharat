@@ -31,7 +31,7 @@
   width: 100%;
   max-width: 100%;
   aspect-ratio: 5 / 4;
-  max-height: min(560px, 68vh);
+  max-height: min(640px, 76vh);
 }
 .hero-shot-collage {
   position: absolute;
@@ -60,8 +60,8 @@
   z-index: 2;
   top: 0;
   right: 0;
-  width: 72%;
-  height: 57%;
+  width: 84%;
+  height: 68%;
   object-position: center 40%;
   border-width: 0;
   border-radius: 18px;
@@ -73,8 +73,8 @@
   z-index: 3;
   left: 1%;
   top: 36%;
-  width: 38%;
-  height: 41%;
+  width: 46%;
+  height: 48%;
   object-position: center 40%;
   animation: shot-from-left 0.75s var(--ease-out) 0.15s both;
 }
@@ -84,8 +84,8 @@
   z-index: 1;
   left: 0;
   top: 5%;
-  width: 38%;
-  height: 27%;
+  width: 46%;
+  height: 34%;
   object-position: center 40%;
   animation: shot-from-top 0.75s var(--ease-out) 0.3s both;
 }
@@ -138,7 +138,7 @@
   grid-area: 1 / 1;
   align-self: end;
   justify-self: end;
-  width: 64%;
+  width: 58%;
   min-width: 0;
   margin: 0;
   animation: shot-card 0.75s var(--ease-out) 0.2s both;
