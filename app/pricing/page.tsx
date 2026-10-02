@@ -11,6 +11,7 @@ import {
   Store,
   TrendingUp,
 } from "lucide-react";
+import Link from "next/link";
 import Layout from "@/components/Layout";
 import { SeoChunk } from "@/components/SeoChunk";
 import { ArticleBlock } from "@/components/ArticleBlock";
@@ -32,6 +33,18 @@ const addonIcons: Record<string, LucideIcon> = {
   Small: Package,
   Medium: Store,
   Expanding: Layers,
+};
+
+const planSlugs: Record<string, string> = {
+  Launch: "launch",
+  Growth: "growth",
+  Command: "command",
+};
+
+const addonSlugs: Record<string, string> = {
+  Small: "small",
+  Medium: "medium",
+  Expanding: "expanding",
 };
 
 export default function PricingPage() {
@@ -76,6 +89,7 @@ export default function PricingPage() {
           <div className="pricing-grid">
             {plans.map((plan) => {
               const Icon = planIcons[plan.name] ?? Rocket;
+              const slug = planSlugs[plan.name];
               return (
                 <div
                   className={`price-card${plan.popular ? " popular" : ""}`}
@@ -92,7 +106,9 @@ export default function PricingPage() {
                         <span className="badge badge-soft">Package</span>
                       )}
                     </div>
-                    <h2>{plan.name}</h2>
+                    <h2>
+                      <Link href={`/pricing/${slug}`}>{plan.name}</Link>
+                    </h2>
                     <p className="price-desc">{plan.desc}</p>
                     <div className="price">
                       {plan.price}
@@ -105,6 +121,9 @@ export default function PricingPage() {
                     ))}
                   </ul>
                   <div className="price-card-cta">
+                    <Link className="btn btn-secondary price-cta" href={`/pricing/${slug}`}>
+                      Compare {plan.name}
+                    </Link>
                     <WhatsAppCta href={WA_PACKAGES} className="btn btn-primary price-cta">
                       Choose {plan.name}
                     </WhatsAppCta>
@@ -139,6 +158,7 @@ export default function PricingPage() {
           <div className="pricing-grid">
             {ecommerceAddons.map((addon) => {
               const Icon = addonIcons[addon.name] ?? Package;
+              const slug = addonSlugs[addon.name];
               return (
                 <div
                   className={`price-card price-card-addon${addon.popular ? " popular" : ""}`}
@@ -154,7 +174,9 @@ export default function PricingPage() {
                         <span className="badge badge-hot">Most chosen</span>
                       ) : null}
                     </div>
-                    <h2>{addon.name}</h2>
+                    <h2>
+                      <Link href={`/pricing/${slug}`}>{addon.name}</Link>
+                    </h2>
                     <p className="price-best-for">{addon.bestFor}</p>
                     <p className="price-desc">{addon.desc}</p>
                     <div className="price">
@@ -169,6 +191,9 @@ export default function PricingPage() {
                   </ul>
                   <p className="price-note">{addon.note}</p>
                   <div className="price-card-cta">
+                    <Link className="btn btn-secondary price-cta" href={`/pricing/${slug}`}>
+                      Compare {addon.name}
+                    </Link>
                     <WhatsAppCta href={WA_PACKAGES} className="btn btn-primary price-cta">
                       Discuss {addon.name} e-commerce
                     </WhatsAppCta>
