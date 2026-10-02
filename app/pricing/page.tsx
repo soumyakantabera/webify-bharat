@@ -4,10 +4,15 @@ export const metadata: Metadata = pageMetadata("pricing");
 
 import type { LucideIcon } from "lucide-react";
 import {
+  ClipboardList,
+  CreditCard,
   Gauge,
   Layers,
+  MapPin,
+  MessageCircle,
   Package,
   Rocket,
+  ScrollText,
   Store,
   TrendingUp,
 } from "lucide-react";
@@ -164,47 +169,56 @@ export default function PricingPage() {
                 <span className="dot" /> E-commerce addons
               </div>
               <h2>
-                Own the store.
-                <br />
-                <span>Three sizes.</span>
+                A page, <span>or a shop.</span>
               </h2>
             </div>
             <p>
-              Small is a page. Medium is a shop. The extra ₹5,000 is not more of the
-              same list. It is categories, a pincode before payment, and an order desk.
+              The extra ₹5,000 is not a longer list. It is categories, a pincode before
+              payment, and an order desk.
             </p>
           </div>
 
-          <div className="split" aria-label="Small compared with Medium">
-            <article className="split-card split-small">
-              <p className="split-kicker">Small</p>
-              <p className="split-title">A page.</p>
-              <p className="split-price">₹4,999 <small>incl. GST</small></p>
+          <div className="stage" aria-label="Small compared with Medium">
+            <article className="stage-side stage-page">
+              <header>
+                <span className="stage-index">01</span>
+                <div>
+                  <p>Small</p>
+                  <h3>A page.</h3>
+                </div>
+                <strong>₹4,999</strong>
+              </header>
               <ul>
-                <li><span>Find</span> They scroll one list</li>
-                <li><span>Pay</span> A UPI link</li>
-                <li><span>Then</span> A WhatsApp message</li>
-                <li><span>Delivery</span> You answer in chat</li>
+                <li><ScrollText size={18} /> They scroll one list</li>
+                <li><MessageCircle size={18} /> The order is a WhatsApp message</li>
+                <li><CreditCard size={18} /> They pay with a UPI link</li>
+                <li><MapPin size={18} /> Delivery is answered in chat</li>
               </ul>
+              <Link href="/pricing/small">See Small</Link>
             </article>
-            <div className="split-gap" aria-hidden="true">
-              <span>₹5,000 more</span>
+            <div className="stage-bridge">
+              <strong>₹5,000</strong>
+              <span>buys a shop, not more rows</span>
             </div>
-            <article className="split-card split-medium">
-              <p className="split-kicker">Medium</p>
-              <p className="split-title">A shop.</p>
-              <p className="split-price">₹9,999 <small>incl. GST</small></p>
+            <article className="stage-side stage-shop">
+              <header>
+                <span className="stage-index">02</span>
+                <div>
+                  <p>Medium</p>
+                  <h3>A shop.</h3>
+                </div>
+                <strong>₹9,999</strong>
+              </header>
               <ul>
-                <li><span>Find</span> They open a category</li>
-                <li><span>Pay</span> A gateway, with Growth</li>
-                <li><span>Then</span> Today’s order list</li>
-                <li><span>Delivery</span> Pincode before they pay</li>
+                <li><Store size={18} /> They open a category</li>
+                <li><ClipboardList size={18} /> Today’s orders on one screen</li>
+                <li><CreditCard size={18} /> A gateway, if Growth is underneath</li>
+                <li><MapPin size={18} /> The pincode shows before they pay</li>
               </ul>
+              <Link href="/pricing/medium">See Medium</Link>
             </article>
           </div>
-          <p className="split-more">
-            Expanding is Medium plus one dealer enquiry. It is not a bigger Small.
-          </p>
+          <p className="stage-more">Expanding is Medium plus one dealer enquiry. Not a bigger Small.</p>
 
           <div className="pricing-grid">
             {ecommerceAddons.map((addon) => {
