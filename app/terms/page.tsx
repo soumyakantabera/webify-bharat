@@ -20,8 +20,9 @@ export default function TermsPage() {
             title="The work we sell is the work we deliver."
             lede="Read this with the pricing page. The card is the scope. These terms say what that scope is not."
             sections={terms}
-          />
-          <HeroShot kind="legal" />
+          >
+            <HeroShot kind="legal" />
+          </LegalDoc>
         </div>
       </section>
     </Layout>

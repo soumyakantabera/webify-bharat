@@ -273,10 +273,28 @@
   color: #4a4438;
 }
 
-.page-hero .wrap:has(.legal-doc) { align-items: start; }
-.page-hero .wrap:has(.legal-doc) .hero-shot {
-  position: sticky;
-  top: 96px;
+.page-hero .page-copy,
+.page-hero .legal-head {
+  animation: copy-rise 0.7s var(--ease-out) both;
+}
+.page-hero .hero-shot {
+  width: min(100%, 680px);
+  margin: 4px 0 0;
+  order: 2;
+  animation: shot-arrive 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+.page-hero .legal-doc {
+  order: 3;
+  animation: copy-rise 0.7s var(--ease-out) 0.35s both;
+}
+@keyframes copy-rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes shot-arrive {
+  0% { opacity: 0; transform: translateY(42px) rotate(-4deg) scale(0.94); filter: blur(8px); }
+  55% { opacity: 1; filter: blur(0); }
+  100% { opacity: 1; transform: none; filter: blur(0); }
 }
 
 @keyframes shot-in {
@@ -310,7 +328,7 @@
 }
 
 @media (max-width: 800px) {
-  .hero-shot { order: -1; width: 100%; max-width: 100%; margin: 0; padding: 16px 0 4px; }
+  .hero-shot { order: 2; width: 100%; max-width: 100%; margin: 0; padding: 8px 0 4px; }
   .hero-shot-frame {
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
@@ -322,6 +340,10 @@
   .hero-shot-disc strong { font-size: 18px; }
 }
 @media (prefers-reduced-motion: reduce) {
+  .page-hero .page-copy,
+  .page-hero .legal-head,
+  .page-hero .legal-doc,
+  .page-hero .hero-shot,
   .hero-shot-collage img,
   .page-hero .hero-shot-collage img,
   .hero-shot-badge,

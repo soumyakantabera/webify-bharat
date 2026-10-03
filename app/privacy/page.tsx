@@ -20,8 +20,9 @@ export default function PrivacyPage() {
             title="Your number is for the work, not a list we sell."
             lede="WhatsApp and the contact form are how a project starts. This page says what we keep."
             sections={privacy}
-          />
-          <HeroShot kind="legal" />
+          >
+            <HeroShot kind="legal" />
+          </LegalDoc>
         </div>
       </section>
     </Layout>

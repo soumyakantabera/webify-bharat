@@ -20,8 +20,9 @@ export default function RefundPage() {
             title="No refund once the output is delivered."
             lede="We charge for the site, the filing, or the consulting we hand over. We do not charge for a sales increase, and we do not refund when sales stay flat."
             sections={refund}
-          />
-          <HeroShot kind="legal" />
+          >
+            <HeroShot kind="legal" />
+          </LegalDoc>
         </div>
       </section>
     </Layout>
