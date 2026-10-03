@@ -84,7 +84,18 @@ export default function Home() {
               fetchPriority="high"
               decoding="async"
             />
-            <HeroShot kind="services" />
+            <HeroShot
+              kind="services"
+              kicker="Then, per organic lead"
+              figure="₹0"
+              note="Launch starts at ₹9,999. GST is inside."
+              points={[
+                "You own the site, WhatsApp, and the list",
+                "GST and Udyam ride in Launch",
+                "A store you run starts at ₹999",
+              ]}
+              footer="One invoice. No fee on the next enquiry."
+            />
           </div>
         </div>
       </section>
