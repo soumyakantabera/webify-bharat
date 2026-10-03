@@ -64,8 +64,8 @@ const SHOTS: Record<string, Shot> = {
     footer: "Same facts as the pricing page",
   },
   work: {
-    images: ["/images/snapshots/market-grain.webp", "/images/snapshots/market-textile.webp", "/images/snapshots/market-mandi.webp"],
-    alt: "Workers moving stock in an Indian wholesale yard",
+    images: ["/images/snapshots/market-counter.webp", "/images/snapshots/market-textile.webp", "/images/snapshots/market-mandi.webp"],
+    alt: "A shop owner at his own wholesale counter",
     kicker: "Not a mockup",
     figure: "Live",
     note: "Until a client says we can show it",
