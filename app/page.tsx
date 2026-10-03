@@ -21,6 +21,15 @@ import {
 import { industries, services, WA_CHAT, WA_CONSULT } from "@/lib/site";
 import { getFaq } from "@/lib/faqs";
 
+const serviceStarts: Record<string, string> = {
+  websites: "From ₹9,999",
+  ecommerce: "You run it from ₹999",
+  payments: "Gateway on Growth",
+  whatsapp: "On your number",
+  analytics: "Monday view on Command",
+  compliance: "GST and Udyam in Launch",
+};
+
 export default function Home() {
   return (
     <Layout>
@@ -48,25 +57,25 @@ export default function Home() {
               <WhatsAppCta href={WA_CONSULT}>Book a free consult</WhatsAppCta>
             </div>
             <div className="trust">
-              <div className="trust-item">
+              <div className="trust-item trust-teal">
                 <span className="trust-icon">
                   <IconKey />
                 </span>
                 <span className="trust-label">You own the URL</span>
               </div>
-              <div className="trust-item">
+              <div className="trust-item trust-mango">
                 <span className="trust-icon">
                   <IconRupee />
                 </span>
                 <span className="trust-label">GST inside the price</span>
               </div>
-              <div className="trust-item">
+              <div className="trust-item trust-indigo">
                 <span className="trust-icon">
                   <IconUsers />
                 </span>
                 <span className="trust-label">You own the list</span>
               </div>
-              <div className="trust-item">
+              <div className="trust-item trust-leaf">
                 <span className="trust-icon">
                   <IconCheck />
                 </span>
@@ -100,6 +109,27 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="home-paths" aria-label="Where to start">
+        <div className="container home-path-row">
+          <Link className="home-path path-teal" href="/pricing/launch">
+            <strong>₹9,999</strong>
+            <span>Site, GST and Udyam</span>
+          </Link>
+          <Link className="home-path path-mango" href="/pricing/small">
+            <strong>₹999</strong>
+            <span>A store you run</span>
+          </Link>
+          <Link className="home-path path-indigo" href="/registrations">
+            <strong>₹0</strong>
+            <span>Filings inside Launch</span>
+          </Link>
+          <a className="home-path path-leaf" href={WA_CHAT}>
+            <strong>WhatsApp</strong>
+            <span>Talk to us today</span>
+          </a>
+        </div>
+      </section>
+
       <SeoChunk pageKey="home" />
 
       <section className="section control-section" id="control">
@@ -122,6 +152,7 @@ export default function Home() {
           <div className="control-grid">
             <article className="control-card rent">
               <p className="control-kicker">Renting customers</p>
+              <p className="control-figure">Pay again</p>
               <h3>Pay every time someone wants you.</h3>
               <ul>
                 <li>Aggregators take a cut you can read in your own contract</li>
@@ -132,6 +163,7 @@ export default function Home() {
             </article>
             <article className="control-card own">
               <p className="control-kicker">Owning customers</p>
+              <p className="control-figure">₹0</p>
               <h3>Your site. Your WhatsApp. No fee on that organic enquiry.</h3>
               <ul>
                 <li>Website + Maps + WhatsApp you control</li>
@@ -212,6 +244,11 @@ export default function Home() {
               </div>
             </Link>
           </div>
+          <div className="home-chips">
+            <Link className="home-chip chip-rose" href="/industries/healthcare">Clinic</Link>
+            <Link className="home-chip chip-indigo" href="/industries/education">Institute</Link>
+            <Link className="home-chip chip-mango" href="/industries/manufacturing">Workshop</Link>
+          </div>
         </div>
       </section>
 
@@ -249,6 +286,7 @@ export default function Home() {
                   />
                 </div>
                 <div className="card-body">
+                  <span className={`home-start start-${service.slug}`}>{serviceStarts[service.slug]}</span>
                   <h3>{service.title}</h3>
                   <p>{service.description}</p>
                   <span className="card-link">
@@ -283,16 +321,29 @@ export default function Home() {
               <span className="home-price-label">Launch</span>
               <strong>₹9,999</strong>
               <span className="home-price-note">starting · incl. GST</span>
+              <span className="home-price-lines">Site · GST · Udyam</span>
             </div>
             <div className="home-price-item home-price-item-hot">
               <span className="home-price-label">Growth</span>
               <strong>₹19,999</strong>
               <span className="home-price-note">starting · incl. GST</span>
+              <span className="home-price-lines">Gateway · IEC · WhatsApp flows</span>
             </div>
             <div className="home-price-item">
               <span className="home-price-label">Command</span>
               <strong>₹39,999</strong>
               <span className="home-price-note">starting · incl. GST</span>
+              <span className="home-price-lines">Monday view · UK VAT · EU IOSS</span>
+            </div>
+          </div>
+          <div className="home-store-row">
+            <div>
+              <strong>₹999</strong>
+              <span>You manage the store</span>
+            </div>
+            <div>
+              <strong>₹1,999</strong>
+              <span>We manage it, from</span>
             </div>
           </div>
           <div className="home-price-actions">
@@ -403,8 +454,8 @@ export default function Home() {
               collect money and make decisions.
             </p>
           </div>
-          <div className="industry-grid">
-            {industries.map((industry) => (
+          <div className="industry-grid home-trades">
+            {industries.map((industry, index) => (
               <Link
                 key={industry.slug}
                 href={`/industries/${industry.slug}`}
@@ -419,7 +470,7 @@ export default function Home() {
                   decoding="async"
                 />
                 <div className="content">
-                  <h3>{industry.title}</h3>
+                  <span className={`home-trade trade-${index % 6}`}>{industry.title}</span>
                   <p>{industry.description}</p>
                 </div>
               </Link>
@@ -439,6 +490,12 @@ export default function Home() {
                 <span className="dot" /> Own the next customer
               </div>
               <h2>Stop paying for people who already want you.</h2>
+              <div className="home-pills">
+                <span className="pill-teal">₹9,999</span>
+                <span className="pill-leaf">₹0 per lead</span>
+                <span className="pill-indigo">You own the list</span>
+                <span className="pill-mango">Kolkata</span>
+              </div>
               <p>
                 Build a website and WhatsApp system you control. Organic enquiries land
                 at ₹0 per lead — not as a Justdial bill. Packages from ₹9,999 incl. GST.
