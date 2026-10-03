@@ -333,10 +333,12 @@ h2 span {
   margin: 0;
   padding: 10px 0;
   transform: none;
-  animation: home-note 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
+  animation:
+    home-note 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both,
+    home-float 5.6s ease-in-out 1.05s infinite alternate;
 }
-.hero-visual .hero-shot-frame {
-  display: block;
+.hero-visual .hero-shot-slip {
+  animation: none;
 }
 .hero-visual .hero-shot-collage {
   display: none;
@@ -374,6 +376,14 @@ h2 span {
 @keyframes home-note-sm {
   from { opacity: 0; transform: rotate(-8deg) translateY(16px); }
   to { opacity: 1; transform: rotate(-2.5deg); }
+}
+@keyframes home-float {
+  from { transform: rotate(-6deg) translateY(0); }
+  to { transform: rotate(-3.5deg) translateY(-12px); }
+}
+@keyframes home-float-sm {
+  from { transform: rotate(-2.5deg) translateY(0); }
+  to { transform: rotate(-1deg) translateY(-8px); }
 }
 .hero-visual:before {
   content: "";
@@ -1506,7 +1516,9 @@ textarea.input {
   .hero-visual .hero-shot {
     width: min(100%, 340px);
     margin: 0 auto;
-    animation-name: home-note-sm;
+    animation:
+      home-note-sm 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both,
+      home-float-sm 5.6s ease-in-out 1.05s infinite alternate;
   }
   .hero-visual .hero-shot-figure {
     font-size: 34px;
