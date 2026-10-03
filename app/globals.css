@@ -310,22 +310,30 @@ h2 span {
 }
 .hero-visual {
   position: relative;
-  display: block;
+  display: grid;
+  grid-template-columns: minmax(200px, 0.72fr) minmax(0, 1.28fr);
+  grid-template-areas: "note art";
+  align-items: center;
+  gap: 8px 18px;
 }
 .hero-visual .hero-dash {
+  grid-area: art;
   width: 100%;
   height: auto;
   border-radius: var(--radius);
+  animation: home-art 0.85s var(--ease-out) both;
 }
 .hero-visual .hero-shot {
-  position: absolute;
-  z-index: 2;
-  left: 4%;
-  bottom: 7%;
-  width: min(300px, 58%);
+  grid-area: note;
+  position: relative;
+  z-index: 1;
+  left: auto;
+  bottom: auto;
+  width: 100%;
   margin: 0;
-  padding: 0;
-  transform: rotate(-6deg);
+  padding: 10px 0;
+  transform: none;
+  animation: home-note 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
 }
 .hero-visual .hero-shot-frame {
   display: block;
@@ -340,7 +348,7 @@ h2 span {
   padding: 14px 16px 12px;
 }
 .hero-visual .hero-shot-figure {
-  font-size: 42px;
+  font-size: 40px;
 }
 .hero-visual .hero-shot-note,
 .hero-visual .hero-shot-lines li:nth-child(2) {
@@ -354,6 +362,18 @@ h2 span {
 }
 .hero-visual .hero-shot-lines li {
   padding: 5px 0;
+}
+@keyframes home-art {
+  from { opacity: 0; transform: translateX(24px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes home-note {
+  from { opacity: 0; transform: rotate(-11deg) translateY(20px); }
+  to { opacity: 1; transform: rotate(-6deg); }
+}
+@keyframes home-note-sm {
+  from { opacity: 0; transform: rotate(-8deg) translateY(16px); }
+  to { opacity: 1; transform: rotate(-2.5deg); }
 }
 .hero-visual:before {
   content: "";
@@ -1469,6 +1489,9 @@ textarea.input {
     order: 1;
     max-height: none;
     overflow: visible;
+    grid-template-columns: 1fr;
+    grid-template-areas: "art" "note";
+    gap: 16px;
   }
   .hero-visual:before {
     display: none;
@@ -1481,10 +1504,9 @@ textarea.input {
     object-fit: contain;
   }
   .hero-visual .hero-shot {
-    left: 6%;
-    bottom: 4%;
-    width: min(260px, 78%);
-    transform: rotate(-4deg);
+    width: min(100%, 340px);
+    margin: 0 auto;
+    animation-name: home-note-sm;
   }
   .hero-visual .hero-shot-figure {
     font-size: 34px;
