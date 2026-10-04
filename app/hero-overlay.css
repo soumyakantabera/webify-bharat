@@ -128,15 +128,27 @@
     position: relative;
     left: auto;
     bottom: auto;
-    width: min(88%, 640px);
-    margin: -168px 0 0;
+    width: min(82%, 560px);
+    margin: clamp(-170px, -20vw, -110px) 0 0;
     transform: rotate(-2deg);
     animation: none;
   }
-  .hero-visual.is-overlay .hero-shot-badge { right: -8px; }
+  .hero-visual.is-overlay .hero-shot-badge { right: 0; }
 }
-@media (max-width: 420px) {
-  .hero-visual.is-overlay .hero-shot-overlay { width: 94%; margin-left: 2%; }
+@media (max-width: 700px) {
+  .hero-visual.is-overlay .hero-shot-overlay {
+    width: min(100%, 420px);
+    margin: clamp(-120px, -24vw, -84px) 0 0;
+  }
+  .hero .trust-label {
+    white-space: normal;
+    line-height: 1.25;
+  }
+  .hero .trust-item {
+    font-size: 12.5px;
+    padding-right: 8px;
+    gap: 8px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
