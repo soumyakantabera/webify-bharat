@@ -6,6 +6,8 @@ type Shot = {
   note: string;
   points: string[];
   footer: string;
+  chips?: string[];
+  fine?: string;
 };
 
 const SHOTS: Record<string, Shot> = {
@@ -17,6 +19,8 @@ const SHOTS: Record<string, Shot> = {
     note: "After the site is yours",
     points: ["You own the URL and the list", "WhatsApp and UPI, your login", "GST is already in the card"],
     footer: "WhatsApp · +91 83360 97642",
+    chips: ["Website", "WhatsApp", "UPI", "GST"],
+    fine: "Ads, gateway and WhatsApp charges are extra, quoted first.",
   },
   pricing: {
     images: ["/images/snapshots/market-electronics.webp", "/images/snapshots/market-grain.webp", "/images/snapshots/market-textile.webp"],
@@ -121,7 +125,9 @@ export function HeroShot({
   note,
   points,
   footer,
+  variant = "collage",
 }: {
+  variant?: "collage" | "overlay";
   kind?: string;
   kicker?: string;
   figure?: string;
@@ -132,22 +138,28 @@ export function HeroShot({
   const shot = SHOTS[kind] ?? SHOTS.services;
   const mark = BADGES[kind] ?? BADGES.services;
   const rows = points?.length ? points.slice(0, 3) : shot.points;
+  const overlay = variant === "overlay";
 
   return (
-    <aside className="hero-shot" aria-label={`Summary: ${figure ?? shot.figure}`}>
+    <aside
+      className={`hero-shot${overlay ? " hero-shot-overlay" : ""}`}
+      aria-label={`Summary: ${figure ?? shot.figure}`}
+    >
       <div className="hero-shot-frame">
-        <div className="hero-shot-collage">
-          {shot.images.map((src, index) => (
-            <img
-              key={src + index}
-              className={`hero-shot-photo hero-shot-photo-${["a", "b", "c"][index]}`}
-              src={src}
-              alt={index === 0 ? shot.alt : ""}
-              width={1600}
-              height={1200}
-            />
-          ))}
-        </div>
+        {!overlay && (
+          <div className="hero-shot-collage">
+            {shot.images.map((src, index) => (
+              <img
+                key={src + index}
+                className={`hero-shot-photo hero-shot-photo-${["a", "b", "c"][index]}`}
+                src={src}
+                alt={index === 0 ? shot.alt : ""}
+                width={1600}
+                height={1200}
+              />
+            ))}
+          </div>
+        )}
         <span className="hero-shot-badge" aria-hidden="true">
           <span className="hero-shot-disc">
             <strong>{mark.badge}</strong>
@@ -165,6 +177,14 @@ export function HeroShot({
                   <li key={line}>{line}</li>
                 ))}
               </ul>
+              {overlay && shot.chips && (
+                <ul className="hero-shot-chips" aria-label="What you get">
+                  {shot.chips.map((chip) => (
+                    <li key={chip}>{chip}</li>
+                  ))}
+                </ul>
+              )}
+              {overlay && shot.fine && <p className="hero-shot-fine">{shot.fine}</p>}
             </div>
             <p className="hero-shot-foot">{footer ?? shot.footer}</p>
           </div>

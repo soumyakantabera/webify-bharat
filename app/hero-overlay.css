@@ -1,0 +1,138 @@
+/* Home hero: dashboard art on the right, the snapshot card tilted over its
+   lower-left corner. Scoped to .is-overlay so every other page keeps the
+   photo-collage HeroShot untouched. Loaded after hero-shot.css. */
+
+.hero-visual.is-overlay,
+.hero-visual.is-overlay.skeleton-media {
+  display: block;
+  position: relative;
+  padding: 0 0 56px;
+  overflow: visible;
+  background: transparent;
+  animation: none;
+}
+.hero-visual.is-overlay.skeleton-media::after { display: none; }
+.hero-visual.is-overlay .hero-dash {
+  display: block;
+  width: 100%;
+  max-width: none;
+  max-height: none;
+  height: auto;
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  border-radius: var(--radius);
+  animation: none;
+}
+
+.hero-visual.is-overlay .hero-shot-overlay {
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  bottom: -14px;
+  width: clamp(290px, 54%, 336px);
+  margin: 0;
+  padding: 0;
+  transform: rotate(-4deg);
+  transform-origin: 20% 90%;
+  animation: none;
+  transition: transform 0.45s var(--ease-out);
+}
+.hero-visual.is-overlay:hover .hero-shot-overlay {
+  transform: rotate(-1.5deg) translateY(-4px);
+}
+.hero-visual.is-overlay .hero-shot-frame {
+  display: block;
+}
+.hero-visual.is-overlay .hero-shot-card {
+  width: 100%;
+}
+.hero-visual.is-overlay .hero-shot-slip {
+  animation: overlay-float 7s ease-in-out 1s infinite alternate;
+  filter: drop-shadow(0 26px 30px rgba(20, 24, 22, 0.28))
+    drop-shadow(0 3px 4px rgba(20, 24, 22, 0.16));
+}
+@keyframes overlay-float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-5px); }
+}
+
+.hero-visual.is-overlay .hero-shot-body { padding: 16px 20px 14px; }
+.hero-visual.is-overlay .hero-shot-kicker { font-size: 11px; max-width: calc(100% - 52px); }
+.hero-visual.is-overlay .hero-shot-figure { font-size: clamp(38px, 4.2vw, 46px); margin-top: 3px; }
+.hero-visual.is-overlay .hero-shot-note { margin-top: 6px; font-size: 14px; }
+.hero-visual.is-overlay .hero-shot-lines { margin-top: 11px; }
+.hero-visual.is-overlay .hero-shot-lines li { padding: 6px 0; }
+.hero-visual.is-overlay .hero-shot-lines li:nth-child(1) { font-size: 16.5px; }
+.hero-visual.is-overlay .hero-shot-lines li:nth-child(2) { font-size: 14px; }
+.hero-visual.is-overlay .hero-shot-lines li:nth-child(3) { font-size: 12.5px; }
+.hero-visual.is-overlay .hero-shot-foot { padding: 10px 20px 12px; font-size: 12px; }
+
+.hero-visual.is-overlay .hero-shot-badge {
+  top: -26px;
+  right: -16px;
+  width: 70px;
+  height: 70px;
+}
+.hero-visual.is-overlay .hero-shot-disc {
+  transform: rotate(9deg);
+  animation: none;
+}
+.hero-visual.is-overlay .hero-shot-disc strong { font-size: 22px; }
+.hero-visual.is-overlay .hero-shot-disc small { font-size: 9.5px; }
+
+.hero-shot-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 11px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.hero-shot-chips li {
+  margin: 0;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #e7f5f1;
+  color: #0b5d56;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+.hero-shot-fine {
+  margin: 9px 0 0;
+  max-width: none;
+  color: #5b5546;
+  font-size: 11.5px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+  .hero-visual.is-overlay,
+  .hero-visual.is-overlay.skeleton-media { padding: 0; }
+  .hero-visual.is-overlay .hero-dash {
+    width: 100%;
+    max-height: none;
+  }
+  .hero-visual.is-overlay .hero-shot-overlay {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    width: min(92%, 340px);
+    margin: -64px auto 0 4%;
+    transform: rotate(-2.5deg);
+    animation: none;
+  }
+  .hero-visual.is-overlay .hero-shot-badge { right: -8px; }
+}
+@media (max-width: 420px) {
+  .hero-visual.is-overlay .hero-shot-overlay { width: 94%; margin-left: 2%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-visual.is-overlay .hero-shot-overlay,
+  .hero-visual.is-overlay .hero-shot-slip { animation: none !important; transition: none; }
+}

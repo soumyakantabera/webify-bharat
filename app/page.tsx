@@ -83,11 +83,11 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="hero-visual">
+          <div className="hero-visual is-overlay">
             <img
               className="hero-dash"
               src="/images/hero/digital-growth-dashboard.png"
-              alt="Webify Bharat digital operations dashboard"
+              alt="Webify Bharat dashboard: orders, revenue, WhatsApp and UPI payments"
               width={960}
               height={720}
               fetchPriority="high"
@@ -95,6 +95,7 @@ export default function Home() {
             />
             <HeroShot
               kind="services"
+              variant="overlay"
               kicker="Then, per organic lead"
               figure="₹0"
               note="Launch starts at ₹9,999. GST is inside."
