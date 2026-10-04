@@ -5,6 +5,8 @@
 .hero:has(.is-overlay) {
   overflow: visible;
 }
+.hero-visual.is-overlay,
+.hero-visual.is-overlay.skeleton-media {
   display: block;
   position: relative;
   padding: 0 0 56px;
