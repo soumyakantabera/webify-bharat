@@ -113,7 +113,11 @@
   line-height: 1.4;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
   .hero-visual.is-overlay,
   .hero-visual.is-overlay.skeleton-media { padding: 0; }
   .hero-visual.is-overlay .hero-dash {
@@ -124,7 +128,7 @@
     position: relative;
     left: auto;
     bottom: auto;
-    width: min(100%, 440px);
+    width: min(88%, 640px);
     margin: -168px 0 0;
     transform: rotate(-2deg);
     animation: none;
