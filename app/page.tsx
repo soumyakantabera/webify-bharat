@@ -86,26 +86,14 @@ export default function Home() {
           <div className="hero-visual is-overlay">
             <img
               className="hero-dash"
-              src="/images/hero/digital-growth-dashboard.png"
+              src="/images/hero/dashboard-art.webp"
               alt="Webify Bharat dashboard: orders, revenue, WhatsApp and UPI payments"
-              width={960}
-              height={720}
+              width={1111}
+              height={871}
               fetchPriority="high"
               decoding="async"
             />
-            <HeroShot
-              kind="services"
-              variant="overlay"
-              kicker="Then, per organic lead"
-              figure="₹0"
-              note="Launch starts at ₹9,999. GST is inside."
-              points={[
-                "You own the site, WhatsApp, and the list",
-                "GST and Udyam ride in Launch",
-                "A store you run starts at ₹999",
-              ]}
-              footer="One invoice. No fee on the next enquiry."
-            />
+            <HeroShot kind="services" variant="overlay" />
           </div>
         </div>
       </section>

@@ -2,8 +2,9 @@
    lower-left corner. Scoped to .is-overlay so every other page keeps the
    photo-collage HeroShot untouched. Loaded after hero-shot.css. */
 
-.hero-visual.is-overlay,
-.hero-visual.is-overlay.skeleton-media {
+.hero:has(.is-overlay) {
+  overflow: visible;
+}
   display: block;
   position: relative;
   padding: 0 0 56px;
@@ -19,22 +20,22 @@
   max-height: none;
   height: auto;
   margin: 0;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: auto;
   object-fit: contain;
-  border-radius: var(--radius);
+  border-radius: 0;
   animation: none;
 }
 
 .hero-visual.is-overlay .hero-shot-overlay {
   position: absolute;
   z-index: 3;
-  left: 0;
-  bottom: -14px;
-  width: clamp(290px, 54%, 336px);
+  left: 4%;
+  bottom: -6px;
+  width: clamp(300px, 58%, 372px);
   margin: 0;
   padding: 0;
-  transform: rotate(-4deg);
-  transform-origin: 20% 90%;
+  transform: rotate(-3.5deg);
+  transform-origin: 18% 100%;
   animation: none;
   transition: transform 0.45s var(--ease-out);
 }
@@ -121,9 +122,9 @@
     position: relative;
     left: auto;
     bottom: auto;
-    width: min(92%, 340px);
-    margin: -64px auto 0 4%;
-    transform: rotate(-2.5deg);
+    width: min(100%, 440px);
+    margin: -96px 0 0;
+    transform: rotate(-2deg);
     animation: none;
   }
   .hero-visual.is-overlay .hero-shot-badge { right: -8px; }
