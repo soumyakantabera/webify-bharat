@@ -141,5 +141,7 @@ button:hover > .ic-arw-left { transform: translateX(-3px); }
 .logo-badge img { width: 16px; height: 16px; }
 .logo-badge.is-wide { width: auto; height: 26px; padding: 0 10px; margin: 0 -8px; border-radius: 999px; }
 .logo-badge.is-wide img { width: auto; height: 16px; }
-.logo-chip { min-height: 40px; }
+.logo-chip { min-height: 44px; }
 .logo-badge img { object-fit: contain; }
+.logo-badge.is-wide { height: 30px; }
+.logo-badge.is-wide img { height: 20px; }
