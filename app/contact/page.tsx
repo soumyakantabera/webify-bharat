@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { asset } from "@/lib/asset";
 import { pageMetadata } from "@/lib/page-seo";
 export const metadata: Metadata = pageMetadata("contact");
 
@@ -41,7 +42,7 @@ export default function ContactPage() {
           <ContactForm />
           <div className="contact-story">
             <img
-              src="/images/real/consultation.webp"
+              src={asset("/images/real/consultation.webp")}
               alt="Webify Bharat consultation with an Indian business owner"
             />
             <div className="contact-story-body">

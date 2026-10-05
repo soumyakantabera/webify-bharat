@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { asset } from "@/lib/asset";
 import { pageMetadata } from "@/lib/page-seo";
 export const metadata: Metadata = pageMetadata("work");
 
@@ -50,7 +51,7 @@ export default function WorkPage() {
           <div className="control-grid">
             <article className="control-card rent">
               <img
-                src="/images/services/ecommerce.png"
+                src={asset("/images/services/ecommerce.png")}
                 alt="Directory listing illustration in the Webify Bharat style"
                 width={800}
                 height={800}
@@ -65,7 +66,7 @@ export default function WorkPage() {
             </article>
             <article className="control-card own">
               <img
-                src="/images/services/website.png"
+                src={asset("/images/services/website.png")}
                 alt="Owned website illustration in the Webify Bharat style"
                 width={800}
                 height={800}
@@ -85,7 +86,7 @@ export default function WorkPage() {
         <div className="container industry-grid">
           {workItems.map((item) => (
             <article className="industry-card real-photo" key={item.title}>
-              <img src={item.image} alt="" />
+              <img src={asset(item.image)} alt="" />
               <p className="staged-note">Staged. Not a customer.</p>
               <div className="content">
                 <span className="badge">{item.industry}</span>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { asset } from "@/lib/asset";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Layout from "@/components/Layout";
@@ -186,7 +187,7 @@ export default async function OfferPage({
               <WhatsAppCta href={chat}>Chat about {offer.name}</WhatsAppCta>
             </div>
             <div className="image-wrap cta-real-photo">
-              <img src="/images/real/growth-success.webp" alt="Indian business owner after setting up an owned website and UPI" width={640} height={400} loading="lazy" decoding="async" />
+              <img src={asset("/images/real/growth-success.webp")} alt="Indian business owner after setting up an owned website and UPI" width={640} height={400} loading="lazy" decoding="async" />
             </div>
           </div>
         </div>

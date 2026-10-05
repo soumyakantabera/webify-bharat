@@ -1,5 +1,7 @@
 "use client";
 
+import { asset } from "@/lib/asset";
+
 import { useMemo, useState } from "react";
 import Link from "next/link";
 
@@ -53,7 +55,7 @@ export function CityBrowser({ cities }: { cities: CityCard[] }) {
                   className="industry-card real-photo city-card"
                 >
                   <img
-                    src={`/images/real/${city.photo}`}
+                    src={asset(`/images/real/${city.photo}`)}
                     alt={`${city.name} business digital systems`}
                     width={640}
                     height={400}

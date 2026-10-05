@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { asset } from "@/lib/asset";
 import { pageMetadata } from "@/lib/page-seo";
 export const metadata: Metadata = pageMetadata("industries");
 
@@ -30,7 +31,7 @@ export default function IndustriesPage() {
             <WhatsAppCta href={WA_CHAT}>Talk to an expert</WhatsAppCta>
           </div>
           <img
-            src="/images/real/retail.webp"
+            src={asset("/images/real/retail.webp")}
             alt="Retail business using digital systems"
           />
         </div>
@@ -45,7 +46,7 @@ export default function IndustriesPage() {
               href={`/industries/${industry.slug}`}
               className="industry-card real-photo"
             >
-              <img src={`/images/real/${industry.photo}`} alt={industry.title} />
+              <img src={asset(`/images/real/${industry.photo}`)} alt={industry.title} />
               <div className="content">
                 <h3>{industry.title}</h3>
                 <p>{industry.description}</p>

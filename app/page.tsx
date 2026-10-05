@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { asset } from "@/lib/asset";
 import { pageMetadata } from "@/lib/page-seo";
 export const metadata: Metadata = pageMetadata("home");
 
@@ -86,7 +87,7 @@ export default function Home() {
           <div className="hero-visual is-overlay">
             <img
               className="hero-dash"
-              src="/images/hero/dashboard-art.webp"
+              src={asset("/images/hero/dashboard-art.webp")}
               alt="Webify Bharat dashboard: orders, revenue, WhatsApp and UPI payments"
               width={1111}
               height={871}
@@ -189,7 +190,7 @@ export default function Home() {
           <div className="photo-strip">
             <Link href="/about" className="photo-card">
               <img
-                src="/images/real/business-owner.webp"
+                src={asset("/images/real/business-owner.webp")}
                 alt="Indian small business owner at her workspace"
                 width={800}
                 height={600}
@@ -204,7 +205,7 @@ export default function Home() {
             </Link>
             <Link href="/industries/retail" className="photo-card">
               <img
-                src="/images/real/retail.webp"
+                src={asset("/images/real/retail.webp")}
                 alt="Indian retail store owner serving a customer"
                 width={640}
                 height={480}
@@ -219,7 +220,7 @@ export default function Home() {
             </Link>
             <Link href="/industries/restaurant" className="photo-card">
               <img
-                src="/images/real/restaurant.webp"
+                src={asset("/images/real/restaurant.webp")}
                 alt="Indian cafe owner operating his business"
                 width={640}
                 height={480}
@@ -266,7 +267,7 @@ export default function Home() {
               >
                 <div className="card-media">
                   <img
-                    src={`/images/services/${service.image}`}
+                    src={asset(`/images/services/${service.image}`)}
                     alt={service.title}
                     width={640}
                     height={400}
@@ -398,7 +399,7 @@ export default function Home() {
         <div className="container real-context">
           <div className="real-context-photo">
             <img
-              src="/images/real/consultation.webp"
+              src={asset("/images/real/consultation.webp")}
               alt="Webify Bharat consultant discussing digital operations with a business owner"
               width={800}
               height={600}
@@ -451,7 +452,7 @@ export default function Home() {
                 className="industry-card real-photo"
               >
                 <img
-                  src={`/images/real/${industry.photo}`}
+                  src={asset(`/images/real/${industry.photo}`)}
                   alt={industry.title}
                   width={640}
                   height={400}
@@ -506,7 +507,7 @@ export default function Home() {
             </div>
             <div className="image-wrap cta-real-photo">
               <img
-                src="/images/real/growth-success.webp"
+                src={asset("/images/real/growth-success.webp")}
                 alt="Successful Indian business owner in a growing retail operation"
                 width={640}
                 height={400}

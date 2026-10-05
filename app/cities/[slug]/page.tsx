@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { asset } from "@/lib/asset";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Layout from "@/components/Layout";
@@ -72,7 +73,7 @@ export default async function CityPage({
             <WhatsAppCta href={WA_CHAT}>Discuss your {city.name} business</WhatsAppCta>
           </div>
           <img
-            src={`/images/real/${city.photo}`}
+            src={asset(`/images/real/${city.photo}`)}
             alt={`${city.name} businesses going digital with Webify Bharat`}
             width={800}
             height={520}
@@ -206,7 +207,7 @@ export default async function CityPage({
                   className="industry-card real-photo city-card"
                 >
                   <img
-                    src={`/images/real/${c.photo}`}
+                    src={asset(`/images/real/${c.photo}`)}
                     alt={`${c.name} digital systems`}
                     width={640}
                     height={400}
@@ -239,7 +240,7 @@ export default async function CityPage({
             </div>
             <div className="cta-photo">
               <img
-                src="/images/real/growth-success.webp"
+                src={asset("/images/real/growth-success.webp")}
                 alt={`${city.name} business growth with owned digital systems`}
                 width={640}
                 height={400}

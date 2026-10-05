@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { asset } from "@/lib/asset";
 import { pageMetadata } from "@/lib/page-seo";
 export const metadata: Metadata = pageMetadata("services");
 
@@ -43,7 +44,7 @@ export default function ServicesPage() {
               className={`card service-card${service.featured ? " featured" : ""}`}
             >
               <div className="card-media">
-                <img src={`/images/services/${service.image}`} alt={service.title} width={800} height={600} />
+                <img src={asset(`/images/services/${service.image}`)} alt={service.title} width={800} height={600} />
               </div>
               <div className="card-body">
                 <h3>{service.title}</h3>

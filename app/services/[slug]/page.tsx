@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { asset } from "@/lib/asset";
 import Link from "next/link";
 import { pageMetadata } from "@/lib/page-seo";
 import { notFound } from "next/navigation";
@@ -124,7 +125,7 @@ export default async function ServicePage({
               ))}
             </div>
           </div>
-          <img src={`/images/services/${service.image}`} alt={service.title} width={800} height={600} fetchPriority="high" decoding="async" />
+          <img src={asset(`/images/services/${service.image}`)} alt={service.title} width={800} height={600} fetchPriority="high" decoding="async" />
         </div>
       </section>
 
@@ -158,7 +159,7 @@ export default async function ServicePage({
       <section className="section">
         <div className="container real-context">
           <div className="real-context-photo">
-            <img src={`/images/real/${service.photo}`} alt="" width={800} height={600} loading="lazy" decoding="async" />
+            <img src={asset(`/images/real/${service.photo}`)} alt="" width={800} height={600} loading="lazy" decoding="async" />
             <p className="staged-note">Staged. Not a customer.</p>
           </div>
           <div className="real-context-copy">
@@ -203,7 +204,7 @@ export default async function ServicePage({
               <WhatsAppCta href={WA_CHAT}>Talk to an expert</WhatsAppCta>
             </div>
             <div className="cta-photo">
-              <img src="/images/real/growth-success.webp" alt="Growing Indian business using better digital systems" width={640} height={400} loading="lazy" decoding="async" />
+              <img src={asset("/images/real/growth-success.webp")} alt="Growing Indian business using better digital systems" width={640} height={400} loading="lazy" decoding="async" />
             </div>
           </div>
         </div>

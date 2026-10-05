@@ -1,3 +1,4 @@
+import { asset } from "@/lib/asset";
 type Shot = {
   images: [string, string, string];
   alt: string;
@@ -152,7 +153,7 @@ export function HeroShot({
               <img
                 key={src + index}
                 className={`hero-shot-photo hero-shot-photo-${["a", "b", "c"][index]}`}
-                src={src}
+                src={asset(src)}
                 alt={index === 0 ? shot.alt : ""}
                 width={1600}
                 height={1200}

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { asset } from "@/lib/asset";
 import { pageMetadata } from "@/lib/page-seo";
 import { notFound } from "next/navigation";
 import Layout from "@/components/Layout";
@@ -49,7 +50,7 @@ export default async function IndustryPage({
             </p>
             <WhatsAppCta href={WA_CHAT}>Discuss your business</WhatsAppCta>
           </div>
-          <img src={`/images/real/${industry.photo}`} alt={industry.title} />
+          <img src={asset(`/images/real/${industry.photo}`)} alt={industry.title} />
         </div>
       </section>
 
@@ -74,7 +75,7 @@ export default async function IndustryPage({
           <div className="system-pair">
             <div>
               <img
-                src={`/images/real/${industry.photo}`}
+                src={asset(`/images/real/${industry.photo}`)}
                 alt={`${industry.title} business`}
               />
               <div className="pair-copy">
@@ -87,7 +88,7 @@ export default async function IndustryPage({
             </div>
             <div className="system-illustration">
               <img
-                src={`/images/industries/${industry.illustration}`}
+                src={asset(`/images/industries/${industry.illustration}`)}
                 alt={`${industry.title} digital system illustration`}
               />
               <div className="pair-copy">

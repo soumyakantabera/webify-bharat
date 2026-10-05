@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { asset } from "@/lib/asset";
 import { pageMetadata } from "@/lib/page-seo";
 export const metadata: Metadata = pageMetadata("about");
 
@@ -27,7 +28,7 @@ export default function AboutPage() {
             </p>
           </div>
           <img
-            src="/images/real/business-owner.webp"
+            src={asset("/images/real/business-owner.webp")}
             alt="Indian small business owner at her workspace"
           />
         </div>
@@ -55,12 +56,12 @@ export default function AboutPage() {
           <div className="about-visual">
             <img
               className="about-team-img"
-              src="/images/brand/about-team.png"
+              src={asset("/images/brand/about-team.png")}
               alt="Webify Bharat brand story illustration"
             />
             <div className="about-logo-plate">
             <div className="about-logo-lockup" aria-label="Webify Bharat">
-              <img src="/images/logo/wb-mark.svg" alt="" width={88} height={71} />
+              <img src={asset("/images/logo/wb-mark.svg")} alt="" width={88} height={71} />
               <span className="brand-wordmark">
                 <span className="brand-webify">Webify</span>
                 <span className="brand-bharat">Bharat</span>
@@ -112,7 +113,7 @@ export default function AboutPage() {
         <div className="container story-photo-grid">
           <article className="story-photo-card">
             <img
-              src="/images/real/consultation.webp"
+              src={asset("/images/real/consultation.webp")}
               alt="Digital consultation with an Indian business owner"
             />
             <div className="content">
@@ -126,7 +127,7 @@ export default function AboutPage() {
           </article>
           <article className="story-photo-card">
             <img
-              src="/images/real/growth-success.webp"
+              src={asset("/images/real/growth-success.webp")}
               alt="Successful growing Indian retail business"
             />
             <div className="content">

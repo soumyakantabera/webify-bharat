@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { asset } from "@/lib/asset";
 import "./globals.css";
 import "./pricing-ui.css";
 import "./home-pricing.css";
@@ -37,12 +38,12 @@ export const metadata: Metadata = {
     "Webify Bharat builds websites, WhatsApp Business, UPI gateways and analytics for Indian MSMEs. Own your customers. \u20b90 per organic lead.",
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "48x48" },
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: asset("/favicon.ico"), sizes: "48x48" },
+      { url: asset("/favicon.svg"), type: "image/svg+xml" },
+      { url: asset("/favicon-32.png"), sizes: "32x32", type: "image/png" },
     ],
-    apple: [{ url: "/apple-touch-icon.png" }],
-    shortcut: ["/favicon.ico"],
+    apple: [{ url: asset("/apple-touch-icon.png") }],
+    shortcut: [asset("/favicon.ico")],
   },
 };
 
@@ -54,9 +55,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${sora.variable} ${manrope.variable} ${jetbrains.variable}`}>
       <head>
-        <link rel="preload" href="/fonts/sora.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/manrope.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" as="image" href="/images/hero/digital-growth-dashboard.png" />
+        <link rel="preload" href={asset("/fonts/sora.woff2")} as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href={asset("/fonts/manrope.woff2")} as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" as="image" href={asset("/images/hero/digital-growth-dashboard.png")} />
       </head>
       <body className={manrope.className}>{children}</body>
     </html>

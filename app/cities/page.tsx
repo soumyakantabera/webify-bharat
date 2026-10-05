@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { asset } from "@/lib/asset";
 import Layout from "@/components/Layout";
 import { SeoChunk } from "@/components/SeoChunk";
 import { PageLead } from "@/components/PageIcons";
@@ -91,7 +92,7 @@ export default function CitiesPage() {
             </div>
             <div className="cta-photo">
               <img
-                src="/images/real/growth-success.webp"
+                src={asset("/images/real/growth-success.webp")}
                 alt="Indian business owner growing with owned digital channels"
                 width={640}
                 height={400}
