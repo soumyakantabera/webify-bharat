@@ -1,4 +1,5 @@
 import { getBlock } from "./blocks";
+import { SITE_URL } from "./site-url";
 import { getStage } from "./offers";
 import { getReachService } from "./reach";
 import { getIndustryPage } from "./industries";
@@ -319,16 +320,16 @@ export function seoHead(key: string) {
       { name: "keywords", content: s.keywords.join(", ") },
       { property: "og:title", content: s.title },
       { property: "og:description", content: s.description },
-      { property: "og:url", content: `https://webify-bharat.vercel.app${s.path}` },
+      { property: "og:url", content: `${SITE_URL}${s.path}` },
       { name: "robots", content: "index, follow" },
     ],
-    links: [{ rel: "canonical", href: `https://webify-bharat.vercel.app${s.path}` }],
+    links: [{ rel: "canonical", href: `${SITE_URL}${s.path}` }],
   };
 }
 
 export function pageMetadata(key: string) {
   const s = getPageSeo(key);
-  const base = "https://webify-bharat.vercel.app";
+  const base = SITE_URL;
   return {
     title: s.title,
     description: s.description,

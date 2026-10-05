@@ -103,7 +103,7 @@ export default function Footer({ cta }: { cta?: CtaBand }) {
             <h2>Built on</h2>
             <ul className="logo-row">
               {logosIn("build")
-                .filter((l) => l.id === "vercel" || l.id === "nextjs")
+                .filter((l) => l.id === "nextjs" || l.id === "github-pages")
                 .map((l) => (
                   <li key={l.id}>
                     <LogoChip logo={l} />

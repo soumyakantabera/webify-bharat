@@ -20,7 +20,7 @@ import { WA_MSG } from "@/lib/wa";
 export const metadata: Metadata = pageMetadata("systems");
 
 const PHOTO_TILES = new Set(["site", "store", "pay", "desk", "team"]);
-const HONEY = ["razorpay", "cashfree", "stripe", "whatsapp", "google-workspace", "microsoft-365", "zoho", "odoo", "tally", "shiprocket", "google-sheets", "vercel"];
+const HONEY = ["razorpay", "cashfree", "stripe", "whatsapp", "google-workspace", "microsoft-365", "zoho", "odoo", "tally", "shiprocket", "google-sheets"];
 
 export default function SystemsHub() {
   return (

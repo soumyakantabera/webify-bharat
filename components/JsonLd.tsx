@@ -1,8 +1,9 @@
 import { BUSINESS, filled, SITE } from "@/lib/site";
+import { SITE_URL } from "@/lib/site-url";
 import { blocks } from "@/lib/blocks";
 import { PLAN_STAGES } from "@/lib/offers";
 
-const BASE = "https://webify-bharat.vercel.app";
+const BASE = SITE_URL;
 
 export function OrgJsonLd() {
   const serviceNodes = blocks.map((b) => ({

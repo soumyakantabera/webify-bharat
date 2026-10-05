@@ -1,6 +1,7 @@
 import { getPageSeo } from "@/lib/page-seo";
+import { SITE_URL } from "@/lib/site-url";
 
-const BASE = "https://webify-bharat.vercel.app";
+const BASE = SITE_URL;
 
 /** Generic JSON-LD script tag. */
 export function LdScript({ data }: { data: object }) {

@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { SITE_URL } from "@/lib/site-url";
 import { asset } from "@/lib/asset";
 import "./globals.css";
 import "./pricing-ui.css";
@@ -23,11 +24,7 @@ import "./sections.css";
 import "./pillars.css";
 import "./places.css";
 import "./rest.css";
-import { Analytics } from "@vercel/analytics/next";
 import { jetbrains, manrope, sora } from "./fonts";
-
-/** Vercel Analytics only exists on Vercel; the GitHub Pages export has no endpoint. */
-const onVercel = !process.env.NEXT_PUBLIC_BASE_PATH;
 
 export const viewport: Viewport = {
   themeColor: "#2B1E6B",
@@ -36,7 +33,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://webify-bharat.vercel.app"),
+  metadataBase: new URL(`${SITE_URL}/`),
   title: {
     default: "Webify Bharat | Custom software & marketing for Indian MSMEs",
     template: "%s",
@@ -59,7 +56,6 @@ export default function RootLayout({
       </head>
       <body className={manrope.className}>
         {children}
-        {onVercel ? <Analytics /> : null}
       </body>
     </html>
   );

@@ -36,7 +36,7 @@ export const logos: Logo[] = [
   { id: "amex", name: "Amex", group: "upi" },
 
   // §5.2 What we build on
-  { id: "vercel", name: "Vercel", group: "build" },
+  { id: "github-pages", name: "GitHub Pages", group: "build" },
   { id: "nextjs", name: "Next.js", group: "build" },
   { id: "github", name: "GitHub", group: "build" },
   { id: "cloudflare", name: "Cloudflare DNS", group: "build" },

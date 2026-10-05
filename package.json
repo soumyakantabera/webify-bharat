@@ -5,12 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
     "lint": "tsc --noEmit"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",
-    "@vercel/analytics": "^2.0.1",
     "lucide-react": "^0.468.0",
     "next": "15.5.7",
     "qrcode": "^1.5.4",

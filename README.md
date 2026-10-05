@@ -1,8 +1,9 @@
 # Webify Bharat
 
-Digital operations studio for Indian businesses — websites, payments, WhatsApp automation, analytics and compliance.
+Custom software and marketing for Indian businesses — websites, stores, payments, WhatsApp, CRM/ERP and more, built for you and run for you.
 
-**Live contact:** WhatsApp [+91 8336097642](https://wa.me/918336097642)
+**Live site:** https://soumyakantabera.github.io/webify-bharat
+**Contact:** WhatsApp [+91 83360 97642](https://wa.me/918336097642)
 
 ## Run locally
 
@@ -11,22 +12,25 @@ npm install
 npm run dev
 ```
 
-## Production
+Then open http://localhost:3000/webify-bharat (the site lives under the `/webify-bharat` path, same as on GitHub Pages).
+
+## Build
 
 ```bash
-npm run build
-npm start
+npm run lint    # type-check
+npm run build   # static export to out/
 ```
 
-## Deploy
+## Deploy (GitHub Pages only)
 
-This repo is a Next.js 15 App Router site. Connect it to Vercel (root directory, default build) and it will go live on every push to `main`.
+Every push to `main` runs `.github/workflows/pages.yml`: type-check, build the static export, and publish `out/` to GitHub Pages.
 
-Set `NEXT_PUBLIC_SITE_URL` to your production domain for sitemap and robots.
+One-time setting: **Settings → Pages → Build and deployment → Source: GitHub Actions**. (If it's set to "Deploy from a branch", GitHub also publishes the raw repository and the two deployments fight.)
 
-## Pages
+### Custom domain (optional, later)
 
-- `/` Home
-- `/services` and `/services/[slug]`
-- `/industries` and `/industries/[slug]`
-- `/work` `/pricing` `/about` `/blog` `/contact`
+Add the domain in Settings → Pages, then build with `PAGES_BASE_PATH=""` and `NEXT_PUBLIC_SITE_URL=https://your-domain` (set them as `env` on the build step in the workflow).
+
+## Brand assets
+
+Generated, not hand-edited — see `CLAUDE.md` and review everything at `/brand`.
