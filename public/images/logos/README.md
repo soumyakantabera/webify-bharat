@@ -7,10 +7,10 @@ Sources (npm packages are CC0-1.0; their marks are coloured with each brand's ow
 - simple-icons@16 — most marks, plus meta and google-ads.
 - simple-icons@13 — amazon, flipkart; simple-icons@11 — bing (later removed upstream).
 - @iconify-json/logos (svg-logos) — zoho and google-workspace (colour wordmarks), microsoft-365 (Microsoft mark).
-- Supplied by the owner (official wordmarks, converted to transparent WebP, 120px tall; the UPI and BHIM taglines are cropped off so the mark reads at chip size): upi, bhim, rupay, cashfree, tally.
+- Supplied by the owner (official wordmarks, converted to transparent WebP, 120px tall; the UPI and BHIM taglines are cropped off so the mark reads at chip size): upi, bhim, rupay, cashfree, tally, shiprocket, justdial, sulekha, indiamart.
 
-Still text-only (no openly licensed mark available; brand sites were not reachable when these were added):
-Shiprocket, Justdial, Sulekha, IndiaMART, GST, Udyam, DGFT, UK VAT, EU IOSS.
+Still text-only (government portals):
+GST, Udyam, DGFT, UK VAT, EU IOSS.
 To add one, save the official SVG from the brand's press/media kit here and set `file`.
 
 Trademarks belong to their owners and are shown only to indicate compatibility.

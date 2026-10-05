@@ -54,7 +54,7 @@ export const logos: Logo[] = [
   { id: "bing", name: "Bing", file: "/images/logos/bing.svg", group: "channel" },
   { id: "google-ads", name: "Google Ads", file: "/images/logos/google-ads.svg", group: "channel" },
   { id: "instagram", name: "Instagram", file: "/images/logos/instagram.svg", group: "channel" },
-  { id: "shiprocket", name: "Shiprocket", group: "channel" },
+  { id: "shiprocket", name: "Shiprocket", file: "/images/logos/shiprocket.webp", group: "channel" },
 
   // §5.3a Business software we build on or integrate
   { id: "odoo", name: "Odoo", file: "/images/logos/odoo.svg", wordmark: true, group: "software" },
@@ -75,9 +75,9 @@ export const logos: Logo[] = [
   { id: "eu-ioss", name: "EU IOSS", group: "gov" },
 
   // §5.5 Marketplaces & apps we complement (greyscale, never framed as opponents)
-  { id: "justdial", name: "Justdial", group: "marketplace" },
-  { id: "sulekha", name: "Sulekha", group: "marketplace" },
-  { id: "indiamart", name: "IndiaMART", group: "marketplace" },
+  { id: "justdial", name: "Justdial", file: "/images/logos/justdial.webp", wordmark: true, group: "marketplace" },
+  { id: "sulekha", name: "Sulekha", file: "/images/logos/sulekha.webp", wordmark: true, group: "marketplace" },
+  { id: "indiamart", name: "IndiaMART", file: "/images/logos/indiamart.webp", group: "marketplace" },
   { id: "zomato", name: "Zomato", file: "/images/logos/zomato.svg", wordmark: true, group: "marketplace" },
   { id: "swiggy", name: "Swiggy", file: "/images/logos/swiggy.svg", group: "marketplace" },
   { id: "amazon", name: "Amazon", file: "/images/logos/amazon.svg", group: "marketplace" },
