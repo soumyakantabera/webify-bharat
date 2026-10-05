@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { ReactNode } from "react";
 import { MARKET_SET } from "@/lib/images";
 import { Img, type Tone } from "./Img";
@@ -101,23 +102,41 @@ export function PolaroidCluster({ items }: { items: { slot: string; caption: str
   );
 }
 
-export type BentoCell = { slot: string; alt?: string } | { icon: ReactNode; label: string; tone: Tone; detail?: string };
+export type BentoCell = { slot: string; alt?: string; href?: string; label?: string } | { icon: ReactNode; label: string; tone: Tone; detail?: string; href?: string };
 
 /** D — 1 large (2×2) + up to 8 small cells mixing photos and colour tiles. */
 export function PhotoBento({ cells }: { cells: BentoCell[] }) {
   return (
     <div className="photo-bento">
-      {cells.slice(0, 9).map((cell, i) =>
-        "slot" in cell ? (
-          <Img key={cell.slot + i} slot={cell.slot} alt={cell.alt} mask="rounded" className={`pb-cell${i === 0 ? " pb-large" : ""}`} width={i === 0 ? 900 : 480} height={i === 0 ? 900 : 480} />
-        ) : (
-          <div key={cell.label} className={`pb-cell pb-tile tone-${cell.tone}`}>
+      {cells.slice(0, 9).map((cell, i) => {
+        if ("slot" in cell) {
+          const img = <Img slot={cell.slot} alt={cell.href ? "" : cell.alt} mask="rounded" className={cell.href ? "pb-fill" : `pb-cell${i === 0 ? " pb-large" : ""}`} width={i === 0 ? 900 : 480} height={i === 0 ? 900 : 480} />;
+          return cell.href ? (
+            <Link key={cell.slot + i} href={cell.href} className={`pb-cell pb-link link-card${i === 0 ? " pb-large" : ""}`} aria-label={cell.label ?? cell.alt}>
+              {img}
+              {cell.label ? <span className="pb-caption">{cell.label}</span> : null}
+            </Link>
+          ) : (
+            <Img key={cell.slot + i} slot={cell.slot} alt={cell.alt} mask="rounded" className={`pb-cell${i === 0 ? " pb-large" : ""}`} width={i === 0 ? 900 : 480} height={i === 0 ? 900 : 480} />
+          );
+        }
+        const body = (
+          <>
             <span className="pb-icon">{cell.icon}</span>
             <span className="pb-label">{cell.label}</span>
             {cell.detail ? <span className="pb-detail">{cell.detail}</span> : null}
+          </>
+        );
+        return cell.href ? (
+          <Link key={cell.label} href={cell.href} className={`pb-cell pb-tile link-card tone-${cell.tone}`}>
+            {body}
+          </Link>
+        ) : (
+          <div key={cell.label} className={`pb-cell pb-tile tone-${cell.tone}`}>
+            {body}
           </div>
-        ),
-      )}
+        );
+      })}
     </div>
   );
 }

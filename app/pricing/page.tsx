@@ -58,7 +58,7 @@ export default function Pricing() {
       <PageHero
         kicker="Pricing"
         tone="rani"
-        title="One monthly plan covers your software, hosting and care."
+        title="One flat monthly fee — not a cut of every order."
         sub={`Setup from ₹5,000. Plans from ₹3,000/month. No lock-in, and third-party costs shown separately.${gst ? ` Prices ${gst}.` : ""}`}
         accent={{ phrase: "Seedha hisaab.", meaning: "straight accounts." }}
         cta={<WhatsAppCTA context="hero" label="Get my quote" />}

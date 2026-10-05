@@ -38,7 +38,7 @@ export default function Launch() {
         kicker="Launch"
         tone="marigold"
         title="From idea to open-for-business. We set up all of it."
-        sub="Registrations, brand, website, payments, WhatsApp and books — one team, one checklist, ready on launch day."
+        sub="Registrations, brand, website, payments, WhatsApp and books — ready on launch day, with every customer yours from the first sale."
         cta={<WhatsAppCTA message={path.waMessage} context="hero" path="launch" label={path.cta} />}
         chips={<PillarChips pillars={["strategy", "systems", "marketing", "care"]} />}
         visual={

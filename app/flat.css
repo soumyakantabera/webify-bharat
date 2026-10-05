@@ -214,3 +214,53 @@ a.gx-fit-badge { text-decoration: none; transition: transform 0.2s ease, filter 
 a.gx-fit-badge:hover { transform: translateY(-1px); filter: brightness(1.08); }
 a.gx-fit-badge:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
 a.gx-fit-badge .ic-arw { margin-left: 2px; }
+
+/* ——— Clickable tiles: whole card is the link; a corner arrow badge says so ——— */
+.block-brick, .block-stack.is-compact .block-brick { padding: 0; }
+.block-brick-link { display: flex; flex-direction: inherit; align-items: inherit; gap: 8px; width: 100%; height: 100%; padding: 12px; border-radius: inherit; color: inherit; text-decoration: none; }
+.block-stack.is-compact .block-brick-link { padding: 8px; flex-direction: row; align-items: center; }
+.block-brick:hover, .block-brick:focus-within { border-color: var(--brick); outline: 2px solid var(--brick); outline-offset: -1px; }
+.block-brick-link:focus-visible { outline: none; }
+
+.link-card { position: relative; display: block; color: inherit; text-decoration: none; }
+.link-card::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fff
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M64 192 192 64M88 64h104v104' fill='none' stroke='%231B1030' stroke-width='22' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+    center / 14px no-repeat;
+  border: 1.5px solid var(--line);
+  opacity: 0.85;
+  transition: transform 0.2s ease, opacity 0.2s ease, background-color 0.2s ease;
+  z-index: 3;
+}
+.link-card:hover::after, .link-card:focus-visible::after { opacity: 1; transform: translate(2px, -2px); }
+.link-card:hover, .link-card:focus-visible { outline: 2px solid var(--accent, var(--ink)); outline-offset: -1px; }
+.link-card:focus-visible { outline-width: 3px; }
+a.link-card .wb-img { pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .link-card::after { transition: none; } }
+
+/* PhotoBento link cells: photo fills, label sits bottom-left */
+.pb-link { overflow: hidden; border-radius: var(--radius); }
+.pb-link .pb-fill { width: 100%; height: 100%; display: block; }
+.pb-caption { position: absolute; left: 10px; bottom: 10px; z-index: 2; padding: 5px 10px; border-radius: 10px; background: #fff; border: 1.5px solid var(--ink); font: 700 13px/1.2 var(--font-display); color: var(--ink); }
+.pb-tile.link-card { display: flex; }
+
+/* Clickable regions inside diagrams */
+.svg-link { cursor: pointer; }
+.svg-link > :not(title) { transition: opacity 0.15s ease, transform 0.15s ease; }
+.svg-link:hover > :not(title) { opacity: 0.85; }
+.svg-link:focus-visible { outline: 3px solid var(--rani); outline-offset: 2px; }
+
+/* Home H1: the hook, then the software line in a quieter size */
+.home-hero h1 .h1-sub { display: block; margin-top: 10px; font-size: 0.5em; line-height: 1.2; font-weight: 700; color: var(--ink-2); word-spacing: normal; }
+
+/* Resources dropdown: anchor under its own button, never flush to the screen edge */
+.sh-item:has(> .mega-resources) { position: relative; }
+.mega-resources { width: 440px; left: auto; right: 0; transform: none; }
+.mega-resources .mm-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }

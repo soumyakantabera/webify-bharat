@@ -18,10 +18,10 @@ import { WA_MSG } from "@/lib/wa";
 export const metadata: Metadata = pageMetadata("marketing");
 
 const LOOK = [
-  { icon: "MagnifyingGlass", title: "Google search", text: "People search for what you sell, and for your name.", photo: "IMG-P02" },
-  { icon: "MapPin", title: "Maps", text: "“Near me” searches show the map before anything else.", photo: "IMG-I-RET-1" },
-  { icon: "DeviceMobile", title: "Instagram & Facebook", text: "Where people browse, compare and ask friends.", photo: "IMG-B04" },
-  { icon: "Sparkle", title: "AI assistants", text: "More customers now ask ChatGPT-style tools to recommend a business.", photo: "IMG-H03" },
+  { icon: "MagnifyingGlass", title: "Google search", text: "People search for what you sell, and for your name.", photo: "IMG-P02", href: "/marketing/seo" },
+  { icon: "MapPin", title: "Maps", text: "“Near me” searches show the map before anything else.", photo: "IMG-I-RET-1", href: "/marketing/local" },
+  { icon: "DeviceMobile", title: "Instagram & Facebook", text: "Where people browse, compare and ask friends.", photo: "IMG-B04", href: "/marketing/ads" },
+  { icon: "Sparkle", title: "AI assistants", text: "More customers now ask ChatGPT-style tools to recommend a business.", photo: "IMG-H03", href: "/marketing/ai-visibility" },
 ];
 
 export default function MarketingHub() {
@@ -32,7 +32,7 @@ export default function MarketingHub() {
         kicker="Marketing · Webify Reach"
         tone="marigold"
         title="Get found where your customers look — Google, maps, ads and AI."
-        sub="Most small businesses are invisible in at least one of these. The team that builds your software fixes that too — and every enquiry lands on your WhatsApp."
+        sub="Get found, then keep them: every enquiry lands on your WhatsApp and in your own customer list — not a directory's."
         cta={<WhatsAppCTA message={WA_MSG.marketing} context="hero" label="Help me get found" />}
         visual={
           <PhotoUiLayer slot="IMG-B01" priority stickers={[{ text: "New enquiry from Maps" }]}>
@@ -46,13 +46,13 @@ export default function MarketingHub() {
           <SectionHead kicker="Where customers look" id="where-title" title="Four places customers decide." sub={REACH_WHY} />
           <div className="look-grid">
             {LOOK.map((l) => (
-              <article key={l.title} className="look-tile">
+              <Link key={l.title} href={l.href} className="look-tile link-card">
                 <Img slot={l.photo} mask="none" className="look-photo" crop="50% 80%" width={500} height={320} decorative />
                 <div>
                   <h3><Icon name={l.icon} size={20} /> {l.title}</h3>
                   <p>{l.text}</p>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>

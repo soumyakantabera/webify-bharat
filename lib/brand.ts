@@ -64,7 +64,7 @@ export function contrast(a: string, b: string) {
 }
 
 export const TYPE_SCALE = [
-  { role: "H1", font: "Baloo Da 2 700", size: "56 / 36", sample: "Custom software for your whole business." },
+  { role: "H1", font: "Baloo Da 2 700", size: "56 / 36", sample: "Stop renting your own customers." },
   { role: "H2", font: "Baloo Da 2 700", size: "40 / 28", sample: "Four things we do." },
   { role: "H3", font: "Baloo Da 2 600", size: "24 / 20", sample: "Webify Desk" },
   { role: "Kicker", font: "Manrope 700, uppercase", size: "13", sample: "Your software · your marketing" },

@@ -21,7 +21,7 @@ export default function IndustriesPage() {
         title="Every trade works differently. So does every build."
         sub="A kirana, a clinic and a dealer network each need different things. Pick yours to see a typical day, the usual headaches and how we'd build around them."
         cta={<WhatsAppCTA message={WA_MSG.default} context="hero" label="Talk about my business" />}
-        visual={<PhotoBento cells={industryPages.map((i) => ({ slot: i.tileCrop ? i.photo2 : i.photo }))} />}
+        visual={<PhotoBento cells={industryPages.map((i) => ({ slot: i.tileCrop ? i.photo2 : i.photo, alt: i.name, href: `/industries/${i.slug}`, label: i.name }))} />}
       />
 
       <section className="section surface-2" id="industries" aria-labelledby="ind-title">

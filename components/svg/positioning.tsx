@@ -5,6 +5,7 @@ import { EXAMPLE } from "@/lib/examples";
 import { pillars } from "@/lib/pillars";
 import { KiranaFront, RestaurantFront } from "./shopfronts";
 import { LogoBadge } from "./LogoBadge";
+import { SvgLink } from "./SvgLink";
 import { C, Label } from "./mocks/frames";
 
 /**
@@ -133,7 +134,7 @@ export function FiveRoutes({ className, highlight }: { className?: string; highl
     </g>
   );
   return (
-    <svg viewBox="0 0 720 356" className={cls("svg-fiveroutes", className)} role="img" aria-label={`Five ways we build, all ending at one restaurant, ${EXAMPLE.restaurant.name}: adapt our prototype (the shortest road), from scratch, on open source, the budget route, or on the tools you already use`}>
+    <svg viewBox="0 0 720 356" className={cls("svg-fiveroutes", className)} role="group" aria-label={`Five ways we build, all ending at one restaurant, ${EXAMPLE.restaurant.name}: adapt our prototype (the shortest road), from scratch, on open source, the budget route, or on the tools you already use`}>
       <path d={`M540 ${end.y + 14} H720`} stroke={C.line} strokeWidth="2" />
       {left.map((r, i) => {
         const y = rows[i];
@@ -141,13 +142,17 @@ export function FiveRoutes({ className, highlight }: { className?: string; highl
         return (
           <g key={r.slug} opacity={fade(r.slug)}>
             {road(`M238 ${y} C400 ${y} 470 ${end.y} ${end.x} ${end.y}`, f)}
-            <RoutePill x={14} y={y} w={224} slug={r.slug} icon={r.icon} />
+            <SvgLink href={r.href} label={`${r.name}: ${r.line}`}>
+              <RoutePill x={14} y={y} w={224} slug={r.slug} icon={r.icon} />
+            </SvgLink>
           </g>
         );
       })}
       <g>
         {road(`M476 326 C520 326 530 ${end.y} ${end.x} ${end.y}`, ROUTE_SHORT.prototype.f, true)}
-        <RoutePill x={288} y={326} w={188} slug="prototype" icon={proto.icon} />
+        <SvgLink href={proto.href} label={`${proto.name}: ${proto.line}`}>
+          <RoutePill x={288} y={326} w={188} slug="prototype" icon={proto.icon} />
+        </SvgLink>
         <g transform="translate(300 286)">
           <rect width="96" height="20" rx="10" fill={C.haldi} stroke={C.ink} strokeWidth="1.2" />
           <Label x={48} y={14} size={9.5} anchor="middle">Fastest start</Label>
@@ -184,7 +189,7 @@ export function OneStopWheel({ className }: { className?: string }) {
   const cx = 160;
   const cy = 160;
   return (
-    <svg viewBox="0 0 320 320" className={cls("svg-onestop", className)} role="img" aria-label={`One team for all eleven blocks: ${blocks.map((b) => b.short).join(", ")}`}>
+    <svg viewBox="0 0 320 320" className={cls("svg-onestop", className)} role="group" aria-label={`One team for all eleven blocks: ${blocks.map((b) => b.short).join(", ")}`}>
       <circle cx={cx} cy={cy} r="124" fill="none" stroke={C.line} strokeWidth="2" strokeDasharray="2 8" />
       <circle cx={cx} cy={cy} r="92" fill={C.surface2} />
       {blocks.map((b, i) => {
@@ -193,12 +198,12 @@ export function OneStopWheel({ className }: { className?: string }) {
         const y = cy + Math.sin(a) * 124;
         const hex = BLOCK_HEX[b.colour] ?? C.indigo;
         return (
-          <g key={b.slug}>
+          <SvgLink key={b.slug} href={`/systems/${b.slug}`} label={`${b.name}: ${b.becomes}`}>
             <circle cx={x} cy={y} r="22" fill="#fff" stroke={hex} strokeWidth="2.5" />
             <g transform={`translate(${x - 11} ${y - 11})`} color={hex}>
               <Icon name={b.icon} size={22} />
             </g>
-          </g>
+          </SvgLink>
         );
       })}
       <circle cx={cx} cy={cy - 18} r="18" fill={C.haldiT} stroke={C.ink} strokeWidth="2" />
@@ -211,14 +216,14 @@ export function OneStopWheel({ className }: { className?: string }) {
 /** PlatformLayers (§2.0.4, #28): Platform → Your software (your logo) → We run & grow it. */
 export function PlatformLayers({ className }: { className?: string }) {
   const layers = [
-    { y: 176, title: "Webify Platform", icon: "Stack", fill: C.indigoT, stroke: C.indigo },
-    { y: 104, title: "Your software", icon: "SquaresFour", fill: C.raniT, stroke: C.rani, logo: true },
-    { y: 32, title: "We run & grow it", icon: "TrendUp", fill: C.peacockT, stroke: C.peacock },
+    { y: 176, title: "Webify Platform", icon: "Stack", fill: C.indigoT, stroke: C.indigo, href: "/what-we-do#platform" },
+    { y: 104, title: "Your software", icon: "SquaresFour", fill: C.raniT, stroke: C.rani, logo: true, href: "/systems" },
+    { y: 32, title: "We run & grow it", icon: "TrendUp", fill: C.peacockT, stroke: C.peacock, href: "/pricing#care" },
   ];
   return (
-    <svg viewBox="0 0 460 262" className={cls("svg-platformlayers", className)} role="img" aria-label="Three layers: the Webify Platform at the base, your own software in your brand in the middle, and us running and growing it on top">
+    <svg viewBox="0 0 460 262" className={cls("svg-platformlayers", className)} role="group" aria-label="Three layers: the Webify Platform at the base, your own software in your brand in the middle, and us running and growing it on top">
       {layers.map((l) => (
-        <g key={l.title}>
+        <SvgLink key={l.title} href={l.href} label={l.title}>
           <path d={`M30 ${l.y + 22} L220 ${l.y - 4} L410 ${l.y + 22} L220 ${l.y + 48}Z`} fill={l.fill} stroke={l.stroke} strokeWidth="2" />
           <path d={`M30 ${l.y + 22} V${l.y + 36} L220 ${l.y + 62} L410 ${l.y + 36} V${l.y + 22} L220 ${l.y + 48}Z`} fill={l.stroke} opacity="0.75" />
           <path d={`M60 ${l.y + 22} L220 ${l.y} L380 ${l.y + 22} L220 ${l.y + 44}Z`} fill="none" stroke={l.stroke} strokeOpacity="0.35" strokeDasharray="3 4" />
@@ -233,20 +238,19 @@ export function PlatformLayers({ className }: { className?: string }) {
               <Label x={336} y={l.y + 23} size={9} anchor="middle" fill={C.rani}>{EXAMPLE.restaurant.name}</Label>
             </g>
           ) : null}
-        </g>
+        </SvgLink>
       ))}
     </svg>
   );
 }
 
-
 /** GapBridge (#29): app chips on one bank, a kirana store on the other, Webify's four pillars as the bridge deck. */
 export function GapBridge({ apps = ["Zoho", "Odoo", "Tally", "Google", "Microsoft", "Razorpay"], className }: { apps?: string[]; className?: string }) {
   const planks = [
-    { t: "Strategy", f: C.indigo, icon: "Compass" },
-    { t: "Systems", f: C.rani, icon: "SquaresFour" },
-    { t: "Marketing", f: C.marigold, icon: "Megaphone" },
-    { t: "Care", f: C.peacock, icon: "Lifebuoy" },
+    { h: "/strategy", t: "Strategy", f: C.indigo, icon: "Compass" },
+    { h: "/systems", t: "Systems", f: C.rani, icon: "SquaresFour" },
+    { h: "/marketing", t: "Marketing", f: C.marigold, icon: "Megaphone" },
+    { h: "/pricing#care", t: "Care", f: C.peacock, icon: "Lifebuoy" },
   ];
   const hangers = Array.from({ length: 13 }, (_, i) => 196 + i * 20);
   const cableY = (x: number) => {
@@ -254,7 +258,7 @@ export function GapBridge({ apps = ["Zoho", "Odoo", "Tally", "Google", "Microsof
     return (1 - t) * (1 - t) * 116 + 2 * (1 - t) * t * 236 + t * t * 116;
   };
   return (
-    <svg viewBox="0 44 640 262" className={cls("svg-gapbridge", className)} role="img" aria-label={`Great tools on one side, a business like ${EXAMPLE.kirana.name} on the other — Webify's strategy, systems, marketing and care bridge the gap`}>
+    <svg viewBox="0 44 640 262" className={cls("svg-gapbridge", className)} role="group" aria-label={`Great tools on one side, a business like ${EXAMPLE.kirana.name} on the other — Webify's strategy, systems, marketing and care bridge the gap`}>
       {/* water */}
       <path d="M150 226 H490 V306 H150Z" fill={C.peacockT} />
       <g fill="none" stroke={C.peacock} strokeWidth="1.5" strokeLinecap="round" opacity="0.5">
@@ -283,13 +287,13 @@ export function GapBridge({ apps = ["Zoho", "Odoo", "Tally", "Google", "Microsof
       {/* deck: the four pillars */}
       <rect x="164" y="208" width="312" height="8" fill={C.ink} />
       {planks.map((p, i) => (
-        <g key={p.t}>
+        <SvgLink key={p.t} href={p.h} label={p.t}>
           <rect x={172 + i * 76} y="182" width="72" height="26" rx="6" fill={p.f} stroke={C.ink} strokeWidth="1.2" />
           <g transform={`translate(${178 + i * 76} 188)`} color="#fff">
             <Icon name={p.icon} size={14} weight="bold" />
           </g>
           <Label x={213 + i * 76} y={199} size={9.5} anchor="middle" fill="#fff">{p.t}</Label>
-        </g>
+        </SvgLink>
       ))}
       <KiranaFront name={EXAMPLE.kirana.name} transform="translate(492 63.6) scale(0.62)" />
     </svg>
@@ -301,7 +305,7 @@ export function FourPillars({ className, name = EXAMPLE.restaurant.name }: { cla
   const tints: Record<string, string> = { "--indigo": C.indigoT, "--rani": C.raniT, "--marigold": C.marigoldT, "--peacock": C.peacockT };
   const solid: Record<string, string> = { "--indigo": C.indigo, "--rani": C.rani, "--marigold": C.marigold, "--peacock": C.peacock };
   return (
-    <svg viewBox="0 0 480 342" className={cls("svg-fourpillars", className)} role="img" aria-label={`Four pillars — strategy, systems, marketing and care — holding up a business like ${name}`}>
+    <svg viewBox="0 0 480 342" className={cls("svg-fourpillars", className)} role="group" aria-label={`Four pillars — strategy, systems, marketing and care — holding up a business like ${name}`}>
       {/* pediment with a rangoli medallion */}
       <path d="M24 94 L240 22 L456 94 Z" fill={C.raniT} stroke={C.ink} strokeWidth="2" strokeLinejoin="round" />
       <path d="M70 86 L240 32 L410 86 Z" fill="none" stroke={C.rani} strokeWidth="1.2" strokeDasharray="4 4" />
@@ -322,7 +326,7 @@ export function FourPillars({ className, name = EXAMPLE.restaurant.name }: { cla
         const f = solid[p.colour] ?? C.indigo;
         const t = tints[p.colour] ?? C.indigoT;
         return (
-          <g key={p.slug}>
+          <SvgLink key={p.slug} href={p.href} label={`${p.name}: ${p.product}`}>
             {/* capital */}
             <rect x={cx - 34} y="130" width="68" height="11" rx="2" fill={f} />
             <circle cx={cx - 34} cy="136" r="5" fill="#fff" stroke={f} strokeWidth="2" />
@@ -340,7 +344,7 @@ export function FourPillars({ className, name = EXAMPLE.restaurant.name }: { cla
             <rect x={cx - 34} y="268" width="68" height="9" rx="2" fill={f} />
             <Label x={cx} y={320} size={13} anchor="middle">{p.name}</Label>
             <Label x={cx} y={334} size={9.5} weight={600} fill={C.muted} anchor="middle">{p.product}</Label>
-          </g>
+          </SvgLink>
         );
       })}
       {/* steps */}

@@ -37,7 +37,7 @@ export const metadata: Metadata = pageMetadata("home");
 const GAP_ROWS: GapRow[] = [
   { exists: ["zoho", "odoo", "tally", "google", "microsoft-365"], lack: "Someone to choose, set up and customise them", fit: "We plan, configure or build it — in your brand", fitIcon: "SquaresFour", tone: "rani", href: "/systems" },
   { exists: ["upi", "razorpay", "cashfree", "stripe"], lack: "Payments connected to invoices, WhatsApp and books", fit: "We wire it all together", fitIcon: "PlugsConnected", tone: "peacock", href: "/systems/pay" },
-  { exists: ["zomato", "swiggy", "amazon", "indiamart"], lack: "A channel of your own for regulars", fit: "We build it alongside them", fitIcon: "ShoppingBag", tone: "marigold", href: "/systems/store" },
+  { exists: ["zomato", "swiggy", "amazon", "indiamart"], lack: "Your regulars — every repeat order pays the app again", fit: "Your own channel — regulars come straight to you", fitIcon: "ShoppingBag", tone: "marigold", href: "/systems/store" },
   { exists: ["google", "meta", "bing", { label: "AI assistants", icon: "Sparkle" }], lack: "Know-how and time for ads, SEO and AI visibility", fit: "We run your marketing", fitIcon: "Megaphone", tone: "mehendi", href: "/marketing" },
   { exists: [{ label: "Freelancers", icon: "UserCircleGear" }, { label: "Agencies", icon: "Buildings" }], lack: "Someone who stays after launch", fit: "Your monthly plan includes care", fitIcon: "Lifebuoy", tone: "indigo", href: "/pricing#care" },
 ];
@@ -45,17 +45,17 @@ const GAP_ROWS: GapRow[] = [
 const BENTO_ICONS = ["site", "chat", "ledger"] as const;
 
 const WHY = [
-  { icon: "custom:tailor-tape", label: "Custom, not templates", detail: "Every build is made for one business — yours.", tone: "rani" as const },
-  { icon: "PlugsConnected", label: "Works with your tools", detail: "Zoho, Google, Microsoft and Tally — kept and connected.", tone: "peacock" as const },
-  { icon: "Tag", label: "White-label, free", detail: "Your brand or ours, on every route.", tone: "marigold" as const },
-  { icon: "Key", label: "Your data stays yours", detail: "Your domain, brand, content, data and accounts.", tone: "indigo" as const },
-  { icon: "custom:rupee-coin", label: "Honest pricing", detail: "Gateway, licence and ad costs shown separately.", tone: "haldi" as const },
-  { icon: "ClockCountdown", label: "Replies in a few hours, 7 days", detail: "A real person, on WhatsApp.", tone: "mehendi" as const },
+  { icon: "custom:tailor-tape", label: "Custom, not templates", detail: "Every build is made for one business — yours.", tone: "rani" as const, href: "/how-we-work" },
+  { icon: "PlugsConnected", label: "Works with your tools", detail: "Zoho, Google, Microsoft and Tally — kept and connected.", tone: "peacock" as const, href: "/integrations" },
+  { icon: "Tag", label: "White-label, free", detail: "Your brand or ours, on every route.", tone: "marigold" as const, href: "/integrations#white-label" },
+  { icon: "Key", label: "Your customers stay yours", detail: "Customer list, orders and chats in your name — exported to you if you ever leave.", tone: "indigo" as const, href: "/faq" },
+  { icon: "custom:rupee-coin", label: "Honest pricing", detail: "Gateway, licence and ad costs shown separately.", tone: "haldi" as const, href: "/pricing" },
+  { icon: "ClockCountdown", label: "Replies in a few hours, 7 days", detail: "A real person, on WhatsApp.", tone: "mehendi" as const, href: "/contact" },
 ];
 
 export default function Home() {
   const gst = gstNote();
-  const faqs = pickFaqs(["competing", "templates", "strategy-paid", "guarantee", "own", "reply"]);
+  const faqs = pickFaqs(["customers", "competing", "templates", "strategy-paid", "own", "reply"]);
 
   return (
     <Layout>
@@ -63,12 +63,12 @@ export default function Home() {
       <section className="home-hero" id="hero" aria-labelledby="hero-title">
         <div className="container home-hero-grid">
           <div className="home-hero-copy">
-            <p className="kicker">One-stop software &amp; marketing partner for Indian businesses</p>
-            <h1 id="hero-title">Custom software for your whole business. All in one place.</h1>
+            <p className="kicker">Custom business software &amp; marketing · all in one place</p>
+            <h1 id="hero-title">Stop renting your own customers. <span className="h1-sub">Own them — on software built for your business.</span></h1>
             <p className="hinglish accent-line">
-              {SITE.accent} <span>— your business, your way.</span>
+              Grahak aapke. System aapka. <span>— your customers, your system.</span>
             </p>
-            <p className="hero-sub">Website, billing, payments, WhatsApp, staff and marketing — built around how you work, simple for your team, and run for you every month.</p>
+            <p className="hero-sub">Keep the apps and directories for new buyers. We build one system — website, ordering, payments, WhatsApp and billing — where your regulars come straight to you, without an aggregator&apos;s cut, and every customer is saved in your name.</p>
             <div className="hero-actions">
               <WhatsAppCTA context="hero" />
               <Link href="/what-we-do" className="btn-ghost">
@@ -76,10 +76,10 @@ export default function Home() {
               </Link>
             </div>
             <ul className="trust-chips">
+              <li><Icon name="AddressBook" size={18} /> Your customer list, in your name</li>
+              <li><Icon name="ChatCircleDots" size={18} /> Repeat orders on your WhatsApp</li>
               <li><Icon name="UsersThree" size={18} /> Easy for your staff</li>
-              <li><Icon name="Key" size={18} /> Your brand, your data</li>
               <li><Icon name="PlugsConnected" size={18} /> Works with Zoho, Google, Microsoft, Tally</li>
-              <li><Icon name="ChatCircleDots" size={18} /> Replies in a few hours, 7 days</li>
             </ul>
           </div>
           <RangoliCollage
@@ -186,7 +186,7 @@ export default function Home() {
             {(["pay", "desk", "team"] as const).map((slug) => {
               const b = getBlock(slug)!;
               return (
-                <Link key={slug} href={`/systems/${slug}`} className={`sb-cell sb-photo sb-${slug}`}>
+                <Link key={slug} href={`/systems/${slug}`} className={`sb-cell sb-photo link-card sb-${slug}`}>
                   <Img slot={b.photo} mask="none" width={600} height={400} />
                   <span className="sb-label">
                     <strong>{b.name}</strong>
@@ -198,7 +198,7 @@ export default function Home() {
             {BENTO_ICONS.map((slug) => {
               const b = getBlock(slug)!;
               return (
-                <Link key={slug} href={`/systems/${slug}`} className={`sb-cell sb-icon sb-${slug}`} style={{ ["--accent" as string]: `var(${b.colour})` }}>
+                <Link key={slug} href={`/systems/${slug}`} className={`sb-cell sb-icon link-card sb-${slug}`} style={{ ["--accent" as string]: `var(${b.colour})` }}>
                   <Icon name={b.icon} size={30} />
                   <strong>{b.name}</strong>
                   <small>{b.example}</small>
@@ -316,7 +316,7 @@ export default function Home() {
           </div>
           <div className="route-grid">
             {BUILD_ROUTES.map((r) => (
-              <article key={r.slug} className="route-tile">
+              <Link key={r.slug} href={r.href} className="route-tile link-card">
                 <Img slot={r.photo} mask="none" className="route-thumb" width={400} height={200} decorative />
                 <div className="route-body">
                   <span className="route-icon"><Icon name={r.icon} size={22} /></span>
@@ -324,7 +324,7 @@ export default function Home() {
                   <p>{r.line}</p>
                   <span className="cost-chip">{r.cost}</span>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
           <p className="center-note">
@@ -376,9 +376,9 @@ export default function Home() {
           <PhotoBento
             cells={[
               { slot: "IMG-B11" },
-              ...WHY.slice(0, 3).map((w) => ({ icon: <Icon name={w.icon} size={28} />, label: w.label, detail: w.detail, tone: w.tone })),
+              ...WHY.slice(0, 3).map((w) => ({ icon: <Icon name={w.icon} size={28} />, label: w.label, detail: w.detail, tone: w.tone, href: w.href })),
               { slot: "IMG-B07" },
-              ...WHY.slice(3).map((w) => ({ icon: <Icon name={w.icon} size={28} />, label: w.label, detail: w.detail, tone: w.tone })),
+              ...WHY.slice(3).map((w) => ({ icon: <Icon name={w.icon} size={28} />, label: w.label, detail: w.detail, tone: w.tone, href: w.href })),
               { slot: "/images/snapshots/registrations.webp", alt: "Accounts and registrations on a desk" },
             ]}
           />

@@ -153,7 +153,7 @@ export default function Header() {
         logo={<BrandLogo />}
         ribbon={
           <>
-            <Icon name="Scissors" size={16} weight="bold" className="ribbon-ic" /> <strong>Every build is custom-made for one business — yours.</strong>{" "}
+            <Icon name="Scissors" size={16} weight="bold" className="ribbon-ic" /> <strong>Your customers, your system — every build made for one business.</strong>{" "}
             <WhatsAppCTA variant="ghost" context="ribbon" className="ribbon-cta">
               WhatsApp us <Arw />
             </WhatsAppCTA>

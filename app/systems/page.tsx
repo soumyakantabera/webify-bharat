@@ -30,14 +30,14 @@ export default function SystemsHub() {
       <PageHero
         kicker="Systems · the 11 blocks"
         tone="rani"
-        title="Eleven building blocks. One system shaped around you."
+        title="Eleven building blocks. One system where your customers stay yours."
         sub={
           <>
             Your website, store, payments, WhatsApp, a <GlossaryChip term="CRM" /> or <GlossaryChip term="ERP" />, staff portals and more — start with what you need today, add the rest later, all in one system. {BLOCK_REPEAT_LINE}
           </>
         }
         cta={<WhatsAppCTA context="hero" />}
-        visual={<PhotoBento cells={["site", "store", "pay", "desk", "team"].map((s) => ({ slot: getBlock(s)!.photo, alt: getBlock(s)!.becomes }))} />}
+        visual={<PhotoBento cells={["site", "store", "pay", "desk", "team"].map((s) => ({ slot: getBlock(s)!.photo, alt: getBlock(s)!.becomes, href: `/systems/${s}`, label: getBlock(s)!.name }))} />}
       />
 
       <section className="section" id="blocks" aria-labelledby="blocks-title">
