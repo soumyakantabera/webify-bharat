@@ -101,40 +101,45 @@ def stacked(c_mark=None, c_webify=INK, c_bharat=RANI):
     return w, MARK_H + 124, body
 
 
-files = {}
-files["webify-bharat-horizontal.svg"] = svg(*horizontal())
-files["webify-bharat-stacked.svg"] = svg(*stacked())
-files["webify-bharat-mark.svg"] = svg(MARK_W, MARK_H, mark_group(0, 0, MARK_H))
-files["webify-bharat-mono-ink.svg"] = svg(*horizontal([INK, INK], INK, INK))
-files["webify-bharat-mono-white.svg"] = svg(*horizontal(["#fff", "#fff"], "#fff", "#fff"))
-grad = (
-    '<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">'
-    '<stop offset="0" stop-color="#2B1E6B"/><stop offset="1" stop-color="#E6007E"/></linearGradient></defs>'
-)
-gw, gh, gbody = horizontal(["#fff", "#FFB400"], "#fff", "#FFD3EA", pad=60)
-files["webify-bharat-on-gradient.svg"] = svg(gw, gh, grad + f'<rect width="{gw:.0f}" height="{gh:.0f}" rx="48" fill="url(#g)"/>' + gbody)
+def main():
+    files = {}
+    files["webify-bharat-horizontal.svg"] = svg(*horizontal())
+    files["webify-bharat-stacked.svg"] = svg(*stacked())
+    files["webify-bharat-mark.svg"] = svg(MARK_W, MARK_H, mark_group(0, 0, MARK_H))
+    files["webify-bharat-mono-ink.svg"] = svg(*horizontal([INK, INK], INK, INK))
+    files["webify-bharat-mono-white.svg"] = svg(*horizontal(["#fff", "#fff"], "#fff", "#fff"))
+    grad = (
+        '<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">'
+        '<stop offset="0" stop-color="#2B1E6B"/><stop offset="1" stop-color="#E6007E"/></linearGradient></defs>'
+    )
+    gw, gh, gbody = horizontal(["#fff", "#FFB400"], "#fff", "#FFD3EA", pad=60)
+    files["webify-bharat-on-gradient.svg"] = svg(gw, gh, grad + f'<rect width="{gw:.0f}" height="{gh:.0f}" rx="48" fill="url(#g)"/>' + gbody)
 
-for name, content in files.items():
-    (OUT / name).write_text(content)
-    print(f"{name}: {len(content) / 1024:.1f} KB")
+    for name, content in files.items():
+        (OUT / name).write_text(content)
+        print(f"{name}: {len(content) / 1024:.1f} KB")
 
-# Favicon / app icon: the mark centred in a square with breathing room.
-side = 300
-icon = svg(side, side, mark_group((side - MARK_W) / 2, (side - MARK_H) / 2, MARK_H), "Webify Bharat")
-(ROOT / "app/icon.svg").write_text(icon)
-(ROOT / "public/favicon.svg").write_text(icon)
-# Maskable source: Blush background, mark inside the 80% safe zone.
-mside = 512
-mh = mside * 0.5
-mw = mh * MARK_W / MARK_H
-mask = svg(mside, mside, f'<rect width="{mside}" height="{mside}" fill="{BLUSH}"/>' + mark_group((mside - mw) / 2, (mside - mh) / 2, mh))
-(ROOT / "scripts/brand/maskable.svg").write_text(mask)
-apple = svg(180, 180, f'<rect width="180" height="180" fill="{BLUSH}"/>' + mark_group((180 - 120 * MARK_W / MARK_H) / 2, 30, 120))
-(ROOT / "scripts/brand/apple.svg").write_text(apple)
+    # Favicon / app icon: the mark centred in a square with breathing room.
+    side = 300
+    icon = svg(side, side, mark_group((side - MARK_W) / 2, (side - MARK_H) / 2, MARK_H), "Webify Bharat")
+    (ROOT / "app/icon.svg").write_text(icon)
+    (ROOT / "public/favicon.svg").write_text(icon)
+    # Maskable source: Blush background, mark inside the 80% safe zone.
+    mside = 512
+    mh = mside * 0.5
+    mw = mh * MARK_W / MARK_H
+    mask = svg(mside, mside, f'<rect width="{mside}" height="{mside}" fill="{BLUSH}"/>' + mark_group((mside - mw) / 2, (mside - mh) / 2, mh))
+    (ROOT / "scripts/brand/maskable.svg").write_text(mask)
+    apple = svg(180, 180, f'<rect width="180" height="180" fill="{BLUSH}"/>' + mark_group((180 - 120 * MARK_W / MARK_H) / 2, 30, 120))
+    (ROOT / "scripts/brand/apple.svg").write_text(apple)
 
-# Static font instances for next/og (Satori reads TTF/OTF, not woff2 or variable fonts).
-OG = ROOT / "assets/og"
-OG.mkdir(parents=True, exist_ok=True)
-SORA.save(OG / "sora-700.ttf")
-instance("manrope", 600).save(OG / "manrope-600.ttf")
-print("icons + og fonts written")
+    # Static font instances for next/og (Satori reads TTF/OTF, not woff2 or variable fonts).
+    OG = ROOT / "assets/og"
+    OG.mkdir(parents=True, exist_ok=True)
+    SORA.save(OG / "sora-700.ttf")
+    instance("manrope", 600).save(OG / "manrope-600.ttf")
+    print("icons + og fonts written")
+
+
+if __name__ == "__main__":
+    main()

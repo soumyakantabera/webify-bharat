@@ -179,3 +179,9 @@ a.contact-tile:hover { border-color: var(--rani); }
   .doc-checklist li { animation: none; }
   .blog-card-v2, .topic-tile, .filing-tile { transition: none; }
 }
+
+/* ---------- /brand off-site kit (§17.3 #14) ---------- */
+.kit-tile .brand-tile-art img { max-height: 220px; width: auto; max-width: 100%; box-shadow: 0 4px 14px rgba(27, 16, 48, 0.12); }
+.kit-tile figcaption small { color: var(--ink-2); font-weight: 500; }
+.kit-links { display: block; margin-top: 4px; font-size: 13.5px; }
+.kit-note { margin: 0; padding: 16px; text-align: center; color: var(--ink-2); }
