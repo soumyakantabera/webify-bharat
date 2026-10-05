@@ -51,7 +51,7 @@ export default function Organise() {
       <PageHero
         kicker="Organise"
         title="Your business already works. Let's make your tools work the same way."
-        sub="We map how you sell, collect and follow up — then build one system around it."
+        sub="We map how you sell, collect and follow up — then bring it into one simple system your staff can use from day one."
         cta={<WhatsAppCTA message={path.waMessage} context="hero" path="organise" label={path.cta} />}
         chips={<PillarChips pillars={["strategy", "systems", "care"]} optional={["strategy"]} />}
         visual={<PhotoUiLayer slot="IMG-P01" priority stickers={[{ text: "Order missed? Not any more" }, { text: "Payment matched to invoice" }]} />}

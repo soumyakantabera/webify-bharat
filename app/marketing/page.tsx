@@ -32,7 +32,7 @@ export default function MarketingHub() {
         kicker="Marketing · Webify Reach"
         tone="marigold"
         title="Get found where your customers look — Google, maps, ads and AI."
-        sub="Most small businesses are invisible in at least one of these. We fix that, honestly."
+        sub="Most small businesses are invisible in at least one of these. The team that builds your software fixes that too — and every enquiry lands on your WhatsApp."
         cta={<WhatsAppCTA message={WA_MSG.marketing} context="hero" label="Help me get found" />}
         visual={
           <PhotoUiLayer slot="IMG-B01" priority stickers={[{ text: "New enquiry from Maps" }]}>

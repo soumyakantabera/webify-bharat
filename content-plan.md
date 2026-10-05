@@ -71,7 +71,7 @@ Your own software and marketing — planned, built, run and grown for you · The
 **The risk:** "one-stop" can sound like "does everything, specialises in nothing". Visitors must understand **what we are, what we're not, and what to do next** within 5 seconds.
 
 **2.0.1 The category sentence (used verbatim in hero sub, meta description, `llms.txt`, About opener)**
-> **"Webify Bharat builds and runs your own business software — and markets your business — so every tool you use actually works for you."**
+> **"One team for your business software and marketing — built around how you work, simple for your staff, and run for you every month."** (changed by the owner — positioning: custom, all in one place, easy, your brand and data)
 
 **2.0.2 The gap we fill (the core story)**
 
@@ -123,7 +123,7 @@ A first-time visitor must be able to answer: (1) What does Webify do? (2) Is it 
 SaaS = software you use, we run it · PaaS = our base platform · CRM = customer & lead tracker · ERP = one system for orders, stock, billing · SEO = showing up in Google's unpaid (organic) results · SEM / Ads = paid search & social ads · AI visibility = being found and described correctly by ChatGPT-style assistants · White-label = your brand on everything · **Template** = the same design sold to everyone (we don't do this) · **Prototype** = our tested starting point, rebuilt for your business and brand.
 
 ### 2.1 One-liner
-> **Webify Bharat builds and runs your own business software — and markets your business — so every tool you use actually works for you.** Strategy, systems, marketing and care for Indian MSMEs: websites, payments, WhatsApp, CRM/ERP, staff portals, SEO, ads and AI visibility — made for your business, in your brand, owned by you.
+> **One team for your business software and marketing — built around how you work, simple for your staff, and run for you every month.** Strategy, systems, marketing and care for Indian MSMEs: websites, payments, WhatsApp, CRM/ERP, staff portals, SEO, ads and AI visibility — made for your business, in your brand, owned by you.
 
 ### 2.2 Headline system
 - **Primary (EN):** **"Custom software for your whole business. All in one place."** (changed by the owner; was "Built for your business. Not for everyone's.")

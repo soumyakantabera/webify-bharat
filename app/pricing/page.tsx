@@ -58,8 +58,8 @@ export default function Pricing() {
       <PageHero
         kicker="Pricing"
         tone="rani"
-        title="Start small. Pay monthly. Grow into the next stage."
-        sub={`Setup from ₹5,000. Plans from ₹3,000/month. No lock-in.${gst ? ` Prices ${gst}.` : ""}`}
+        title="One monthly plan covers your software, hosting and care."
+        sub={`Setup from ₹5,000. Plans from ₹3,000/month. No lock-in, and third-party costs shown separately.${gst ? ` Prices ${gst}.` : ""}`}
         accent={{ phrase: "Seedha hisaab.", meaning: "straight accounts." }}
         cta={<WhatsAppCTA context="hero" label="Get my quote" />}
         visual={<ArchWindows priority slots={["/images/snapshots/pricing.webp"]} />}

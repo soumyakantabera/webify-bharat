@@ -14,7 +14,6 @@ import { GapBridge, PlatformLayers } from "@/components/svg/positioning";
 import { logosIn } from "@/lib/logos";
 import { pageMetadata } from "@/lib/page-seo";
 import { pillars, type Pillar } from "@/lib/pillars";
-import { SITE } from "@/lib/site";
 import { WA_MSG } from "@/lib/wa";
 
 export const metadata: Metadata = pageMetadata("what-we-do");
@@ -46,8 +45,8 @@ export default function WhatWeDo() {
       <BreadcrumbLd seoKey="what-we-do" />
       <PageHero
         kicker="What we do"
-        title="Plan it. Build it. Run it. Grow it."
-        sub={SITE.description}
+        title="Plan it, build it, run it, grow it — with one team."
+        sub="Strategy, software, marketing and care under one roof — so you deal with one team on WhatsApp, not five vendors."
         cta={<WhatsAppCTA context="hero" />}
         visual={<PhotoBento cells={[...pillars.map((p) => ({ slot: p.photo, alt: `${p.name}: ${p.oneLine}` })), { icon: <Icon name="ChatCircleDots" size={28} />, label: "One team on WhatsApp", tone: "mehendi" as const }]} />}
       />

@@ -54,15 +54,15 @@ export const PAGE_SEO: Record<string, PageSeo> = {
     ],
   ),
   "what-we-do": page(
-    "What we do: strategy, systems, marketing and care",
-    "Four things Webify Bharat does for your business: paid strategy (Compass), your own software (11 blocks), marketing on Google, maps, ads and AI (Reach), and care built into every plan.",
+    "One-stop business software & marketing team | What we do",
+    "Strategy, custom software, marketing and care from one team on WhatsApp — instead of juggling five vendors. Compass, the 11 blocks, Reach and Care, explained.",
     "/what-we-do",
     ["what Webify Bharat does", "custom software MSME", "digital strategy India", "SEO and AI visibility"],
     [{ name: "What we do", path: "/what-we-do" }],
     [],
   ),
   organise: page(
-    "Organise: one custom system for a running business",
+    "Organise your business in one simple system — easy for staff",
     "Your business already works. We map how you sell, collect and follow up — then build one custom system around it, connected to the tools you already use.",
     "/solutions/organise",
     ["custom system for small business", "replace Excel and WhatsApp chaos", "MSME CRM India"],
@@ -70,7 +70,7 @@ export const PAGE_SEO: Record<string, PageSeo> = {
     [],
   ),
   launch: page(
-    "Launch: set up a new business from scratch",
+    "Launch a new business: registrations, website, payments in one go",
     "Registrations, brand, website, payments, WhatsApp and books — a new business set up and ready on launch day, with our fee and government fees shown separately.",
     "/solutions/launch",
     ["start a business India", "GST Udyam registration help", "new business website and payments"],
@@ -86,7 +86,7 @@ export const PAGE_SEO: Record<string, PageSeo> = {
     [],
   ),
   "how-we-work": page(
-    "How we work: no templates, a process that starts with you",
+    "How we build your business software — simple, over WhatsApp",
     "From one WhatsApp message to a live system: free discovery chat, private prototype walkthrough, written scope and price, design, build, launch and monthly care.",
     "/how-we-work",
     ["how Webify Bharat works", "custom website process", "software project process India"],
@@ -110,8 +110,8 @@ export const PAGE_SEO: Record<string, PageSeo> = {
     [],
   ),
   systems: page(
-    "Systems: the 11 building blocks, tailored for your business",
-    "Website, store, payments, WhatsApp, CRM/ERP, staff portal, business email, GST invoicing, registrations, dashboards and integrations — eleven blocks Webify Bharat tailors and combines for one business.",
+    "Custom business software modules: website, billing, CRM, WhatsApp",
+    "Eleven building blocks — website, store, payments, WhatsApp, CRM/ERP, staff portal, email, GST invoicing, registrations, dashboards, integrations — combined into one system for your business.",
     "/systems",
     ["custom software for small business India", "CRM ERP for MSME", "website and payments setup", "WhatsApp Business API setup"],
     [{ name: "Systems", path: "/systems" }],
@@ -134,7 +134,7 @@ export const PAGE_SEO: Record<string, PageSeo> = {
     [],
   ),
   integrations: page(
-    "Integrations: use our stack, or keep yours — Zoho, Odoo, Tally, Google, Microsoft",
+    "Connect Tally, Zoho, Odoo, Google & Microsoft into one system",
     "Five ways we build: adapt our prototype, from scratch, on open source, the budget route on Zoho or Odoo, or around the tools you already use. White-label on every plan.",
     "/integrations",
     ["Zoho setup India", "Odoo implementation small business", "Tally integration", "Google Workspace setup"],
@@ -142,7 +142,7 @@ export const PAGE_SEO: Record<string, PageSeo> = {
     [],
   ),
   pricing: page(
-    "Pricing: setup from ₹5,000, plans from ₹3,000/month, no lock-in",
+    "Business software pricing: one monthly plan from ₹3,000, no lock-in",
     "Four stages — Starter, Business, Command and Custom — with clear limits, add-ons and over-limit charges you approve first. Third-party costs shown separately. Estimate your scope and get an exact quote on WhatsApp.",
     "/pricing",
     ["website and software pricing India", "monthly plan small business software", "CRM pricing India"],
@@ -155,7 +155,7 @@ export const PAGE_SEO: Record<string, PageSeo> = {
     ],
   ),
   about: page(
-    "About Webify Bharat: no two businesses should get the same website",
+    "About Webify Bharat: custom software, your brand, your data",
     "Webify Bharat builds and runs custom software for Indian businesses — websites, stores, payments, WhatsApp, CRM/ERP and marketing — fully remote over WhatsApp, from Kolkata.",
     "/about",
     ["about Webify Bharat", "custom software company India", "small business software Kolkata"],
@@ -208,7 +208,7 @@ export const PAGE_SEO: Record<string, PageSeo> = {
 };
 
 const ANSWERS: Record<string, string> = {
-  home: "Webify Bharat builds and runs your own business software — and markets your business — so every tool you use actually works for you.",
+  home: "Webify Bharat is a one-stop software and marketing partner for Indian small businesses: it builds custom software for the whole business — website, billing, payments, WhatsApp, staff and marketing — in one place, keeps it simple for staff, and runs it every month. Clients keep their brand, domain, data and accounts.",
 };
 
 export function getPageSeo(key: string): PageSeo {
