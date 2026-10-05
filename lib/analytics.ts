@@ -1,15 +1,16 @@
-import { track as vercelTrack } from "@vercel/analytics";
-
 /**
  * Analytics events (content-plan §13): wa_click, estimator_send,
- * prototype_request, flip_open. Sent as Vercel Analytics custom events;
- * a no-op where Vercel Analytics isn't loaded (e.g. GitHub Pages).
+ * prototype_request, flip_open. GitHub Pages has no analytics backend, so
+ * events are pushed to `window.dataLayer` (ready for Google Analytics / Tag
+ * Manager if you add it later) and dispatched as a `wb:track` DOM event.
  */
 export type AnalyticsEvent = "wa_click" | "estimator_send" | "prototype_request" | "flip_open";
 
 export function track(event: AnalyticsEvent, props: Record<string, string | number | boolean | null>) {
   try {
-    vercelTrack(event, props);
+    const w = window as unknown as { dataLayer?: unknown[] };
+    (w.dataLayer ??= []).push({ event, ...props });
+    window.dispatchEvent(new CustomEvent("wb:track", { detail: { event, props } }));
   } catch {
     /* analytics must never break the page */
   }

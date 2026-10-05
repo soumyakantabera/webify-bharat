@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site-url";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Layout from "@/components/Layout";
@@ -13,7 +14,7 @@ import { blocks, getBlock } from "@/lib/blocks";
 import { getChannelSet } from "@/lib/channels";
 import { pageMetadata } from "@/lib/page-seo";
 
-const BASE = "https://webify-bharat.vercel.app";
+const BASE = SITE_URL;
 
 export const dynamicParams = false;
 

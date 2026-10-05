@@ -1,4 +1,5 @@
 import { blocks } from "@/lib/blocks";
+import { SITE_URL } from "@/lib/site-url";
 import { cities } from "@/lib/cities";
 import { industryPages } from "@/lib/industries";
 import { THIRD_PARTY_COSTS, stages } from "@/lib/offers";
@@ -8,7 +9,7 @@ import { SITE } from "@/lib/site";
 
 export const dynamic = "force-static";
 
-const BASE = "https://webify-bharat.vercel.app";
+const BASE = SITE_URL;
 
 /** llms.txt (content-plan §13): "custom-built" positioning, routes and block names, generated from site data. */
 export function GET() {

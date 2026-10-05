@@ -50,7 +50,7 @@ LEGAL = field("legalName")
 ADDRESS = field("address")
 GSTIN = field("gstin")
 UDYAM = field("udyam")
-WEB = "webify-bharat.vercel.app"
+WEB = "soumyakantabera.github.io/webify-bharat"
 
 
 # ---------- drawing helpers ----------
@@ -225,7 +225,7 @@ files["business-card-front-90x50mm.svg"] = svg_mm(W, H, body, "Webify Bharat bus
 
 body = defs(grad("holi", [RANI, MARIGOLD, HALDI], "1", "0"))
 body += f'<rect width="{W}" height="{H}" fill="{INK}"/>'
-body += mandala(W + 2, H + 2, 22, [RANI, HALDI, MARIGOLD], 0.9)
+body += mandala(W + 3, H + 3, 15, [RANI, HALDI, MARIGOLD], 0.9)
 lg, _ = logo(7, 6.5, 8, on_dark=True)
 body += lg
 lines = [("WhatsApp", WA_FMT), ("Email", EMAIL), ("Web", WEB), ("Office", "Kolkata · working across India")]

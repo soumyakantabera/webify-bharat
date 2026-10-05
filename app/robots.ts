@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/site-url";
 
 export const dynamic = "force-static";
 
 export default function robots(): MetadataRoute.Robots {
-  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://webify-bharat.vercel.app";
+  const base = SITE_URL;
   return {
     rules: { userAgent: "*", allow: "/" },
     sitemap: `${base}/sitemap.xml`,

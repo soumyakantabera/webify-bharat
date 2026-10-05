@@ -18,7 +18,7 @@ export const PROCESS_STOPS: ProcessStop[] = [
   { name: "Scope & price", what: "Blocks, timeline, setup and monthly price.", get: "A written scope on WhatsApp.", colour: "--marigold", icon: "FileText" },
   { name: "Kick-off", what: "Setup + first month via a payment link on WhatsApp (Custom builds: 40/40/20).", get: "Your start date is locked.", colour: "--peacock", icon: "Link" },
   { name: "Design", what: "A custom design in your brand.", get: "A clickable preview.", colour: "--rani", icon: "PaintBrush", photo: "IMG-B06" },
-  { name: "Build", what: "Blocks built; payments, WhatsApp and GST wired.", get: "A preview link on Vercel.", colour: "--indigo", icon: "Wrench" },
+  { name: "Build", what: "Blocks built; payments, WhatsApp and GST wired.", get: "A private preview link.", colour: "--indigo", icon: "Wrench" },
   { name: "Revise", what: "Feedback rounds agreed in the scope.", get: "A version you're happy with.", colour: "--haldi", icon: "PencilSimpleLine" },
   { name: "Launch", what: "Domain live, payments tested, team trained.", get: "A live system + walkthrough video.", colour: "--mehendi", icon: "RocketLaunch", photo: "IMG-R04" },
   { name: "Care & grow", what: "Your monthly plan: hosting, backups, fixes, change hours, improvements. Move up a stage as you grow.", get: "A partner, not a handover PDF.", colour: "--peacock", icon: "Lifebuoy", photo: "IMG-R05" },

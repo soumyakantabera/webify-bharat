@@ -25,7 +25,7 @@ export const CORE_FAQS: CoreFaq[] = [
   { key: "limits", category: "payments", q: "What happens if I go over my plan's limits?", a: "We message you at 80% with both options — a small add-on or the next stage — and tell you which is cheaper. Nothing is charged without your OK." },
   { key: "downgrade", category: "payments", q: "Can I downgrade?", a: "Yes, any time. Features above the new stage switch off; your data is kept for 30 days." },
   { key: "gateways", category: "payments", q: "Which payment gateways do you set up?", a: "Razorpay or Cashfree for India, Stripe for international customers." },
-  { key: "hosting", category: "ownership", q: "Where is it hosted?", a: "On Vercel — fast and secure." },
+  { key: "hosting", category: "ownership", q: "Where is it hosted?", a: "On fast, secure cloud hosting that we set up and manage for you." },
   { key: "from-zero", category: "launch", q: "Can you set up a new business from zero?", a: "Yes. Registrations, brand basics, website, payments, WhatsApp and books." },
   { key: "pay-you", category: "payments", q: "How do I pay you?", a: "After you approve a written scope, we share a secure payment link on WhatsApp." },
   { key: "who-files", category: "launch", q: "Who actually files my GST/Udyam/IEC?", a: "We do, using documents and one-time passwords you share; government fees are paid in your name. For UK VAT and EU IOSS we coordinate with a registered overseas agent/intermediary." },

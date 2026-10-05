@@ -3,7 +3,7 @@ import { asset } from "@/lib/asset";
 
 /**
  * Static redirect page for the GitHub Pages export, where next.config
- * redirects don't run. On Vercel the 301 in next.config.ts wins first.
+ * has no server-side redirects.
  */
 export function redirectMetadata(destination: string): Metadata {
   return {
@@ -14,8 +14,8 @@ export function redirectMetadata(destination: string): Metadata {
 }
 
 export function RedirectStub({ to }: { to: string }) {
-  // The Pages export uses trailingSlash, so point straight at the folder URL.
-  const href = process.env.NEXT_PUBLIC_BASE_PATH ? `${asset(to)}/` : asset(to);
+  // The export uses trailingSlash, so point straight at the folder URL.
+  const href = `${asset(to)}/`.replace(/\/\/$/, "/");
   return (
     <>
       <meta httpEquiv="refresh" content={`0; url=${href}`} />

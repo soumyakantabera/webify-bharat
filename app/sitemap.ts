@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/site-url";
 import { cities } from "@/lib/cities";
 import { registrations } from "@/lib/registrations";
 import { blocks } from "@/lib/blocks";
@@ -10,7 +11,7 @@ import { publishedPosts } from "@/lib/posts";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://webify-bharat.vercel.app";
+  const base = SITE_URL;
   const paths = [
     "",
     "/what-we-do",

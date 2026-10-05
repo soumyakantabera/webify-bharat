@@ -1,8 +1,7 @@
 /**
- * 301 redirects for retired URLs (content-plan §9.0).
- * - Vercel / `next start`: served by next.config.ts `redirects()`.
- * - GitHub Pages static export: `redirects()` does not run, so each source
- *   also has a static stub page (components/RedirectStub.tsx).
+ * Redirects for retired URLs (content-plan §9.0). GitHub Pages has no
+ * server-side redirects, so each source has a static stub page
+ * (components/RedirectStub.tsx) that forwards to the destination.
  */
 export const REDIRECTS: { source: string; destination: string }[] = [
   { source: "/services", destination: "/systems" },
