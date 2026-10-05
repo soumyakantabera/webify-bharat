@@ -1,7 +1,7 @@
 """
 Build the off-site brand kit (content-plan §17.3 #14) into public/brand/kit/.
 
-Every file is plain SVG with all text converted to outlines (Sora / Manrope),
+Every file is plain SVG with all text converted to outlines (Baloo Da 2 / Manrope),
 so it prints and renders identically without the fonts installed. Business
 details come from lib/site.ts; fields that are still placeholders ([[...]])
 are left out. Run, then rasterize:
@@ -13,7 +13,7 @@ import math
 import re
 from pathlib import Path
 
-from build_logos import INK, MARK_H, MARK_W, RANI, BLUSH, SORA, horizontal, instance, mark_group, stacked, text_path
+from build_logos import INK, MARK_H, MARK_W, RANI, BLUSH, DISPLAY, horizontal, instance, mark_group, stacked, text_path
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "public/brand/kit"
@@ -152,7 +152,7 @@ lg, _ = logo(90, 90, 120, on_dark=True)
 body += lg
 y = 430
 for line in ["Built for your", "business. Not for", "everyone’s."]:
-    t, _ = text(SORA, line, 92, 90, y, WHITE, tracking=-0.025)
+    t, _ = text(DISPLAY, line, 92, 90, y, WHITE, tracking=-0.025)
     body += t
     y += 104
 x, y = 90, 760
@@ -174,7 +174,7 @@ body += f'<rect width="{w}" height="{h}" fill="url(#g)"/><rect width="{w}" heigh
 body += mandala(-20, h + 20, 230, [HALDI, MARIGOLD, WHITE], 0.85) + mandala(w + 20, -20, 200, [HALDI, WHITE, MARIGOLD], 0.6)
 lg, lw = logo(0, 0, 150, on_dark=True)
 body += f'<g transform="translate({(w - lw) / 2:.1f} 150)">{lg}</g>'
-t, _ = text(SORA, "Custom software & marketing, built for your business.", 32, w / 2, 372, WHITE, "middle")
+t, _ = text(DISPLAY, "Custom software & marketing, built for your business.", 32, w / 2, 372, WHITE, "middle")
 body += t
 t, _ = text(MAN5, "Websites · Payments · WhatsApp · CRM / ERP · Fully remote across India", 21, w / 2, 418, "#FFD3EA", "middle")
 body += t
@@ -186,7 +186,7 @@ body = defs(dots("d", WHITE, 0.08, 30, 2.2), grad("holi", [RANI, MARIGOLD, HALDI
 body += f'<rect width="{w}" height="{h}" fill="{INK}"/><rect width="{w}" height="{h}" fill="url(#d)"/>'
 body += mandala(95, 200, 240, [RANI, HALDI, MARIGOLD], 0.9)
 body += f'<rect y="{h - 10}" width="{w}" height="10" fill="url(#holi)"/>'
-t, _ = text(SORA, TAGLINE or "Built for your business.", 54, w - 90, 150, WHITE, "end", -0.02)
+t, _ = text(DISPLAY, TAGLINE or "Built for your business.", 54, w - 90, 150, WHITE, "end", -0.02)
 body += t
 t, _ = text(MAN5, "Websites, stores, payments, WhatsApp, CRM / ERP and marketing — made for you, run for you.", 24, w - 90, 205, "#E9E3F5", "end")
 body += t
@@ -203,7 +203,7 @@ acc = (ACCENT or "Aapka business. Aapke hisaab se.").split(". ")
 y = 620
 for line in acc:
     line = line if line.endswith(".") else line + "."
-    t, _ = text(SORA, line, 74, w / 2, y, INK, "middle", -0.02)
+    t, _ = text(DISPLAY, line, 74, w / 2, y, INK, "middle", -0.02)
     body += t
     y += 88
 t, _ = text(MAN5, "Your business, your way.", 34, w / 2, y + 6, RANI, "middle")
@@ -284,7 +284,7 @@ body += lg
 t, _ = text(MAN7, "PROPOSAL & WRITTEN SCOPE", 4.2, 20, 112, HALDI, tracking=0.08)
 body += t
 for i, line in enumerate(["A system built", "for your business."]):
-    t, _ = text(SORA, line, 15, 20, 132 + i * 17, WHITE, tracking=-0.02)
+    t, _ = text(DISPLAY, line, 15, 20, 132 + i * 17, WHITE, tracking=-0.02)
     body += t
 for i, label in enumerate(["Prepared for", "Date", "Prepared by"]):
     y = 190 + i * 16
@@ -302,7 +302,7 @@ body = defs(grad("holi", [RANI, MARIGOLD, HALDI], "1", "0"))
 body += f'<rect width="{W}" height="{H}" fill="{WHITE}"/>'
 lg, _ = logo(18, 12, 15)
 body += lg
-t, _ = text(SORA, "INVOICE", 8, W - 18, 19, INK, "end", 0.02)
+t, _ = text(DISPLAY, "INVOICE", 8, W - 18, 19, INK, "end", 0.02)
 body += t
 y = 26
 for v in [LEGAL, ADDRESS, f"GSTIN {GSTIN}" if GSTIN else None, " · ".join(p for p in [EMAIL, WA_FMT] if p)]:

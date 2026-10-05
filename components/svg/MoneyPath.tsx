@@ -4,14 +4,13 @@
  * Abroad: cards → Stripe → your bank. Each payment branches to a Ledger invoice.
  * Generic boxes, no third-party logos.
  */
-const FONT = "var(--font-body), Arial, sans-serif";
 
 function Box({ x, y, w, label, sub, fill, stroke }: { x: number; y: number; w: number; label: string; sub?: string; fill: string; stroke: string }) {
   return (
     <g>
       <rect x={x} y={y} width={w} height={52} rx={14} fill={fill} stroke={stroke} strokeWidth={2} />
-      <text x={x + w / 2} y={sub ? y + 23 : y + 31} textAnchor="middle" fontFamily={FONT} fontWeight={700} fontSize={14} fill="#1B1030">{label}</text>
-      {sub ? <text x={x + w / 2} y={y + 40} textAnchor="middle" fontFamily={FONT} fontSize={11} fill="#4A4458">{sub}</text> : null}
+      <text x={x + w / 2} y={sub ? y + 23 : y + 31} textAnchor="middle" fontWeight={700} fontSize={14} fill="#1B1030">{label}</text>
+      {sub ? <text x={x + w / 2} y={y + 40} textAnchor="middle" fontSize={11} fill="#4A4458">{sub}</text> : null}
     </g>
   );
 }
@@ -28,12 +27,12 @@ export function MoneyPath({ className }: { className?: string }) {
           <path d="M0 0 L10 5 L0 10 z" fill="#2B1E6B" />
         </marker>
       </defs>
-      <text x={20} y={30} fontFamily={FONT} fontWeight={800} fontSize={12} letterSpacing="0.08em" fill="#007373">INDIA</text>
+      <text x={20} y={30} fontWeight={800} fontSize={12} letterSpacing="0.08em" fill="#007373">INDIA</text>
       <Box x={20} y={42} w={150} label="UPI · cards" sub="netbanking" fill="#DDF5F5" stroke="#00A6A6" />
       <Arrow x1={172} y1={68} x2={232} y2={68} />
       <Box x={236} y={42} w={170} label="Razorpay / Cashfree" sub="your gateway account" fill="#fff" stroke="#00A6A6" />
 
-      <text x={20} y={170} fontFamily={FONT} fontWeight={800} fontSize={12} letterSpacing="0.08em" fill="#2B1E6B">ABROAD</text>
+      <text x={20} y={170} fontWeight={800} fontSize={12} letterSpacing="0.08em" fill="#2B1E6B">ABROAD</text>
       <Box x={20} y={182} w={150} label="International cards" fill="#ECE9F6" stroke="#2B1E6B" />
       <Arrow x1={172} y1={208} x2={232} y2={208} />
       <Box x={236} y={182} w={170} label="Stripe" sub="your account" fill="#fff" stroke="#2B1E6B" />

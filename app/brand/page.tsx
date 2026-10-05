@@ -119,7 +119,7 @@ export default function BrandPage() {
         </div>
       </header>
 
-      <Section id="logo" title="Logo" intro="Built from the existing mark — its paths are reused, never redrawn. The wordmark is Sora 700, converted to outlines so the files look the same everywhere.">
+      <Section id="logo" title="Logo" intro="Built from the existing mark — its paths are reused, never redrawn. The wordmark is Baloo Da 2 700, converted to outlines so the files look the same everywhere.">
         <div className="brand-grid brand-grid-3">
           {LOGO_FILES.map((l) => (
             <figure key={l.file} className={`brand-tile logo-tile bg-${l.bg}`}>
@@ -188,7 +188,7 @@ export default function BrandPage() {
         </div>
       </Section>
 
-      <Section id="type" title="Type" intro="Sora for display, Manrope for body, JetBrains Mono for numbers and prices.">
+      <Section id="type" title="Type" intro="Baloo Da 2 for display, Manrope for body, JetBrains Mono for numbers and prices.">
         <dl className="type-scale">
           {TYPE_SCALE.map((t) => (
             <div key={t.role} className={`type-row type-${t.role.toLowerCase().replace(/\s+/g, "-")}`}>
@@ -330,7 +330,7 @@ export default function BrandPage() {
         <h3>Collages</h3>
         <div className="brand-grid brand-grid-2">
           <Tile label="RangoliCollage">
-            <RangoliCollage large="IMG-H01" small={["IMG-H02", "IMG-H03", "IMG-H04", "IMG-H05"]} stickers={[{ text: "UPI received ✅" }, { text: "New lead from Google" }, { text: "Mentioned by AI assistant ✨" }]} phone={<MockScreen variant="restaurant" />} />
+            <RangoliCollage large="IMG-H01" small={["IMG-H02", "IMG-H03", "IMG-H04", "IMG-H05"]} stickers={[{ text: "UPI received" }, { text: "New lead from Google" }, { text: "Mentioned by AI assistant" }]} phone={<MockScreen variant="restaurant" />} />
           </Tile>
           <Tile label="PhotoUiLayer"><PhotoUiLayer slot="IMG-B01" stickers={[{ text: "Found on maps" }]}><SearchResultMock /></PhotoUiLayer></Tile>
           <Tile label="ArchWindows"><ArchWindows slots={["IMG-B09", "IMG-B06", "IMG-R03"]} /></Tile>

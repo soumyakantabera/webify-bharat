@@ -1,0 +1,111 @@
+/*
+ * Flat layer — loaded last.
+ * No drop shadows anywhere: depth comes from colour blocks, hairline borders
+ * and an inked outline on hover. Inline icons replace text symbols (→ ← ↗ ✓ +).
+ */
+
+/* ——— Inline arrow icons (components/Glyph.tsx) ——— */
+.ic-arw {
+  display: inline-block;
+  flex: none;
+  vertical-align: -0.14em;
+  margin-left: 0.4em;
+  transition: transform 0.2s ease;
+}
+.ic-arw-left { margin-left: 0; margin-right: 0.4em; }
+.ic-arw.is-flow { margin: 0 0.3em; vertical-align: -0.1em; opacity: 0.75; }
+button > .ic-arw:only-child { margin: 0; vertical-align: middle; }
+a:hover > .ic-arw:not(.is-flow, .ic-arw-left),
+button:hover > .ic-arw:not(.is-flow, .ic-arw-left),
+a:focus-visible > .ic-arw:not(.is-flow, .ic-arw-left) { transform: translateX(3px); }
+a:hover > .ic-arw-out { transform: translate(2px, -2px); }
+a:hover > .ic-arw-left,
+button:hover > .ic-arw-left { transform: translateX(-3px); }
+@media (prefers-reduced-motion: reduce) {
+  .ic-arw { transition: none; }
+}
+
+/* Stage, ribbon and table icons */
+.stage-ic { display: inline-block; vertical-align: -0.16em; margin-right: 0.2em; color: var(--accent, var(--rani)); }
+.ribbon-ic { display: inline-block; vertical-align: -0.18em; color: var(--haldi); }
+.cell-yes { display: inline-flex; vertical-align: middle; color: var(--mehendi-ink); }
+.ro-nav button { display: inline-grid; place-items: center; }
+
+/* Floating UI stickers: a crisp ink outline instead of a soft shadow */
+.ui-sticker { border: 1.5px solid var(--ink); }
+.ui-sticker-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  place-items: center;
+  justify-content: center;
+  background: var(--peacock-tint);
+  color: var(--peacock-ink);
+}
+
+/* FAQ toggle: a drawn plus/minus icon, not the "+" character */
+.faq-row summary::after {
+  content: "";
+  width: 22px;
+  height: 22px;
+  top: 50%;
+  margin-top: -11px;
+  border-radius: 50%;
+  background: var(--rani-tint)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Cpath d='M11 6v10M6 11h10' stroke='%23B8005F' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E")
+    center / 22px no-repeat;
+  transition: transform 0.2s ease;
+}
+.faq-row[open] summary::after {
+  content: "";
+  transform: rotate(45deg);
+}
+
+/* ——— Cards: hairline frame, inked outline on hover ——— */
+:is(.pillar-card, .path-card, .stage-card, .industry-tile, .block-tile, .filing-tile, .blog-card-v2, .flip-card, .price-card, .routes-card, .job-card, .info-card, .roadmap-card, .series-card) {
+  outline: 2px solid transparent;
+  outline-offset: -1px;
+  transition: outline-color 0.2s ease, transform 0.2s ease;
+}
+:is(a.pillar-card, a.path-card, .pillar-card:has(a), .path-card:has(a), a.industry-tile, a.block-tile, a.filing-tile, a.blog-card-v2, .flip-card, .price-card, .stage-card):hover {
+  outline-color: var(--accent, var(--ink));
+}
+
+/* Photo frames: a solid tinted mat instead of a blurred halo */
+:is(.zz-photo, .arch-window, .rr-thumb, .roadmap-thumb, .rangoli-collage .wb-img) {
+  border-color: #fff;
+  outline: 1.5px solid var(--line);
+}
+
+/* Diagrams sit on a plain card, framed by a hairline */
+.gap-art { border: 1.5px solid rgba(255, 255, 255, 0.6); }
+
+/* Baloo Da 2 runs narrower than the old display face: open the word gaps a touch. */
+:is(h1, h2, h3, h4) { word-spacing: 0.04em; }
+:is(h1, h2, h3, h4) small { letter-spacing: 0; word-spacing: normal; }
+.cell-no { display: inline-flex; vertical-align: middle; color: var(--muted); opacity: 0.6; }
+.burst .route-tile { color: var(--ink); }
+
+/* PhotoBento tiles carry a one-line detail under the label */
+.photo-bento { grid-auto-rows: minmax(164px, auto); }
+.pb-tile { justify-content: flex-end; gap: 6px; border: 1.5px solid color-mix(in srgb, var(--tone) 28%, transparent); }
+.pb-tile .pb-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1.5px solid color-mix(in srgb, var(--tone) 40%, transparent);
+  margin-bottom: auto;
+}
+.pb-detail { font-size: 13.5px; line-height: 1.4; color: var(--ink-2); }
+@media (max-width: 639px) {
+  .photo-bento { grid-auto-rows: minmax(150px, auto); }
+}
+
+/* Five routes stays legible on phones: scroll the diagram sideways instead of shrinking it. */
+@media (max-width: 639px) {
+  .routes-art, .routes-card, .why-routes-wrap { overflow-x: auto; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; }
+  .routes-art .svg-fiveroutes, .routes-card .svg-fiveroutes, .why-routes-wrap .svg-fiveroutes { min-width: 600px; }
+}

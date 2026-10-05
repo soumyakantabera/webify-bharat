@@ -1,5 +1,6 @@
 "use client";
 
+import { Arw } from "@/components/Glyph";
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 
 /**
@@ -65,11 +66,11 @@ export function StoryRail({ slides, label, interval = 8000 }: { slides: { id: st
         ))}
       </div>
       <div className="story-controls">
-        <button type="button" onClick={() => go(active - 1)} aria-label="Previous">←</button>
+        <button type="button" onClick={() => go(active - 1)} aria-label="Previous"><Arw dir="left" /></button>
         <span className="story-count">
           {active + 1} / {slides.length}
         </span>
-        <button type="button" onClick={() => go(active + 1)} aria-label="Next">→</button>
+        <button type="button" onClick={() => go(active + 1)} aria-label="Next"><Arw /></button>
         {!reduced ? (
           <button type="button" onClick={() => setPlaying((p) => !p)} aria-pressed={!playing} className="story-pause">
             {playing ? "Pause" : "Play"}

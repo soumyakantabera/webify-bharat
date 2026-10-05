@@ -9,7 +9,8 @@ export type StageSlug = "starter" | "business" | "command" | "custom";
 export type Stage = {
   slug: StageSlug;
   name: string;
-  emoji: string;
+  /** Phosphor icon name for the stage (rendered with <Icon />). */
+  icon: string;
   tagline: string;
   /** Display strings, e.g. "₹5,000" or "from ₹50,000". */
   setup: string;
@@ -35,7 +36,7 @@ export const stages: Stage[] = [
   {
     slug: "starter",
     name: "Starter",
-    emoji: "🌱",
+    icon: "Plant",
     tagline: "Get online properly.",
     setup: "₹5,000",
     monthly: "₹3,000",
@@ -59,7 +60,7 @@ export const stages: Stage[] = [
   {
     slug: "business",
     name: "Business",
-    emoji: "⭐",
+    icon: "Star",
     tagline: "Sell, get paid, follow up.",
     setup: "₹10,000",
     monthly: "₹7,500",
@@ -83,7 +84,7 @@ export const stages: Stage[] = [
   {
     slug: "command",
     name: "Command",
-    emoji: "🏛️",
+    icon: "Buildings",
     tagline: "Run the whole business on one system.",
     setup: "₹15,000",
     monthly: "₹18,000",
@@ -107,7 +108,7 @@ export const stages: Stage[] = [
   {
     slug: "custom",
     name: "Custom",
-    emoji: "✂️",
+    icon: "Scissors",
     tagline: "Built from zero, run for you.",
     setup: "from ₹50,000",
     monthly: "from ₹40,000",

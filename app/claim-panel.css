@@ -7,7 +7,7 @@
   border: 1px solid var(--line);
   border-radius: 28px;
   padding: 24px;
-  box-shadow: 0 8px 24px rgba(28, 31, 29, 0.035);
+  box-shadow: none;
 }
 .claim-top {
   display: grid;
@@ -73,7 +73,7 @@
   font-family: var(--font-display);
   font-size: clamp(48px, 4.6vw, 56px);
   font-weight: 800;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.005em;
   line-height: 0.95;
   margin: 10px 0 12px;
 }
@@ -156,7 +156,7 @@
 }
 .claim-not h3 {
   font-size: 16px;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.005em;
 }
 .claim-pills {
   display: flex;
@@ -214,7 +214,7 @@
 }
 .claim-facts > div:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 36px rgba(28, 31, 29, 0.08);
+  box-shadow: none;
   border-color: rgba(0, 115, 115, 0.2);
 }
 .claim-facts > div:hover .trust-icon {
@@ -223,11 +223,11 @@
 }
 .claim-zero:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.28);
+  box-shadow: none;
 }
 .claim-not:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(255, 122, 69, 0.12);
+  box-shadow: none;
 }
 .claim-pill:hover {
   transform: translateY(-2px);

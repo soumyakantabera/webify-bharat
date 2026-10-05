@@ -1,3 +1,4 @@
+import { Arw } from "@/components/Glyph";
 import Link from "next/link";
 import { BrandLogo } from "@/components/BrandLogo";
 import { Icon } from "@/components/Icon";
@@ -52,14 +53,14 @@ function WhatPanel() {
               </div>
             ))}
             <Link href={p.href} className="mega-more">
-              {p.slug === "care" ? "See what's included" : `All of ${p.name.toLowerCase()}`} →
+              {p.slug === "care" ? "See what's included" : `All of ${p.name.toLowerCase()}`} <Arw />
             </Link>
           </div>
         ))}
       </div>
       <Link href={WORKS_WITH_STRIP.href} className="mega-strip">
         <Icon name="PlugsConnected" size={18} />
-        {WORKS_WITH_STRIP.text} →
+        {WORKS_WITH_STRIP.text} <Arw />
       </Link>
     </div>
   );
@@ -113,7 +114,7 @@ function ResourcesPanel() {
 function MobileWhat() {
   return (
     <div className="ms-groups">
-      <Link href="/what-we-do" className="ms-overview">Overview: what we do →</Link>
+      <Link href="/what-we-do" className="ms-overview">Overview: what we do <Arw /></Link>
       {WHAT_WE_DO.map((p) => (
         <div key={p.slug} className="ms-group" style={{ ["--accent" as string]: `var(${p.colour})` }}>
           <Link href={p.href} className="ms-group-head">
@@ -152,9 +153,9 @@ export default function Header() {
         logo={<BrandLogo />}
         ribbon={
           <>
-            <span aria-hidden="true">✂️</span> <strong>Every build is custom-made for one business — yours.</strong>{" "}
+            <Icon name="Scissors" size={16} weight="bold" className="ribbon-ic" /> <strong>Every build is custom-made for one business — yours.</strong>{" "}
             <WhatsAppCTA variant="ghost" context="ribbon" className="ribbon-cta">
-              WhatsApp us →
+              WhatsApp us <Arw />
             </WhatsAppCTA>
           </>
         }

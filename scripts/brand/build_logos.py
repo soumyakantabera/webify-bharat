@@ -2,7 +2,7 @@
 Build the logo system (content-plan §17.3 #1) from the existing mark.
 
 - Reuses the paths of public/images/logo/wb-mark.svg exactly (the mark is never redrawn).
-- Sets the wordmark in Sora 700 and converts it to outlines, so the SVG files
+- Sets the wordmark in Baloo Da 2 700 and converts it to outlines, so the SVG files
   render the same everywhere, with or without the font installed.
 - Writes public/brand/logo/*.svg, app/icon.svg, public/favicon.svg and the
   static OG fonts in assets/og/ (next/og cannot read woff2).
@@ -37,7 +37,7 @@ def instance(name: str, weight: int) -> TTFont:
     return font
 
 
-SORA = instance("sora", 700)
+DISPLAY = instance("baloo-da-2", 700)
 
 
 def text_path(font: TTFont, text: str, size: float, x: float, baseline: float, tracking: float = -0.02):
@@ -77,8 +77,8 @@ def svg(w: float, h: float, body: str, label="Webify Bharat") -> str:
 def horizontal(c_mark=None, c_webify=INK, c_bharat=RANI, bg: str | None = None, pad=0):
     # Mark 220 high; two-line wordmark beside it, like the site header.
     size = 92
-    d1, w1 = text_path(SORA, "Webify", size, MARK_W + 26 + pad, 104 + pad)
-    d2, w2 = text_path(SORA, "Bharat", size, MARK_W + 26 + pad, 200 + pad)
+    d1, w1 = text_path(DISPLAY, "Webify", size, MARK_W + 26 + pad, 104 + pad)
+    d2, w2 = text_path(DISPLAY, "Bharat", size, MARK_W + 26 + pad, 200 + pad)
     w = MARK_W + 26 + max(w1, w2) + 6 + pad * 2
     h = MARK_H + pad * 2
     body = (bg or "") + mark_group(pad, pad, MARK_H, c_mark)
@@ -88,14 +88,14 @@ def horizontal(c_mark=None, c_webify=INK, c_bharat=RANI, bg: str | None = None, 
 
 def stacked(c_mark=None, c_webify=INK, c_bharat=RANI):
     size = 88
-    _, w1 = text_path(SORA, "Webify ", size, 0, 0)
-    _, w2 = text_path(SORA, "Bharat", size, 0, 0)
+    _, w1 = text_path(DISPLAY, "Webify ", size, 0, 0)
+    _, w2 = text_path(DISPLAY, "Bharat", size, 0, 0)
     total = w1 + w2
     w = max(MARK_W, total) + 8
     mx = (w - MARK_W) / 2
     tx = (w - total) / 2
-    d1, _ = text_path(SORA, "Webify ", size, tx, MARK_H + 100)
-    d2, _ = text_path(SORA, "Bharat", size, tx + w1, MARK_H + 100)
+    d1, _ = text_path(DISPLAY, "Webify ", size, tx, MARK_H + 100)
+    d2, _ = text_path(DISPLAY, "Bharat", size, tx + w1, MARK_H + 100)
     body = mark_group(mx, 0, MARK_H, c_mark)
     body += f'<path fill="{c_webify}" d="{d1}"/><path fill="{c_bharat}" d="{d2}"/>'
     return w, MARK_H + 124, body
@@ -136,7 +136,7 @@ def main():
     # Static font instances for next/og (Satori reads TTF/OTF, not woff2 or variable fonts).
     OG = ROOT / "assets/og"
     OG.mkdir(parents=True, exist_ok=True)
-    SORA.save(OG / "sora-700.ttf")
+    DISPLAY.save(OG / "baloo-da-2-700.ttf")
     instance("manrope", 600).save(OG / "manrope-600.ttf")
     print("icons + og fonts written")
 

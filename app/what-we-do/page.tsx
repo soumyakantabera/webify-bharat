@@ -1,3 +1,4 @@
+import { Arw } from "@/components/Glyph";
 import type { Metadata } from "next";
 import { glossify } from "@/components/clarity/glossify";
 import Link from "next/link";
@@ -86,7 +87,7 @@ export default function WhatWeDo() {
                     </ul>
                     <p className="price-note">{d.price}</p>
                     <Link href={p.href} className="text-link">
-                      {p.slug === "care" ? "What's included" : `Explore ${p.name.toLowerCase()}`} →
+                      {p.slug === "care" ? "What's included" : `Explore ${p.name.toLowerCase()}`} <Arw />
                     </Link>
                   </div>
                 </article>
@@ -141,7 +142,7 @@ export default function WhatWeDo() {
             ))}
           </ul>
           <p className="center-note">
-            <Link href="/integrations" className="text-link">How we work with your tools →</Link>
+            <Link href="/integrations" className="text-link">How we work with your tools <Arw /></Link>
           </p>
         </div>
       </section>

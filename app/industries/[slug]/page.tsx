@@ -1,3 +1,4 @@
+import { Arw } from "@/components/Glyph";
 import type { Metadata } from "next";
 import { glossify } from "@/components/clarity/glossify";
 import Link from "next/link";
@@ -161,7 +162,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
             <div>
               <SectionHead kicker="Get found" id="local-title" title={`Be found for “${ind.nearMe}”.`} sub="Google Business Profile, maps, reviews and city pages — set up properly, then kept up to date." />
               <Link href="/marketing/local" className="text-link">
-                How Reach Local works →
+                How Reach Local works <Arw />
               </Link>
             </div>
           </div>

@@ -1,3 +1,4 @@
+import { Arw } from "@/components/Glyph";
 import type { Metadata } from "next";
 import { SITE_URL } from "@/lib/site-url";
 import Link from "next/link";
@@ -28,17 +29,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 const STICKER: Record<string, string> = {
-  site: "Found on Google ✅",
+  site: "Found on Google",
   store: "Repeat order placed",
-  pay: "UPI received ✅",
+  pay: "UPI received",
   chat: "Booking confirmed on WhatsApp",
   pulse: "This week at a glance",
-  ledger: "Invoice sent ✅",
-  file: "GSTIN received ✅",
+  ledger: "Invoice sent",
+  file: "GSTIN received",
   desk: "Follow-up due today",
   team: "Leave approved",
   workspace: "hello@yourbusiness.in",
-  connect: "Tally ⇄ Zoho synced ✅",
+  connect: "Tally and Zoho synced",
 };
 
 export default async function BlockPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -144,7 +145,7 @@ export default async function BlockPage({ params }: { params: Promise<{ slug: st
               <strong>{price.included}.</strong>
               {price.addon ? <span> {price.addon}</span> : null}
               <span> Third-party fees (gateway, WhatsApp, licences) are billed by the provider.</span>{" "}
-              <Link href="/pricing" className="text-link">See pricing →</Link>
+              <Link href="/pricing" className="text-link">See pricing <Arw /></Link>
             </div>
           </div>
         </div>

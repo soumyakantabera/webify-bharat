@@ -3,7 +3,7 @@
   border: 1px solid var(--line);
   border-radius: 24px;
   padding: 18px 18px 14px;
-  box-shadow: 0 8px 24px rgba(28, 31, 29, 0.035);
+  box-shadow: none;
 }
 .pro-chart-head {
   display: flex;

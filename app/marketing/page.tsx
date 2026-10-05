@@ -1,3 +1,4 @@
+import { Arw } from "@/components/Glyph";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Layout from "@/components/Layout";
@@ -68,7 +69,7 @@ export default function MarketingHub() {
                 <span className="reach-tile-kicker">{r.short}</span>
                 <span className="reach-tile-title">{r.promise}</span>
                 {r.slug === "ai-visibility" ? <span className="reach-tile-mock"><AiAnswerMock /></span> : null}
-                <span className="block-tile-more" aria-hidden="true">Explore →</span>
+                <span className="block-tile-more" aria-hidden="true">Explore <Arw /></span>
               </Link>
             ))}
           </div>
@@ -119,7 +120,7 @@ export default function MarketingHub() {
               <p>We never mark up your ad spend. WhatsApp and Meta message charges are billed by them too.</p>
             </div>
           </div>
-          <p className="center-note"><Link href="/pricing#reach" className="text-link">See all Reach plans →</Link></p>
+          <p className="center-note"><Link href="/pricing#reach" className="text-link">See all Reach plans <Arw /></Link></p>
         </div>
       </section>
 

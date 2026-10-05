@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { SITE_URL } from "@/lib/site-url";
-import { asset } from "@/lib/asset";
 import "./globals.css";
 import "./pricing-ui.css";
 import "./home-pricing.css";
@@ -24,7 +23,8 @@ import "./sections.css";
 import "./pillars.css";
 import "./places.css";
 import "./rest.css";
-import { jetbrains, manrope, sora } from "./fonts";
+import "./flat.css";
+import { baloo, jetbrains, manrope } from "./fonts";
 
 export const viewport: Viewport = {
   themeColor: "#2B1E6B",
@@ -49,11 +49,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${sora.variable} ${manrope.variable} ${jetbrains.variable}`}>
-      <head>
-        <link rel="preload" href={asset("/fonts/sora.woff2")} as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href={asset("/fonts/manrope.woff2")} as="font" type="font/woff2" crossOrigin="anonymous" />
-      </head>
+    <html lang="en" className={`${baloo.variable} ${manrope.variable} ${jetbrains.variable}`}>
       <body className={manrope.className}>
         {children}
       </body>

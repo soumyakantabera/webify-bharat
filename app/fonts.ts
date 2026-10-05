@@ -1,8 +1,8 @@
 import localFont from "next/font/local";
 
-export const sora = localFont({
-  src: "./fonts/sora.woff2",
-  variable: "--font-sora",
+export const baloo = localFont({
+  src: "./fonts/baloo-da-2.woff2",
+  variable: "--font-baloo",
   display: "swap",
   weight: "400 800",
   preload: true,

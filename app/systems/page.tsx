@@ -1,3 +1,4 @@
+import { Arw } from "@/components/Glyph";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Layout from "@/components/Layout";
@@ -55,7 +56,7 @@ export default function SystemsHub() {
                     <span className="block-tile-icon"><Icon name="PlugsConnected" size={28} /></span>
                     <span className="block-tile-name">Integrations</span>
                     <span className="block-tile-line">Use our stack, or keep yours — Zoho, Odoo, Tally, Google, Microsoft.</span>
-                    <span className="block-tile-more" aria-hidden="true">Explore →</span>
+                    <span className="block-tile-more" aria-hidden="true">Explore <Arw /></span>
                   </Link>
                 ),
               },
@@ -103,7 +104,7 @@ export default function SystemsHub() {
               <li key={l!.id}><LogoChip logo={l!} showNote={false} /></li>
             ))}
           </ul>
-          <p className="center-note"><Link href="/integrations" className="text-link">How we work with your tools →</Link></p>
+          <p className="center-note"><Link href="/integrations" className="text-link">How we work with your tools <Arw /></Link></p>
         </div>
       </section>
     </Layout>

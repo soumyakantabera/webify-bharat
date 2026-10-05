@@ -1,12 +1,23 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { Plant } from "@phosphor-icons/react/dist/ssr/Plant";
+import { Buildings } from "@phosphor-icons/react/dist/ssr/Buildings";
+import { Star } from "@phosphor-icons/react/dist/ssr/Star";
+import { Scissors } from "@phosphor-icons/react/dist/ssr/Scissors";
 import { IconWhatsApp } from "@/components/icons";
 import { track } from "@/lib/analytics";
 import { EXTRA_ADDONS, FEATURES, inr, quoteAll, reachTotals, REACH_OPTIONS, type FeatureId, type Needs, type PlanSlug } from "@/lib/estimator";
 import { addons, getStage, THIRD_PARTY_COSTS } from "@/lib/offers";
 import { waLink } from "@/lib/wa-link";
 import { waEstimate } from "@/lib/wa";
+
+const STAGE_ICON = { Plant, Buildings, Star, Scissors } as const;
+
+function StageIcon({ name }: { name: string }) {
+  const I = STAGE_ICON[name as keyof typeof STAGE_ICON];
+  return I ? <I size={22} weight="duotone" aria-hidden="true" className="stage-ic" /> : null;
+}
 
 type PathOpt = { slug: string; name: string; suggestedTier: PlanSlug };
 
@@ -115,7 +126,7 @@ export function ScopeEstimator({ paths, gstNote = "" }: { paths: PathOpt[]; gstN
 
       <aside className="est-result" aria-live="polite" aria-label="Your estimate">
         <p className="est-kicker">Recommended</p>
-        <h3 className="est-stage">{stage ? `${stage.emoji} ${stage.name}` : "Let's talk — Custom"}</h3>
+        <h3 className="est-stage">{stage ? <><StageIcon name={stage.icon} /> {stage.name}</> : "Let's talk — Custom"}</h3>
         <ul className="est-compare">
           {quotes.map((q) => (
             <li key={q.stage} className={best?.stage === q.stage ? "is-best" : !q.feasible ? "is-off" : undefined}>

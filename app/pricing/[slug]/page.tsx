@@ -1,3 +1,4 @@
+import { Arw } from "@/components/Glyph";
 import type { Metadata } from "next";
 import { glossify } from "@/components/clarity/glossify";
 import Link from "next/link";
@@ -57,7 +58,7 @@ export default async function StagePage({ params }: { params: Promise<{ slug: st
         kicker={`Pricing · ${stage.name}`}
         title={
           <>
-            {stage.emoji} {stage.name}: {stage.tagline}
+            <Icon name={stage.icon} size={22} className="stage-ic" /> {stage.name}: {stage.tagline}
           </>
         }
         sub={
@@ -126,12 +127,12 @@ export default async function StagePage({ params }: { params: Promise<{ slug: st
             {next ? (
               <>
                 <SectionHead kicker="When to move up" id="next-title" title={`When ${next.name} makes more sense.`} sub={`${next.name} (${next.monthly}/month) adds: ${next.keyFeatures.slice(1, 4).join(", ").toLowerCase()}. Once you need two or three over-limit add-ons, moving up is usually cheaper — we'll tell you when.`} />
-                <Link href={`/pricing/${next.slug}`} className="text-link">See {next.name} →</Link>
+                <Link href={`/pricing/${next.slug}`} className="text-link">See {next.name} <Arw /></Link>
               </>
             ) : (
               <SectionHead kicker="Who it's for" id="next-title" title="Built from zero, run for you." sub="For unique workflows, multi-unit businesses and platforms. We start with a Compass session, then quote a setup with 40% at start, 40% at preview and 20% before launch." />
             )}
-            <p><Link href="/pricing#compare" className="text-link">Compare all stages →</Link></p>
+            <p><Link href="/pricing#compare" className="text-link">Compare all stages <Arw /></Link></p>
           </div>
         </div>
       </section>

@@ -17,7 +17,7 @@ export function PathFork({ className, labels = true }: { className?: string; lab
       </g>
       <circle cx={160} cy={150} r={10} fill="#fff" stroke="#1B1030" strokeWidth={2} />
       {labels ? (
-        <g fontFamily="var(--font-display), Arial, sans-serif" fontWeight={700} fontSize={15} textAnchor="middle" fill="#1B1030">
+        <g className="display" fontWeight={700} fontSize={15} textAnchor="middle" fill="#1B1030">
           <text x={52} y={22}>Launch</text>
           <text x={160} y={22}>Organise</text>
           <text x={268} y={22}>Grow</text>

@@ -1,3 +1,4 @@
+import { Icon } from "@/components/Icon";
 import { C, Label } from "./mocks/frames";
 
 /**
@@ -26,10 +27,10 @@ const Arrowhead = ({ id, color = C.ink }: { id: string; color?: string }) => (
 /** ChatFlow (#6): WhatsApp bubble tree — menu · booking · reminder · human. */
 export function ChatFlow({ className }: { className?: string }) {
   const branches = [
-    { y: 30, text: "📋 See the menu", fill: C.mehendiT },
-    { y: 90, text: "📅 Book a table", fill: C.peacockT },
-    { y: 150, text: "⏰ Remind me", fill: C.haldiT },
-    { y: 210, text: "🙋 Talk to a person", fill: C.raniT },
+    { y: 30, text: "See the menu", icon: "BookOpenText", fill: C.mehendiT, ink: C.mehendi },
+    { y: 90, text: "Book a table", icon: "CalendarCheck", fill: C.peacockT, ink: C.peacock },
+    { y: 150, text: "Remind me", icon: "BellRinging", fill: C.haldiT, ink: C.marigold },
+    { y: 210, text: "Talk to a person", icon: "HandWaving", fill: C.raniT, ink: C.rani },
   ];
   return (
     <svg viewBox="0 0 440 270" className={cls("svg-chatflow", className)} role="img" aria-label="An automatic WhatsApp reply offering the menu, a booking, a reminder, or a person">
@@ -40,6 +41,9 @@ export function ChatFlow({ className }: { className?: string }) {
         <g key={b.text}>
           <path d={`M184 136 C220 136 220 ${b.y + 15} 250 ${b.y + 15}`} fill="none" stroke={C.mehendi} strokeWidth="2" strokeDasharray="4 5" className="flow-dash" />
           <Chip x={250} y={b.y} w={176} text={b.text} fill={b.fill} />
+          <g transform={`translate(260 ${b.y + 6})`} color={b.ink}>
+            <Icon name={b.icon} size={18} weight="bold" />
+          </g>
         </g>
       ))}
     </svg>

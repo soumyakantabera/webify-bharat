@@ -76,7 +76,9 @@ export default function PrototypesPage() {
           <div>
             <SectionHead kicker="Why start from a prototype" id="why-title" title="Proven base → faster launch → lower setup cost." sub="Still rebuilt for your workflow and your brand. A prototype is one of five ways we can start your build." />
           </div>
-          <FiveRoutes highlight="prototype" className="why-routes" />
+          <div className="why-routes-wrap">
+            <FiveRoutes highlight="prototype" className="why-routes" />
+          </div>
         </div>
       </section>
 

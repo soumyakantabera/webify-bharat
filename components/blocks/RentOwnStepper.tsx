@@ -1,5 +1,6 @@
 "use client";
 
+import { Arw } from "@/components/Glyph";
 import { useState, type KeyboardEvent } from "react";
 import type { ChannelSet } from "@/lib/channels";
 
@@ -38,10 +39,10 @@ export function RentOwnStepper({ set }: { set: ChannelSet }) {
         </p>
         <div className="ro-nav">
           <button type="button" onClick={() => setStep((s) => Math.max(0, s - 1))} disabled={step === 0} aria-label="Previous step">
-            ←
+            <Arw dir="left" />
           </button>
           <button type="button" onClick={() => setStep((s) => Math.min(n - 1, s + 1))} disabled={step === n - 1} aria-label="Next step">
-            →
+            <Arw />
           </button>
         </div>
       </div>

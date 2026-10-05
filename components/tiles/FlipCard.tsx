@@ -1,5 +1,6 @@
 "use client";
 
+import { ArrowsClockwise } from "@phosphor-icons/react/dist/ssr/ArrowsClockwise";
 import { useState, type ReactNode } from "react";
 import { track } from "@/lib/analytics";
 
@@ -54,7 +55,7 @@ export function FlipCard({
               setPinned(true);
             }}
           >
-            {flipLabel} ↻
+            {flipLabel} <ArrowsClockwise size="1em" weight="bold" aria-hidden="true" className="ic-arw" />
           </button>
         </div>
         <div className="flip-face flip-back" inert={!shown || undefined}>

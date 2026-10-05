@@ -2,7 +2,7 @@
 .brand-hero { background: var(--surface-2); padding: 56px 0 40px; border-bottom: 1px solid var(--line); }
 .brand-hero-inner { display: grid; gap: 32px; align-items: center; }
 @media (min-width: 900px) { .brand-hero-inner { grid-template-columns: 1fr 260px; } }
-.brand-hero h1 { font: 700 clamp(36px, 5vw, 56px)/1.05 var(--font-display); letter-spacing: -0.02em; margin: 6px 0 12px; }
+.brand-hero h1 { font: 700 clamp(36px, 5vw, 56px)/1.05 var(--font-display); letter-spacing: -0.005em; margin: 6px 0 12px; }
 .brand-hero p { max-width: 62ch; color: var(--ink-2); font-size: 17px; }
 .brand-kicker { font: 700 13px/1 var(--font-body); text-transform: uppercase; letter-spacing: 0.08em; color: var(--rani-ink) !important; }
 .brand-hero-mandala { max-width: 260px; margin: 0 auto; }
@@ -12,7 +12,7 @@
 
 .brand-section { padding: 64px 0; scroll-margin-top: 80px; }
 .brand-section:nth-of-type(even) { background: var(--surface-2); }
-.brand-section h2 { font: 700 clamp(28px, 3.4vw, 40px)/1.1 var(--font-display); letter-spacing: -0.02em; margin: 0 0 8px; }
+.brand-section h2 { font: 700 clamp(28px, 3.4vw, 40px)/1.1 var(--font-display); letter-spacing: -0.005em; margin: 0 0 8px; }
 .brand-section h3 { font: 600 20px/1.2 var(--font-display); margin: 32px 0 14px; }
 .brand-intro { max-width: 70ch; color: var(--ink-2); margin: 0 0 24px; }
 
@@ -61,7 +61,7 @@
 @media (min-width: 900px) { .type-row { grid-template-columns: 260px 1fr; align-items: center; } }
 .type-row dt span { display: block; font-size: 12.5px; color: var(--muted); }
 .type-row dd { margin: 0; }
-.type-h1 dd { font: 700 clamp(36px, 4.5vw, 56px)/1.05 var(--font-display); letter-spacing: -0.02em; }
+.type-h1 dd { font: 700 clamp(36px, 4.5vw, 56px)/1.05 var(--font-display); letter-spacing: -0.005em; }
 .type-h2 dd { font: 700 clamp(28px, 3vw, 40px)/1.1 var(--font-display); }
 .type-h3 dd { font: 600 clamp(20px, 2vw, 24px)/1.2 var(--font-display); }
 .type-kicker dd { font: 700 13px/1 var(--font-body); text-transform: uppercase; letter-spacing: 0.08em; color: var(--rani-ink); }

@@ -131,7 +131,7 @@ export default function Footer({ cta }: { cta?: CtaBand }) {
 
           <div className="sf-bottom">
             <p>
-              Made in Kolkata for all of Bharat <span aria-label="India flag">🇮🇳</span> · © {new Date().getFullYear()} {BUSINESS.legalName}
+              Made in Kolkata for all of Bharat · © {new Date().getFullYear()} {BUSINESS.legalName}
             </p>
             <p className="sf-disclaimer">{TRADEMARK_DISCLAIMER}</p>
           </div>

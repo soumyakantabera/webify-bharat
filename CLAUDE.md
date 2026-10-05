@@ -3,7 +3,9 @@
 - Never invent numbers, stats, testimonials or client names. Placeholders stay hidden (published:false).
 - Use existing images in /public/images only (photo-only mode, §17.2a). No new raster images, no illustration scenes for now.
 - Every CTA uses waLink() with the page-specific message (§4.2). Messages live in `lib/wa.ts`.
-- Fonts: Sora / Manrope / JetBrains Mono (already in app/fonts.ts).
+- Fonts: Baloo Da 2 (display) / Manrope / JetBrains Mono (already in app/fonts.ts).
+- No drop shadows (box-shadow, drop-shadow, text-shadow) — flat surfaces with hairline borders; `app/flat.css` loads last. Use icons (`<Icon>`, `<Arw>`) instead of text symbols or emoji.
+- Diagrams and sample screens use example business names from `lib/examples.ts`, never "YOUR SHOP".
 - Run `npm run build` and `npm run lint` before finishing any task. Fix all errors.
 - Commit at the end of each phase with message "Phase N: <summary>".
 - The site is hosted only on GitHub Pages: `npm run build` always writes a static export to `out/` under the `/webify-bharat` base path (no Vercel). Redirects are static stub pages (see `lib/redirects.ts`); always wrap public-file paths in `asset()`; absolute URLs come from `SITE_URL` in `lib/site-url.ts`.

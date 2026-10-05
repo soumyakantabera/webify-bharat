@@ -1,3 +1,4 @@
+import { Arw } from "@/components/Glyph";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { Icon } from "@/components/Icon";
@@ -74,7 +75,7 @@ export function PathCard({ path, headingLevel = "h3" }: { path: Path; headingLev
         <div className="path-card-actions">
           <WhatsAppCTA message={path.waMessage} context={`path-${path.slug}`} path={path.slug} label={path.cta} />
           <Link href={path.href} className="text-link">
-            How it works →
+            How it works <Arw />
           </Link>
         </div>
       </div>
@@ -106,7 +107,7 @@ export function TierTicket({ stage, photo = true }: { stage: Stage; photo?: bool
       {photo ? <Img slot={stage.photo} mask="none" className="tier-strip" width={600} height={150} decorative /> : null}
       <div className="tier-body">
         <h3>
-          <span aria-hidden="true">{stage.emoji}</span> {stage.name}
+          <Icon name={stage.icon} size={20} className="stage-ic" /> {stage.name}
         </h3>
         <p className="tier-tagline">{stage.tagline}</p>
         <p className="tier-price">
