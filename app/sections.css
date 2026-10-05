@@ -535,8 +535,8 @@
 .gb-cell { position: relative; overflow: hidden; border-radius: var(--radius); background: var(--mehendi-tint); min-height: 160px; display: flex; }
 .gb-cell.has-photo { color: #fff; }
 .gb-photo { position: absolute; inset: 0; border-radius: 0; }
-.gb-cell.has-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 20%, rgba(27, 16, 48, 0.82)); }
-.gb-body { position: relative; z-index: 1; margin-top: auto; padding: 16px; display: grid; gap: 4px; }
+.gb-cell.has-photo::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, transparent 20%, rgba(27, 16, 48, 0.82)); }
+.gb-body { position: relative; z-index: 2; margin-top: auto; padding: 16px; display: grid; gap: 4px; }
 .gb-body svg { color: var(--mehendi-ink); }
 .has-photo .gb-body svg { color: var(--haldi); }
 .gb-body h3 { margin: 0; font: 700 18px/1.2 var(--font-display); }

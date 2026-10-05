@@ -19,8 +19,8 @@ export default function HeaderClient({
   mainLinks,
   replyNote,
   cta,
-  mobileCta,
-  dockCta,
+  mobileMenu,
+  mobileWa,
   icons,
 }: {
   logo: ReactNode;
@@ -29,14 +29,15 @@ export default function HeaderClient({
   mainLinks: NavLink[];
   replyNote: string;
   cta: ReactNode;
-  mobileCta: ReactNode;
-  dockCta: ReactNode;
-  icons: Record<"home" | "what" | "pricing" | "menu" | "close" | "caret", ReactNode>;
+  /** The full phone menu (server-rendered: photos, icons, chips). */
+  mobileMenu: ReactNode;
+  /** Compact WhatsApp button shown in the phone header. */
+  mobileWa: ReactNode;
+  icons: Record<"menu" | "close" | "caret", ReactNode>;
 }) {
   const pathname = usePathname();
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [sheet, setSheet] = useState(false);
-  const [section, setSection] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const progress = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLElement>(null);
@@ -94,8 +95,12 @@ export default function HeaderClient({
     };
   }, [openMenu, sheet]);
 
-  // Lock page scroll behind the mobile sheet.
+  // Lock page scroll behind the mobile sheet; start the sheet right under the header.
   useEffect(() => {
+    if (sheet) {
+      const bottom = document.querySelector(".site-header")?.getBoundingClientRect().bottom ?? 0;
+      document.documentElement.style.setProperty("--sheet-top", `${Math.max(0, Math.round(bottom))}px`);
+    }
     document.body.classList.toggle("nav-open", sheet);
     return () => document.body.classList.remove("nav-open");
   }, [sheet]);
@@ -153,15 +158,16 @@ export default function HeaderClient({
           <div className="sh-right">
             <span className="sh-reply">{replyNote}</span>
             {cta}
+            <span className="sh-wa-mobile">{mobileWa}</span>
             <button
               type="button"
-              className="sh-burger"
+              className={`sh-burger${sheet ? " is-open" : ""}`}
               aria-expanded={sheet}
               aria-controls="mobile-sheet"
-              aria-label={sheet ? "Close menu" : "Open menu"}
               onClick={() => setSheet((v) => !v)}
             >
               {sheet ? icons.close : icons.menu}
+              <span>{sheet ? "Close" : "Menu"}</span>
             </button>
           </div>
         </div>
@@ -169,55 +175,8 @@ export default function HeaderClient({
       </header>
 
       <div id="mobile-sheet" className={`mobile-sheet${sheet ? " is-open" : ""}`} hidden={!sheet}>
-        <nav aria-label="Mobile">
-          {menus.map((m) => (
-            <div key={m.id} className="ms-section">
-              <button
-                type="button"
-                className="ms-toggle"
-                aria-expanded={section === m.id}
-                aria-controls={`ms-${m.id}`}
-                onClick={() => setSection((s) => (s === m.id ? null : m.id))}
-              >
-                {m.label}
-                {icons.caret}
-              </button>
-              <div id={`ms-${m.id}`} className="ms-panel" hidden={section !== m.id}>
-                {m.mobile}
-              </div>
-            </div>
-          ))}
-          {[...mainLinks, { href: "/contact", label: "Contact" }].map((l) => (
-            <Link key={l.href} href={l.href} className="ms-link">
-              {l.label}
-            </Link>
-          ))}
-          <div className="ms-cta">
-            {mobileCta}
-            <p>{replyNote}</p>
-          </div>
-        </nav>
+        <nav aria-label="Mobile">{mobileMenu}</nav>
       </div>
-
-      <nav className="mobile-dock" aria-label="Quick links">
-        <Link href="/" className={`dock-item${pathname === "/" ? " is-active" : ""}`}>
-          {icons.home}
-          <span>Home</span>
-        </Link>
-        <Link href="/what-we-do" className={`dock-item${isActive(pathname, "/what-we-do") ? " is-active" : ""}`}>
-          {icons.what}
-          <span>What we do</span>
-        </Link>
-        <span className="dock-wa">{dockCta}</span>
-        <Link href="/pricing" className={`dock-item${isActive(pathname, "/pricing") ? " is-active" : ""}`}>
-          {icons.pricing}
-          <span>Pricing</span>
-        </Link>
-        <button type="button" className={`dock-item${sheet ? " is-active" : ""}`} aria-expanded={sheet} aria-controls="mobile-sheet" onClick={() => setSheet((v) => !v)}>
-          {sheet ? icons.close : icons.menu}
-          <span>Menu</span>
-        </button>
-      </nav>
     </>
   );
 }
