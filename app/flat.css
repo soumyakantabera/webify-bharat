@@ -259,3 +259,8 @@ a.link-card .wb-img { pointer-events: none; }
 
 /* Home H1: the hook, then the software line in a quieter size */
 .home-hero h1 .h1-sub { display: block; margin-top: 10px; font-size: 0.5em; line-height: 1.2; font-weight: 700; color: var(--ink-2); word-spacing: normal; }
+
+/* Resources dropdown: anchor under its own button, never flush to the screen edge */
+.sh-item:has(> .mega-resources) { position: relative; }
+.mega-resources { width: 440px; left: auto; right: 0; transform: none; }
+.mega-resources .mm-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
