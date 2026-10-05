@@ -145,3 +145,39 @@ button:hover > .ic-arw-left { transform: translateX(-3px); }
 .logo-badge img { object-fit: contain; }
 .logo-badge.is-wide { height: 30px; }
 .logo-badge.is-wide img { height: 20px; }
+
+/* ——— GapTable (home "The gap") ——— */
+.gx-table { max-width: 1080px; margin: 0 auto; display: grid; gap: 10px; color: var(--ink); }
+.gx-head { display: none; }
+.gx-row {
+  --t: var(--rani);
+  --tt: var(--rani-tint);
+  display: grid;
+  gap: 12px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: #fff;
+  border-left: 6px solid var(--t);
+}
+.gx-row.tone-peacock { --t: var(--peacock); --tt: var(--peacock-tint); }
+.gx-row.tone-marigold { --t: var(--marigold); --tt: var(--marigold-tint); }
+.gx-row.tone-mehendi { --t: var(--mehendi); --tt: var(--mehendi-tint); }
+.gx-row.tone-indigo { --t: var(--indigo); --tt: var(--indigo-tint); }
+.gx-exists { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.gx-chip { display: inline-flex; align-items: center; gap: 6px; min-height: 34px; padding: 4px 10px; border-radius: 10px; background: var(--surface); border: 1px solid var(--line); font-size: 13px; font-weight: 700; color: var(--ink-2); }
+.gx-chip img { width: 18px; height: 18px; object-fit: contain; }
+.gx-chip.is-wordmark img { width: auto; height: 18px; max-width: 76px; }
+.gx-chip .wb-ic { color: var(--t); }
+.gx-lack { margin: 0; display: flex; align-items: center; gap: 10px; font-size: 14.5px; font-weight: 600; color: var(--ink-2); }
+.gx-lack-ic { flex: none; display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: var(--tt); color: var(--t); }
+.gx-fit { margin: 0; display: flex; align-items: center; gap: 10px; }
+.gx-arrow { flex: none; display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--tt); color: var(--t); }
+.gx-arrow .ic-arw { margin: 0; }
+.gx-fit-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 12px; background: var(--t); color: #fff; font: 700 14.5px/1.25 var(--font-display); }
+.gx-fit-badge .wb-ic [opacity="0.2"] { fill: currentColor; opacity: 0.3; }
+.gx-row.tone-marigold .gx-fit-badge { color: var(--ink); }
+@media (min-width: 900px) {
+  .gx-head { display: grid; grid-template-columns: 1.15fr 1fr 1.1fr; gap: 16px; padding: 0 24px; color: #fff; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+  .gx-head span { display: inline-flex; align-items: center; gap: 6px; }
+  .gx-row { grid-template-columns: 1.15fr 1fr 1.1fr; align-items: center; gap: 16px; padding: 14px 18px 14px 18px; }
+}

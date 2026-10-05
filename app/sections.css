@@ -178,12 +178,6 @@
 
 /* ---------- Gap burst (§9.1 #4) ---------- */
 .gap-art { max-width: 760px; margin: 0 auto 32px; background: #fff; border-radius: var(--radius-lg); padding: 12px 16px; box-shadow: none; }
-.gap-rows { list-style: none; padding: 0; margin: 0 auto; max-width: 1000px; display: grid; gap: 10px; }
-.gap-rows li { display: grid; gap: 4px 12px; padding: 12px 16px; border-radius: 16px; background: rgba(255, 255, 255, 0.16); backdrop-filter: blur(4px); font-size: 14.5px; font-weight: 600; }
-@media (min-width: 900px) { .gap-rows li { grid-template-columns: 1fr 1.2fr 1fr; align-items: center; } }
-.gap-exists { opacity: 0.92; }
-.gap-lack::before { content: "Missing: "; font-weight: 800; }
-.gap-fit { padding: 4px 10px; border-radius: 999px; background: #fff; color: var(--ink); font-weight: 800; justify-self: start; }
 .gap-bazaar { margin-top: 48px; padding: 0 0 18px; }
 .gap-bazaar .bazaar-cell { width: 160px; height: 120px; }
 

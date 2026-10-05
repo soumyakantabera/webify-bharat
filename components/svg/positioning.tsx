@@ -3,9 +3,8 @@ import { blocks } from "@/lib/blocks";
 import { BUILD_ROUTES } from "@/lib/build-routes";
 import { EXAMPLE } from "@/lib/examples";
 import { pillars } from "@/lib/pillars";
-import { logos } from "@/lib/logos";
-import { asset } from "@/lib/asset";
 import { KiranaFront, RestaurantFront } from "./shopfronts";
+import { LogoBadge } from "./LogoBadge";
 import { C, Label } from "./mocks/frames";
 
 /**
@@ -240,7 +239,6 @@ export function PlatformLayers({ className }: { className?: string }) {
   );
 }
 
-const logoByName = (name: string) => logos.find((l) => l.name === name || l.id === name.toLowerCase() || l.id.startsWith(`${name.toLowerCase()}-`));
 
 /** GapBridge (#29): app chips on one bank, a kirana store on the other, Webify's four pillars as the bridge deck. */
 export function GapBridge({ apps = ["Zoho", "Odoo", "Tally", "Google", "Microsoft", "Razorpay"], className }: { apps?: string[]; className?: string }) {
@@ -267,24 +265,9 @@ export function GapBridge({ apps = ["Zoho", "Odoo", "Tally", "Google", "Microsof
       <path d="M640 200 H476 L454 306 H640Z" fill={C.surface2} stroke={C.ink} strokeWidth="1.5" />
       <path d="M0 200 H164 M476 200 H640" stroke={C.mehendi} strokeWidth="4" />
       {/* the tools, waiting on the far bank — real marks where an open one exists */}
-      {apps.slice(0, 6).map((a, i) => {
-        const x = 12 + (i % 2) * 74;
-        const y = 84 + Math.floor(i / 2) * 36;
-        const logo = logoByName(a);
-        return (
-          <g key={a}>
-            <rect x={x} y={y} width="68" height="28" rx="14" fill="#fff" stroke={C.muted} strokeDasharray="3 3" />
-            {logo?.file && logo.wordmark ? (
-              <image href={asset(logo.file)} x={x + 12} y={y + 6} width="44" height="16" preserveAspectRatio="xMidYMid meet" />
-            ) : (
-              <g>
-                {logo?.file ? <image href={asset(logo.file)} x={x + 8} y={y + 7} width="14" height="14" /> : null}
-                <Label x={logo?.file ? x + 26 : x + 34} y={y + 18} size={9.5} fill={C.ink2} anchor={logo?.file ? "start" : "middle"}>{a}</Label>
-              </g>
-            )}
-          </g>
-        );
-      })}
+      {apps.slice(0, 6).map((a, i) => (
+        <LogoBadge key={a} x={6 + (i % 2) * 84} y={82 + Math.floor(i / 2) * 38} w={80} h={30} size={9.5} name={a} title={a} label stroke={C.muted} />
+      ))}
       <Label x={82} y={70} size={10} weight={700} fill={C.muted} anchor="middle">GREAT TOOLS</Label>
       {/* towers, cable, hangers */}
       {[180, 454].map((x) => (

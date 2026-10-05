@@ -30,17 +30,17 @@ export const logos: Logo[] = [
   { id: "cashfree", name: "Cashfree", file: "/images/logos/cashfree.webp", wordmark: true, group: "pay" },
   { id: "stripe", name: "Stripe", file: "/images/logos/stripe.svg", group: "pay", note: "international" },
   { id: "paypal", name: "PayPal", file: "/images/logos/paypal.svg", group: "pay", note: "on request" },
-  { id: "gpay", name: "GPay", file: "/images/logos/gpay.svg", group: "upi" },
+  { id: "gpay", name: "GPay", file: "/images/logos/gpay.svg", wordmark: true, group: "upi" },
   { id: "phonepe", name: "PhonePe", file: "/images/logos/phonepe.svg", group: "upi" },
-  { id: "paytm", name: "Paytm", file: "/images/logos/paytm.svg", group: "upi" },
+  { id: "paytm", name: "Paytm", file: "/images/logos/paytm.svg", wordmark: true, group: "upi" },
   { id: "bhim", name: "BHIM", file: "/images/logos/bhim.webp", wordmark: true, group: "upi" },
   { id: "rupay", name: "RuPay", file: "/images/logos/rupay.webp", wordmark: true, group: "upi" },
-  { id: "visa", name: "Visa", file: "/images/logos/visa.svg", group: "upi" },
+  { id: "visa", name: "Visa", file: "/images/logos/visa.svg", wordmark: true, group: "upi" },
   { id: "mastercard", name: "Mastercard", file: "/images/logos/mastercard.svg", group: "upi" },
   { id: "amex", name: "Amex", file: "/images/logos/amex.svg", group: "upi" },
 
   // §5.2 What we build on
-  { id: "github-pages", name: "GitHub Pages", file: "/images/logos/github-pages.svg", group: "build" },
+  { id: "github-pages", name: "GitHub Pages", file: "/images/logos/github-pages.svg", wordmark: true, group: "build" },
   { id: "nextjs", name: "Next.js", file: "/images/logos/nextjs.svg", group: "build" },
   { id: "github", name: "GitHub", file: "/images/logos/github.svg", group: "build" },
   { id: "cloudflare", name: "Cloudflare DNS", file: "/images/logos/cloudflare.svg", group: "build" },
@@ -50,13 +50,16 @@ export const logos: Logo[] = [
   { id: "google", name: "Google", file: "/images/logos/google.svg", group: "channel" },
   { id: "google-maps", name: "Maps / Business Profile", file: "/images/logos/google-maps.svg", group: "channel" },
   { id: "google-analytics", name: "Analytics", file: "/images/logos/google-analytics.svg", group: "channel" },
+  { id: "meta", name: "Meta", file: "/images/logos/meta.svg", group: "channel" },
+  { id: "bing", name: "Bing", file: "/images/logos/bing.svg", group: "channel" },
+  { id: "google-ads", name: "Google Ads", file: "/images/logos/google-ads.svg", group: "channel" },
   { id: "instagram", name: "Instagram", file: "/images/logos/instagram.svg", group: "channel" },
   { id: "shiprocket", name: "Shiprocket", group: "channel" },
 
   // §5.3a Business software we build on or integrate
-  { id: "odoo", name: "Odoo", file: "/images/logos/odoo.svg", group: "software" },
+  { id: "odoo", name: "Odoo", file: "/images/logos/odoo.svg", wordmark: true, group: "software" },
   { id: "erpnext", name: "ERPNext", file: "/images/logos/erpnext.svg", group: "software" },
-  { id: "zoho", name: "Zoho", file: "/images/logos/zoho.svg", group: "software" },
+  { id: "zoho", name: "Zoho", file: "/images/logos/zoho.svg", wordmark: true, group: "software" },
   { id: "tally", name: "Tally", file: "/images/logos/tally.webp", wordmark: true, group: "software" },
   { id: "google-workspace", name: "Google Workspace", file: "/images/logos/google-workspace.svg", wordmark: true, group: "software" },
   { id: "gmail", name: "Gmail", file: "/images/logos/gmail.svg", group: "software" },
@@ -75,7 +78,7 @@ export const logos: Logo[] = [
   { id: "justdial", name: "Justdial", group: "marketplace" },
   { id: "sulekha", name: "Sulekha", group: "marketplace" },
   { id: "indiamart", name: "IndiaMART", group: "marketplace" },
-  { id: "zomato", name: "Zomato", file: "/images/logos/zomato.svg", group: "marketplace" },
+  { id: "zomato", name: "Zomato", file: "/images/logos/zomato.svg", wordmark: true, group: "marketplace" },
   { id: "swiggy", name: "Swiggy", file: "/images/logos/swiggy.svg", group: "marketplace" },
   { id: "amazon", name: "Amazon", file: "/images/logos/amazon.svg", group: "marketplace" },
   { id: "flipkart", name: "Flipkart", file: "/images/logos/flipkart.svg", group: "marketplace" },
@@ -97,6 +100,12 @@ export const TRADEMARK_DISCLAIMER =
 
 export function logosIn(...groups: LogoGroup[]) {
   return logos.filter((l) => groups.includes(l.group));
+}
+
+/** Look up by id ("google-sheets") or display name ("Google Sheets", "Microsoft"). */
+export function findLogo(name: string) {
+  const key = name.toLowerCase().replace(/\s+/g, "-");
+  return logos.find((l) => l.id === key || l.name.toLowerCase() === name.toLowerCase()) ?? logos.find((l) => l.id.startsWith(`${key}-`));
 }
 
 export function getLogo(id: string) {

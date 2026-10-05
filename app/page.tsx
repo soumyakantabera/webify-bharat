@@ -9,6 +9,7 @@ import { Webu } from "@/components/Webu";
 import { ArchWindows, BazaarStrip, Img, PhotoBento, RangoliCollage } from "@/components/collage";
 import { GlossaryChip, WeAreStrip } from "@/components/clarity";
 import { FaqList } from "@/components/FaqList";
+import { GapTable, type GapRow } from "@/components/GapTable";
 import { PrototypeTeaser } from "@/components/prototypes/PrototypeTeaser";
 import { StoryRail } from "@/components/slides/StoryRail";
 import { FlipCard, PathCard, SectionHead, TierTicket } from "@/components/tiles";
@@ -33,12 +34,12 @@ import { WA_MSG, waIndustry } from "@/lib/wa";
 export const metadata: Metadata = pageMetadata("home");
 
 /** §2.0.2 — the gap we fill. */
-const GAP_ROWS = [
-  { exists: "Zoho, Odoo, Tally, Google, Microsoft", lack: "Someone to choose, set up and customise them", fit: "We plan, configure or build it — in your brand" },
-  { exists: "UPI, Razorpay, Cashfree, Stripe", lack: "Payments connected to invoices, WhatsApp and books", fit: "We wire it all together" },
-  { exists: "Zomato, Swiggy, Amazon, IndiaMART", lack: "A channel of your own for regulars", fit: "We build it alongside them" },
-  { exists: "Google, Meta, Bing — and AI assistants", lack: "Know-how and time for ads, SEO and AI visibility", fit: "We run your marketing" },
-  { exists: "Freelancers & agencies", lack: "Someone who stays after launch", fit: "Your monthly plan includes care" },
+const GAP_ROWS: GapRow[] = [
+  { exists: ["zoho", "odoo", "tally", "google", "microsoft-365"], lack: "Someone to choose, set up and customise them", fit: "We plan, configure or build it — in your brand", fitIcon: "SquaresFour", tone: "rani" },
+  { exists: ["upi", "razorpay", "cashfree", "stripe"], lack: "Payments connected to invoices, WhatsApp and books", fit: "We wire it all together", fitIcon: "PlugsConnected", tone: "peacock" },
+  { exists: ["zomato", "swiggy", "amazon", "indiamart"], lack: "A channel of your own for regulars", fit: "We build it alongside them", fitIcon: "ShoppingBag", tone: "marigold" },
+  { exists: ["google", "meta", "bing", { label: "AI assistants", icon: "Sparkle" }], lack: "Know-how and time for ads, SEO and AI visibility", fit: "We run your marketing", fitIcon: "Megaphone", tone: "mehendi" },
+  { exists: [{ label: "Freelancers", icon: "UserCircleGear" }, { label: "Agencies", icon: "Buildings" }], lack: "Someone who stays after launch", fit: "Your monthly plan includes care", fitIcon: "Lifebuoy", tone: "indigo" },
 ];
 
 const BENTO_ICONS = ["site", "chat", "ledger"] as const;
@@ -146,15 +147,7 @@ export default function Home() {
           <div className="gap-art">
             <GapBridge />
           </div>
-          <ul className="gap-rows">
-            {GAP_ROWS.map((g) => (
-              <li key={g.exists}>
-                <span className="gap-exists">{g.exists}</span>
-                <span className="gap-lack">{glossify(g.lack)}</span>
-                <span className="gap-fit">{g.fit}</span>
-              </li>
-            ))}
-          </ul>
+          <GapTable rows={GAP_ROWS.map((g) => ({ ...g, lack: glossify(g.lack) }))} />
         </div>
         <BazaarStrip className="gap-bazaar" />
       </section>
