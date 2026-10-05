@@ -52,8 +52,7 @@
 }
 .hero-visual.is-overlay .hero-shot-slip {
   animation: overlay-float 7s ease-in-out 1s infinite alternate;
-  filter: drop-shadow(0 26px 30px rgba(20, 24, 22, 0.28))
-    drop-shadow(0 3px 4px rgba(20, 24, 22, 0.16));
+  filter: none;
 }
 @keyframes overlay-float {
   from { transform: translateY(0); }

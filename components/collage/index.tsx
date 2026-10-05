@@ -101,7 +101,7 @@ export function PolaroidCluster({ items }: { items: { slot: string; caption: str
   );
 }
 
-export type BentoCell = { slot: string; alt?: string } | { icon: ReactNode; label: string; tone: Tone };
+export type BentoCell = { slot: string; alt?: string } | { icon: ReactNode; label: string; tone: Tone; detail?: string };
 
 /** D — 1 large (2×2) + up to 8 small cells mixing photos and colour tiles. */
 export function PhotoBento({ cells }: { cells: BentoCell[] }) {
@@ -114,6 +114,7 @@ export function PhotoBento({ cells }: { cells: BentoCell[] }) {
           <div key={cell.label} className={`pb-cell pb-tile tone-${cell.tone}`}>
             <span className="pb-icon">{cell.icon}</span>
             <span className="pb-label">{cell.label}</span>
+            {cell.detail ? <span className="pb-detail">{cell.detail}</span> : null}
           </div>
         ),
       )}

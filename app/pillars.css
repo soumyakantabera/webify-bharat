@@ -32,7 +32,7 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 .block-tile::after { content: ""; position: absolute; right: 0; top: 0; width: 28px; height: 28px; background: linear-gradient(225deg, var(--surface) 50%, color-mix(in srgb, var(--accent) 30%, #fff) 50%); transition: transform 0.2s ease; transform-origin: top right; }
-.block-tile:hover { transform: translateY(-3px); box-shadow: var(--shadow-soft); background: color-mix(in srgb, var(--accent, var(--indigo)) 14%, #fff); }
+.block-tile:hover { transform: translateY(-3px); box-shadow: none; background: color-mix(in srgb, var(--accent, var(--indigo)) 14%, #fff); }
 .block-tile:hover::after { transform: rotate(8deg) scale(1.15); }
 .block-tile-icon { width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; background: #fff; color: var(--accent, var(--indigo)); position: relative; z-index: 1; }
 .block-tile-name { margin: 4px 0 0; font: 700 19px/1.2 var(--font-display); position: relative; z-index: 1; }
@@ -56,7 +56,7 @@
 .honeycomb li:hover { background: color-mix(in srgb, var(--accent) 22%, #fff); }
 
 /* Block hero signature art over photo */
-.sig-art { background: #fff; border-radius: 16px; padding: 8px; box-shadow: 0 16px 36px rgba(27, 16, 48, 0.2); }
+.sig-art { background: #fff; border-radius: 16px; padding: 8px; box-shadow: none; }
 .sig-art .mock-phone, .sig-art .phone-sm { max-width: 150px; margin: 0 auto; }
 
 /* Rent + Own stepper */
@@ -106,7 +106,7 @@
 .reach-bento { display: grid; gap: 14px; }
 @media (min-width: 900px) { .reach-bento { grid-template-columns: repeat(4, 1fr); grid-auto-rows: minmax(190px, auto); } .reach-tile.is-featured { grid-column: span 2; grid-row: span 2; } }
 .reach-tile { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 20px; border-radius: var(--radius); background: color-mix(in srgb, var(--accent) 9%, #fff); border: 1px solid color-mix(in srgb, var(--accent) 25%, #fff); transition: transform 0.2s ease, box-shadow 0.2s ease; }
-.reach-tile:hover { transform: translateY(-3px); box-shadow: var(--shadow-soft); }
+.reach-tile:hover { transform: translateY(-3px); box-shadow: none; }
 .reach-tile-icon { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; background: #fff; color: var(--accent); }
 .reach-tile-kicker { font: 700 12.5px var(--font-body); text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
 .reach-tile-title { font: 700 18px/1.3 var(--font-display); }
@@ -147,7 +147,7 @@
 @media (min-width: 640px) { .stage-row { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1200px) { .stage-row { grid-template-columns: repeat(4, 1fr); } }
 .stage-card { position: relative; display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; transition: transform 0.2s ease, box-shadow 0.2s ease; }
-.stage-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-soft); }
+.stage-card:hover { transform: translateY(-4px); box-shadow: none; }
 .stage-card.is-popular { border: 2px solid var(--haldi); }
 @media (min-width: 1200px) { .stage-card.is-popular { transform: translateY(-8px); } .stage-card.is-popular:hover { transform: translateY(-12px); } }
 .stage-card .ticks { font-size: 14px; }
@@ -229,7 +229,7 @@
 .est-checks label { display: flex; align-items: flex-start; gap: 8px; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--line); font-size: 14px; font-weight: 600; cursor: pointer; }
 .est-checks input { width: 18px; height: 18px; margin-top: 1px; accent-color: var(--peacock); flex-shrink: 0; }
 .est-checks small { display: block; color: var(--muted); font-weight: 500; }
-.est-result { padding: 22px; border-radius: var(--radius-lg); background: #fff; box-shadow: 0 20px 50px rgba(27, 16, 48, 0.25); }
+.est-result { padding: 22px; border-radius: var(--radius-lg); background: #fff; box-shadow: none; }
 .est-kicker { margin: 0; font: 700 12.5px var(--font-body); text-transform: uppercase; letter-spacing: 0.08em; color: var(--peacock-ink); }
 .est-stage { margin: 4px 0 14px; font: 700 30px var(--font-display); }
 .est-compare { list-style: none; padding: 0; margin: 0 0 16px; display: grid; gap: 6px; }
@@ -247,7 +247,7 @@
 
 /* Stage pages */
 .hero-price { font-size: 1.15em; color: var(--ink); }
-.stage-hero-photo { aspect-ratio: 4 / 5; max-height: 460px; border: 4px solid #fff; box-shadow: var(--shadow-soft); }
+.stage-hero-photo { aspect-ratio: 4 / 5; max-height: 460px; border: 4px solid #fff; box-shadow: none; }
 .limit-list { margin: 0; display: grid; gap: 6px; }
 .limit-list div { display: flex; justify-content: space-between; gap: 12px; padding: 10px 14px; border-radius: 12px; background: #fff; border: 1px solid var(--line); }
 .limit-list dt { font-weight: 600; }

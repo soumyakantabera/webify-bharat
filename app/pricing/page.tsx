@@ -1,3 +1,4 @@
+import { Arw } from "@/components/Glyph";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Layout from "@/components/Layout";
@@ -151,7 +152,7 @@ export default function Pricing() {
                 {compassOffers.map((o) => `${o.name.replace("Compass ", "")} ${o.price}`).join(" · ")}. {COMPASS_CREDIT.compassCreditable ? COMPASS_CREDIT.line : ""} The first WhatsApp chat is always free.
               </p>
             </div>
-            <Link href="/strategy" className="text-link">About Compass →</Link>
+            <Link href="/strategy" className="text-link">About Compass <Arw /></Link>
           </div>
         </div>
       </section>

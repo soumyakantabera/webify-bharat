@@ -1,4 +1,5 @@
 import { Bar, BrowserBar, C, Label, LaptopFrame, PhoneFrame } from "./frames";
+import { EXAMPLE } from "@/lib/examples";
 
 /**
  * Illustrated prototype teasers (content-plan §9.10, §6.10 #19). Concept
@@ -125,7 +126,7 @@ function Retail() {
   const tints = [C.raniT, C.haldiT, C.peacockT, C.mehendiT];
   return (
     <PhoneFrame label={MOCK_LABELS.retail}>
-      <Label x={14} y={40} size={13}>Your store</Label>
+      <Label x={14} y={40} size={13}>{EXAMPLE.kirana.name}</Label>
       <rect x="14" y="50" width="152" height="24" rx="12" fill={C.surface2} />
       <Bar x={26} y={59} w={70} />
       {tints.map((t, i) => (
@@ -182,7 +183,7 @@ function Manufacturer() {
 function Crm() {
   return (
     <LaptopFrame label={MOCK_LABELS.crm}>
-      <BrowserBar title="your business · CRM" />
+      <BrowserBar title={`${EXAMPLE.traders.name} · CRM`} />
       {[C.raniT, C.peacockT, C.haldiT].map((t, i) => (
         <g key={i} transform={`translate(${16 + i * 138} 34)`}>
           <rect width="130" height="30" rx="8" fill={t} />

@@ -1,3 +1,4 @@
+import { Arw } from "@/components/Glyph";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -113,7 +114,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
           </div>
           <p className="center-note">
             <Link href="/industries" className="text-link">
-              See how we build for each trade →
+              See how we build for each trade <Arw />
             </Link>
           </p>
         </div>
@@ -141,15 +142,15 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                 className="local-search"
                 messages={[
                   { from: "them", text: "Same order as last Friday?" },
-                  { from: "you", text: "Yes! Paid by UPI ✅" },
-                  { from: "them", text: "Ready in 25 minutes 🍲" },
+                  { from: "you", text: "Yes! Paid by UPI" },
+                  { from: "them", text: "Ready in 25 minutes" },
                 ]}
               />
             </div>
             <div>
               <SectionHead kicker="Restaurants & cloud kitchens" id="food-title" title={`Direct orders for ${city.name}'s regulars.`} sub="Keep the delivery apps for new customers. Give regulars a menu they can order from directly, with payments and order updates on WhatsApp." />
               <Link href="/industries/restaurant" className="text-link">
-                How we build for restaurants →
+                How we build for restaurants <Arw />
               </Link>
             </div>
           </div>
@@ -177,7 +178,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
           </div>
           <p className="center-note">
             <Link href="/cities" className="text-link">
-              All {cities.length} cities →
+              All {cities.length} cities <Arw />
             </Link>
           </p>
         </div>

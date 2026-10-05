@@ -2,7 +2,7 @@
  * Ecosystem logos (content-plan §5).
  * `file` points at /public/images/logos/<id>.svg once the owner adds the
  * official SVG from the brand's press kit. Until then `file` is undefined and
- * the UI renders a text wordmark chip (Sora 600). Never hotlink.
+ * the UI renders a text wordmark chip (Baloo Da 2 600). Never hotlink.
  *
  * Wording rules: "Payments we set up", "Works with", "Compared to".
  * Never "partner", "certified" or "official" unless true.

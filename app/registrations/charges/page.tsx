@@ -1,3 +1,4 @@
+import { Arw } from "@/components/Glyph";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Layout from "@/components/Layout";
@@ -55,7 +56,7 @@ export default function ChargesPage() {
           </div>
           <p className="center-note">
             <Link href="/registrations" className="text-link">
-              ← All filings
+              <Arw dir="left" /> All filings
             </Link>
           </p>
         </div>

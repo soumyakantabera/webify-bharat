@@ -1,3 +1,5 @@
+import { EXAMPLE } from "@/lib/examples";
+
 /**
  * TailorTape (content-plan §6.10 #17): a measuring tape wrapped round a
  * shopfront — the "made to measure, not a template" metaphor.
@@ -16,7 +18,7 @@ export function TailorTape({ className }: { className?: string }) {
       <rect x={176} y={120} width={52} height={110} rx={6} fill="#FFF4D6" stroke="#1B1030" strokeWidth={2} />
       <circle cx={218} cy={176} r={3} fill="#1B1030" />
       <rect x={110} y={84} width={100} height={18} rx={4} fill="#2B1E6B" />
-      <text x={160} y={97} textAnchor="middle" fontFamily="var(--font-display), Arial, sans-serif" fontWeight={700} fontSize={11} fill="#fff">YOUR SHOP</text>
+      <text x={160} y={97} textAnchor="middle" className="display" fontWeight={700} fontSize={11} fill="#fff">{EXAMPLE.tailor.name.toUpperCase()}</text>
       <path d="M40 230 H280" stroke="#1B1030" strokeWidth={2} strokeLinecap="round" />
 
       {/* Tape */}
@@ -26,7 +28,7 @@ export function TailorTape({ className }: { className?: string }) {
         <circle r={20} fill="#FFB400" stroke="#1B1030" strokeWidth={2} />
         <circle r={6} fill="#fff" stroke="#1B1030" strokeWidth={2} />
       </g>
-      <text fontFamily="var(--font-mono), monospace" fontSize={9} fontWeight={700} fill="#1B1030">
+      <text className="mono" fontSize={9} fontWeight={700} fill="#1B1030">
         <textPath href="#tt-curve" startOffset="22%">made · to · measure</textPath>
       </text>
     </svg>

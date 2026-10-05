@@ -1,3 +1,4 @@
+import { Arw } from "@/components/Glyph";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Layout from "@/components/Layout";
@@ -44,7 +45,7 @@ function FilingTile({ item }: { item: Registration }) {
           <Icon name="GlobeHemisphereWest" size={16} /> Coordinated with a registered agent
         </span>
       )}
-      <span className="filing-more">What you need →</span>
+      <span className="filing-more">What you need <Arw /></span>
     </Link>
   );
 }
@@ -81,7 +82,7 @@ export default function RegistrationsPage() {
               <strong>Starting from scratch?</strong> Registrations are part of the Launch path — with brand, website, payments and WhatsApp.
             </p>
             <Link href="/solutions/launch" className="text-link">
-              See the Launch path →
+              See the Launch path <Arw />
             </Link>
           </div>
         </div>
@@ -104,7 +105,7 @@ export default function RegistrationsPage() {
           <FeeDonut />
           <p className="center-note">
             <Link href="/registrations/charges" className="text-link">
-              Other charges outside our fee →
+              Other charges outside our fee <Arw />
             </Link>
           </p>
         </div>

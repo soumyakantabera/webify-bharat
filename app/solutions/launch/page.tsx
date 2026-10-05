@@ -1,3 +1,4 @@
+import { Arw } from "@/components/Glyph";
 import type { Metadata } from "next";
 import Layout from "@/components/Layout";
 import { BreadcrumbLd } from "@/components/SeoLd";
@@ -83,7 +84,7 @@ export default function Launch() {
                 <StickerCard key={s.title} icon={s.icon} title={s.title} tone="marigold" />
               ))}
             </div>
-            <span className="six-arrow" aria-hidden="true">→</span>
+            <span className="six-arrow" aria-hidden="true"><Arw /></span>
             <div className="one-card">
               <Icon name="UsersThree" size={40} />
               <strong>Webify Bharat</strong>

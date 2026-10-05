@@ -9,13 +9,13 @@
 /* ---------- Industry hub tiles ---------- */
 .industry-grid-v2 { display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
 .industry-tile { position: relative; display: flex; flex-direction: column; border-radius: var(--radius-lg); overflow: hidden; background: #fff; border: 1px solid var(--line); color: var(--ink); text-decoration: none; transition: transform 0.2s ease, box-shadow 0.2s ease; }
-a.industry-tile:hover { transform: translateY(-3px); box-shadow: var(--shadow-soft); }
+a.industry-tile:hover { transform: translateY(-3px); box-shadow: none; }
 a.industry-tile:focus-visible { outline: 3px solid var(--haldi); outline-offset: 3px; }
 .industry-tile-photo { aspect-ratio: 16 / 10; width: 100%; }
 .industry-tile-photo img { width: 100%; height: 100%; object-fit: cover; }
 .industry-tile-band { height: 6px; background: var(--accent); }
 .industry-tile-body { display: flex; flex-direction: column; gap: 8px; padding: 18px 18px 20px; flex: 1; }
-.industry-tile-icon { width: 44px; height: 44px; margin-top: -40px; border-radius: 14px; display: grid; place-items: center; background: #fff; color: var(--accent); box-shadow: var(--shadow-soft); position: relative; }
+.industry-tile-icon { width: 44px; height: 44px; margin-top: -40px; border-radius: 14px; display: grid; place-items: center; background: #fff; color: var(--accent); box-shadow: none; position: relative; }
 .industry-tile-name { margin: 0; font: 700 20px/1.2 var(--font-display); }
 .industry-tile-line { font-size: 14.5px; color: var(--ink-2); line-height: 1.45; }
 .industry-tile-stack { font-size: 13px; font-weight: 700; color: color-mix(in srgb, var(--accent) 70%, var(--ink)); }
@@ -28,7 +28,7 @@ a.industry-tile:focus-visible { outline: 3px solid var(--haldi); outline-offset:
 .ind-hero-art { position: relative; max-width: 460px; margin-inline: auto; padding-bottom: 30px; }
 .ind-hero-art .arch-windows { max-width: 340px; }
 .ind-polaroids { position: absolute; right: 0; bottom: 0; display: flex; gap: 10px; }
-.ind-polaroid { position: relative; margin: 0; width: 150px; padding: 8px 8px 22px; background: #fff; border-radius: 6px; box-shadow: var(--shadow-soft); transform: rotate(4deg); }
+.ind-polaroid { position: relative; margin: 0; width: 150px; padding: 8px 8px 22px; background: #fff; border-radius: 6px; box-shadow: none; transform: rotate(4deg); }
 .ind-polaroid-2 { transform: rotate(-5deg) translateY(-30px); }
 .ind-polaroid img { display: block; width: 100%; aspect-ratio: 6 / 5; object-fit: cover; border-radius: 3px; }
 @media (max-width: 520px) { .ind-polaroid { width: 112px; } .ind-polaroid-2 { display: none; } }
@@ -60,7 +60,7 @@ a.industry-tile:focus-visible { outline: 3px solid var(--haldi); outline-offset:
 @media (min-width: 900px) { .local-tile { grid-template-columns: 1fr 1fr; } }
 .local-art { position: relative; max-width: 460px; margin-inline: auto; width: 100%; }
 .local-map { width: 100%; height: auto; display: block; }
-.local-search { display: block; width: 72%; height: auto; margin: -60px 0 0 auto; position: relative; filter: drop-shadow(0 12px 24px rgba(27, 16, 48, 0.18)); }
+.local-search { display: block; width: 72%; height: auto; margin: -60px 0 0 auto; position: relative; filter: none; }
 #food .local-search { width: 80%; margin: 0 auto; }
 
 .proto-row { display: grid; gap: 16px; }
@@ -109,7 +109,7 @@ a.industry-tile:focus-visible { outline: 3px solid var(--haldi); outline-offset:
 .proto-hero .container { position: relative; }
 @media (min-width: 900px) { .proto-hero { padding: 88px 0 100px; } }
 .proto-pinboard { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; max-width: 460px; margin-inline: auto; padding-bottom: 20px; }
-.proto-pin { position: relative; margin: 0; padding: 10px; background: #fff; border-radius: 8px; box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3); }
+.proto-pin { position: relative; margin: 0; padding: 10px; background: #fff; border-radius: 8px; box-shadow: none; }
 .proto-pin-1 { transform: rotate(-4deg); }
 .proto-pin-2 { transform: rotate(3deg) translateY(18px); }
 .proto-pin-3 { transform: rotate(2deg); }
@@ -124,7 +124,7 @@ a.industry-tile:focus-visible { outline: 3px solid var(--haldi); outline-offset:
 
 .two-col { display: grid; gap: 28px; align-items: center; }
 @media (min-width: 900px) { .two-col { grid-template-columns: 1fr 1fr; } }
-.why-routes { width: 100%; height: auto; max-width: 520px; margin-inline: auto; display: block; }
+.why-routes { width: 100%; height: auto; max-width: 720px; margin-inline: auto; display: block; }
 
 .walk-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); counter-reset: none; }
 .walk-steps li { position: relative; display: flex; flex-direction: column; gap: 6px; padding: 22px 18px 18px; border-radius: var(--radius); background: var(--indigo-tint); color: var(--ink); font-size: 14.5px; line-height: 1.45; }

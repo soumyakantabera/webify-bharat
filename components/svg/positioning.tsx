@@ -1,5 +1,9 @@
 import { Icon } from "@/components/Icon";
 import { blocks } from "@/lib/blocks";
+import { BUILD_ROUTES } from "@/lib/build-routes";
+import { EXAMPLE } from "@/lib/examples";
+import { pillars } from "@/lib/pillars";
+import { KiranaFront, RestaurantFront } from "./shopfronts";
 import { C, Label } from "./mocks/frames";
 
 /**
@@ -91,31 +95,66 @@ export function AccessLayers({ className }: { className?: string }) {
   );
 }
 
-/** FiveRoutes (#24): five roads meeting at one shop — the prototype road is shortest. */
-export function FiveRoutes({ className, highlight }: { className?: string; highlight?: "prototype" }) {
-  const routes = [
-    { label: "Adapt our prototype", d: "M300 130 L420 130", f: C.mehendi, ly: 144, lx: 150 },
-    { label: "From scratch", d: "M40 30 C200 30 260 120 420 128", f: C.rani, ly: 30, lx: 40 },
-    { label: "On open source", d: "M40 90 C180 90 300 126 420 129", f: C.indigo, ly: 90, lx: 40 },
-    { label: "Budget route", d: "M40 170 C180 170 300 134 420 131", f: C.haldi, ly: 170, lx: 40 },
-    { label: "On your tools", d: "M40 230 C200 230 260 140 420 132", f: C.peacock, ly: 230, lx: 40 },
-  ];
+/** FiveRoutes (#24): five roads meeting at one restaurant — the prototype road is shortest. */
+const ROUTE_SHORT: Record<string, { label: string; sub: string; f: string; t: string }> = {
+  prototype: { label: "Adapt our prototype", sub: "The shortest road", f: C.mehendi, t: C.mehendiT },
+  scratch: { label: "From scratch", sub: "Designed and coded only for you", f: C.rani, t: C.raniT },
+  "open-source": { label: "On open source", sub: "Proven core, your workflow on top", f: C.indigo, t: C.indigoT },
+  budget: { label: "Budget route", sub: "Ready apps, set up properly", f: C.haldi, t: C.haldiT },
+  "your-tools": { label: "On your tools", sub: "Zoho, Google, Microsoft, Tally", f: C.peacock, t: C.peacockT },
+};
+
+function RoutePill({ x, y, w, slug, icon }: { x: number; y: number; w: number; slug: string; icon: string }) {
+  const r = ROUTE_SHORT[slug];
   return (
-    <svg viewBox="0 0 520 260" className={cls("svg-fiveroutes", className)} role="img" aria-label="Five ways we build, all ending in your own system: adapt our prototype (the shortest road), from scratch, on open source, the budget route, or on the tools you already use">
-      {routes.map((r, i) => (
-        <g key={r.label} opacity={highlight && i !== 0 ? 0.35 : 1}>
-          <path d={r.d} stroke={r.f} strokeWidth={i === 0 ? 10 : 7} fill="none" strokeLinecap="round" />
-          <path d={r.d} stroke="#fff" strokeWidth="1.5" strokeDasharray="5 7" fill="none" />
-          {i === 0 ? <path d="M288 130 H300" stroke={r.f} strokeWidth="2" strokeDasharray="3 3" /> : null}
-          <rect x={r.lx - 4} y={r.ly - 26} width={r.label.length * 6.6 + 16} height="20" rx="10" fill="#fff" stroke={r.f} />
-          <Label x={r.lx + 4} y={r.ly - 12} size={10}>{r.label}</Label>
+    <g>
+      <rect x={x} y={y - 22} width={w} height="44" rx="22" fill="#fff" stroke={r.f} strokeWidth="1.5" />
+      <circle cx={x + 22} cy={y} r="15" fill={r.t} />
+      <g transform={`translate(${x + 13} ${y - 9})`} color={r.f}>
+        <Icon name={icon} size={18} weight="bold" />
+      </g>
+      <Label x={x + 44} y={y - 2} size={12.5}>{r.label}</Label>
+      <Label x={x + 44} y={y + 12} size={9.5} weight={600} fill={C.muted}>{r.sub}</Label>
+    </g>
+  );
+}
+
+export function FiveRoutes({ className, highlight }: { className?: string; highlight?: "prototype" }) {
+  const end = { x: 566, y: 306 };
+  const left = BUILD_ROUTES.filter((r) => r.slug !== "prototype");
+  const proto = BUILD_ROUTES.find((r) => r.slug === "prototype")!;
+  const rows = [46, 116, 186, 256];
+  const fade = (slug: string) => (highlight && slug !== "prototype" ? 0.3 : 1);
+  const road = (d: string, f: string, wide = false) => (
+    <g>
+      <path d={d} stroke={f} strokeWidth={wide ? 16 : 13} fill="none" strokeLinecap="round" />
+      <path d={d} stroke="#fff" strokeWidth="1.8" strokeDasharray="7 8" fill="none" className="flow-dash" />
+    </g>
+  );
+  return (
+    <svg viewBox="0 0 720 356" className={cls("svg-fiveroutes", className)} role="img" aria-label={`Five ways we build, all ending at one restaurant, ${EXAMPLE.restaurant.name}: adapt our prototype (the shortest road), from scratch, on open source, the budget route, or on the tools you already use`}>
+      <path d={`M540 ${end.y + 14} H720`} stroke={C.line} strokeWidth="2" />
+      {left.map((r, i) => {
+        const y = rows[i];
+        const f = ROUTE_SHORT[r.slug].f;
+        return (
+          <g key={r.slug} opacity={fade(r.slug)}>
+            {road(`M238 ${y} C400 ${y} 470 ${end.y} ${end.x} ${end.y}`, f)}
+            <RoutePill x={14} y={y} w={224} slug={r.slug} icon={r.icon} />
+          </g>
+        );
+      })}
+      <g>
+        {road(`M476 326 C520 326 530 ${end.y} ${end.x} ${end.y}`, ROUTE_SHORT.prototype.f, true)}
+        <RoutePill x={288} y={326} w={188} slug="prototype" icon={proto.icon} />
+        <g transform="translate(300 286)">
+          <rect width="96" height="20" rx="10" fill={C.haldi} stroke={C.ink} strokeWidth="1.2" />
+          <Label x={48} y={14} size={9.5} anchor="middle">Fastest start</Label>
         </g>
-      ))}
-      <g transform="translate(424 92)">
-        <path d="M0 22 L8 0 H80 L88 22Z" fill={C.rani} stroke={C.ink} strokeWidth="2" />
-        <rect x="6" y="22" width="76" height="56" fill="#fff" stroke={C.ink} strokeWidth="2" />
-        <rect x="34" y="44" width="20" height="34" fill={C.haldiT} stroke={C.ink} strokeWidth="1.5" />
-        <Label x={44} y={36} size={8} anchor="middle">YOUR SHOP</Label>
+      </g>
+      <RestaurantFront name={EXAMPLE.restaurant.name} transform="translate(558 100)" />
+      <g transform="translate(560 334)">
+        <Label x={78} y={14} size={10} weight={600} fill={C.muted} anchor="middle">e.g. a restaurant</Label>
       </g>
     </svg>
   );
@@ -129,7 +168,7 @@ export function WhiteLabelSwap({ className }: { className?: string }) {
       <rect x="10" y="10" width="340" height="52" rx="18" fill={C.surface2} />
       <g className="wl-a">
         <rect x="26" y="22" width="30" height="30" rx="8" fill={C.rani} />
-        <Label x={66} y={42} size={14}>Your Brand</Label>
+        <Label x={66} y={42} size={14}>{EXAMPLE.restaurant.name}</Label>
       </g>
       <g className="wl-b">
         <rect x="26" y="22" width="30" height="30" rx="8" fill={C.indigo} />
@@ -174,21 +213,26 @@ export function OneStopWheel({ className }: { className?: string }) {
 /** PlatformLayers (§2.0.4, #28): Platform → Your software (your logo) → We run & grow it. */
 export function PlatformLayers({ className }: { className?: string }) {
   const layers = [
-    { y: 168, title: "Webify Platform", sub: "Our proven base, so you don't pay to reinvent the wheel.", fill: C.indigoT, stroke: C.indigo },
-    { y: 100, title: "Your software", sub: "Your own software, in your brand.", fill: C.raniT, stroke: C.rani, logo: true },
-    { y: 32, title: "We run & grow it", sub: "Hosting, care, change hours and marketing.", fill: C.peacockT, stroke: C.peacock },
+    { y: 176, title: "Webify Platform", icon: "Stack", fill: C.indigoT, stroke: C.indigo },
+    { y: 104, title: "Your software", icon: "SquaresFour", fill: C.raniT, stroke: C.rani, logo: true },
+    { y: 32, title: "We run & grow it", icon: "TrendUp", fill: C.peacockT, stroke: C.peacock },
   ];
   return (
-    <svg viewBox="0 0 440 250" className={cls("svg-platformlayers", className)} role="img" aria-label="Three layers: the Webify Platform at the base, your own software in your brand in the middle, and us running and growing it on top">
+    <svg viewBox="0 0 460 262" className={cls("svg-platformlayers", className)} role="img" aria-label="Three layers: the Webify Platform at the base, your own software in your brand in the middle, and us running and growing it on top">
       {layers.map((l) => (
         <g key={l.title}>
           <path d={`M30 ${l.y + 22} L220 ${l.y - 4} L410 ${l.y + 22} L220 ${l.y + 48}Z`} fill={l.fill} stroke={l.stroke} strokeWidth="2" />
           <path d={`M30 ${l.y + 22} V${l.y + 36} L220 ${l.y + 62} L410 ${l.y + 36} V${l.y + 22} L220 ${l.y + 48}Z`} fill={l.stroke} opacity="0.75" />
-          <Label x={220} y={l.y + 22} size={12} anchor="middle">{l.title}</Label>
+          <path d={`M60 ${l.y + 22} L220 ${l.y} L380 ${l.y + 22} L220 ${l.y + 44}Z`} fill="none" stroke={l.stroke} strokeOpacity="0.35" strokeDasharray="3 4" />
+          <circle cx="146" cy={l.y + 22} r="12" fill="#fff" stroke={l.stroke} strokeWidth="1.5" />
+          <g transform={`translate(138 ${l.y + 14})`} color={l.stroke}>
+            <Icon name={l.icon} size={16} weight="bold" />
+          </g>
+          <Label x={164} y={l.y + 26} size={12}>{l.title}</Label>
           {l.logo ? (
             <g>
-              <rect x="300" y={l.y + 4} width="64" height="22" rx="6" fill="#fff" stroke={C.rani} strokeDasharray="4 3" />
-              <Label x={332} y={l.y + 19} size={9} anchor="middle" fill={C.rani}>Your logo</Label>
+              <rect x="288" y={l.y + 8} width="96" height="22" rx="6" fill="#fff" stroke={C.rani} strokeDasharray="4 3" />
+              <Label x={336} y={l.y + 23} size={9} anchor="middle" fill={C.rani}>{EXAMPLE.restaurant.name}</Label>
             </g>
           ) : null}
         </g>
@@ -197,67 +241,116 @@ export function PlatformLayers({ className }: { className?: string }) {
   );
 }
 
-/** GapBridge (#29): app chips on one bank, an MSME shop on the other, Webify's four pillars as planks. */
+/** GapBridge (#29): app chips on one bank, a kirana store on the other, Webify's four pillars as the bridge deck. */
 export function GapBridge({ apps = ["Zoho", "Odoo", "Tally", "Google", "Microsoft", "Razorpay"], className }: { apps?: string[]; className?: string }) {
   const planks = [
-    { t: "Strategy", f: C.indigo },
-    { t: "Systems", f: C.rani },
-    { t: "Marketing", f: C.marigold },
-    { t: "Care", f: C.peacock },
+    { t: "Strategy", f: C.indigo, icon: "Compass" },
+    { t: "Systems", f: C.rani, icon: "SquaresFour" },
+    { t: "Marketing", f: C.marigold, icon: "Megaphone" },
+    { t: "Care", f: C.peacock, icon: "Lifebuoy" },
   ];
+  const hangers = Array.from({ length: 13 }, (_, i) => 196 + i * 20);
+  const cableY = (x: number) => {
+    const t = (x - 186) / (454 - 186);
+    return (1 - t) * (1 - t) * 116 + 2 * (1 - t) * t * 236 + t * t * 116;
+  };
   return (
-    <svg viewBox="0 56 600 204" className={cls("svg-gapbridge", className)} role="img" aria-label="Great tools on one side, your business on the other — Webify's strategy, systems, marketing and care bridge the gap">
-      <path d="M0 200 H150 L170 260 H0Z" fill={C.surface2} />
-      <path d="M600 200 H450 L430 260 H600Z" fill={C.surface2} />
-      <path d="M150 220 Q300 250 450 220" fill="none" stroke={C.peacock} strokeOpacity="0.3" strokeWidth="18" />
+    <svg viewBox="0 44 640 262" className={cls("svg-gapbridge", className)} role="img" aria-label={`Great tools on one side, a business like ${EXAMPLE.kirana.name} on the other — Webify's strategy, systems, marketing and care bridge the gap`}>
+      {/* water */}
+      <path d="M150 226 H490 V306 H150Z" fill={C.peacockT} />
+      <g fill="none" stroke={C.peacock} strokeWidth="1.5" strokeLinecap="round" opacity="0.5">
+        <path d="M190 246 q10 -6 20 0 t20 0 M300 262 q10 -6 20 0 t20 0 M400 244 q10 -6 20 0 t20 0 M240 284 q10 -6 20 0 t20 0 M360 290 q10 -6 20 0 t20 0" />
+      </g>
+      {/* banks */}
+      <path d="M0 200 H164 L186 306 H0Z" fill={C.surface2} stroke={C.ink} strokeWidth="1.5" />
+      <path d="M640 200 H476 L454 306 H640Z" fill={C.surface2} stroke={C.ink} strokeWidth="1.5" />
+      <path d="M0 200 H164 M476 200 H640" stroke={C.mehendi} strokeWidth="4" />
+      {/* the tools, waiting on the far bank */}
       {apps.slice(0, 6).map((a, i) => (
-        <g key={a} opacity="0.6">
-          <rect x={10 + (i % 2) * 70} y={70 + Math.floor(i / 2) * 40} width="64" height="28" rx="14" fill="#fff" stroke={C.muted} />
-          <Label x={42 + (i % 2) * 70} y={88 + Math.floor(i / 2) * 40} size={10} anchor="middle" fill={C.ink2}>{a}</Label>
+        <g key={a}>
+          <rect x={12 + (i % 2) * 74} y={84 + Math.floor(i / 2) * 36} width="68" height="28" rx="14" fill="#fff" stroke={C.muted} strokeDasharray="3 3" />
+          <circle cx={26 + (i % 2) * 74} cy={98 + Math.floor(i / 2) * 36} r="4" fill={[C.rani, C.indigo, C.peacock, C.haldi, C.marigold, C.mehendi][i]} />
+          <Label x={52 + (i % 2) * 74} y={102 + Math.floor(i / 2) * 36} size={10} anchor="middle" fill={C.ink2}>{a}</Label>
         </g>
       ))}
-      <path d="M150 196 Q300 150 450 196" fill="none" stroke={C.ink} strokeWidth="3" />
+      <Label x={82} y={70} size={10} weight={700} fill={C.muted} anchor="middle">GREAT TOOLS</Label>
+      {/* towers, cable, hangers */}
+      {[180, 454].map((x) => (
+        <g key={x}>
+          <rect x={x} y="106" width="12" height="100" rx="2" fill={C.indigo} />
+          <rect x={x - 4} y="100" width="20" height="8" rx="2" fill={C.ink} />
+        </g>
+      ))}
+      <path d="M186 116 Q320 236 454 116" fill="none" stroke={C.ink} strokeWidth="2.5" />
+      {hangers.map((x) => (
+        <path key={x} d={`M${x} ${cableY(x)} V184`} stroke={C.ink} strokeWidth="1" opacity="0.5" />
+      ))}
+      {/* deck: the four pillars */}
+      <rect x="164" y="208" width="312" height="8" fill={C.ink} />
       {planks.map((p, i) => (
         <g key={p.t}>
-          <rect x={160 + i * 72} y={176 - (i === 1 || i === 2 ? 14 : 4)} width="66" height="26" rx="6" fill={p.f} />
-          <Label x={193 + i * 72} y={193 - (i === 1 || i === 2 ? 14 : 4)} size={10} anchor="middle" fill="#fff">{p.t}</Label>
+          <rect x={172 + i * 76} y="182" width="72" height="26" rx="6" fill={p.f} stroke={C.ink} strokeWidth="1.2" />
+          <g transform={`translate(${178 + i * 76} 188)`} color="#fff">
+            <Icon name={p.icon} size={14} weight="bold" />
+          </g>
+          <Label x={213 + i * 76} y={199} size={9.5} anchor="middle" fill="#fff">{p.t}</Label>
         </g>
       ))}
-      <g transform="translate(470 98)">
-        <path d="M0 26 L10 0 H110 L120 26Z" fill={C.rani} stroke={C.ink} strokeWidth="2" />
-        <rect x="8" y="26" width="104" height="76" fill="#fff" stroke={C.ink} strokeWidth="2" />
-        <rect x="46" y="56" width="28" height="46" fill={C.haldiT} stroke={C.ink} strokeWidth="1.5" />
-        <Label x={60} y={44} size={9} anchor="middle">YOUR BUSINESS</Label>
-      </g>
+      <KiranaFront name={EXAMPLE.kirana.name} transform="translate(492 63.6) scale(0.62)" />
     </svg>
   );
 }
 
-/** FourPillars (#30): Strategy, Systems, Marketing, Care holding up a shop roof. */
-export function FourPillars({ className }: { className?: string }) {
-  const pillars = [
-    { t: "Strategy", f: C.indigo },
-    { t: "Systems", f: C.rani },
-    { t: "Marketing", f: C.marigold },
-    { t: "Care", f: C.peacock },
-  ];
+/** FourPillars (#30): Strategy, Systems, Marketing and Care holding up one business. */
+export function FourPillars({ className, name = EXAMPLE.restaurant.name }: { className?: string; name?: string }) {
+  const tints: Record<string, string> = { "--indigo": C.indigoT, "--rani": C.raniT, "--marigold": C.marigoldT, "--peacock": C.peacockT };
+  const solid: Record<string, string> = { "--indigo": C.indigo, "--rani": C.rani, "--marigold": C.marigold, "--peacock": C.peacock };
   return (
-    <svg viewBox="0 0 440 280" className={cls("svg-fourpillars", className)} role="img" aria-label="Four pillars — strategy, systems, marketing and care — holding up your business">
-      <path d="M20 70 L220 14 L420 70Z" fill={C.raniT} stroke={C.ink} strokeWidth="2" />
-      <rect x="30" y="70" width="380" height="20" fill={C.haldi} stroke={C.ink} strokeWidth="2" />
-      <Label x={220} y={56} size={12} anchor="middle">YOUR BUSINESS</Label>
+    <svg viewBox="0 0 480 342" className={cls("svg-fourpillars", className)} role="img" aria-label={`Four pillars — strategy, systems, marketing and care — holding up a business like ${name}`}>
+      {/* pediment with a rangoli medallion */}
+      <path d="M24 94 L240 22 L456 94 Z" fill={C.raniT} stroke={C.ink} strokeWidth="2" strokeLinejoin="round" />
+      <path d="M70 86 L240 32 L410 86 Z" fill="none" stroke={C.rani} strokeWidth="1.2" strokeDasharray="4 4" />
+      <circle cx="240" cy="66" r="15" fill="#fff" stroke={C.rani} strokeWidth="1.5" />
+      {Array.from({ length: 8 }, (_, i) => {
+        const a = (i * Math.PI) / 4;
+        return <circle key={i} cx={240 + Math.cos(a) * 9} cy={66 + Math.sin(a) * 9} r="2.6" fill={i % 2 ? C.haldi : C.rani} />;
+      })}
+      <circle cx="240" cy="66" r="3" fill={C.indigo} />
+      {/* architrave with the business name */}
+      <rect x="34" y="94" width="412" height="30" fill={C.haldi} stroke={C.ink} strokeWidth="2" />
+      <text x="240" y="114.5" textAnchor="middle" className="display" fontSize="14" fontWeight={700} letterSpacing="1" fill={C.ink}>{name.toUpperCase()}</text>
+      {Array.from({ length: 25 }, (_, i) => (
+        <rect key={i} x={40 + i * 16.5} y="124" width="9" height="5" fill={C.haldiT} stroke={C.ink} strokeWidth="0.8" />
+      ))}
       {pillars.map((p, i) => {
-        const x = 52 + i * 94;
+        const cx = 90 + i * 100;
+        const f = solid[p.colour] ?? C.indigo;
+        const t = tints[p.colour] ?? C.indigoT;
         return (
-          <g key={p.t}>
-            <rect x={x} y="90" width="54" height="12" fill={p.f} opacity="0.6" />
-            <rect x={x + 8} y="102" width="38" height="138" fill="#fff" stroke={p.f} strokeWidth="2.5" />
-            <path d={`M${x + 18} 110 V232 M${x + 27} 110 V232 M${x + 36} 110 V232`} stroke={p.f} strokeOpacity="0.35" strokeWidth="2" />
-            <rect x={x} y="240" width="54" height="12" fill={p.f} opacity="0.6" />
-            <Label x={x + 27} y={272} size={11} anchor="middle">{p.t}</Label>
+          <g key={p.slug}>
+            {/* capital */}
+            <rect x={cx - 34} y="130" width="68" height="11" rx="2" fill={f} />
+            <circle cx={cx - 34} cy="136" r="5" fill="#fff" stroke={f} strokeWidth="2" />
+            <circle cx={cx + 34} cy="136" r="5" fill="#fff" stroke={f} strokeWidth="2" />
+            <rect x={cx - 25} y="141" width="50" height="6" fill={t} stroke={f} strokeWidth="1" />
+            {/* fluted shaft */}
+            <rect x={cx - 22} y="147" width="44" height="114" fill="#fff" stroke={f} strokeWidth="2.5" />
+            <path d={`M${cx - 12} 152 V256 M${cx} 152 V256 M${cx + 12} 152 V256`} stroke={f} strokeOpacity="0.28" strokeWidth="2" />
+            <circle cx={cx} cy="198" r="17" fill={t} stroke={f} strokeWidth="2" />
+            <g transform={`translate(${cx - 10} 188)`} color={f}>
+              <Icon name={p.icon} size={20} weight="bold" />
+            </g>
+            {/* base */}
+            <rect x={cx - 28} y="261" width="56" height="7" fill={t} stroke={f} strokeWidth="1" />
+            <rect x={cx - 34} y="268" width="68" height="9" rx="2" fill={f} />
+            <Label x={cx} y={320} size={13} anchor="middle">{p.name}</Label>
+            <Label x={cx} y={334} size={9.5} weight={600} fill={C.muted} anchor="middle">{p.product}</Label>
           </g>
         );
       })}
+      {/* steps */}
+      <rect x="20" y="277" width="440" height="10" fill={C.surface2} stroke={C.ink} strokeWidth="1.5" />
+      <rect x="8" y="287" width="464" height="10" fill={C.surface2} stroke={C.ink} strokeWidth="1.5" />
     </svg>
   );
 }

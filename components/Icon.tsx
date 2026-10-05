@@ -65,6 +65,17 @@ import { CaretDown } from "@phosphor-icons/react/dist/ssr/CaretDown";
 import { DeviceMobile } from "@phosphor-icons/react/dist/ssr/DeviceMobile";
 import { Plant } from "@phosphor-icons/react/dist/ssr/Plant";
 import { ChatsCircle } from "@phosphor-icons/react/dist/ssr/ChatsCircle";
+import { Star } from "@phosphor-icons/react/dist/ssr/Star";
+import { Check } from "@phosphor-icons/react/dist/ssr/Check";
+import { CheckCircle } from "@phosphor-icons/react/dist/ssr/CheckCircle";
+import { ArrowsLeftRight } from "@phosphor-icons/react/dist/ssr/ArrowsLeftRight";
+import { BookOpenText } from "@phosphor-icons/react/dist/ssr/BookOpenText";
+import { CalendarCheck } from "@phosphor-icons/react/dist/ssr/CalendarCheck";
+import { BellRinging } from "@phosphor-icons/react/dist/ssr/BellRinging";
+import { HandWaving } from "@phosphor-icons/react/dist/ssr/HandWaving";
+import { Plus } from "@phosphor-icons/react/dist/ssr/Plus";
+import { Minus } from "@phosphor-icons/react/dist/ssr/Minus";
+import { Stack } from "@phosphor-icons/react/dist/ssr/Stack";
 import { INDIA_ICONS } from "@/components/icons/india";
 
 /**
@@ -139,6 +150,17 @@ const PH = {
   DeviceMobile,
   Plant,
   ChatsCircle,
+  Star,
+  Check,
+  CheckCircle,
+  ArrowsLeftRight,
+  BookOpenText,
+  CalendarCheck,
+  BellRinging,
+  HandWaving,
+  Plus,
+  Minus,
+  Stack,
 } as const;
 
 const CUSTOM = INDIA_ICONS;

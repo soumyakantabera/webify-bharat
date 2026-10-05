@@ -65,9 +65,9 @@ body {
 .wa-cta--primary {
   background: var(--wa);
   color: var(--ink);
-  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.28);
+  box-shadow: none;
 }
-.wa-cta--primary:hover { box-shadow: 0 10px 24px rgba(37, 211, 102, 0.36); transform: translateY(-1px); }
+.wa-cta--primary:hover { box-shadow: none; transform: translateY(-1px); }
 .wa-cta--primary:active,
 .wa-cta--dock:active { animation: jelly 0.25s ease; }
 .wa-cta--ghost {
@@ -94,7 +94,7 @@ body {
   padding: 0;
   background: var(--wa);
   color: #fff;
-  box-shadow: 0 12px 28px rgba(27, 16, 48, 0.22);
+  box-shadow: none;
   opacity: 0;
   transform: translateY(16px) scale(0.9);
   pointer-events: none;
@@ -108,8 +108,8 @@ body {
   animation: wa-pulse 12s ease-in-out infinite 2s;
 }
 @keyframes wa-pulse {
-  0%, 92%, 100% { box-shadow: 0 12px 28px rgba(27, 16, 48, 0.22), 0 0 0 0 rgba(37, 211, 102, 0.5); }
-  96% { box-shadow: 0 12px 28px rgba(27, 16, 48, 0.22), 0 0 0 14px rgba(37, 211, 102, 0); }
+  0%, 92%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+  96% { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
 }
 @media (max-width: 1023px) {
   .wa-cta--float { display: none; }
@@ -125,7 +125,7 @@ body {
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 18px;
-  box-shadow: var(--shadow-soft);
+  box-shadow: none;
   text-align: center;
   font-size: 13px;
   font-weight: 700;
@@ -157,7 +157,7 @@ body {
   color: #fff;
   border-radius: 999px;
   font-weight: 700;
-  box-shadow: var(--shadow-soft);
+  box-shadow: none;
   animation: pop-in-up 0.25s ease-out;
 }
 @keyframes pop-in-up {
@@ -327,7 +327,7 @@ html[data-ribbon="off"] .ribbon { display: none; }
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 24px;
-  box-shadow: 0 24px 60px rgba(27, 16, 48, 0.14);
+  box-shadow: none;
   padding: 24px;
   animation: mega-in 0.18s ease-out;
   max-height: calc(100vh - 120px);
@@ -418,7 +418,7 @@ html[data-ribbon="off"] .ribbon { display: none; }
   border-radius: 16px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.mm-paths a:hover { transform: translateY(-2px); box-shadow: var(--shadow-soft); }
+.mm-paths a:hover { transform: translateY(-2px); box-shadow: none; }
 .mm-path-icon { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; color: var(--accent); background: var(--surface-2); flex-shrink: 0; }
 .mm-paths strong { display: block; font: 700 16px/1.2 var(--font-display); }
 .mm-paths small { display: block; color: var(--ink-2); font-size: 13px; }
@@ -479,7 +479,7 @@ body.nav-open .site-header { background: var(--surface); }
   align-items: center;
   background: #fff;
   border-top: 1px solid var(--line);
-  box-shadow: 0 -6px 20px rgba(27, 16, 48, 0.06);
+  box-shadow: none;
 }
 .dock-item {
   display: flex;
@@ -503,7 +503,7 @@ body.nav-open .site-header { background: var(--surface); }
   background: var(--wa);
   color: #fff;
   border: 4px solid #fff;
-  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+  box-shadow: none;
 }
 .wa-cta--dock .wa-cta-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 @media (max-width: 1079px) {
@@ -548,7 +548,7 @@ body.nav-open .site-header { background: var(--surface); }
 .cta-band-copy h2 {
   margin: 0 0 8px;
   font: 700 28px/1.15 var(--font-display);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.005em;
   max-width: 22ch;
 }
 @media (min-width: 1024px) { .cta-band-copy h2 { font-size: 40px; } }
@@ -761,7 +761,7 @@ body.nav-open .site-header { background: var(--surface); }
   padding: 8px 12px;
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 10px 24px rgba(27, 16, 48, 0.16);
+  box-shadow: none;
   font-size: 13px;
   font-weight: 700;
   color: var(--ink);
@@ -780,7 +780,7 @@ body.nav-open .site-header { background: var(--surface); }
   aspect-ratio: 1 / 1;
   gap: 10px;
 }
-.rangoli-collage .wb-img { border: 2px solid #fff; box-shadow: var(--shadow-soft); }
+.rangoli-collage .wb-img { border: 2px solid #fff; box-shadow: none; }
 .rc-large { grid-column: 1 / 5; grid-row: 1 / 6; }
 .rc-small-1 { grid-column: 5 / 7; grid-row: 1 / 3; }
 .rc-small-2 { grid-column: 5 / 7; grid-row: 3 / 5; }
@@ -796,7 +796,7 @@ body.nav-open .site-header { background: var(--surface); }
   background: var(--ink);
   border-radius: 22px;
   padding: 6px;
-  box-shadow: 0 18px 40px rgba(27, 16, 48, 0.28);
+  box-shadow: none;
   z-index: 2;
 }
 .rc-phone-screen { width: 100%; height: 100%; border-radius: 17px; background: #fff; overflow: hidden; }
@@ -827,7 +827,7 @@ body.nav-open .site-header { background: var(--surface); }
   width: min(220px, 46%);
   padding: 10px 10px 36px;
   background: #fff;
-  box-shadow: var(--shadow-soft);
+  box-shadow: none;
   transition: transform 0.25s ease;
 }
 .polaroid .wb-img { aspect-ratio: 1; }
@@ -872,7 +872,7 @@ body.nav-open .site-header { background: var(--surface); }
 .arch-windows { display: grid; gap: 14px; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); }
 .arch-windows.count-1 { --n: 1; }
 .arch-windows.count-2 { --n: 2; }
-.arch-window { aspect-ratio: 3 / 4; border: 3px solid #fff; box-shadow: var(--shadow-soft); }
+.arch-window { aspect-ratio: 3 / 4; border: 3px solid #fff; box-shadow: none; }
 .arch-windows.count-3 .arch-window:nth-child(2) { transform: translateY(-18px); }
 @media (max-width: 639px) {
   .arch-windows.count-3 .arch-window:nth-child(n + 3) { display: none; }
@@ -882,9 +882,15 @@ body.nav-open .site-header { background: var(--surface); }
 /* F — PhotoUiLayer */
 .photo-ui-layer { position: relative; }
 .photo-ui-layer > .wb-img { aspect-ratio: 4 / 3; }
-.pul-overlay { position: absolute; right: -4%; bottom: -6%; width: 58%; z-index: 2; }
-.pul-sticker-1 { left: -3%; top: 12%; }
-.pul-sticker-2 { right: -3%; top: 46%; animation-delay: 1.2s; }
+.pul-overlay { position: absolute; right: 0; bottom: -6%; width: 58%; z-index: 2; }
+.pul-sticker-1 { left: 0; top: 12%; }
+.pul-sticker-2 { right: 0; top: 46%; animation-delay: 1.2s; }
+/* Overhang the photo edge only where the column has room for it. */
+@media (min-width: 1100px) {
+  .pul-overlay { right: -4%; }
+  .pul-sticker-1 { left: -3%; }
+  .pul-sticker-2 { right: -3%; }
+}
 .pul-sticker-3 { left: 12%; bottom: -4%; animation-delay: 2.4s; }
 
 /* G — MasonryWall */

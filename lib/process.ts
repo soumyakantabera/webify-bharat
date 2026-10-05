@@ -55,4 +55,4 @@ export const LAUNCH_CHECKLIST: { item: string; block?: string }[] = [
 ];
 
 /** Launch countdown day cards (§9.3 #3). Durations depend on approvals, so none are shown. */
-export const LAUNCH_STEPS = ["Chat", "Registrations filed", "Brand ready", "Site preview", "Payments live", "Launch day 🎉"];
+export const LAUNCH_STEPS = ["Chat", "Registrations filed", "Brand ready", "Site preview", "Payments live", "Launch day"];

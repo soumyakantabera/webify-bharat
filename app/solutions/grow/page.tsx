@@ -1,3 +1,4 @@
+import { Arw } from "@/components/Glyph";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Layout from "@/components/Layout";
@@ -50,7 +51,7 @@ export default function Grow() {
         sub="Direct ordering, dealer portals, international payments, automation and marketing — built on top of what already sells."
         cta={<WhatsAppCTA message={path.waMessage} context="hero" path="grow" label={path.cta} />}
         chips={<PillarChips pillars={["marketing", "systems", "strategy"]} />}
-        visual={<PhotoUiLayer slot="IMG-P03" priority stickers={[{ text: "New order from Dubai ✅" }, { text: "Dealer reorder placed" }]} />}
+        visual={<PhotoUiLayer slot="IMG-P03" priority stickers={[{ text: "New order from Dubai" }, { text: "Dealer reorder placed" }]} />}
       />
 
       <section className="section" id="moves" aria-labelledby="moves-title">
@@ -110,7 +111,7 @@ export default function Grow() {
         <div className="container split">
           <div>
             <SectionHead kicker="Webify Pulse" id="dash-title" title="See the week on one screen." sub="Enquiries, collections and what's stuck — the numbers you'd ask your manager for." />
-            <Link href="/systems/pulse" className="text-link">About Webify Pulse →</Link>
+            <Link href="/systems/pulse" className="text-link">About Webify Pulse <Arw /></Link>
           </div>
           <OwnerDashboard />
         </div>

@@ -1,3 +1,4 @@
+import { Arw } from "@/components/Glyph";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -90,7 +91,7 @@ export default async function RegistrationPage({ params }: { params: Promise<{ s
             <p className="portal-link">
               Official portal:{" "}
               <a href={item.portalUrl} target="_blank" rel="noopener noreferrer">
-                {item.portal} ↗
+                {item.portal} <Arw dir="out" />
               </a>
             </p>
           </div>

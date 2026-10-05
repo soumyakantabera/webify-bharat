@@ -23,7 +23,7 @@ npm run build   # static export to out/
 
 ## Deploy (GitHub Pages only)
 
-Every push to `main` runs `.github/workflows/pages.yml`: type-check, build the static export, and publish `out/` to GitHub Pages.
+Every push to `main` runs `.github/workflows/pages.yml` (one job): build the static export and publish `out/` to GitHub Pages. `next build` type-checks as it builds.
 
 One-time setting: **Settings → Pages → Build and deployment → Source: GitHub Actions**. (If it's set to "Deploy from a branch", GitHub also publishes the raw repository and the two deployments fight.)
 

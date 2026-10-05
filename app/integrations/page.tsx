@@ -34,7 +34,7 @@ export default function Integrations() {
         title="Use our stack, or keep yours. We build around it."
         sub="Zoho, Odoo, Tally, Google Workspace, Microsoft 365 — or something built only for you."
         cta={<WhatsAppCTA message={waTool("Zoho / Tally / Odoo / Google / Microsoft")} context="hero" label="Ask about my tools" />}
-        visual={<PhotoUiLayer slot="IMG-N01" priority stickers={[{ text: "Tally ⇄ Zoho synced ✅" }, { text: "Order → invoice → books" }]} />}
+        visual={<PhotoUiLayer slot="IMG-N01" priority stickers={[{ text: "Tally and Zoho synced" }, { text: "Order → invoice → books" }]} />}
       />
 
       <section className="burst burst-peacock" id="five-ways" aria-labelledby="five-title">

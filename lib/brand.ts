@@ -64,14 +64,14 @@ export function contrast(a: string, b: string) {
 }
 
 export const TYPE_SCALE = [
-  { role: "H1", font: "Sora 700", size: "56 / 36", sample: "Built for your business." },
-  { role: "H2", font: "Sora 700", size: "40 / 28", sample: "Four things we do." },
-  { role: "H3", font: "Sora 600", size: "24 / 20", sample: "Webify Desk" },
+  { role: "H1", font: "Baloo Da 2 700", size: "56 / 36", sample: "Built for your business." },
+  { role: "H2", font: "Baloo Da 2 700", size: "40 / 28", sample: "Four things we do." },
+  { role: "H3", font: "Baloo Da 2 600", size: "24 / 20", sample: "Webify Desk" },
   { role: "Kicker", font: "Manrope 700, uppercase", size: "13", sample: "Your software · your marketing" },
   { role: "Body", font: "Manrope 500", size: "18 / 16", sample: "We learn how you work and build the system around it." },
   { role: "Small", font: "Manrope 500", size: "14", sample: "Prices exclude GST and third-party costs." },
   { role: "Numbers", font: "JetBrains Mono 600", size: "context", sample: "₹7,500 / month" },
-  { role: "Hinglish accent", font: "Sora italic 600", size: "20 / 18", sample: "Aapka business. Aapke hisaab se." },
+  { role: "Hinglish accent", font: "Baloo Da 2 italic 600", size: "20 / 18", sample: "Aapka business. Aapke hisaab se." },
 ];
 
 export const LOGO_FILES = [

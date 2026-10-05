@@ -61,14 +61,12 @@
 
 /* ——— Primary ——— */
 .btn-primary {
-  box-shadow:
-    0 10px 24px rgba(0, 115, 115, 0.22),
-    0 1px 0 rgba(255, 255, 255, 0.14) inset;
+  box-shadow: none;
 }
 
 .btn-primary:active {
   transform: translateY(1px) scale(0.98);
-  box-shadow: 0 3px 10px rgba(0, 115, 115, 0.22);
+  box-shadow: none;
   transition-duration: 0.08s;
 }
 
@@ -136,9 +134,7 @@
   .btn-primary:hover {
     transform: translateY(-2px);
     background: var(--teal-dark);
-    box-shadow:
-      0 16px 32px rgba(0, 115, 115, 0.28),
-      0 1px 0 rgba(255, 255, 255, 0.14) inset;
+    box-shadow: none;
   }
 
   .btn-primary:hover::before {
@@ -153,7 +149,7 @@
     transform: translateY(-2px);
     background: var(--mint);
     border-color: var(--teal);
-    box-shadow: 0 10px 22px rgba(0, 115, 115, 0.1);
+    box-shadow: none;
   }
 
   .btn-secondary:hover,

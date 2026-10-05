@@ -1,3 +1,4 @@
+import { Arw } from "@/components/Glyph";
 import Link from "next/link";
 import { Icon } from "@/components/Icon";
 import { Img } from "@/components/collage";
@@ -29,7 +30,7 @@ export function BlockTile({ block, photo = false, headingLevel = "h3" }: { block
         ))}
       </span>
       <span className="block-tile-more" aria-hidden="true">
-        Explore →
+        Explore <Arw />
       </span>
     </Link>
   );

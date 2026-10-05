@@ -21,7 +21,7 @@ export function StageCard({ stage }: { stage: Stage }) {
       <Img slot={stage.photo} mask="none" className="tier-strip" width={600} height={150} decorative />
       <div className="tier-body">
         <h3>
-          <span aria-hidden="true">{stage.emoji}</span> <Link href={`/pricing/${stage.slug}`}>{stage.name}</Link>
+          <Icon name={stage.icon} size={20} className="stage-ic" /> <Link href={`/pricing/${stage.slug}`}>{stage.name}</Link>
         </h3>
         <p className="tier-tagline">{stage.tagline}</p>
         <p className="tier-price price-monthly">
@@ -54,13 +54,13 @@ export function StageCard({ stage }: { stage: Stage }) {
 }
 
 function Cell({ v }: { v: FeatureCell }) {
-  if (v === true) return <span className="cell-yes" aria-label="Included">✓</span>;
-  if (v === false) return <span className="cell-no" aria-label="Not included">—</span>;
+  if (v === true) return <span className="cell-yes" role="img" aria-label="Included"><Icon name="CheckCircle" size={20} weight="fill" /></span>;
+  if (v === false) return <span className="cell-no" role="img" aria-label="Not included"><Icon name="Minus" size={18} weight="bold" /></span>;
   return <span className="cell-text">{v}</span>;
 }
 
 function LimitCell({ v }: { v: LimitValue }) {
-  if (v === null) return <span className="cell-no" aria-label="Not available">—</span>;
+  if (v === null) return <span className="cell-no" role="img" aria-label="Not available"><Icon name="Minus" size={18} weight="bold" /></span>;
   if (v === "agreed") return <span className="cell-text">Agreed</span>;
   return <span className="mono">{v.toLocaleString("en-IN")}</span>;
 }

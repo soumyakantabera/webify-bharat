@@ -1,3 +1,4 @@
+import { Arw } from "@/components/Glyph";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Layout from "@/components/Layout";
@@ -133,7 +134,7 @@ export default function AboutPage() {
               ))}
             </ul>
             <Link href="/what-we-do" className="text-link">
-              Everything we do →
+              Everything we do <Arw />
             </Link>
           </div>
         </div>
@@ -144,7 +145,7 @@ export default function AboutPage() {
           <div>
             <SectionHead kicker="Where we work" id="where-title" title="Based in Kolkata. Working across India." sub={`Fully remote over WhatsApp, with city pages for ${cities.length} cities — and we work with businesses anywhere in India.`} />
             <Link href="/cities" className="text-link">
-              Find your city →
+              Find your city <Arw />
             </Link>
           </div>
           <IndiaDotMap className="about-map" />

@@ -54,7 +54,7 @@ export default function Organise() {
         sub="We map how you sell, collect and follow up — then build one system around it."
         cta={<WhatsAppCTA message={path.waMessage} context="hero" path="organise" label={path.cta} />}
         chips={<PillarChips pillars={["strategy", "systems", "care"]} optional={["strategy"]} />}
-        visual={<PhotoUiLayer slot="IMG-P01" priority stickers={[{ text: "Order missed? Not any more ✅" }, { text: "Payment matched to invoice" }]} />}
+        visual={<PhotoUiLayer slot="IMG-P01" priority stickers={[{ text: "Order missed? Not any more" }, { text: "Payment matched to invoice" }]} />}
       />
 
       <section className="section" id="pains" aria-labelledby="pains-title">

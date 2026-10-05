@@ -1,3 +1,4 @@
+import { Arw } from "@/components/Glyph";
 import type { Metadata } from "next";
 import { glossify } from "@/components/clarity/glossify";
 import Link from "next/link";
@@ -125,7 +126,7 @@ export default async function ReachPage({ params }: { params: Promise<{ slug: st
           <div className="price-note-box">
             <Icon name="Tag" size={22} />
             <div>
-              <strong>{r.pricingNote}</strong> <Link href="/pricing#reach" className="text-link">All Reach plans →</Link>
+              <strong>{r.pricingNote}</strong> <Link href="/pricing#reach" className="text-link">All Reach plans <Arw /></Link>
             </div>
           </div>
         </div>

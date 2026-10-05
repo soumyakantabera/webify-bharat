@@ -44,11 +44,11 @@
 
   /* Shape */
   --radius-sm: 12px; --radius: 20px; --radius-lg: 28px;
-  --shadow-soft: 0 12px 32px rgba(27, 16, 48, 0.08);
-  --shadow-sticker: 4px 4px 0 var(--ink);
+  --shadow-soft: none;
+  --shadow-sticker: none;
 
   /* Type (repo fonts) */
-  --font-display: var(--font-sora), Arial, Helvetica, sans-serif;
+  --font-display: var(--font-baloo), Arial, Helvetica, sans-serif;
   --font-body: var(--font-manrope), Arial, Helvetica, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, monospace;
 
@@ -153,7 +153,7 @@ button:not(:disabled),
   flex-direction: column;
   justify-content: center;
   line-height: 0.9;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.005em;
 }
 .brand-webify,
 .brand-bharat {
@@ -214,7 +214,7 @@ button:not(:disabled),
 .btn-primary {
   background: var(--teal);
   color: #fff;
-  box-shadow: 0 10px 24px rgba(0, 115, 115, 0.2);
+  box-shadow: none;
 }
 .btn-primary:hover {
   transform: translateY(-2px);
@@ -266,7 +266,7 @@ h1,
 h2,
 h3 {
   margin: 0;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.005em;
   font-weight: 800;
   font-family: var(--font-display);
 }
@@ -449,7 +449,7 @@ h2 span {
   z-index: -1;
 }
 .hero-visual img {
-  filter: drop-shadow(0 28px 28px rgba(28, 31, 29, 0.08));
+  filter: none;
 }
 .trust {
   display: grid;
@@ -475,7 +475,7 @@ h2 span {
 }
 .trust-label {
   white-space: nowrap;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.005em;
 }
 .trust-icon {
   width: 28px;
@@ -526,12 +526,12 @@ h2 span {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(28, 31, 29, 0.035);
+  box-shadow: none;
   transition: 0.22s ease;
 }
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow);
+  box-shadow: none;
 }
 .service-card {
   grid-column: span 4;
@@ -585,7 +585,7 @@ h2 span {
   overflow: hidden;
   border: 1px solid var(--line);
   background: #fff;
-  box-shadow: var(--shadow);
+  box-shadow: none;
   min-width: 0;
 }
 .process-image img {
@@ -666,7 +666,7 @@ h2 span {
 }
 .pv-step h3 {
   font-size: 16px;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.005em;
   font-weight: 800;
   margin-top: 2px;
 }
@@ -904,7 +904,7 @@ h2 span {
 }
 .price-card.popular {
   border: 2px solid var(--teal);
-  box-shadow: var(--shadow);
+  box-shadow: none;
 }
 .badge {
   display: inline-flex;
@@ -920,7 +920,7 @@ h2 span {
 .price {
   font-size: 46px;
   font-weight: 900;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.005em;
   margin: 16px 0 4px;
 }
 .price small {
@@ -1150,13 +1150,13 @@ textarea.input {
 }
 .legal-doc h1 {
   font-size: clamp(32px, 4vw, 48px);
-  letter-spacing: -0.045em;
+  letter-spacing: -0.005em;
   line-height: 1.05;
   margin: 10px 0 0;
 }
 .legal-doc h2 {
   font-size: 22px;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.005em;
   margin: 28px 0 8px;
 }
 .legal-doc p {
@@ -1221,7 +1221,7 @@ textarea.input {
   border-radius: 28px;
   overflow: hidden;
   background: #17221f;
-  box-shadow: var(--shadow);
+  box-shadow: none;
 }
 .photo-card img {
   width: 100%;
@@ -1261,7 +1261,7 @@ textarea.input {
 }
 .photo-caption h3 {
   font-size: 22px;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.005em;
 }
 .photo-caption p {
   font-size: 13px;
@@ -1283,7 +1283,7 @@ textarea.input {
 .real-context-photo {
   border-radius: 30px;
   overflow: hidden;
-  box-shadow: var(--shadow);
+  box-shadow: none;
   min-height: 420px;
 }
 .real-context-photo img {
@@ -1339,7 +1339,7 @@ textarea.input {
   border-radius: 30px;
   overflow: hidden;
   min-height: 470px;
-  box-shadow: var(--shadow);
+  box-shadow: none;
 }
 .about-photo img {
   width: 100%;
@@ -1357,7 +1357,7 @@ textarea.input {
   border: 1px solid var(--line);
   border-radius: 28px;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(28, 31, 29, 0.04);
+  box-shadow: none;
 }
 .story-photo-card img {
   width: 100%;
@@ -1380,7 +1380,7 @@ textarea.input {
   border: 1px solid var(--line);
   border-radius: 28px;
   overflow: hidden;
-  box-shadow: var(--shadow);
+  box-shadow: none;
 }
 .contact-story > img {
   width: 100%;
@@ -1438,7 +1438,7 @@ textarea.input {
   cursor: pointer;
   font-weight: 800;
   font-size: 17px;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.005em;
   line-height: 1.35;
   padding: 18px 24px;
   min-height: 56px;

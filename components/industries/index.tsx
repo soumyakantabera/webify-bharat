@@ -1,3 +1,4 @@
+import { Arw } from "@/components/Glyph";
 import Link from "next/link";
 import { Icon } from "@/components/Icon";
 import { Img } from "@/components/collage";
@@ -18,7 +19,7 @@ export function IndustryTile({ ind, headingLevel = "h3" }: { ind: IndustryPage; 
         <H className="industry-tile-name">{ind.name}</H>
         <span className="industry-tile-line">{ind.oneLine}</span>
         <span className="industry-tile-stack">{ind.stack.map((b) => getBlock(b)?.short).join(" · ")}</span>
-        <span className="industry-tile-more">See how we'd build it →</span>
+        <span className="industry-tile-more">See how we'd build it <Arw /></span>
       </span>
     </Link>
   );
@@ -33,7 +34,7 @@ export function DaySlide({ moment, accent }: { moment: DayMoment; accent: string
       <p className="day-scene">{moment.scene}</p>
       {block ? (
         <Link href={`/systems/${block.slug}`} className="day-block">
-          <Icon name={block.icon} size={18} /> {moment.helps} helps here →
+          <Icon name={block.icon} size={18} /> {moment.helps} helps here <Arw />
         </Link>
       ) : null}
     </article>

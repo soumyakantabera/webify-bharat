@@ -1,3 +1,4 @@
+import { Arw } from "@/components/Glyph";
 import type { Metadata } from "next";
 import { glossify } from "@/components/clarity/glossify";
 import Link from "next/link";
@@ -43,12 +44,12 @@ const GAP_ROWS = [
 const BENTO_ICONS = ["site", "chat", "ledger"] as const;
 
 const WHY = [
-  { icon: "custom:tailor-tape", label: "Custom, not templates", tone: "rani" as const },
-  { icon: "PlugsConnected", label: "Works with your tools", tone: "peacock" as const },
-  { icon: "Tag", label: "White-label, free", tone: "marigold" as const },
-  { icon: "Key", label: "Your data stays yours", tone: "indigo" as const },
-  { icon: "custom:rupee-coin", label: "Honest pricing", tone: "haldi" as const },
-  { icon: "ClockCountdown", label: "Replies in a few hours, 7 days", tone: "mehendi" as const },
+  { icon: "custom:tailor-tape", label: "Custom, not templates", detail: "Every build is made for one business — yours.", tone: "rani" as const },
+  { icon: "PlugsConnected", label: "Works with your tools", detail: "Zoho, Google, Microsoft and Tally — kept and connected.", tone: "peacock" as const },
+  { icon: "Tag", label: "White-label, free", detail: "Your brand or ours, on every route.", tone: "marigold" as const },
+  { icon: "Key", label: "Your data stays yours", detail: "Your domain, brand, content, data and accounts.", tone: "indigo" as const },
+  { icon: "custom:rupee-coin", label: "Honest pricing", detail: "Gateway, licence and ad costs shown separately.", tone: "haldi" as const },
+  { icon: "ClockCountdown", label: "Replies in a few hours, 7 days", detail: "A real person, on WhatsApp.", tone: "mehendi" as const },
 ];
 
 export default function Home() {
@@ -70,7 +71,7 @@ export default function Home() {
             <div className="hero-actions">
               <WhatsAppCTA context="hero" />
               <Link href="/what-we-do" className="btn-ghost">
-                What we do →
+                What we do <Arw />
               </Link>
             </div>
             <ul className="trust-chips">
@@ -85,9 +86,9 @@ export default function Home() {
             priority
             phone={<MockScreen variant="retail" />}
             stickers={[
-              { text: "UPI received ✅" },
+              { text: "UPI received" },
               { text: "New lead from Google" },
-              { text: "Mentioned by AI assistant ✨" },
+              { text: "Mentioned by AI assistant" },
             ]}
           />
         </div>
@@ -129,7 +130,7 @@ export default function Home() {
                     ))}
                   </ul>
                   <Link href={p.href} className="text-link">
-                    {p.slug === "care" ? "What's included" : `Explore ${p.name.toLowerCase()}`} →
+                    {p.slug === "care" ? "What's included" : `Explore ${p.name.toLowerCase()}`} <Arw />
                   </Link>
                 </div>
               </article>
@@ -186,7 +187,7 @@ export default function Home() {
           <div className="systems-bento">
             <div className="sb-cell sb-stack">
               <BlockStack compact />
-              <Link href="/systems" className="text-link">All 11 blocks →</Link>
+              <Link href="/systems" className="text-link">All 11 blocks <Arw /></Link>
             </div>
             {(["pay", "desk", "team"] as const).map((slug) => {
               const b = getBlock(slug)!;
@@ -344,7 +345,7 @@ export default function Home() {
           <SectionHead kicker="How it works" id="how-title" title="From one WhatsApp message to a system that runs your business." />
           <RangoliRoad />
           <p className="center-note">
-            <Link href="/how-we-work" className="text-link">See every step →</Link>
+            <Link href="/how-we-work" className="text-link">See every step <Arw /></Link>
           </p>
         </div>
       </section>
@@ -368,7 +369,7 @@ export default function Home() {
           </div>
           <p className="center-note">
             Start small. No lock-in.{gst ? ` Prices ${gst}.` : ""} Third-party costs (gateway, WhatsApp, licences, ads) are separate.{" "}
-            <Link href="/pricing" className="text-link">Full pricing →</Link>
+            <Link href="/pricing" className="text-link">Full pricing <Arw /></Link>
           </p>
           {PARTNER_SETUP.published ? <p className="partner-strip">{PARTNER_SETUP.line}</p> : null}
         </div>
@@ -381,9 +382,9 @@ export default function Home() {
           <PhotoBento
             cells={[
               { slot: "IMG-B11" },
-              ...WHY.slice(0, 3).map((w) => ({ icon: <Icon name={w.icon} size={28} />, label: w.label, tone: w.tone })),
+              ...WHY.slice(0, 3).map((w) => ({ icon: <Icon name={w.icon} size={28} />, label: w.label, detail: w.detail, tone: w.tone })),
               { slot: "IMG-B07" },
-              ...WHY.slice(3).map((w) => ({ icon: <Icon name={w.icon} size={28} />, label: w.label, tone: w.tone })),
+              ...WHY.slice(3).map((w) => ({ icon: <Icon name={w.icon} size={28} />, label: w.label, detail: w.detail, tone: w.tone })),
               { slot: "/images/snapshots/registrations.webp", alt: "Accounts and registrations on a desk" },
             ]}
           />
@@ -410,7 +411,7 @@ export default function Home() {
           <SectionHead kicker="Poochho — ask us" id="faq-title" title="Quick answers" />
           <FaqList items={faqs} />
           <p className="center-note">
-            <Link href="/faq" className="text-link">All questions →</Link>
+            <Link href="/faq" className="text-link">All questions <Arw /></Link>
           </p>
         </div>
       </section>

@@ -1,5 +1,6 @@
 import { cache, Fragment, type ReactNode } from "react";
 import { GlossaryChip } from "@/components/clarity";
+import { withArrows } from "@/components/Glyph";
 
 /**
  * glossify (content-plan §2.0.7, §13): wraps the first use of each technical
@@ -22,6 +23,7 @@ const TERMS: [string, RegExp][] = [
 
 export function glossify(node: ReactNode): ReactNode {
   if (typeof node !== "string") return node;
+  if (node.includes("→")) return withArrows(node, glossify);
   const seen = seenOnPage();
   const parts: ReactNode[] = [];
   let rest = node;

@@ -9,7 +9,7 @@ import { Webu } from "@/components/Webu";
 
 /**
  * One Open Graph template for every route (content-plan §17.3 #3):
- * 1200×630, page title in Sora, a pillar/path colour band, a rangoli corner,
+ * 1200×630, page title in Baloo Da 2, a pillar/path colour band, a rangoli corner,
  * a small Webu and the logo. Rendered at build time with next/og.
  */
 
@@ -27,7 +27,7 @@ export const OG_ACCENTS = {
 export type OgAccent = keyof typeof OG_ACCENTS;
 
 const root = process.cwd();
-let assets: Promise<{ sora: Buffer; manrope: Buffer; mark: string; webu: string; mandala: string }> | undefined;
+let assets: Promise<{ display: Buffer; manrope: Buffer; mark: string; webu: string; mandala: string }> | undefined;
 
 async function svgUri(el: ReactElement) {
   const { renderToStaticMarkup } = await import("react-dom/server");
@@ -37,13 +37,13 @@ async function svgUri(el: ReactElement) {
 
 function loadAssets() {
   assets ??= (async () => {
-    const [sora, manrope, markSvg] = await Promise.all([
-      readFile(join(root, "assets/og/sora-700.ttf")),
+    const [display, manrope, markSvg] = await Promise.all([
+      readFile(join(root, "assets/og/baloo-da-2-700.ttf")),
       readFile(join(root, "assets/og/manrope-600.ttf")),
       readFile(join(root, "public/brand/logo/webify-bharat-horizontal.svg"), "utf8"),
     ]);
     return {
-      sora,
+      display,
       manrope,
       mark: `data:image/svg+xml;base64,${Buffer.from(markSvg).toString("base64")}`,
       webu: await svgUri(<Webu state="waving" size={150} />),
@@ -62,7 +62,7 @@ export type OgInput = {
   blogPost?: BlogCategorySlug;
 };
 
-/** The bundled Sora/Manrope subsets have no ₹ glyph, so write it out for OG text. */
+/** The bundled Baloo Da 2/Manrope subsets have no ₹ glyph, so write it out for OG text. */
 const safe = (t: string) => t.replace(/₹\s?/g, "Rs ");
 
 export async function ogImage({ title: rawTitle, kicker: rawKicker, accent = "rani", blogPost }: OgInput) {
@@ -90,7 +90,7 @@ export async function ogImage({ title: rawTitle, kicker: rawKicker, accent = "ra
                 {kicker}
               </div>
             ) : null}
-            <div style={{ fontFamily: "Sora", fontSize: titleSize, lineHeight: 1.08, color: "#1B1030", letterSpacing: -1.5 }}>{title}</div>
+            <div style={{ fontFamily: "Baloo Da 2", fontSize: titleSize, lineHeight: 1.08, color: "#1B1030", letterSpacing: -0.5 }}>{title}</div>
           </div>
           <div style={{ display: "flex", fontSize: 24, color: "#4A4458" }}>Built for your business. Not for everyone&apos;s.</div>
         </div>
@@ -100,7 +100,7 @@ export async function ogImage({ title: rawTitle, kicker: rawKicker, accent = "ra
     {
       ...OG_SIZE,
       fonts: [
-        { name: "Sora", data: a.sora, weight: 700, style: "normal" },
+        { name: "Baloo Da 2", data: a.display, weight: 700, style: "normal" },
         { name: "Manrope", data: a.manrope, weight: 600, style: "normal" },
       ],
     },
