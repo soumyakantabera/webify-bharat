@@ -153,9 +153,6 @@ export function FiveRoutes({ className, highlight }: { className?: string; highl
         </g>
       </g>
       <RestaurantFront name={EXAMPLE.restaurant.name} transform="translate(558 100)" />
-      <g transform="translate(560 334)">
-        <Label x={78} y={14} size={10} weight={600} fill={C.muted} anchor="middle">e.g. a restaurant</Label>
-      </g>
     </svg>
   );
 }

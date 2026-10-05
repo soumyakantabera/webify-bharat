@@ -82,7 +82,7 @@ export function quoteStage(stage: PlanSlug, needs: Needs, features: FeatureId[])
     const limit = limitOf(stage, key);
     if (typeof limit !== "number") {
       if (key === "integrations" && need > 0) {
-        if (stage === "business") lines.push({ label: `${need} × ${addonName("integration")}`, amount: need * addonAmount("integration") });
+        if (stage === "business") lines.push({ label: `${addonName("integration")} (${need})`, amount: need * addonAmount("integration") });
         else {
           feasible = false;
           reason = "Integrations start on Business.";
@@ -95,7 +95,7 @@ export function quoteStage(stage: PlanSlug, needs: Needs, features: FeatureId[])
     const price = rule?.cells[stage];
     if (!rule || price == null) continue;
     const units = (need - limit) / rule.unitSize;
-    lines.push({ label: `${rule.label} × ${Number.isInteger(units) ? units : units.toFixed(1)}`, amount: Math.round(units * price) });
+    lines.push({ label: `${rule.label} (${Number.isInteger(units) ? units : units.toFixed(1)})`, amount: Math.round(units * price) });
   }
 
   // Features (§10.1 includes, §10.3 add-ons).

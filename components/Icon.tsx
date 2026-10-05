@@ -183,8 +183,8 @@ export function Icon({ name, size = 24, weight = "duotone", className, label }: 
   const a11y = label ? { role: "img", "aria-label": label } : { "aria-hidden": true };
   if (name.startsWith("custom:")) {
     const C = CUSTOM[name.slice(7) as keyof typeof CUSTOM];
-    return C ? <C size={size} className={className} {...a11y} /> : null;
+    return C ? <C size={size} className={`wb-ic${className ? ` ${className}` : ""}`} {...a11y} /> : null;
   }
   const P = PH[name as keyof typeof PH] as React.ComponentType<PhProps> | undefined;
-  return P ? <P size={size} weight={weight} className={className} {...a11y} /> : null;
+  return P ? <P size={size} weight={weight} className={`wb-ic${className ? ` ${className}` : ""}`} {...a11y} /> : null;
 }

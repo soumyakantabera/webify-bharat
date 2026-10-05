@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { withArrows } from "@/components/Glyph";
 import { Icon } from "@/components/Icon";
 
 /**
@@ -37,7 +38,7 @@ export function FloatingUiSticker({
   return (
     <span className={`ui-sticker${className ? ` ${className}` : ""}`} aria-hidden="true" style={style}>
       <span className="ui-sticker-icon">{icon ?? autoIcon(children)}</span>
-      <span>{children}</span>
+      <span>{typeof children === "string" ? withArrows(children) : children}</span>
     </span>
   );
 }
