@@ -1,7 +1,8 @@
 /**
  * Ecosystem logos (content-plan §5).
- * `file` points at /public/images/logos/<id>.svg — CC0 marks from Simple Icons
- * and svg-logos (npm), coloured in each brand's own colour. Brands with no
+ * `file` points at /public/images/logos/<id>.svg|webp — CC0 marks from Simple
+ * Icons and svg-logos (npm) in each brand's own colour, plus owner-supplied
+ * wordmarks (UPI, BHIM, RuPay, Cashfree, Tally). Brands with no
  * openly licensed mark stay a text chip. Never hotlink; never redraw a mark.
  *
  * Wording rules: "Payments we set up", "Works with", "Compared to".
@@ -24,16 +25,16 @@ export type Logo = {
 
 export const logos: Logo[] = [
   // §5.1 Payments we set up
-  { id: "upi", name: "UPI", group: "pay" },
+  { id: "upi", name: "UPI", file: "/images/logos/upi.webp", wordmark: true, group: "pay" },
   { id: "razorpay", name: "Razorpay", file: "/images/logos/razorpay.svg", group: "pay" },
-  { id: "cashfree", name: "Cashfree", group: "pay" },
+  { id: "cashfree", name: "Cashfree", file: "/images/logos/cashfree.webp", wordmark: true, group: "pay" },
   { id: "stripe", name: "Stripe", file: "/images/logos/stripe.svg", group: "pay", note: "international" },
   { id: "paypal", name: "PayPal", file: "/images/logos/paypal.svg", group: "pay", note: "on request" },
   { id: "gpay", name: "GPay", file: "/images/logos/gpay.svg", group: "upi" },
   { id: "phonepe", name: "PhonePe", file: "/images/logos/phonepe.svg", group: "upi" },
   { id: "paytm", name: "Paytm", file: "/images/logos/paytm.svg", group: "upi" },
-  { id: "bhim", name: "BHIM", group: "upi" },
-  { id: "rupay", name: "RuPay", group: "upi" },
+  { id: "bhim", name: "BHIM", file: "/images/logos/bhim.webp", wordmark: true, group: "upi" },
+  { id: "rupay", name: "RuPay", file: "/images/logos/rupay.webp", wordmark: true, group: "upi" },
   { id: "visa", name: "Visa", file: "/images/logos/visa.svg", group: "upi" },
   { id: "mastercard", name: "Mastercard", file: "/images/logos/mastercard.svg", group: "upi" },
   { id: "amex", name: "Amex", file: "/images/logos/amex.svg", group: "upi" },
@@ -56,7 +57,7 @@ export const logos: Logo[] = [
   { id: "odoo", name: "Odoo", file: "/images/logos/odoo.svg", group: "software" },
   { id: "erpnext", name: "ERPNext", file: "/images/logos/erpnext.svg", group: "software" },
   { id: "zoho", name: "Zoho", file: "/images/logos/zoho.svg", group: "software" },
-  { id: "tally", name: "Tally", group: "software" },
+  { id: "tally", name: "Tally", file: "/images/logos/tally.webp", wordmark: true, group: "software" },
   { id: "google-workspace", name: "Google Workspace", file: "/images/logos/google-workspace.svg", wordmark: true, group: "software" },
   { id: "gmail", name: "Gmail", file: "/images/logos/gmail.svg", group: "software" },
   { id: "google-drive", name: "Drive", file: "/images/logos/google-drive.svg", group: "software" },
