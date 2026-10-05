@@ -92,7 +92,7 @@ export async function ogImage({ title: rawTitle, kicker: rawKicker, accent = "ra
             ) : null}
             <div style={{ fontFamily: "Baloo Da 2", fontSize: titleSize, lineHeight: 1.08, color: "#1B1030", letterSpacing: -0.5 }}>{title}</div>
           </div>
-          <div style={{ display: "flex", fontSize: 24, color: "#4A4458" }}>Custom software for your whole business. All in one place.</div>
+          <div style={{ display: "flex", fontSize: 24, color: "#4A4458" }}>Stop renting your own customers.</div>
         </div>
         <img src={a.webu} width={150} height={160} style={{ position: "absolute", right: 56, bottom: 28 }} />
       </div>

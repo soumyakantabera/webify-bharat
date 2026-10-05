@@ -256,3 +256,6 @@ a.link-card .wb-img { pointer-events: none; }
 .svg-link > :not(title) { transition: opacity 0.15s ease, transform 0.15s ease; }
 .svg-link:hover > :not(title) { opacity: 0.85; }
 .svg-link:focus-visible { outline: 3px solid var(--rani); outline-offset: 2px; }
+
+/* Home H1: the hook, then the software line in a quieter size */
+.home-hero h1 .h1-sub { display: block; margin-top: 10px; font-size: 0.5em; line-height: 1.2; font-weight: 700; color: var(--ink-2); word-spacing: normal; }

@@ -1,11 +1,11 @@
 import { WA_NUMBER } from "@/lib/wa-link";
 export const SITE = {
   name: "Webify Bharat",
-  tagline: "Custom software for your whole business. All in one place.",
+  tagline: "Stop renting your own customers.",
   accent: "Aapka business. Aapke hisaab se.",
   /** Category sentence (content-plan §2.0.1) — used verbatim in hero sub, meta, llms.txt, About. */
   description:
-    "One team for your business software and marketing — built around how you work, simple for your staff, and run for you every month.",
+    "Own your customers instead of renting them: one custom system for your website, orders, payments, WhatsApp and marketing — simple for your staff, and run for you every month.",
   replyPromise: "We reply within a few hours, 7 days a week.",
   replyShort: "Replies in a few hours · 7 days",
   whatsapp: WA_NUMBER,

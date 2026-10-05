@@ -41,10 +41,10 @@ function page(
 
 export const PAGE_SEO: Record<string, PageSeo> = {
   home: page(
-    "Custom Business Software, All in One Place | Webify Bharat",
-    "Custom software for your whole business — website, billing, payments, WhatsApp, CRM and marketing in one place. Easy to use, your brand, your data.",
+    "Own Your Customers: Custom Business Software, All in One | Webify Bharat",
+    "Stop paying apps a cut of every repeat order. One custom system — website, ordering, payments, WhatsApp, CRM and marketing — with your customer list in your name.",
     "/",
-    ["Webify Bharat", "custom software for small business India", "all in one business software India", "one-stop business software", "easy business software for MSME", "MSME CRM ERP", "WhatsApp Business API", "website design India", "AI visibility"],
+    ["Webify Bharat", "custom software for small business India", "all in one business software India", "one-stop business software", "easy business software for MSME", "own customer data", "direct ordering without commission", "Zomato Swiggy commission alternative", "MSME CRM ERP", "WhatsApp Business API", "website design India", "AI visibility"],
     [],
     [
       { term: "What it is", value: "Custom software and marketing for Indian MSMEs, built and run for you" },
@@ -110,7 +110,7 @@ export const PAGE_SEO: Record<string, PageSeo> = {
     [],
   ),
   systems: page(
-    "Custom business software modules: website, billing, CRM, WhatsApp",
+    "Custom business software modules — own your customers, not rent them",
     "Eleven building blocks — website, store, payments, WhatsApp, CRM/ERP, staff portal, email, GST invoicing, registrations, dashboards, integrations — combined into one system for your business.",
     "/systems",
     ["custom software for small business India", "CRM ERP for MSME", "website and payments setup", "WhatsApp Business API setup"],
@@ -142,7 +142,7 @@ export const PAGE_SEO: Record<string, PageSeo> = {
     [],
   ),
   pricing: page(
-    "Business software pricing: one monthly plan from ₹3,000, no lock-in",
+    "Business software pricing: a flat monthly fee, not a cut of every order",
     "Four stages — Starter, Business, Command and Custom — with clear limits, add-ons and over-limit charges you approve first. Third-party costs shown separately. Estimate your scope and get an exact quote on WhatsApp.",
     "/pricing",
     ["website and software pricing India", "monthly plan small business software", "CRM pricing India"],
@@ -208,7 +208,7 @@ export const PAGE_SEO: Record<string, PageSeo> = {
 };
 
 const ANSWERS: Record<string, string> = {
-  home: "Webify Bharat is a one-stop software and marketing partner for Indian small businesses: it builds custom software for the whole business — website, billing, payments, WhatsApp, staff and marketing — in one place, keeps it simple for staff, and runs it every month. Clients keep their brand, domain, data and accounts.",
+  home: "Webify Bharat helps Indian small businesses own their customers instead of renting them from apps and directories: it builds one custom system — website, direct ordering, payments, WhatsApp, billing and marketing — keeps it simple for staff, and runs it every month. The customer list, brand, domain and accounts stay in the client's name, with a full export if they leave.",
 };
 
 export function getPageSeo(key: string): PageSeo {

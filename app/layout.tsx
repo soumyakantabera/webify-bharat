@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     template: "%s",
   },
   description:
-    "One team for your business software and marketing — built around how you work, simple for your staff, and run for you every month.",
+    "Own your customers instead of renting them: one custom system for your website, orders, payments, WhatsApp and marketing — simple for your staff, and run for you every month.",
   // Icons come from app/favicon.ico, app/icon.svg and app/apple-icon.png (content-plan §17.3 #2).
 };
 

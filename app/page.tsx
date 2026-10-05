@@ -37,7 +37,7 @@ export const metadata: Metadata = pageMetadata("home");
 const GAP_ROWS: GapRow[] = [
   { exists: ["zoho", "odoo", "tally", "google", "microsoft-365"], lack: "Someone to choose, set up and customise them", fit: "We plan, configure or build it — in your brand", fitIcon: "SquaresFour", tone: "rani", href: "/systems" },
   { exists: ["upi", "razorpay", "cashfree", "stripe"], lack: "Payments connected to invoices, WhatsApp and books", fit: "We wire it all together", fitIcon: "PlugsConnected", tone: "peacock", href: "/systems/pay" },
-  { exists: ["zomato", "swiggy", "amazon", "indiamart"], lack: "A channel of your own for regulars", fit: "We build it alongside them", fitIcon: "ShoppingBag", tone: "marigold", href: "/systems/store" },
+  { exists: ["zomato", "swiggy", "amazon", "indiamart"], lack: "Your regulars — every repeat order pays the app again", fit: "Your own channel — regulars come straight to you", fitIcon: "ShoppingBag", tone: "marigold", href: "/systems/store" },
   { exists: ["google", "meta", "bing", { label: "AI assistants", icon: "Sparkle" }], lack: "Know-how and time for ads, SEO and AI visibility", fit: "We run your marketing", fitIcon: "Megaphone", tone: "mehendi", href: "/marketing" },
   { exists: [{ label: "Freelancers", icon: "UserCircleGear" }, { label: "Agencies", icon: "Buildings" }], lack: "Someone who stays after launch", fit: "Your monthly plan includes care", fitIcon: "Lifebuoy", tone: "indigo", href: "/pricing#care" },
 ];
@@ -48,14 +48,14 @@ const WHY = [
   { icon: "custom:tailor-tape", label: "Custom, not templates", detail: "Every build is made for one business — yours.", tone: "rani" as const, href: "/how-we-work" },
   { icon: "PlugsConnected", label: "Works with your tools", detail: "Zoho, Google, Microsoft and Tally — kept and connected.", tone: "peacock" as const, href: "/integrations" },
   { icon: "Tag", label: "White-label, free", detail: "Your brand or ours, on every route.", tone: "marigold" as const, href: "/integrations#white-label" },
-  { icon: "Key", label: "Your data stays yours", detail: "Your domain, brand, content, data and accounts.", tone: "indigo" as const, href: "/faq" },
+  { icon: "Key", label: "Your customers stay yours", detail: "Customer list, orders and chats in your name — exported to you if you ever leave.", tone: "indigo" as const, href: "/faq" },
   { icon: "custom:rupee-coin", label: "Honest pricing", detail: "Gateway, licence and ad costs shown separately.", tone: "haldi" as const, href: "/pricing" },
   { icon: "ClockCountdown", label: "Replies in a few hours, 7 days", detail: "A real person, on WhatsApp.", tone: "mehendi" as const, href: "/contact" },
 ];
 
 export default function Home() {
   const gst = gstNote();
-  const faqs = pickFaqs(["competing", "templates", "strategy-paid", "guarantee", "own", "reply"]);
+  const faqs = pickFaqs(["customers", "competing", "templates", "strategy-paid", "own", "reply"]);
 
   return (
     <Layout>
@@ -63,12 +63,12 @@ export default function Home() {
       <section className="home-hero" id="hero" aria-labelledby="hero-title">
         <div className="container home-hero-grid">
           <div className="home-hero-copy">
-            <p className="kicker">One-stop software &amp; marketing partner for Indian businesses</p>
-            <h1 id="hero-title">Custom software for your whole business. All in one place.</h1>
+            <p className="kicker">Custom business software &amp; marketing · all in one place</p>
+            <h1 id="hero-title">Stop renting your own customers. <span className="h1-sub">Own them — on software built for your business.</span></h1>
             <p className="hinglish accent-line">
-              {SITE.accent} <span>— your business, your way.</span>
+              Grahak aapke. System aapka. <span>— your customers, your system.</span>
             </p>
-            <p className="hero-sub">Website, billing, payments, WhatsApp, staff and marketing — built around how you work, simple for your team, and run for you every month.</p>
+            <p className="hero-sub">Keep the apps and directories for new buyers. We build one system — website, ordering, payments, WhatsApp and billing — where your regulars come straight to you, without an aggregator&apos;s cut, and every customer is saved in your name.</p>
             <div className="hero-actions">
               <WhatsAppCTA context="hero" />
               <Link href="/what-we-do" className="btn-ghost">
@@ -76,10 +76,10 @@ export default function Home() {
               </Link>
             </div>
             <ul className="trust-chips">
+              <li><Icon name="AddressBook" size={18} /> Your customer list, in your name</li>
+              <li><Icon name="ChatCircleDots" size={18} /> Repeat orders on your WhatsApp</li>
               <li><Icon name="UsersThree" size={18} /> Easy for your staff</li>
-              <li><Icon name="Key" size={18} /> Your brand, your data</li>
               <li><Icon name="PlugsConnected" size={18} /> Works with Zoho, Google, Microsoft, Tally</li>
-              <li><Icon name="ChatCircleDots" size={18} /> Replies in a few hours, 7 days</li>
             </ul>
           </div>
           <RangoliCollage

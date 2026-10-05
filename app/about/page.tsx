@@ -40,7 +40,7 @@ export default function AboutPage() {
       <PageHero
         kicker="About"
         title="No two businesses run alike. So no two of our builds are alike."
-        sub="We build and run custom software for Indian businesses — in your brand, with your data kept yours — fully remote over WhatsApp, from Kolkata."
+        sub="We build and run custom software so Indian businesses own their customers, brand and data — fully remote over WhatsApp, from Kolkata."
         cta={<WhatsAppCTA message={WA_MSG.default} context="hero" label="Talk to us" />}
         visual={
           <div className="about-hero-art">
