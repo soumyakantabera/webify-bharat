@@ -1,8 +1,8 @@
 /**
  * Ecosystem logos (content-plan §5).
- * `file` points at /public/images/logos/<id>.svg once the owner adds the
- * official SVG from the brand's press kit. Until then `file` is undefined and
- * the UI renders a text wordmark chip (Baloo Da 2 600). Never hotlink.
+ * `file` points at /public/images/logos/<id>.svg — CC0 marks from Simple Icons
+ * and svg-logos (npm), coloured in each brand's own colour. Brands with no
+ * openly licensed mark stay a text chip. Never hotlink; never redraw a mark.
  *
  * Wording rules: "Payments we set up", "Works with", "Compared to".
  * Never "partner", "certified" or "official" unless true.
@@ -14,7 +14,10 @@ export type Logo = {
   id: string;
   name: string;
   group: LogoGroup;
+  /** Local SVG (CC0, from Simple Icons / svg-logos). Absent = text chip. */
   file?: string;
+  /** The file is a full wordmark (name included), so the chip shows it alone. */
+  wordmark?: boolean;
   href?: string;
   note?: string;
 };
@@ -22,43 +25,43 @@ export type Logo = {
 export const logos: Logo[] = [
   // §5.1 Payments we set up
   { id: "upi", name: "UPI", group: "pay" },
-  { id: "razorpay", name: "Razorpay", group: "pay" },
+  { id: "razorpay", name: "Razorpay", file: "/images/logos/razorpay.svg", group: "pay" },
   { id: "cashfree", name: "Cashfree", group: "pay" },
-  { id: "stripe", name: "Stripe", group: "pay", note: "international" },
-  { id: "paypal", name: "PayPal", group: "pay", note: "on request" },
-  { id: "gpay", name: "GPay", group: "upi" },
-  { id: "phonepe", name: "PhonePe", group: "upi" },
-  { id: "paytm", name: "Paytm", group: "upi" },
+  { id: "stripe", name: "Stripe", file: "/images/logos/stripe.svg", group: "pay", note: "international" },
+  { id: "paypal", name: "PayPal", file: "/images/logos/paypal.svg", group: "pay", note: "on request" },
+  { id: "gpay", name: "GPay", file: "/images/logos/gpay.svg", group: "upi" },
+  { id: "phonepe", name: "PhonePe", file: "/images/logos/phonepe.svg", group: "upi" },
+  { id: "paytm", name: "Paytm", file: "/images/logos/paytm.svg", group: "upi" },
   { id: "bhim", name: "BHIM", group: "upi" },
   { id: "rupay", name: "RuPay", group: "upi" },
-  { id: "visa", name: "Visa", group: "upi" },
-  { id: "mastercard", name: "Mastercard", group: "upi" },
-  { id: "amex", name: "Amex", group: "upi" },
+  { id: "visa", name: "Visa", file: "/images/logos/visa.svg", group: "upi" },
+  { id: "mastercard", name: "Mastercard", file: "/images/logos/mastercard.svg", group: "upi" },
+  { id: "amex", name: "Amex", file: "/images/logos/amex.svg", group: "upi" },
 
   // §5.2 What we build on
-  { id: "github-pages", name: "GitHub Pages", group: "build" },
-  { id: "nextjs", name: "Next.js", group: "build" },
-  { id: "github", name: "GitHub", group: "build" },
-  { id: "cloudflare", name: "Cloudflare DNS", group: "build" },
+  { id: "github-pages", name: "GitHub Pages", file: "/images/logos/github-pages.svg", group: "build" },
+  { id: "nextjs", name: "Next.js", file: "/images/logos/nextjs.svg", group: "build" },
+  { id: "github", name: "GitHub", file: "/images/logos/github.svg", group: "build" },
+  { id: "cloudflare", name: "Cloudflare DNS", file: "/images/logos/cloudflare.svg", group: "build" },
 
   // §5.3 Channels & tools we connect
-  { id: "whatsapp", name: "WhatsApp Business API", group: "channel" },
-  { id: "google", name: "Google", group: "channel" },
-  { id: "google-maps", name: "Maps / Business Profile", group: "channel" },
-  { id: "google-analytics", name: "Analytics", group: "channel" },
-  { id: "instagram", name: "Instagram", group: "channel" },
+  { id: "whatsapp", name: "WhatsApp Business API", file: "/images/logos/whatsapp.svg", group: "channel" },
+  { id: "google", name: "Google", file: "/images/logos/google.svg", group: "channel" },
+  { id: "google-maps", name: "Maps / Business Profile", file: "/images/logos/google-maps.svg", group: "channel" },
+  { id: "google-analytics", name: "Analytics", file: "/images/logos/google-analytics.svg", group: "channel" },
+  { id: "instagram", name: "Instagram", file: "/images/logos/instagram.svg", group: "channel" },
   { id: "shiprocket", name: "Shiprocket", group: "channel" },
 
   // §5.3a Business software we build on or integrate
-  { id: "odoo", name: "Odoo", group: "software" },
-  { id: "erpnext", name: "ERPNext", group: "software" },
-  { id: "zoho", name: "Zoho", group: "software" },
+  { id: "odoo", name: "Odoo", file: "/images/logos/odoo.svg", group: "software" },
+  { id: "erpnext", name: "ERPNext", file: "/images/logos/erpnext.svg", group: "software" },
+  { id: "zoho", name: "Zoho", file: "/images/logos/zoho.svg", group: "software" },
   { id: "tally", name: "Tally", group: "software" },
-  { id: "google-workspace", name: "Google Workspace", group: "software" },
-  { id: "gmail", name: "Gmail", group: "software" },
-  { id: "google-drive", name: "Drive", group: "software" },
-  { id: "google-sheets", name: "Sheets", group: "software" },
-  { id: "microsoft-365", name: "Microsoft 365", group: "software" },
+  { id: "google-workspace", name: "Google Workspace", file: "/images/logos/google-workspace.svg", wordmark: true, group: "software" },
+  { id: "gmail", name: "Gmail", file: "/images/logos/gmail.svg", group: "software" },
+  { id: "google-drive", name: "Drive", file: "/images/logos/google-drive.svg", group: "software" },
+  { id: "google-sheets", name: "Sheets", file: "/images/logos/google-sheets.svg", group: "software" },
+  { id: "microsoft-365", name: "Microsoft 365", file: "/images/logos/microsoft-365.svg", group: "software" },
 
   // §5.4 Government portals we file on
   { id: "gst", name: "GST", group: "gov", href: "https://www.gst.gov.in" },
@@ -71,10 +74,10 @@ export const logos: Logo[] = [
   { id: "justdial", name: "Justdial", group: "marketplace" },
   { id: "sulekha", name: "Sulekha", group: "marketplace" },
   { id: "indiamart", name: "IndiaMART", group: "marketplace" },
-  { id: "zomato", name: "Zomato", group: "marketplace" },
-  { id: "swiggy", name: "Swiggy", group: "marketplace" },
-  { id: "amazon", name: "Amazon", group: "marketplace" },
-  { id: "flipkart", name: "Flipkart", group: "marketplace" },
+  { id: "zomato", name: "Zomato", file: "/images/logos/zomato.svg", group: "marketplace" },
+  { id: "swiggy", name: "Swiggy", file: "/images/logos/swiggy.svg", group: "marketplace" },
+  { id: "amazon", name: "Amazon", file: "/images/logos/amazon.svg", group: "marketplace" },
+  { id: "flipkart", name: "Flipkart", file: "/images/logos/flipkart.svg", group: "marketplace" },
 ];
 
 export const LOGO_GROUP_LABEL: Record<LogoGroup, string> = {

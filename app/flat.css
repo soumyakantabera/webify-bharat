@@ -132,3 +132,14 @@ button:hover > .ic-arw-left { transform: translateX(-3px); }
 .trust-chips li:nth-child(3n) .wb-ic { color: var(--marigold); --ic-duo: var(--haldi-tint); }
 /* Icons on dark or solid colour fills stay single-tone */
 :is(.burst, .ribbon, .btn-primary, .wa-cta, .site-footer, footer) .wb-ic [opacity="0.2"] { fill: currentColor; opacity: 0.25; }
+
+/* Logo chips: real brand marks in colour (no greyscale), on a white badge */
+.logo-chip { align-items: center; }
+.logo-chip.is-partner { opacity: 1; filter: none; }
+.logo-chip.is-muted { opacity: 0.75; filter: none; }
+.logo-badge { display: inline-grid; place-items: center; width: 26px; height: 26px; margin-left: -6px; border-radius: 50%; background: #fff; border: 1px solid var(--line); flex: none; }
+.logo-badge img { width: 16px; height: 16px; }
+.logo-badge.is-wide { width: auto; height: 26px; padding: 0 10px; margin: 0 -8px; border-radius: 999px; }
+.logo-badge.is-wide img { width: auto; height: 16px; }
+.logo-chip { min-height: 40px; }
+.logo-badge img { object-fit: contain; }
