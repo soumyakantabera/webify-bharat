@@ -63,8 +63,8 @@ export default function Home() {
       <section className="home-hero" id="hero" aria-labelledby="hero-title">
         <div className="container home-hero-grid">
           <div className="home-hero-copy">
-            <p className="kicker">Your software · your marketing · run for you</p>
-            <h1 id="hero-title">Built for your business. Not for everyone&apos;s.</h1>
+            <p className="kicker">Custom software, websites &amp; marketing for Indian businesses</p>
+            <h1 id="hero-title">Software that fits your business. Marketing that fills it.</h1>
             <p className="hinglish accent-line">
               {SITE.accent} <span>— your business, your way.</span>
             </p>

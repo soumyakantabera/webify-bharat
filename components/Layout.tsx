@@ -5,6 +5,7 @@ import Header from "./Header";
 import Motion from "./Motion";
 import { OrgJsonLd } from "./JsonLd";
 import { WaEnhancer } from "./WaEnhancer";
+import { GlossFloat } from "./GlossFloat";
 import { WA_DEFAULT } from "@/lib/wa";
 
 let qrCache: string | undefined;
@@ -33,6 +34,7 @@ export default async function Layout({ children, cta }: { children: ReactNode; c
       <main id="main-content">{children}</main>
       <Footer cta={cta} />
       <WaEnhancer qrSvg={qrSvg} href={WA_DEFAULT} />
+      <GlossFloat />
     </>
   );
 }

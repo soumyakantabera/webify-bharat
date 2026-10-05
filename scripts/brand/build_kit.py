@@ -186,7 +186,9 @@ body = defs(dots("d", WHITE, 0.08, 30, 2.2), grad("holi", [RANI, MARIGOLD, HALDI
 body += f'<rect width="{w}" height="{h}" fill="{INK}"/><rect width="{w}" height="{h}" fill="url(#d)"/>'
 body += mandala(95, 200, 240, [RANI, HALDI, MARIGOLD], 0.9)
 body += f'<rect y="{h - 10}" width="{w}" height="10" fill="url(#holi)"/>'
-t, _ = text(DISPLAY, TAGLINE or "Built for your business.", 54, w - 90, 150, WHITE, "end", -0.02)
+_tag = TAGLINE or "Software that fits your business."
+# Shrink long taglines so they clear the mandala on the left.
+t, _ = text(DISPLAY, _tag, 54 if len(_tag) <= 40 else 44, w - 90, 150, WHITE, "end", -0.02)
 body += t
 t, _ = text(MAN5, "Websites, stores, payments, WhatsApp, CRM / ERP and marketing — made for you, run for you.", 24, w - 90, 205, "#E9E3F5", "end")
 body += t

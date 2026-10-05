@@ -126,7 +126,7 @@ SaaS = software you use, we run it · PaaS = our base platform · CRM = customer
 > **Webify Bharat builds and runs your own business software — and markets your business — so every tool you use actually works for you.** Strategy, systems, marketing and care for Indian MSMEs: websites, payments, WhatsApp, CRM/ERP, staff portals, SEO, ads and AI visibility — made for your business, in your brand, owned by you.
 
 ### 2.2 Headline system
-- **Primary (EN):** **"Built for your business. Not for everyone's."**
+- **Primary (EN):** **"Software that fits your business. Marketing that fills it."** (changed by the owner; was "Built for your business. Not for everyone's.")
 - **Accent (Hinglish, small, Caveat-style handwritten or Sora italic):** *"Aapka business. Aapke hisaab se."*
 - **Support line:** *"No templates. From your website to your CRM, we learn how you work and build the system around it — or set up your new business from day zero."*
 - **One-stop line (used under hero and on About):** *"One team to plan, build, run and market it — working with the tools you already know."*
@@ -756,7 +756,7 @@ Update `app/sitemap.ts`, internal links, `lib/page-seo.ts`, and `public/llms.txt
 
 | # | Section | Layout | Content | Visual / images / motion |
 |---|---|---|---|---|
-| 1 | **Hero** | 12-col: copy 1–6, collage 7–12 | Kicker: `YOUR SOFTWARE · YOUR MARKETING · RUN FOR YOU` · **H1: "Built for your business. Not for everyone's."** · Accent: *Aapka business. Aapke hisaab se.* · **Sub = category sentence (§2.0.1)** · CTAs: `💬 WhatsApp us` + ghost `What we do →` · Trust chips: ✂️ Custom, not templates · 🤝 Works with Zoho, Google, Microsoft, Tally · 💬 Replies in a few hours, 7 days | `RangoliCollage`: IMG-H01 large + H02, H03, H04, H05 · `FloatingUiSticker`s: "UPI received ✅", "New lead from Google", "Mentioned by AI assistant ✨" |
+| 1 | **Hero** | 12-col: copy 1–6, collage 7–12 | Kicker: `CUSTOM SOFTWARE, WEBSITES & MARKETING FOR INDIAN BUSINESSES` · **H1: "Software that fits your business. Marketing that fills it."** · Accent: *Aapka business. Aapke hisaab se.* · **Sub = category sentence (§2.0.1)** · CTAs: `💬 WhatsApp us` + ghost `What we do →` · Trust chips: ✂️ Custom, not templates · 🤝 Works with Zoho, Google, Microsoft, Tally · 💬 Replies in a few hours, 7 days | `RangoliCollage`: IMG-H01 large + H02, H03, H04, H05 · `FloatingUiSticker`s: "UPI received ✅", "New lead from Google", "Mentioned by AI assistant ✨" |
 | 2 | **What we are / aren't** | Thin 2-column strip directly under hero | §2.0.3 (3 rows each, short) | Small round photo crops (existing `snapshots/contact`, `snapshots/services`) at strip ends |
 | 3 | **Four pillars** | 4 tall cards (pillar colour top band, photo header 16:9) | H2: **"Four things we do. All made for your business."** · Strategy / Systems / Marketing / Care — one line + 4 inside-chips + link each | Photo headers: Strategy = existing `snapshots/work` · Systems = IMG-B09 · Marketing = IMG-B01 · Care = IMG-R05 · `FourPillars` SVG behind heading |
 | 4 | **The gap — burst** (absorbs the bazaar strip) | Full-bleed Holi band | H2: **"The tools are great. The gap is everything in between. That's us."** · `GapBridge` SVG · 5 gap rows from §2.0.2 as compact chips | `BazaarStrip` of the 7 market photos running along the bottom edge of the band (full opacity, 120px tall) |
@@ -1834,5 +1834,5 @@ When you generate real images later (`image-prompts.md`), drop them in `/public/
 
 ---
 
-<p align="center"><b>Webify Bharat</b> · Built for your business. Not for everyone's.<br><i>Aapka business. Aapke hisaab se.</i></p>
+<p align="center"><b>Webify Bharat</b> · Software that fits your business. Marketing that fills it.<br><i>Aapka business. Aapke hisaab se.</i></p>
 <p align="center"><sub>All third-party names and logos belong to their owners and are shown only to indicate compatibility or comparison. Prices are starting points, exclude GST, and are confirmed in a written scope.</sub></p>
