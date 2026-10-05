@@ -104,11 +104,14 @@ button:hover > .ic-arw-left { transform: translateX(-3px); }
   .photo-bento { grid-auto-rows: minmax(150px, auto); }
 }
 
-/* Five routes stays legible on phones: scroll the diagram sideways instead of shrinking it. */
+/* Wide diagrams ship a tall phone layout (.is-tall) alongside the wide one (.is-wide). */
+.wb-svg.is-tall { display: none; }
 @media (max-width: 639px) {
-  .routes-art, .routes-card, .why-routes-wrap, .decision-card { overflow-x: auto; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; }
-  .routes-art .svg-fiveroutes, .routes-card .svg-fiveroutes, .why-routes-wrap .svg-fiveroutes, .decision-card .svg-decisiontree { min-width: 620px; }
+  .wb-svg.is-wide { display: none; }
+  .wb-svg.is-tall { display: block; max-width: 420px; margin-inline: auto; }
 }
+.svg-decisiontree .dt-cost.is-left { display: block; height: auto; text-align: left; padding: 0; font-size: 11px; }
+.svg-decisiontree .dt-wl { margin: 0; display: flex; align-items: center; height: 54px; font: 700 12px/1.3 var(--font-body); color: var(--indigo); }
 
 /* DecisionTree (strategy page) text blocks */
 .svg-decisiontree :is(.dt-q, .dt-ex, .dt-a, .dt-cost) { margin: 0; color: var(--ink); }
@@ -264,3 +267,27 @@ a.link-card .wb-img { pointer-events: none; }
 .sh-item:has(> .mega-resources) { position: relative; }
 .mega-resources { width: 440px; left: auto; right: 0; transform: none; }
 .mega-resources .mm-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+/* ——— Phone & tablet header: no menu button (the bottom dock has Menu);
+       the logo sits centred as a stacked lockup — mark above, name below. ——— */
+@media (max-width: 1079px) {
+  .sh-burger, .sh-right { display: none; }
+  .sh-inner { justify-content: center; }
+  .sh-logo .brand-logo { flex-direction: column; gap: 3px; }
+  .sh-logo .brand-mark { height: 32px; transition: height 0.25s ease; }
+  .sh-logo .brand-wordmark { flex-direction: row; gap: 4px; line-height: 1; animation: wordmark-rise 0.6s 0.35s cubic-bezier(0.22, 1, 0.36, 1) both; }
+  .sh-logo .brand-webify, .sh-logo .brand-bharat { font-size: 13px; letter-spacing: 0.02em; }
+  .site-header.is-scrolled .sh-logo .brand-mark { height: 24px; }
+  .site-header.is-scrolled .sh-logo .brand-webify,
+  .site-header.is-scrolled .sh-logo .brand-bharat { font-size: 12px; }
+}
+@keyframes wordmark-rise { from { opacity: 0; transform: translateY(6px); letter-spacing: 0.3em; } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .sh-logo .brand-wordmark { animation: none; }
+}
+
+/* Phone: diagram overlays pinned on hero photos drop below the photo at full width */
+@media (max-width: 639px) {
+  .photo-ui-layer > .pul-overlay { position: static; width: 100%; margin-top: 12px; }
+  .photo-ui-layer > .pul-overlay .sig-art, .photo-ui-layer > .pul-overlay > svg { max-width: 100%; }
+}

@@ -133,8 +133,40 @@ export function FiveRoutes({ className, highlight }: { className?: string; highl
       <path d={d} stroke="#fff" strokeWidth="1.8" strokeDasharray="7 8" fill="none" className="flow-dash" />
     </g>
   );
+  const label = `Five ways we build, all ending at one restaurant, ${EXAMPLE.restaurant.name}: adapt our prototype (the shortest road), from scratch, on open source, the budget route, or on the tools you already use`;
+  // Phone layout: pills stacked, roads drop down a shared lane into the shop.
+  const tallRows = [34, 98, 162, 226];
+  const tall = (
+    <svg viewBox="0 0 360 666" className={cls("svg-fiveroutes is-tall", className)} role="group" aria-label={label}>
+      {left.map((r, i) => {
+        const y = tallRows[i];
+        const xt = 288 + i * 12;
+        return (
+          <g key={r.slug} opacity={fade(r.slug)}>
+            <path d={`M258 ${y} C${xt} ${y} ${xt} ${y} ${xt} ${y + 30} L${xt} 420 C${xt} 460 200 460 180 500`} stroke={ROUTE_SHORT[r.slug].f} strokeWidth="9" fill="none" strokeLinecap="round" />
+            <SvgLink href={r.href} label={`${r.name}: ${r.line}`}>
+              <RoutePill x={10} y={y} w={248} slug={r.slug} icon={r.icon} />
+            </SvgLink>
+          </g>
+        );
+      })}
+      <path d="M258 318 C338 318 338 318 338 348 L338 420 C338 466 200 466 180 500" stroke={ROUTE_SHORT.prototype.f} strokeWidth="12" fill="none" strokeLinecap="round" />
+      <path d="M258 318 C338 318 338 318 338 348 L338 420 C338 466 200 466 180 500" stroke="#fff" strokeWidth="1.6" strokeDasharray="6 7" fill="none" className="flow-dash" />
+      <g transform="translate(18 270)">
+        <rect width="96" height="20" rx="10" fill={C.haldi} stroke={C.ink} strokeWidth="1.2" />
+        <Label x={48} y={14} size={9.5} anchor="middle">Fastest start</Label>
+      </g>
+      <SvgLink href={proto.href} label={`${proto.name}: ${proto.line}`}>
+        <RoutePill x={10} y={318} w={248} slug="prototype" icon={proto.icon} />
+      </SvgLink>
+      <RestaurantFront name={EXAMPLE.restaurant.name} transform="translate(113.7 470) scale(0.85)" />
+      <path d="M60 657 H300" stroke={C.line} strokeWidth="2" />
+    </svg>
+  );
   return (
-    <svg viewBox="0 0 720 356" className={cls("svg-fiveroutes", className)} role="group" aria-label={`Five ways we build, all ending at one restaurant, ${EXAMPLE.restaurant.name}: adapt our prototype (the shortest road), from scratch, on open source, the budget route, or on the tools you already use`}>
+    <>
+    {tall}
+    <svg viewBox="0 0 720 356" className={cls("svg-fiveroutes is-wide", className)} role="group" aria-label={label}>
       <path d={`M540 ${end.y + 14} H720`} stroke={C.line} strokeWidth="2" />
       {left.map((r, i) => {
         const y = rows[i];
@@ -160,6 +192,7 @@ export function FiveRoutes({ className, highlight }: { className?: string; highl
       </g>
       <RestaurantFront name={EXAMPLE.restaurant.name} transform="translate(558 100)" />
     </svg>
+    </>
   );
 }
 
@@ -235,7 +268,7 @@ export function PlatformLayers({ className }: { className?: string }) {
           {l.logo ? (
             <g>
               <rect x="288" y={l.y + 8} width="96" height="22" rx="6" fill="#fff" stroke={C.rani} strokeDasharray="4 3" />
-              <Label x={336} y={l.y + 23} size={9} anchor="middle" fill={C.rani}>{EXAMPLE.restaurant.name}</Label>
+              <Label x={336} y={l.y + 23} size={10.5} anchor="middle" fill={C.rani}>{EXAMPLE.restaurant.name}</Label>
             </g>
           ) : null}
         </SvgLink>
@@ -257,8 +290,48 @@ export function GapBridge({ apps = ["Zoho", "Odoo", "Tally", "Google", "Microsof
     const t = (x - 186) / (454 - 186);
     return (1 - t) * (1 - t) * 116 + 2 * (1 - t) * t * 236 + t * t * 116;
   };
+  const label = `Great tools on one side, a business like ${EXAMPLE.kirana.name} on the other — Webify's strategy, systems, marketing and care bridge the gap`;
+  // Phone layout: tools on top, the bridge across the middle, the shop below.
+  const tall = (
+    <svg viewBox="0 0 360 520" className={cls("svg-gapbridge is-tall", className)} role="group" aria-label={label}>
+      <Label x={180} y={18} size={11} weight={700} fill={C.muted} anchor="middle">GREAT TOOLS</Label>
+      {apps.slice(0, 6).map((a, i) => (
+        <LogoBadge key={a} x={8 + (i % 3) * 116} y={30 + Math.floor(i / 3) * 42} w={112} h={34} size={11} name={a} title={a} label stroke={C.muted} />
+      ))}
+      <path d="M180 116 V140" stroke={C.ink2} strokeWidth="2" strokeDasharray="4 4" />
+      {/* water, banks, towers, cable */}
+      <path d="M30 236 H330 V300 H30Z" fill={C.peacockT} />
+      <g fill="none" stroke={C.peacock} strokeWidth="1.5" strokeLinecap="round" opacity="0.5">
+        <path d="M70 260 q10 -6 20 0 t20 0 M170 280 q10 -6 20 0 t20 0 M250 258 q10 -6 20 0 t20 0" />
+      </g>
+      <path d="M0 226 H36 L46 300 H0Z M360 226 H324 L314 300 H360Z" fill={C.surface2} stroke={C.ink} strokeWidth="1.5" />
+      <path d="M0 226 H36 M324 226 H360" stroke={C.mehendi} strokeWidth="4" />
+      {[24, 324].map((x) => (
+        <g key={x}>
+          <rect x={x} y="146" width="12" height="80" rx="2" fill={C.indigo} />
+          <rect x={x - 4} y="140" width="20" height="8" rx="2" fill={C.ink} />
+        </g>
+      ))}
+      <path d="M30 154 Q180 236 330 154" fill="none" stroke={C.ink} strokeWidth="2.5" />
+      <rect x="10" y="222" width="340" height="8" fill={C.ink} />
+      {planks.map((p, i) => (
+        <SvgLink key={p.t} href={p.h} label={p.t}>
+          <rect x={14 + i * 84} y="190" width="80" height="32" rx="7" fill={p.f} stroke={C.ink} strokeWidth="1.2" />
+          <g transform={`translate(${20 + i * 84} 198)`} color="#fff">
+            <Icon name={p.icon} size={15} weight="bold" />
+          </g>
+          <Label x={62 + i * 84} y={210.5} size={10.5} anchor="middle" fill="#fff">{p.t}</Label>
+        </SvgLink>
+      ))}
+      <path d="M180 304 V326" stroke={C.ink2} strokeWidth="2" strokeDasharray="4 4" />
+      <KiranaFront name={EXAMPLE.kirana.name} transform="translate(108.5 330) scale(0.84)" />
+      <path d="M70 515 H290" stroke={C.mehendi} strokeWidth="4" />
+    </svg>
+  );
   return (
-    <svg viewBox="0 44 640 262" className={cls("svg-gapbridge", className)} role="group" aria-label={`Great tools on one side, a business like ${EXAMPLE.kirana.name} on the other — Webify's strategy, systems, marketing and care bridge the gap`}>
+    <>
+    {tall}
+    <svg viewBox="0 44 640 262" className={cls("svg-gapbridge is-wide", className)} role="group" aria-label={`Great tools on one side, a business like ${EXAMPLE.kirana.name} on the other — Webify's strategy, systems, marketing and care bridge the gap`}>
       {/* water */}
       <path d="M150 226 H490 V306 H150Z" fill={C.peacockT} />
       <g fill="none" stroke={C.peacock} strokeWidth="1.5" strokeLinecap="round" opacity="0.5">
@@ -297,6 +370,7 @@ export function GapBridge({ apps = ["Zoho", "Odoo", "Tally", "Google", "Microsof
       ))}
       <KiranaFront name={EXAMPLE.kirana.name} transform="translate(492 63.6) scale(0.62)" />
     </svg>
+    </>
   );
 }
 
