@@ -63,12 +63,12 @@ export default function Home() {
       <section className="home-hero" id="hero" aria-labelledby="hero-title">
         <div className="container home-hero-grid">
           <div className="home-hero-copy">
-            <p className="kicker">Custom software, websites &amp; marketing for Indian businesses</p>
-            <h1 id="hero-title">Software that fits your business. Marketing that fills it.</h1>
+            <p className="kicker">One-stop software &amp; marketing partner for Indian businesses</p>
+            <h1 id="hero-title">Custom software for your whole business. All in one place.</h1>
             <p className="hinglish accent-line">
               {SITE.accent} <span>— your business, your way.</span>
             </p>
-            <p className="hero-sub">{SITE.description}</p>
+            <p className="hero-sub">Website, billing, payments, WhatsApp, staff and marketing — built around how you work, simple for your team, and run for you every month.</p>
             <div className="hero-actions">
               <WhatsAppCTA context="hero" />
               <Link href="/what-we-do" className="btn-ghost">
@@ -76,7 +76,8 @@ export default function Home() {
               </Link>
             </div>
             <ul className="trust-chips">
-              <li><Icon name="custom:tailor-tape" size={18} /> Custom, not templates</li>
+              <li><Icon name="UsersThree" size={18} /> Easy for your staff</li>
+              <li><Icon name="Key" size={18} /> Your brand, your data</li>
               <li><Icon name="PlugsConnected" size={18} /> Works with Zoho, Google, Microsoft, Tally</li>
               <li><Icon name="ChatCircleDots" size={18} /> Replies in a few hours, 7 days</li>
             </ul>

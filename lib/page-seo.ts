@@ -41,10 +41,10 @@ function page(
 
 export const PAGE_SEO: Record<string, PageSeo> = {
   home: page(
-    "Webify Bharat | Custom software & marketing for Indian MSMEs",
-    "Webify Bharat builds and runs your own business software — and markets your business — so every tool you use actually works for you. Websites, payments, WhatsApp, CRM/ERP, SEO and AI visibility, made for your business.",
+    "Custom Business Software, All in One Place | Webify Bharat",
+    "Custom software for your whole business — website, billing, payments, WhatsApp, CRM and marketing in one place. Easy to use, your brand, your data.",
     "/",
-    ["Webify Bharat", "custom software for small business India", "MSME CRM ERP", "WhatsApp Business API", "website design India", "AI visibility"],
+    ["Webify Bharat", "custom software for small business India", "all in one business software India", "one-stop business software", "easy business software for MSME", "MSME CRM ERP", "WhatsApp Business API", "website design India", "AI visibility"],
     [],
     [
       { term: "What it is", value: "Custom software and marketing for Indian MSMEs, built and run for you" },

@@ -1,7 +1,7 @@
 import { WA_NUMBER } from "@/lib/wa-link";
 export const SITE = {
   name: "Webify Bharat",
-  tagline: "Software that fits your business. Marketing that fills it.",
+  tagline: "Custom software for your whole business. All in one place.",
   accent: "Aapka business. Aapke hisaab se.",
   /** Category sentence (content-plan §2.0.1) — used verbatim in hero sub, meta, llms.txt, About. */
   description:

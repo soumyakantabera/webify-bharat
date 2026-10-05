@@ -186,7 +186,7 @@ body = defs(dots("d", WHITE, 0.08, 30, 2.2), grad("holi", [RANI, MARIGOLD, HALDI
 body += f'<rect width="{w}" height="{h}" fill="{INK}"/><rect width="{w}" height="{h}" fill="url(#d)"/>'
 body += mandala(95, 200, 240, [RANI, HALDI, MARIGOLD], 0.9)
 body += f'<rect y="{h - 10}" width="{w}" height="10" fill="url(#holi)"/>'
-_tag = TAGLINE or "Software that fits your business."
+_tag = TAGLINE or "Custom software for your whole business."
 # Shrink long taglines so they clear the mandala on the left.
 t, _ = text(DISPLAY, _tag, 54 if len(_tag) <= 40 else 44, w - 90, 150, WHITE, "end", -0.02)
 body += t
