@@ -2,6 +2,7 @@ import { Icon } from "@/components/Icon";
 import { BUILD_ROUTES, WHITE_LABEL_LINE } from "@/lib/build-routes";
 import { EXAMPLE } from "@/lib/examples";
 import { C, Label } from "./mocks/frames";
+import { LogoBadge } from "./LogoBadge";
 
 /**
  * Flow diagrams (content-plan §6.10): ChatFlow, InvoiceFan, FilingStamp,
@@ -98,27 +99,37 @@ export function FilingStamp({ portal = "gst.gov.in", className }: { portal?: str
 
 /** ConnectHub (#10): your system at the centre, spokes to the tools you use. */
 export function ConnectHub({ tools = ["Tally", "Zoho", "Google Sheets", "Shiprocket", "WhatsApp", "Odoo"], className }: { tools?: string[]; className?: string }) {
-  const cx = 220;
-  const cy = 150;
-  const fills = [C.haldiT, C.raniT, C.mehendiT, C.marigoldT, C.peacockT, C.indigoT];
+  const cx = 230;
+  const cy = 155;
+  const tones = [C.haldi, C.rani, C.mehendi, C.marigold, C.peacock, C.indigo];
   return (
-    <svg viewBox="0 0 440 300" className={cls("svg-connecthub", className)} role="img" aria-label={`Your system connected to ${tools.join(", ")}`}>
+    <svg viewBox="0 0 460 310" className={cls("svg-connecthub", className)} role="img" aria-label={`Your system connected to ${tools.join(", ")}`}>
+      <ellipse cx={cx} cy={cy} rx="178" ry="118" fill="none" stroke={C.line} strokeWidth="1.5" strokeDasharray="2 7" />
       {tools.map((t, i) => {
         const a = (Math.PI * 2 * i) / tools.length - Math.PI / 2;
-        const x = cx + Math.cos(a) * 170;
-        const y = cy + Math.sin(a) * 110;
-        const w = Math.max(70, t.length * 8 + 24);
+        const x = cx + Math.cos(a) * 178;
+        const y = cy + Math.sin(a) * 118;
+        const mx = cx + Math.cos(a) * 104;
+        const my = cy + Math.sin(a) * 70;
+        const w = 104;
         return (
           <g key={t}>
-            <path d={`M${cx} ${cy} L${x} ${y}`} stroke={C.indigo} strokeWidth="2" strokeDasharray="5 6" className="flow-dash" />
-            <Chip x={x - w / 2} y={y - 15} w={w} text={t} fill={fills[i % fills.length]} stroke={C.line} />
+            <path d={`M${cx} ${cy} L${x} ${y}`} stroke={tones[i % tones.length]} strokeWidth="2.5" strokeDasharray="5 6" className="flow-dash" />
+            <circle cx={mx} cy={my} r="11" fill="#fff" stroke={tones[i % tones.length]} strokeWidth="1.5" />
+            <g transform={`translate(${mx - 7} ${my - 7})`} color={tones[i % tones.length]}>
+              <Icon name="ArrowsLeftRight" size={14} weight="bold" />
+            </g>
+            <LogoBadge x={x - w / 2} y={y - 17} w={w} h={34} name={t} title={t} label stroke={tones[i % tones.length]} />
           </g>
         );
       })}
-      <circle cx={cx} cy={cy} r="48" fill={C.indigo} />
-      <circle cx={cx} cy={cy} r="56" fill="none" stroke={C.indigo} strokeOpacity="0.25" strokeWidth="6" />
-      <Label x={cx} y={cy - 2} size={12} anchor="middle" fill="#fff">Your</Label>
-      <Label x={cx} y={cy + 14} size={12} anchor="middle" fill="#fff">system</Label>
+      <circle cx={cx} cy={cy} r="62" fill="none" stroke={C.indigo} strokeOpacity="0.18" strokeWidth="10" />
+      <circle cx={cx} cy={cy} r="50" fill={C.indigo} />
+      <g transform={`translate(${cx - 12} ${cy - 36})`} color={C.haldi}>
+        <Icon name="SquaresFour" size={24} weight="bold" />
+      </g>
+      <Label x={cx} y={cy + 6} size={12} anchor="middle" fill="#fff">Your system</Label>
+      <Label x={cx} y={cy + 22} size={9} weight={600} anchor="middle" fill="#D3CDEA">{EXAMPLE.traders.name}</Label>
     </svg>
   );
 }
@@ -216,31 +227,45 @@ export function RentLadder({ rungs = ["Free listing", "Lead pack", "Paid ads"], 
 /** ReachFunnel (#33): Search · Maps · Ads · AI → your site → WhatsApp. */
 export function ReachFunnel({ className }: { className?: string }) {
   const inputs = [
-    { t: "Search", f: C.raniT },
-    { t: "Maps", f: C.mehendiT },
-    { t: "Ads", f: C.marigoldT },
-    { t: "AI assistants", f: C.indigoT },
+    { t: "Search", logos: ["google", "bing"], f: C.raniT, s: C.rani },
+    { t: "Maps", logos: ["google-maps"], f: C.mehendiT, s: C.mehendi },
+    { t: "Ads", logos: ["google-ads", "meta"], f: C.marigoldT, s: C.marigold },
+    { t: "AI assistants", icon: "Sparkle", f: C.indigoT, s: C.indigo },
   ];
   return (
-    <svg viewBox="0 0 520 240" className={cls("svg-reachfunnel", className)} role="img" aria-label="Customers arrive from search, maps, ads and AI assistants, land on your site, then message you on WhatsApp">
+    <svg viewBox="0 0 560 260" className={cls("svg-reachfunnel", className)} role="img" aria-label="Customers arrive from search (Google, Bing), maps, ads (Google Ads, Meta) and AI assistants, land on your site, then message you on WhatsApp">
       <defs>
         <Arrowhead id="rf-a" />
       </defs>
       {inputs.map((x, i) => {
-        const y = 24 + i * 52;
+        const y = 20 + i * 58;
         return (
           <g key={x.t}>
-            <Chip x={10} y={y} w={124} text={x.t} fill={x.f} />
-            <path d={`M136 ${y + 15} C190 ${y + 15} 190 120 232 120`} fill="none" stroke={C.ink2} strokeWidth="2" strokeDasharray="4 5" className="flow-dash" />
+            <rect x="10" y={y} width="168" height="44" rx="14" fill={x.f} stroke={x.s} strokeWidth="1.5" />
+            <Label x={22} y={y + 27} size={12}>{x.t}</Label>
+            {x.logos ? (
+              x.logos.map((l, j) => <LogoBadge key={l} x={110 + j * 32} y={y + 9} w={28} h={26} name={l} />)
+            ) : (
+              <g transform={`translate(146 ${y + 11})`} color={x.s}>
+                <Icon name={x.icon!} size={22} weight="duotone" />
+              </g>
+            )}
+            <path d={`M180 ${y + 22} C224 ${y + 22} 222 130 254 130`} fill="none" stroke={x.s} strokeWidth="2" strokeDasharray="4 5" className="flow-dash" />
           </g>
         );
       })}
-      <rect x="236" y="88" width="120" height="64" rx="16" fill="#fff" stroke={C.ink} strokeWidth="2" />
-      <Label x={296} y={116} size={11} anchor="middle">{EXAMPLE.restaurant.domain}</Label>
-      <Label x={296} y={134} size={9} weight={600} anchor="middle" fill={C.ink2}>Webify Site</Label>
-      <path d="M358 120 H392" stroke={C.ink} strokeWidth="2.5" markerEnd="url(#rf-a)" />
-      <rect x="398" y="94" width="112" height="52" rx="26" fill={C.wa} />
-      <Label x={454} y={125} size={12} anchor="middle">WhatsApp</Label>
+      {/* the site, as a tiny browser window */}
+      <rect x="258" y="82" width="140" height="96" rx="14" fill="#fff" stroke={C.ink} strokeWidth="2" />
+      <path d="M258 104 H398" stroke={C.ink} strokeWidth="1.5" />
+      {[270, 280, 290].map((cxx, k) => <circle key={cxx} cx={cxx} cy="93" r="3" fill={[C.rani, C.haldi, C.mehendi][k]} />)}
+      <Label x={328} y={126} size={11} anchor="middle">{EXAMPLE.restaurant.domain}</Label>
+      <rect x="276" y="136" width="104" height="6" rx="3" fill={C.line} />
+      <rect x="290" y="150" width="76" height="18" rx="9" fill={C.wa} />
+      <Label x={328} y={162} size={8} anchor="middle">Order on WhatsApp</Label>
+      <path d="M400 130 H432" stroke={C.ink} strokeWidth="2.5" markerEnd="url(#rf-a)" />
+      <rect x="438" y="104" width="112" height="52" rx="26" fill={C.wa} />
+      <LogoBadge x={446} y={116} w={28} h={28} name="whatsapp" />
+      <Label x={514} y={134} size={12} anchor="middle">WhatsApp</Label>
     </svg>
   );
 }

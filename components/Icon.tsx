@@ -76,6 +76,7 @@ import { HandWaving } from "@phosphor-icons/react/dist/ssr/HandWaving";
 import { Plus } from "@phosphor-icons/react/dist/ssr/Plus";
 import { Minus } from "@phosphor-icons/react/dist/ssr/Minus";
 import { Stack } from "@phosphor-icons/react/dist/ssr/Stack";
+import { Bank } from "@phosphor-icons/react/dist/ssr/Bank";
 import { INDIA_ICONS } from "@/components/icons/india";
 
 /**
@@ -161,6 +162,7 @@ const PH = {
   Plus,
   Minus,
   Stack,
+  Bank,
 } as const;
 
 const CUSTOM = INDIA_ICONS;
