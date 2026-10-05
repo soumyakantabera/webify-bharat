@@ -131,7 +131,7 @@ export function ConnectHub({ tools = ["Tally", "Zoho", "Google Sheets", "Shiproc
         <Icon name="SquaresFour" size={24} weight="bold" />
       </g>
       <Label x={cx} y={cy + 6} size={12} anchor="middle" fill="#fff">Your system</Label>
-      <Label x={cx} y={cy + 22} size={9} weight={600} anchor="middle" fill="#D3CDEA">{EXAMPLE.traders.name}</Label>
+      <Label x={cx} y={cy + 23} size={11} weight={600} anchor="middle" fill="#D3CDEA">{EXAMPLE.traders.name}</Label>
       </SvgLink>
     </svg>
   );
@@ -235,8 +235,49 @@ export function ReachFunnel({ className }: { className?: string }) {
     { t: "Ads", h: "/marketing/ads", logos: ["google-ads", "meta"], f: C.marigoldT, s: C.marigold },
     { t: "AI assistants", h: "/marketing/ai-visibility", icon: "Sparkle", f: C.indigoT, s: C.indigo },
   ];
+  // Phone layout: the four sources in a 2×2 grid, flowing down to the site, then WhatsApp.
+  const tall = (
+    <svg viewBox="0 0 360 380" className={cls("svg-reachfunnel is-tall", className)} role="group" aria-label="Customers arrive from search (Google, Bing), maps, ads (Google Ads, Meta) and AI assistants, land on your site, then message you on WhatsApp">
+      <defs>
+        <Arrowhead id="rf-at" />
+      </defs>
+      {inputs.map((x, i) => {
+        const bx = 8 + (i % 2) * 176;
+        const by = 8 + Math.floor(i / 2) * 58;
+        return (
+          <g key={x.t}>
+            <path d={`M${bx + 84} ${by + 44} C${bx + 84} 150 180 130 180 150`} fill="none" stroke={x.s} strokeWidth="2" strokeDasharray="4 5" className="flow-dash" />
+            <SvgLink href={x.h} label={x.t}>
+              <rect x={bx} y={by} width="168" height="46" rx="14" fill={x.f} stroke={x.s} strokeWidth="1.5" />
+              <Label x={bx + 12} y={by + 28} size={12.5}>{x.t}</Label>
+              {x.logos ? (
+                x.logos.map((l, j) => <LogoBadge key={l} x={bx + 168 - 34 - (x.logos!.length - 1 - j) * 32} y={by + 9} w={28} h={28} name={l} />)
+              ) : (
+                <g transform={`translate(${bx + 134} ${by + 11})`} color={x.s}>
+                  <Icon name={x.icon!} size={24} weight="duotone" />
+                </g>
+              )}
+            </SvgLink>
+          </g>
+        );
+      })}
+      <rect x="80" y="152" width="200" height="118" rx="16" fill="#fff" stroke={C.ink} strokeWidth="2" />
+      <path d="M80 178 H280" stroke={C.ink} strokeWidth="1.5" />
+      {[96, 108, 120].map((cxx, k) => <circle key={cxx} cx={cxx} cy="165" r="3.5" fill={[C.rani, C.haldi, C.mehendi][k]} />)}
+      <Label x={180} y={204} size={13} anchor="middle">{EXAMPLE.restaurant.domain}</Label>
+      <rect x="110" y="216" width="140" height="7" rx="3.5" fill={C.line} />
+      <rect x="120" y="234" width="120" height="24" rx="12" fill={C.wa} />
+      <Label x={180} y={250} size={10} anchor="middle">Order on WhatsApp</Label>
+      <path d="M180 272 V296" stroke={C.ink} strokeWidth="2.5" markerEnd="url(#rf-at)" />
+      <rect x="100" y="304" width="160" height="56" rx="28" fill={C.wa} />
+      <LogoBadge x={112} y={316} w={32} h={32} name="whatsapp" />
+      <Label x={206} y={337} size={14} anchor="middle">WhatsApp</Label>
+    </svg>
+  );
   return (
-    <svg viewBox="0 0 560 260" className={cls("svg-reachfunnel", className)} role="group" aria-label="Customers arrive from search (Google, Bing), maps, ads (Google Ads, Meta) and AI assistants, land on your site, then message you on WhatsApp">
+    <>
+    {tall}
+    <svg viewBox="0 0 560 260" className={cls("svg-reachfunnel is-wide", className)} role="group" aria-label="Customers arrive from search (Google, Bing), maps, ads (Google Ads, Meta) and AI assistants, land on your site, then message you on WhatsApp">
       <defs>
         <Arrowhead id="rf-a" />
       </defs>
@@ -272,6 +313,7 @@ export function ReachFunnel({ className }: { className?: string }) {
       <LogoBadge x={446} y={116} w={28} h={28} name="whatsapp" />
       <Label x={514} y={134} size={12} anchor="middle">WhatsApp</Label>
     </svg>
+    </>
   );
 }
 
@@ -284,8 +326,66 @@ export function DecisionTree({ className }: { className?: string }) {
     { q: "Unique workflow", qi: "PuzzlePiece", ex: `${EXAMPLE.traders.name}: dealer price tiers no app handles`, a: "Custom build", r: route("scratch"), f: C.raniT, s: C.rani },
     { q: "Close to our prototype", qi: "SquaresFour", ex: `${EXAMPLE.restaurant.name}: direct ordering, like our prototype`, a: "Adapt our prototype", r: route("prototype"), f: C.mehendiT, s: C.mehendi },
   ];
+  // Phone layout: one row per answer — question card, arrow, outcome card.
+  const tall = (
+    <svg viewBox="0 0 360 906" className={cls("svg-decisiontree is-tall", className)} role="group" aria-label="Build or buy: standard need and tight budget means Zoho or Odoo set up for you; already on Google or Microsoft means we build around them; a unique workflow means a custom build; close to a prototype means we adapt it">
+      <defs>
+        <marker id="dt-at" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0 0 L10 5 L0 10 z" fill={C.ink2} />
+        </marker>
+      </defs>
+      <rect x="60" y="10" width="240" height="46" rx="23" fill={C.indigo} />
+      <circle cx="88" cy="33" r="14" fill="#fff" />
+      <g transform="translate(78 23)" color={C.indigo}>
+        <Icon name="Compass" size={20} weight="bold" />
+      </g>
+      <Label x={196} y={39} size={15} anchor="middle" fill="#fff">What do you need?</Label>
+      <path d="M22 56 V770" stroke={C.ink2} strokeWidth="2" strokeDasharray="4 5" />
+      {leaves.map((l, i) => {
+        const y = 80 + i * 186;
+        return (
+          <g key={l.q}>
+            <path d={`M22 ${y + 30} H40`} stroke={C.ink2} strokeWidth="2" markerEnd="url(#dt-at)" />
+            <rect x="44" y={y} width="306" height="82" rx="14" fill="#fff" stroke={C.line} strokeWidth="1.5" />
+            <circle cx="68" cy={y + 24} r="15" fill={l.f} />
+            <g transform={`translate(58 ${y + 14})`} color={l.s}>
+              <Icon name={l.qi} size={20} weight="bold" />
+            </g>
+            <foreignObject x="90" y={y + 10} width="252" height="28">
+              <p className="dt-q">{l.q}</p>
+            </foreignObject>
+            <foreignObject x="58" y={y + 44} width="284" height="34">
+              <p className="dt-ex">e.g. {l.ex}</p>
+            </foreignObject>
+            <path d={`M196 ${y + 82} V${y + 100}`} stroke={C.ink2} strokeWidth="2" markerEnd="url(#dt-at)" />
+            <SvgLink href={l.r.href} label={`${l.a}: ${l.r.cost}`}>
+              <rect x="44" y={y + 104} width="306" height="64" rx="14" fill={l.f} stroke={l.s} strokeWidth="1.5" />
+              <g transform={`translate(58 ${y + 116})`} color={l.s}>
+                <Icon name={l.r.icon} size={20} weight="bold" />
+              </g>
+              <foreignObject x="88" y={y + 112} width="254" height="24">
+                <p className="dt-a">{l.a}</p>
+              </foreignObject>
+              <foreignObject x="88" y={y + 138} width="254" height="24">
+                <p className="dt-cost is-left">{l.r.cost}</p>
+              </foreignObject>
+            </SvgLink>
+          </g>
+        );
+      })}
+      <rect x="10" y="830" width="340" height="66" rx="16" fill={C.indigoT} />
+      <g transform="translate(22 854)" color={C.indigo}>
+        <Icon name="Tag" size={18} weight="bold" />
+      </g>
+      <foreignObject x="48" y="836" width="292" height="54">
+        <p className="dt-wl">{WHITE_LABEL_LINE}</p>
+      </foreignObject>
+    </svg>
+  );
   return (
-    <svg viewBox="0 0 720 440" className={cls("svg-decisiontree", className)} role="group" aria-label="Build or buy: standard need and tight budget means Zoho or Odoo set up for you; already on Google or Microsoft means we build around them; a unique workflow means a custom build; close to a prototype means we adapt it">
+    <>
+    {tall}
+    <svg viewBox="0 0 720 440" className={cls("svg-decisiontree is-wide", className)} role="group" aria-label="Build or buy: standard need and tight budget means Zoho or Odoo set up for you; already on Google or Microsoft means we build around them; a unique workflow means a custom build; close to a prototype means we adapt it">
       <defs>
         <marker id="dt-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
           <path d="M0 0 L10 5 L0 10 z" fill={C.ink2} />
@@ -340,5 +440,6 @@ export function DecisionTree({ className }: { className?: string }) {
       </g>
       <Label x={176} y={418} size={11.5} weight={700} fill={C.indigo}>{WHITE_LABEL_LINE}</Label>
     </svg>
+    </>
   );
 }

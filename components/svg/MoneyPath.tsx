@@ -47,9 +47,55 @@ function Logos({ x, y, items }: { x: number; y: number; items: [string, number][
   );
 }
 
+function MoneyPathTall({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 360 668" className={`wb-svg svg-moneypath is-tall${className ? ` ${className}` : ""}`} role="group" aria-label="Payments from India (UPI, RuPay, Visa, Mastercard) go through Razorpay or Cashfree to your bank; payments from abroad go through Stripe to your bank; each payment creates a GST invoice.">
+      <defs>
+        <marker id="mp-arrow-t" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#2B1E6B" />
+        </marker>
+      </defs>
+      <g transform="translate(10 6)" color="#007373">
+        <Icon name="MapPin" size={16} weight="bold" />
+      </g>
+      <text x={30} y={19} fontWeight={800} fontSize={12} letterSpacing="0.08em" fill="#007373">INDIA</text>
+      <Box x={10} y={28} w={300} label="UPI · cards" sub="netbanking too" fill="#DDF5F5" stroke="#00A6A6" />
+      <Logos x={22} y={76} items={[["upi", 52], ["rupay", 52], ["visa", 44], ["mastercard", 34]]} />
+      <path d="M100 112 V132" fill="none" stroke="#2B1E6B" strokeWidth={2.5} markerEnd="url(#mp-arrow-t)" strokeDasharray="5 5" className="mp-flow" />
+      <SvgLink href="/systems/pay" label="Webify Pay: payment gateway on your own account">
+        <Box x={10} y={136} w={300} label="Payment gateway" sub="your own account" fill="#fff" stroke="#00A6A6" />
+        <Logos x={22} y={184} items={[["razorpay", 34], ["cashfree", 80]]} />
+      </SvgLink>
+
+      <g transform="translate(10 238)" color="#2B1E6B">
+        <Icon name="GlobeHemisphereWest" size={16} weight="bold" />
+      </g>
+      <text x={30} y={251} fontWeight={800} fontSize={12} letterSpacing="0.08em" fill="#2B1E6B">ABROAD</text>
+      <Box x={10} y={260} w={300} label="International cards" sub="multi-currency" fill="#ECE9F6" stroke="#2B1E6B" />
+      <Logos x={22} y={308} items={[["visa", 44], ["mastercard", 34], ["amex", 34], ["paypal", 34]]} />
+      <path d="M100 344 V364" fill="none" stroke="#2B1E6B" strokeWidth={2.5} markerEnd="url(#mp-arrow-t)" strokeDasharray="5 5" className="mp-flow" />
+      <SvgLink href="/systems/pay" label="Webify Pay: Stripe for international payments">
+        <Box x={10} y={368} w={300} label="Stripe" sub="your own account" fill="#fff" stroke="#2B1E6B" />
+        <Logos x={22} y={416} items={[["stripe", 34]]} />
+      </SvgLink>
+
+      {/* both lanes run down the right-hand side into your bank */}
+      <path d="M310 178 H336 V478 H322" fill="none" stroke="#2B1E6B" strokeWidth={2.5} markerEnd="url(#mp-arrow-t)" strokeDasharray="5 5" className="mp-flow" />
+      <path d="M310 410 H336" fill="none" stroke="#2B1E6B" strokeWidth={2.5} strokeDasharray="5 5" className="mp-flow" />
+      <Box x={60} y={462} w={258} h={72} label="Your bank" sub="business account" fill="#E9F2DE" stroke="#4F8A10" icon="Bank" />
+      <path d="M189 536 V570" stroke="#FFB400" strokeWidth={2.5} strokeDasharray="5 5" markerEnd="url(#mp-arrow-t)" />
+      <SvgLink href="/systems/ledger" label="Webify Ledger: a GST invoice for every payment">
+        <Box x={60} y={574} w={258} h={72} label="GST invoice" sub="Webify Ledger" fill="#FFF4D6" stroke="#E0A000" icon="Receipt" />
+      </SvgLink>
+    </svg>
+  );
+}
+
 export function MoneyPath({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 660 340" className={`wb-svg svg-moneypath${className ? ` ${className}` : ""}`} role="group" aria-label="Payments from India (UPI, RuPay, Visa, Mastercard) go through Razorpay or Cashfree to your bank; payments from abroad go through Stripe to your bank; each payment creates a GST invoice.">
+    <>
+    <MoneyPathTall className={className} />
+    <svg viewBox="0 0 660 340" className={`wb-svg svg-moneypath is-wide${className ? ` ${className}` : ""}`} role="group" aria-label="Payments from India (UPI, RuPay, Visa, Mastercard) go through Razorpay or Cashfree to your bank; payments from abroad go through Stripe to your bank; each payment creates a GST invoice.">
       <defs>
         <marker id="mp-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
           <path d="M0 0 L10 5 L0 10 z" fill="#2B1E6B" />
@@ -89,5 +135,6 @@ export function MoneyPath({ className }: { className?: string }) {
         <Box x={482} y={250} w={162} h={72} label="GST invoice" sub="Webify Ledger" fill="#FFF4D6" stroke="#E0A000" icon="Receipt" />
       </SvgLink>
     </svg>
+    </>
   );
 }
