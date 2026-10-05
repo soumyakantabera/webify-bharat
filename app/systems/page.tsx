@@ -37,7 +37,7 @@ export default function SystemsHub() {
           </>
         }
         cta={<WhatsAppCTA context="hero" />}
-        visual={<PhotoBento cells={["site", "store", "pay", "desk", "team"].map((s) => ({ slot: getBlock(s)!.photo, alt: getBlock(s)!.becomes }))} />}
+        visual={<PhotoBento cells={["site", "store", "pay", "desk", "team"].map((s) => ({ slot: getBlock(s)!.photo, alt: getBlock(s)!.becomes, href: `/systems/${s}`, label: getBlock(s)!.name }))} />}
       />
 
       <section className="section" id="blocks" aria-labelledby="blocks-title">

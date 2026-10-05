@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Icon } from "@/components/Icon";
 import { blocks, type BlockSlug } from "@/lib/blocks";
 
@@ -25,11 +26,13 @@ export function BlockStack({
             className={`block-brick${lit ? " is-lit" : " is-dim"}`}
             style={{ ["--brick" as string]: `var(${b.colour})`, ["--i" as string]: i }}
           >
-            <span className="block-brick-icon">
-              <Icon name={b.icon} size={compact ? 18 : 22} />
-            </span>
-            <span className="block-brick-name">{b.short}</span>
-            {on && lit ? <span className="sr-only"> (included)</span> : null}
+            <Link href={`/systems/${b.slug}`} className="block-brick-link">
+              <span className="block-brick-icon">
+                <Icon name={b.icon} size={compact ? 18 : 22} />
+              </span>
+              <span className="block-brick-name">{b.short}</span>
+              {on && lit ? <span className="sr-only"> (included)</span> : null}
+            </Link>
           </li>
         );
       })}

@@ -48,7 +48,7 @@ export default function WhatWeDo() {
         title="Plan it, build it, run it, grow it — with one team."
         sub="Strategy, software, marketing and care under one roof — so you deal with one team on WhatsApp, not five vendors."
         cta={<WhatsAppCTA context="hero" />}
-        visual={<PhotoBento cells={[...pillars.map((p) => ({ slot: p.photo, alt: `${p.name}: ${p.oneLine}` })), { icon: <Icon name="ChatCircleDots" size={28} />, label: "One team on WhatsApp", tone: "mehendi" as const }]} />}
+        visual={<PhotoBento cells={[...pillars.map((p) => ({ slot: p.photo, alt: `${p.name}: ${p.oneLine}`, href: p.href, label: p.name })), { icon: <Icon name="ChatCircleDots" size={28} />, label: "One team on WhatsApp", tone: "mehendi" as const, href: "/contact" }]} />}
       />
 
       <section className="section surface-2" id="gap" aria-labelledby="gap-title">

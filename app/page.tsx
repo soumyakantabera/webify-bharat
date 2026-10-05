@@ -45,12 +45,12 @@ const GAP_ROWS: GapRow[] = [
 const BENTO_ICONS = ["site", "chat", "ledger"] as const;
 
 const WHY = [
-  { icon: "custom:tailor-tape", label: "Custom, not templates", detail: "Every build is made for one business — yours.", tone: "rani" as const },
-  { icon: "PlugsConnected", label: "Works with your tools", detail: "Zoho, Google, Microsoft and Tally — kept and connected.", tone: "peacock" as const },
-  { icon: "Tag", label: "White-label, free", detail: "Your brand or ours, on every route.", tone: "marigold" as const },
-  { icon: "Key", label: "Your data stays yours", detail: "Your domain, brand, content, data and accounts.", tone: "indigo" as const },
-  { icon: "custom:rupee-coin", label: "Honest pricing", detail: "Gateway, licence and ad costs shown separately.", tone: "haldi" as const },
-  { icon: "ClockCountdown", label: "Replies in a few hours, 7 days", detail: "A real person, on WhatsApp.", tone: "mehendi" as const },
+  { icon: "custom:tailor-tape", label: "Custom, not templates", detail: "Every build is made for one business — yours.", tone: "rani" as const, href: "/how-we-work" },
+  { icon: "PlugsConnected", label: "Works with your tools", detail: "Zoho, Google, Microsoft and Tally — kept and connected.", tone: "peacock" as const, href: "/integrations" },
+  { icon: "Tag", label: "White-label, free", detail: "Your brand or ours, on every route.", tone: "marigold" as const, href: "/integrations#white-label" },
+  { icon: "Key", label: "Your data stays yours", detail: "Your domain, brand, content, data and accounts.", tone: "indigo" as const, href: "/faq" },
+  { icon: "custom:rupee-coin", label: "Honest pricing", detail: "Gateway, licence and ad costs shown separately.", tone: "haldi" as const, href: "/pricing" },
+  { icon: "ClockCountdown", label: "Replies in a few hours, 7 days", detail: "A real person, on WhatsApp.", tone: "mehendi" as const, href: "/contact" },
 ];
 
 export default function Home() {
@@ -186,7 +186,7 @@ export default function Home() {
             {(["pay", "desk", "team"] as const).map((slug) => {
               const b = getBlock(slug)!;
               return (
-                <Link key={slug} href={`/systems/${slug}`} className={`sb-cell sb-photo sb-${slug}`}>
+                <Link key={slug} href={`/systems/${slug}`} className={`sb-cell sb-photo link-card sb-${slug}`}>
                   <Img slot={b.photo} mask="none" width={600} height={400} />
                   <span className="sb-label">
                     <strong>{b.name}</strong>
@@ -198,7 +198,7 @@ export default function Home() {
             {BENTO_ICONS.map((slug) => {
               const b = getBlock(slug)!;
               return (
-                <Link key={slug} href={`/systems/${slug}`} className={`sb-cell sb-icon sb-${slug}`} style={{ ["--accent" as string]: `var(${b.colour})` }}>
+                <Link key={slug} href={`/systems/${slug}`} className={`sb-cell sb-icon link-card sb-${slug}`} style={{ ["--accent" as string]: `var(${b.colour})` }}>
                   <Icon name={b.icon} size={30} />
                   <strong>{b.name}</strong>
                   <small>{b.example}</small>
@@ -316,7 +316,7 @@ export default function Home() {
           </div>
           <div className="route-grid">
             {BUILD_ROUTES.map((r) => (
-              <article key={r.slug} className="route-tile">
+              <Link key={r.slug} href={r.href} className="route-tile link-card">
                 <Img slot={r.photo} mask="none" className="route-thumb" width={400} height={200} decorative />
                 <div className="route-body">
                   <span className="route-icon"><Icon name={r.icon} size={22} /></span>
@@ -324,7 +324,7 @@ export default function Home() {
                   <p>{r.line}</p>
                   <span className="cost-chip">{r.cost}</span>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
           <p className="center-note">
@@ -376,9 +376,9 @@ export default function Home() {
           <PhotoBento
             cells={[
               { slot: "IMG-B11" },
-              ...WHY.slice(0, 3).map((w) => ({ icon: <Icon name={w.icon} size={28} />, label: w.label, detail: w.detail, tone: w.tone })),
+              ...WHY.slice(0, 3).map((w) => ({ icon: <Icon name={w.icon} size={28} />, label: w.label, detail: w.detail, tone: w.tone, href: w.href })),
               { slot: "IMG-B07" },
-              ...WHY.slice(3).map((w) => ({ icon: <Icon name={w.icon} size={28} />, label: w.label, detail: w.detail, tone: w.tone })),
+              ...WHY.slice(3).map((w) => ({ icon: <Icon name={w.icon} size={28} />, label: w.label, detail: w.detail, tone: w.tone, href: w.href })),
               { slot: "/images/snapshots/registrations.webp", alt: "Accounts and registrations on a desk" },
             ]}
           />

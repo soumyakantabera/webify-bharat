@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { glossify } from "@/components/clarity/glossify";
 import Layout from "@/components/Layout";
@@ -43,7 +44,7 @@ export default function Integrations() {
           <div className="routes-card"><FiveRoutes /></div>
           <div className="route-grid">
             {BUILD_ROUTES.map((r) => (
-              <article key={r.slug} className="route-tile">
+              <Link key={r.slug} href={r.href} className="route-tile link-card">
                 <Img slot={r.photo} mask="none" className="route-thumb" width={400} height={200} decorative />
                 <div className="route-body">
                   <span className="route-icon"><Icon name={r.icon} size={22} /></span>
@@ -51,7 +52,7 @@ export default function Integrations() {
                   <p>{glossify(r.when)}</p>
                   <span className="cost-chip">{r.cost}</span>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>

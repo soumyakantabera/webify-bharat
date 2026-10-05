@@ -23,13 +23,13 @@ import { WA_MSG } from "@/lib/wa";
 export const metadata: Metadata = pageMetadata("grow");
 
 const MOVES = [
-  { cls: "g-2x2", title: "Direct ordering", text: "Move regulars off aggregator commission — keep the apps for new customers.", photo: "/images/snapshots/market-counter.webp", icon: "ShoppingBag" },
-  { cls: "g-2x1", title: "Sell abroad", text: "Stripe, multi-currency checkout, UK VAT / EU IOSS through a registered agent.", photo: "IMG-H05", icon: "GlobeHemisphereWest" },
-  { cls: "", title: "Dealer / B2B portal", text: "Each dealer sees their own prices.", icon: "Factory" },
-  { cls: "", title: "Automation", text: "Reminders, follow-ups, payment links.", icon: "Lightning" },
-  { cls: "", title: "Owner dashboard", text: "The 3–5 numbers you actually ask about.", icon: "ChartLineUp" },
-  { cls: "", title: "New city or branch", text: "Pages and listings for every location.", icon: "MapPin" },
-  { cls: "g-2x1", title: "Integrations", text: "Tally, Zoho, Shiprocket and Google Sheets, connected.", photo: "IMG-B08", icon: "PlugsConnected" },
+  { cls: "g-2x2", title: "Direct ordering", text: "Move regulars off aggregator commission — keep the apps for new customers.", photo: "/images/snapshots/market-counter.webp", icon: "ShoppingBag", href: "/systems/store" },
+  { cls: "g-2x1", title: "Sell abroad", text: "Stripe, multi-currency checkout, UK VAT / EU IOSS through a registered agent.", photo: "IMG-H05", icon: "GlobeHemisphereWest", href: "/systems/pay" },
+  { cls: "", title: "Dealer / B2B portal", text: "Each dealer sees their own prices.", icon: "Factory", href: "/systems/store" },
+  { cls: "", title: "Automation", text: "Reminders, follow-ups, payment links.", icon: "Lightning", href: "/systems/chat" },
+  { cls: "", title: "Owner dashboard", text: "The 3–5 numbers you actually ask about.", icon: "ChartLineUp", href: "/systems/pulse" },
+  { cls: "", title: "New city or branch", text: "Pages and listings for every location.", icon: "MapPin", href: "/marketing/local" },
+  { cls: "g-2x1", title: "Integrations", text: "Tally, Zoho, Shiprocket and Google Sheets, connected.", photo: "IMG-B08", icon: "PlugsConnected", href: "/systems/connect" },
 ];
 
 const RENT_OWN = [
@@ -62,14 +62,14 @@ export default function Grow() {
           </div>
           <div className="growth-bento">
             {MOVES.map((m) => (
-              <article key={m.title} className={`gb-cell ${m.cls}${m.photo ? " has-photo" : ""}`}>
+              <Link key={m.title} href={m.href} className={`gb-cell link-card ${m.cls}${m.photo ? " has-photo" : ""}`}>
                 {m.photo ? <Img slot={m.photo} mask="none" className="gb-photo" width={800} height={600} decorative /> : null}
                 <div className="gb-body">
                   <Icon name={m.icon} size={26} />
                   <h3>{m.title}</h3>
                   <p>{m.text}</p>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>

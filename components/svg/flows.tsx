@@ -3,6 +3,7 @@ import { BUILD_ROUTES, WHITE_LABEL_LINE } from "@/lib/build-routes";
 import { EXAMPLE } from "@/lib/examples";
 import { C, Label } from "./mocks/frames";
 import { LogoBadge } from "./LogoBadge";
+import { SvgLink } from "./SvgLink";
 
 /**
  * Flow diagrams (content-plan §6.10): ChatFlow, InvoiceFan, FilingStamp,
@@ -103,7 +104,7 @@ export function ConnectHub({ tools = ["Tally", "Zoho", "Google Sheets", "Shiproc
   const cy = 155;
   const tones = [C.haldi, C.rani, C.mehendi, C.marigold, C.peacock, C.indigo];
   return (
-    <svg viewBox="0 0 460 310" className={cls("svg-connecthub", className)} role="img" aria-label={`Your system connected to ${tools.join(", ")}`}>
+    <svg viewBox="0 0 460 310" className={cls("svg-connecthub", className)} role="group" aria-label={`Your system connected to ${tools.join(", ")}`}>
       <ellipse cx={cx} cy={cy} rx="178" ry="118" fill="none" stroke={C.line} strokeWidth="1.5" strokeDasharray="2 7" />
       {tools.map((t, i) => {
         const a = (Math.PI * 2 * i) / tools.length - Math.PI / 2;
@@ -123,6 +124,7 @@ export function ConnectHub({ tools = ["Tally", "Zoho", "Google Sheets", "Shiproc
           </g>
         );
       })}
+      <SvgLink href="/systems/connect" label="Webify Connect: your tools, joined into one system">
       <circle cx={cx} cy={cy} r="62" fill="none" stroke={C.indigo} strokeOpacity="0.18" strokeWidth="10" />
       <circle cx={cx} cy={cy} r="50" fill={C.indigo} />
       <g transform={`translate(${cx - 12} ${cy - 36})`} color={C.haldi}>
@@ -130,6 +132,7 @@ export function ConnectHub({ tools = ["Tally", "Zoho", "Google Sheets", "Shiproc
       </g>
       <Label x={cx} y={cy + 6} size={12} anchor="middle" fill="#fff">Your system</Label>
       <Label x={cx} y={cy + 22} size={9} weight={600} anchor="middle" fill="#D3CDEA">{EXAMPLE.traders.name}</Label>
+      </SvgLink>
     </svg>
   );
 }
@@ -227,13 +230,13 @@ export function RentLadder({ rungs = ["Free listing", "Lead pack", "Paid ads"], 
 /** ReachFunnel (#33): Search · Maps · Ads · AI → your site → WhatsApp. */
 export function ReachFunnel({ className }: { className?: string }) {
   const inputs = [
-    { t: "Search", logos: ["google", "bing"], f: C.raniT, s: C.rani },
-    { t: "Maps", logos: ["google-maps"], f: C.mehendiT, s: C.mehendi },
-    { t: "Ads", logos: ["google-ads", "meta"], f: C.marigoldT, s: C.marigold },
-    { t: "AI assistants", icon: "Sparkle", f: C.indigoT, s: C.indigo },
+    { t: "Search", h: "/marketing/seo", logos: ["google", "bing"], f: C.raniT, s: C.rani },
+    { t: "Maps", h: "/marketing/local", logos: ["google-maps"], f: C.mehendiT, s: C.mehendi },
+    { t: "Ads", h: "/marketing/ads", logos: ["google-ads", "meta"], f: C.marigoldT, s: C.marigold },
+    { t: "AI assistants", h: "/marketing/ai-visibility", icon: "Sparkle", f: C.indigoT, s: C.indigo },
   ];
   return (
-    <svg viewBox="0 0 560 260" className={cls("svg-reachfunnel", className)} role="img" aria-label="Customers arrive from search (Google, Bing), maps, ads (Google Ads, Meta) and AI assistants, land on your site, then message you on WhatsApp">
+    <svg viewBox="0 0 560 260" className={cls("svg-reachfunnel", className)} role="group" aria-label="Customers arrive from search (Google, Bing), maps, ads (Google Ads, Meta) and AI assistants, land on your site, then message you on WhatsApp">
       <defs>
         <Arrowhead id="rf-a" />
       </defs>
@@ -241,6 +244,7 @@ export function ReachFunnel({ className }: { className?: string }) {
         const y = 20 + i * 58;
         return (
           <g key={x.t}>
+            <SvgLink href={x.h} label={x.t}>
             <rect x="10" y={y} width="168" height="44" rx="14" fill={x.f} stroke={x.s} strokeWidth="1.5" />
             <Label x={22} y={y + 27} size={12}>{x.t}</Label>
             {x.logos ? (
@@ -250,6 +254,7 @@ export function ReachFunnel({ className }: { className?: string }) {
                 <Icon name={x.icon!} size={22} weight="duotone" />
               </g>
             )}
+            </SvgLink>
             <path d={`M180 ${y + 22} C224 ${y + 22} 222 130 254 130`} fill="none" stroke={x.s} strokeWidth="2" strokeDasharray="4 5" className="flow-dash" />
           </g>
         );
@@ -280,7 +285,7 @@ export function DecisionTree({ className }: { className?: string }) {
     { q: "Close to our prototype", qi: "SquaresFour", ex: `${EXAMPLE.restaurant.name}: direct ordering, like our prototype`, a: "Adapt our prototype", r: route("prototype"), f: C.mehendiT, s: C.mehendi },
   ];
   return (
-    <svg viewBox="0 0 720 440" className={cls("svg-decisiontree", className)} role="img" aria-label="Build or buy: standard need and tight budget means Zoho or Odoo set up for you; already on Google or Microsoft means we build around them; a unique workflow means a custom build; close to a prototype means we adapt it">
+    <svg viewBox="0 0 720 440" className={cls("svg-decisiontree", className)} role="group" aria-label="Build or buy: standard need and tight budget means Zoho or Odoo set up for you; already on Google or Microsoft means we build around them; a unique workflow means a custom build; close to a prototype means we adapt it">
       <defs>
         <marker id="dt-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
           <path d="M0 0 L10 5 L0 10 z" fill={C.ink2} />
@@ -313,6 +318,7 @@ export function DecisionTree({ className }: { className?: string }) {
             </foreignObject>
             <path d={`M${cx} 246 V274`} stroke={C.ink2} strokeWidth="2" markerEnd="url(#dt-a)" />
             {/* the route */}
+            <SvgLink href={l.r.href} label={`${l.a}: ${l.r.cost}`}>
             <rect x={x} y="278" width="160" height="100" rx="14" fill={l.f} stroke={l.s} strokeWidth="1.5" />
             <g transform={`translate(${x + 12} 290)`} color={l.s}>
               <Icon name={l.r.icon} size={20} weight="bold" />
@@ -324,6 +330,7 @@ export function DecisionTree({ className }: { className?: string }) {
             <foreignObject x={x + 8} y="342" width="144" height="26">
               <p className="dt-cost">{l.r.cost}</p>
             </foreignObject>
+            </SvgLink>
           </g>
         );
       })}
