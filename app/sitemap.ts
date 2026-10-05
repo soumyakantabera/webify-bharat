@@ -4,6 +4,8 @@ import { registrations } from "@/lib/registrations";
 import { offers } from "@/lib/offers";
 import { industries, posts, services } from "@/lib/site";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = process.env.NEXT_PUBLIC_SITE_URL || "https://webify-bharat.vercel.app";
   const paths = [
