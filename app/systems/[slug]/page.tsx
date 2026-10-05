@@ -1,212 +1,156 @@
 import type { Metadata } from "next";
-import { asset } from "@/lib/asset";
 import Link from "next/link";
-import { pageMetadata } from "@/lib/page-seo";
 import { notFound } from "next/navigation";
 import Layout from "@/components/Layout";
-import { RentOwnBoard } from "@/components/RentOwnBoard";
-import { SeoChunk } from "@/components/SeoChunk";
-import { ArticleBlock } from "@/components/ArticleBlock";
-import { serviceArticles } from "@/lib/seo-copy";
-import { PageLead } from "@/components/PageIcons";
-import { FaqSection } from "@/components/FaqSection";
-import { getFaq } from "@/lib/faqs";
-import { CheckItem, WhatsAppCta } from "@/components/icons";
-import { getServiceCompare } from "@/lib/service-compare";
-import { getService, services, WA_CHAT, WA_SERVICES } from "@/lib/site";
+import { Icon } from "@/components/Icon";
+import { WhatsAppCTA } from "@/components/WhatsAppCTA";
+import { Img, PhotoUiLayer } from "@/components/collage";
+import { BlockSignature, BlockTile, blockPricingNote, businessPhoto, Honeycomb, RentOwnStepper } from "@/components/blocks";
+import { FaqList } from "@/components/FaqList";
+import { FlipCard, PageHero, SectionHead } from "@/components/tiles";
+import { blocks, getBlock } from "@/lib/blocks";
+import { getChannelSet } from "@/lib/channels";
+import { pageMetadata } from "@/lib/page-seo";
 
 const BASE = "https://webify-bharat.vercel.app";
 
-const buildSteps: Record<string, { title: string; detail: string }[]> = {
-  site: [
-    { title: "Page map", detail: "Up to five pages. Home, what you sell, contact, and the two that match the trade." },
-    { title: "One language", detail: "The language the counter already uses. A second language is a quoted extra." },
-    { title: "WhatsApp click", detail: "Opens the number you already answer. Not a new inbox we own." },
-    { title: "Maps link", detail: "Google Business Profile points at your URL. The pin is still free, and still yours." },
-    { title: "Two revision rounds", detail: "After that, changes are a written extra, not a surprise." },
-    { title: "Go-live list", detail: "Domain login in your name, form tested, no promise of a ranking or a lead count." },
-  ],
-  store: [
-    { title: "SKU cap", detail: "Small is about 50. Medium is about 200. Past that, the number moves first." },
-    { title: "Your catalogue", detail: "Products live on your domain. A marketplace can stay for the first stranger." },
-    { title: "Checkout", detail: "Uses the gateway account from Growth if you already have it. Not a second invoice." },
-    { title: "WhatsApp handoff", detail: "The order can land in the chat your staff already open." },
-    { title: "Pincode honesty", detail: "Medium states zones before payment. We do not invent a courier rate." },
-    { title: "Dealer path", detail: "Only Expanding. One enquiry path. Not a second outlet and not stock software." },
-  ],
-  pay: [
-    { title: "Your account", detail: "Razorpay, Cashfree, or PayU in the business name. Not our merchant ID." },
-    { title: "UPI and cards", detail: "The methods that account already supports. MDR is their rate." },
-    { title: "Settlement", detail: "Shop money lands in the business account, not a personal QR history." },
-    { title: "Refund path", detail: "A failed or returned payment is a record, not a screenshot." },
-    { title: "Invoice line", detail: "A GST-ready invoice option. We are not your CA." },
-    { title: "What is outside", detail: "MDR, and any WhatsApp conversation charge, stay off the build fee." },
-  ],
-  chat: [
-    { title: "Your number", detail: "The chat stays on the phone the shop already uses." },
-    { title: "Four flows", detail: "On Growth: hours, status, a reminder, and one you name. Not an unlimited bot." },
-    { title: "A person", detail: "Odd cases go to a human. The bot does not pretend to be the doctor." },
-    { title: "Business app or API", detail: "The free app when it is enough. API only when you ask, with Meta’s charges named." },
-    { title: "Staff", detail: "Who answers is written down. Not a shared handset with no owner." },
-    { title: "No lead pack", detail: "This does not buy enquiries. It answers the ones you already get." },
-  ],
-  pulse: [
-    { title: "Three numbers", detail: "Enquiries, collections, and what is stuck. Not a forty-tile board." },
-    { title: "One Monday view", detail: "Command joins up to three systems into that view." },
-    { title: "Source", detail: "The site and the gateway you own. Not a rented dashboard login." },
-    { title: "No vanity", detail: "We do not show a sample revenue chart as if it were yours." },
-    { title: "Who looks", detail: "The owner, on Monday. Not a report nobody opens." },
-    { title: "Outside", detail: "A data warehouse, and ads reporting, are a different quote." },
-  ],
-  ledger: [
-    { title: "Invoice habit", detail: "GST-ready invoices from the checkout. Not a return filing." },
-    { title: "A drawer, sorted", detail: "Bills in one place the accountant can open." },
-    { title: "We are not the CA", detail: "Registration filings are a separate page, with the government fee shown." },
-    { title: "GST, Udyam, IEC", detail: "Those have their own prices. They are not bundled into a website." },
-    { title: "Due dates", detail: "A reminder of what you told us. Not legal advice." },
-    { title: "Your login", detail: "The GST portal stays in your name. We do not keep the only access." },
-  ],
-};
+export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return services.map((s) => ({ slug: s.slug }));
+  return blocks.map((b) => ({ slug: b.slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  return pageMetadata(`service:${slug}`);
+  return pageMetadata(`block:${slug}`);
 }
 
-export default async function ServicePage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
-  const service = getService(slug);
-  const compare = getServiceCompare(slug);
-  if (!service || !compare) notFound();
+const STICKER: Record<string, string> = {
+  site: "Found on Google ✅",
+  store: "Repeat order placed",
+  pay: "UPI received ✅",
+  chat: "Booking confirmed on WhatsApp",
+  pulse: "This week at a glance",
+  ledger: "Invoice sent ✅",
+  file: "GSTIN received ✅",
+  desk: "Follow-up due today",
+  team: "Leave approved",
+  workspace: "hello@yourbusiness.in",
+  connect: "Tally ⇄ Zoho synced ✅",
+};
 
-  const serviceLd = {
+export default async function BlockPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const block = getBlock(slug);
+  if (!block) notFound();
+  const channel = block.channelSlug ? getChannelSet(block.channelSlug) : undefined;
+  const price = blockPricingNote(block);
+  const ld = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": `${BASE}/systems/${service.slug}#service`,
-    name: service.title,
-    description: service.description,
-    url: `${BASE}/systems/${service.slug}`,
-    image: `${BASE}${service.image}`,
+    name: block.name,
+    description: `${block.becomes}. ${block.oneLiner}`,
+    url: `${BASE}/systems/${block.slug}`,
     provider: { "@type": "Organization", name: "Webify Bharat", url: BASE },
     areaServed: { "@type": "Country", name: "India" },
-    serviceType: service.title,
   };
 
   return (
-    <Layout>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }} />
-      <section className="page-hero">
-        <div className="container wrap">
-          <div className="page-copy">
-            <PageLead icon={service.slug} kicker="Webify Bharat service" />
-            <h1>{service.headline}</h1>
-            <p className="muted-copy">{service.description}</p>
-            <div className="offer-actions">
-              <WhatsAppCta href={WA_SERVICES}>Discuss this service</WhatsAppCta>
-              <Link className="btn btn-secondary" href="/systems">All services</Link>
+    <Layout cta={{ title: `Tell us how you work. We'll tailor ${block.name} around it.`, message: block.waMessage, webu: "pointing" }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
+      <PageHero
+        kicker={block.name}
+        title={block.headline}
+        sub={
+          <>
+            {block.becomes}. {block.oneLiner}
+          </>
+        }
+        cta={<WhatsAppCTA message={block.waMessage} context="hero" label={`Talk about ${block.name}`} />}
+        visual={
+          <PhotoUiLayer slot={block.photo} priority stickers={[{ text: STICKER[block.slug] }]}>
+            <div className="sig-art">
+              <BlockSignature slug={block.slug} />
             </div>
-            <div className="offer-switch">
-              {services.map((item) => (
-                <Link key={item.slug} href={`/systems/${item.slug}`} className={item.slug === service.slug ? "is-on" : undefined}>
-                  {item.title.split("&")[0].trim()}
-                </Link>
-              ))}
-            </div>
-          </div>
-          <img src={asset(service.image)} alt={service.title} width={800} height={600} fetchPriority="high" decoding="async" />
-        </div>
-      </section>
+          </PhotoUiLayer>
+        }
+      />
 
-      <SeoChunk pageKey={`service:${service.slug}`} />
-
-      <section className="section">
+      <section className="section surface-2" id="tailored" aria-labelledby="tailored-title">
         <div className="container">
-          <div className="section-head">
-            <div>
-              <div className="eyebrow"><span className="dot" /> Against their stages</div>
-              <h2>How the other options get more expensive. <span>Why this does not.</span></h2>
-            </div>
-            <p>Not a chart of our own services against each other. Their product ladder — free, then a pack, then ads — versus work that stays on your side.</p>
-          </div>
-          <RentOwnBoard slug={service.slug} />
-          <div className="control-grid" style={{ marginTop: 18 }}>
-            <article className="control-card rent">
-              <p className="control-kicker">{compare.rentLabel}</p>
-              <h3>What you keep paying them for.</h3>
-              <ul>{compare.vs.map((row) => <li key={row.they}>{row.they}</li>)}</ul>
-            </article>
-            <article className="control-card own">
-              <p className="control-kicker">{compare.ownLabel}</p>
-              <h3>{service.headline}</h3>
-              <ul>{compare.vs.map((row) => <li key={row.you}>{row.you}</li>)}</ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container real-context">
-          <div className="real-context-photo">
-            <img src={asset(`/images/real/${service.photo}`)} alt="" width={800} height={600} loading="lazy" decoding="async" />
-            <p className="staged-note">Staged. Not a customer.</p>
-          </div>
-          <div className="real-context-copy">
-            <div className="eyebrow"><span className="dot" /> In the real business</div>
-            <h2>{service.story}</h2>
-            <div className="values">
-              {compare.includes.map((item) => <CheckItem key={item}>{item}</CheckItem>)}
-            </div>
+          <SectionHead kicker="Tailored for" id="tailored-title" title={`${block.short}, built differently for every business.`} sub="Flip a card to see how we'd shape it." />
+          <div className="flip-grid">
+            {block.tailoredFor.map((t) => {
+              const photo = businessPhoto(t.business);
+              return (
+                <FlipCard
+                  key={t.business}
+                  id={`${block.slug}-${t.business}`}
+                  label={t.business}
+                  flipLabel="How we'd build it"
+                  front={
+                    <>
+                      {photo ? <Img slot={photo} mask="none" className="flip-photo" crop="50% 85%" width={400} height={260} decorative /> : null}
+                      <span className="flip-title">
+                        <Icon name={block.icon} size={22} /> {t.business}
+                      </span>
+                    </>
+                  }
+                  back={
+                    <>
+                      <span className="flip-title">{t.business}</span>
+                      <span className="flip-sub">{block.name}, tailored</span>
+                      <span className="flip-quote">{t.how}</span>
+                    </>
+                  }
+                />
+              );
+            })}
           </div>
         </div>
       </section>
 
-      <section className="section section-soft">
+      <section className="section" id="capabilities" aria-labelledby="cap-title">
         <div className="container">
-          <div className="section-head">
-            <div>
-              <div className="eyebrow"><span className="dot" /> What we build</div>
-              <h2>A system designed around <span>your workflow.</span></h2>
-            </div>
+          <SectionHead kicker="What it can include" id="cap-title" title="We include what your business needs. Nothing it doesn't." />
+          <Honeycomb items={block.capabilities} accent={block.colour} />
+          <p className="center-note">For example — {block.example}</p>
+        </div>
+      </section>
+
+      {channel ? (
+        <section className="section surface-2" id="rent-own" aria-labelledby="ro-title">
+          <div className="container">
+            <SectionHead kicker="Rent + Own" id="ro-title" title="Keep the apps for what they're good at. Own the rest." />
+            <RentOwnStepper set={channel} />
           </div>
-          <div className="feature-grid">
-            {buildSteps[service.slug].map((step, index) => (
-              <div className="feature" key={step.title}>
-                <div className="icon">{index + 1}</div>
-                <h3>{step.title}</h3>
-                <p>{step.detail}</p>
-              </div>
+        </section>
+      ) : null}
+
+      <section className="section" id="related" aria-labelledby="related-title">
+        <div className="container">
+          <SectionHead kicker="Works best with" id="related-title" title={`Blocks that pair well with ${block.short}.`} />
+          <div className="related-grid">
+            {block.related.map((r) => (
+              <BlockTile key={r} block={getBlock(r)!} />
             ))}
           </div>
+          <div className="price-note-box">
+            <Icon name="Tag" size={22} />
+            <div>
+              <strong>{price.included}.</strong>
+              {price.addon ? <span> {price.addon}</span> : null}
+              <span> Third-party fees (gateway, WhatsApp, licences) are billed by the provider.</span>{" "}
+              <Link href="/pricing" className="text-link">See pricing →</Link>
+            </div>
+          </div>
         </div>
       </section>
 
-      {serviceArticles[service.slug] ? <ArticleBlock article={serviceArticles[service.slug]} /> : null}
-      <FaqSection block={getFaq(`service:${service.slug}`)} />
-
-      <section className="section">
-        <div className="container">
-          <div className="cta-band">
-            <div>
-              <h2>Want this without the rent?</h2>
-              <p>{service.description}</p>
-              <WhatsAppCta href={WA_CHAT}>Talk to an expert</WhatsAppCta>
-            </div>
-            <div className="cta-photo">
-              <img src={asset("/images/real/growth-success.webp")} alt="Growing Indian business using better digital systems" width={640} height={400} loading="lazy" decoding="async" />
-            </div>
-          </div>
+      <section className="section surface-2" id="faq" aria-labelledby="faq-title">
+        <div className="container narrow">
+          <SectionHead kicker="Poochho — ask us" id="faq-title" title={`${block.name}: questions, answered.`} />
+          <FaqList items={block.faqs.map((f, i) => ({ key: `${block.slug}-${i}`, q: f.q, a: f.a, category: "custom" as const }))} />
         </div>
       </section>
     </Layout>

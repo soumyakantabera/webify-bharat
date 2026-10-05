@@ -235,3 +235,35 @@ export function BroadcastBubbles({ className }: { className?: string }) {
     />
   );
 }
+
+/** Sample monthly marketing report (§9.7c #7) — always carries the Sample data chip. */
+export function ReportMock({ className }: { className?: string }) {
+  const rows = [
+    { label: "Google search", value: 18, fill: C.rani },
+    { label: "Maps", value: 14, fill: C.mehendi },
+    { label: "Ads", value: 9, fill: C.marigold },
+    { label: "AI assistants", value: 3, fill: C.indigo },
+  ];
+  const max = 20;
+  return (
+    <svg viewBox="0 0 400 260" className={`wb-svg mock-card${className ? ` ${className}` : ""}`} role="img" aria-label="Sample monthly report showing enquiries by source">
+      <rect width="400" height="260" rx="18" fill="#fff" stroke={C.line} />
+      <Label x={18} y={30} size={13}>Enquiries by source · this month</Label>
+      <SampleChip x={318} y={16} />
+      {rows.map((r, i) => (
+        <g key={r.label} transform={`translate(18 ${54 + i * 36})`}>
+          <Label x={0} y={14} size={10} weight={600} fill={C.ink2}>{r.label}</Label>
+          <rect x="104" y="3" width="240" height="14" rx="7" fill={C.surface2} />
+          <rect x="104" y="3" width={(r.value / max) * 240} height="14" rx="7" fill={r.fill} />
+          <text x="354" y="15" fontSize="11" fontWeight="700" fill={C.ink} className="mono">{r.value}</text>
+        </g>
+      ))}
+      <rect x="18" y="204" width="170" height="38" rx="10" fill={C.surface} stroke={C.line} />
+      <Label x={30} y={222} size={9} fill={C.ink2} weight={600}>Top search</Label>
+      <Label x={30} y={235} size={10}>“kirana near me”</Label>
+      <rect x="200" y="204" width="182" height="38" rx="10" fill={C.surface} stroke={C.line} />
+      <Label x={212} y={222} size={9} fill={C.ink2} weight={600}>Map views</Label>
+      <text x="212" y="236" fontSize="11" fontWeight="700" fill={C.ink} className="mono">1,240</text>
+    </svg>
+  );
+}

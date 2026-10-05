@@ -15,13 +15,13 @@ import "./photo-caption.css";
 import "./claim-panel.css";
 import "./offer-pages.css";
 import "./pro-chart.css";
-import "./rent-own-board.css";
 import "./color-tiles.css";
 import "./service-grid.css";
 import "./hero-shot.css";
 import "./hero-overlay.css";
 import "./rangoli.css";
 import "./sections.css";
+import "./pillars.css";
 import { Analytics } from "@vercel/analytics/next";
 import { jetbrains, manrope, sora } from "./fonts";
 

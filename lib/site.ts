@@ -1,3 +1,4 @@
+import { WA_NUMBER } from "@/lib/wa-link";
 export const SITE = {
   name: "Webify Bharat",
   tagline: "Built for your business. Not for everyone's.",
@@ -7,7 +8,7 @@ export const SITE = {
     "Webify Bharat builds and runs your own business software — and markets your business — so every tool you use actually works for you.",
   replyPromise: "We reply within a few hours, 7 days a week.",
   replyShort: "Replies in a few hours · 7 days",
-  whatsapp: "918336097642",
+  whatsapp: WA_NUMBER,
   whatsappDisplay: "8336097642",
   email: "webifybharat@gmail.com",
 } as const;
@@ -47,100 +48,12 @@ export function gstNote() {
   return gstLive() ? "+ GST" : "";
 }
 
-export function waLink(text: string) {
-  return `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(text)}`;
-}
+export { waLink } from "@/lib/wa-link";
+import { waLink } from "@/lib/wa-link";
 
-export const WA_CONSULT = waLink("Hi, I'd like to book a free consult");
-export const WA_PROJECT = waLink("Hi, I'd like to discuss a project");
-export const WA_SERVICES = waLink("Hi, I'd like to know more about your services");
-export const WA_PACKAGES = waLink("Hi, I'd like to know more about your packages");
 export const WA_CHAT = waLink("Hi, I'd like to discuss my business");
 export const WA_BARE = `https://wa.me/${SITE.whatsapp}`;
 
-/** @deprecated Phase 3 replaces this with lib/blocks.ts. Slugs already match block slugs. */
-export type Service = {
-  slug: string;
-  title: string;
-  description: string;
-  image: string;
-  photo: string;
-  headline: string;
-  story: string;
-  featured?: boolean;
-};
-
-export const services: Service[] = [
-  {
-    slug: "site",
-    title: "Website & Digital Presence",
-    description:
-      "A website you own — so people who already search your name land on you, not a Justdial pack. Category leads are a different job.",
-    image: "/images/snapshots/cities.webp",
-    photo: "business-owner.webp",
-    headline: "Own the front door. Stop renting it.",
-    story:
-      "A strong website is the address you control: trust, WhatsApp, UPI, and enquiries that do not pay a marketplace tax.",
-    featured: true,
-  },
-  {
-    slug: "store",
-    title: "E-commerce & Portals",
-    description:
-      "Your own store and catalogue — keep the customer and the margin, instead of handing both to a marketplace.",
-    image: "/images/real/ecommerce.webp",
-    photo: "ecommerce.webp",
-    headline: "Online selling still happens in the real world",
-    story:
-      "Catalogs, orders and fulfillment need to match how your team actually packs, dispatches and supports customers.",
-    featured: true,
-  },
-  {
-    slug: "pay",
-    title: "Payment Gateway Setup",
-    description: "UPI, cards and secure checkout integrations with clean customer journeys.",
-    image: "/images/real/retail.webp",
-    photo: "payments.webp",
-    headline: "Make paying feel effortless",
-    story:
-      "The best payment setup disappears into the customer journey: fast, familiar and easy to reconcile.",
-  },
-  {
-    slug: "chat",
-    title: "WhatsApp API & Campaigns",
-    description: "A WhatsApp system on your number — every chat is yours, with no per-lead fee.",
-    image: "/images/real/whatsapp.webp",
-    photo: "whatsapp.webp",
-    headline: "The inbox you own is the cheapest front desk in India",
-    story:
-      "Turn enquiries, updates and follow-ups into a repeatable system. The customer who messaged you does not belong to Justdial.",
-  },
-  {
-    slug: "pulse",
-    title: "Analytics & BI",
-    description: "Tracking, reports and dashboards that turn business activity into decisions.",
-    image: "/images/real/business-owner.webp",
-    photo: "consultation.webp",
-    headline: "Numbers should lead to decisions",
-    story:
-      "We bring the important numbers into one view so owners and managers can review performance without digging through disconnected tools.",
-  },
-  {
-    slug: "ledger",
-    title: "Bookkeeping & Compliance",
-    description:
-      "Invoices, bookkeeping workflows, compliance visibility and operational control.",
-    image: "/images/snapshots/pricing.webp",
-    photo: "bookkeeping-compliance.webp",
-    headline: "Cleaner operations make compliance easier",
-    story:
-      "Organized invoices, bookkeeping workflows and due-date visibility reduce last-minute scrambling and improve control.",
-  },
-];
-
-export function getService(slug: string) {
-  return services.find((s) => s.slug === slug);
-}
 
 export type Industry = {
   slug: string;
@@ -469,14 +382,6 @@ export const posts: Post[] = [
 export function getPost(slug: string) {
   return posts.find((p) => p.slug === slug);
 }
-
-export const navLinks = [
-  { to: "/services", label: "Shop", icon: "services" },
-  { to: "/registrations", label: "Registrations", icon: "registrations" },
-  { to: "/pricing", label: "Pricing", icon: "pricing" },
-  { to: "/work", label: "Work", icon: "work" },
-  { to: "/about", label: "About", icon: "about" },
-] as const;
 
 export const serviceFeatures = [
   "Strategy & setup",

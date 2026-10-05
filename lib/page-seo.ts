@@ -1,4 +1,7 @@
-import { getIndustry, getPost, getService } from "./site";
+import { getBlock } from "./blocks";
+import { getStage } from "./offers";
+import { getReachService } from "./reach";
+import { getIndustry, getPost } from "./site";
 
 export type PageSeo = {
   title: string;
@@ -86,19 +89,6 @@ export const PAGE_SEO: Record<string, PageSeo> = {
     [{ name: "How we work", path: "/how-we-work" }],
     [],
   ),
-  services: page(
-    "Services: website, WhatsApp, UPI, analytics for MSMEs",
-    "Website design, e-commerce, payment gateway, WhatsApp Business API, analytics and GST-ready workflows for Indian small businesses — one owned stack.",
-    "/systems",
-    ["website development India", "WhatsApp API setup", "UPI integration", "MSME services"],
-    [{ name: "Services", path: "/systems" }],
-    [
-      { term: "Stack", value: "Site, WhatsApp, UPI, reporting, GST-ready invoices" },
-      { term: "Start", value: "Fix the leak: no site, messy inbox, or personal QR" },
-      { term: "Lock-in", value: "No 3-year retainer. Month-to-month care after launch" },
-      { term: "Language", value: "Hindi, Hinglish or English — match the counter" },
-    ],
-  ),
   industries: page(
     "Industries: retail, restaurants, clinics, education, property, manufacturing",
     "Owned websites, WhatsApp and UPI for Indian retail, restaurants (vs Zomato cut), clinics, tuition, real estate and factory-direct manufacturers.",
@@ -123,17 +113,49 @@ export const PAGE_SEO: Record<string, PageSeo> = {
       { term: "Publish", value: "Named logos only when the client agrees" },
     ],
   ),
+  systems: page(
+    "Systems: the 11 building blocks, tailored for your business",
+    "Website, store, payments, WhatsApp, CRM/ERP, staff portal, business email, GST invoicing, registrations, dashboards and integrations — eleven blocks Webify Bharat tailors and combines for one business.",
+    "/systems",
+    ["custom software for small business India", "CRM ERP for MSME", "website and payments setup", "WhatsApp Business API setup"],
+    [{ name: "Systems", path: "/systems" }],
+    [],
+  ),
+  strategy: page(
+    "Strategy: Webify Compass — know what to build before you spend",
+    "Paid strategy sessions, digital audits and roadmaps for Indian MSMEs: build vs buy, Zoho or Odoo vs Google or Microsoft vs custom, with budget ranges. Session ₹5,000, audit ₹15,000, roadmap ₹30,000.",
+    "/strategy",
+    ["digital strategy small business India", "Zoho vs Odoo vs custom", "business software roadmap"],
+    [{ name: "Strategy", path: "/strategy" }],
+    [],
+  ),
+  marketing: page(
+    "Marketing: get found on Google, maps, ads and AI — Webify Reach",
+    "SEO, Google and Meta ads, local maps listings, AI visibility and WhatsApp campaigns for Indian MSMEs. Honest work, no guaranteed rankings, ad spend paid to the platforms directly.",
+    "/marketing",
+    ["SEO for small business India", "Google Business Profile management", "AI visibility ChatGPT business", "Meta ads for local business"],
+    [{ name: "Marketing", path: "/marketing" }],
+    [],
+  ),
+  integrations: page(
+    "Integrations: use our stack, or keep yours — Zoho, Odoo, Tally, Google, Microsoft",
+    "Five ways we build: adapt our prototype, from scratch, on open source, the budget route on Zoho or Odoo, or around the tools you already use. White-label on every plan.",
+    "/integrations",
+    ["Zoho setup India", "Odoo implementation small business", "Tally integration", "Google Workspace setup"],
+    [{ name: "Integrations", path: "/integrations" }],
+    [],
+  ),
   pricing: page(
-    "Pricing in INR: Launch ₹9,999, Growth ₹19,999, Command ₹39,999 incl. GST",
-    "Website and digital operations packages for Indian MSMEs. All listed starting prices include 18% GST. Hosting month-to-month after launch.",
+    "Pricing: setup from ₹5,000, plans from ₹3,000/month, no lock-in",
+    "Four stages — Starter, Business, Command and Custom — with clear limits, add-ons and over-limit charges you approve first. Third-party costs shown separately. Estimate your scope and get an exact quote on WhatsApp.",
     "/pricing",
-    ["website cost India", "website design price MSME", "WhatsApp API charges India"],
+    ["website and software pricing India", "monthly plan small business software", "CRM pricing India"],
     [{ name: "Pricing", path: "/pricing" }],
     [
-      { term: "Launch", value: "₹9,999 incl. GST — site, analytics, WhatsApp setup" },
-      { term: "Growth", value: "₹19,999 incl. GST — payments + automation + dashboard" },
-      { term: "Command", value: "₹39,999 incl. GST — BI and custom integrations" },
-      { term: "Tax", value: "18% GST included in every listed price" },
+      { term: "Starter", value: "₹3,000/month + ₹5,000 setup" },
+      { term: "Business", value: "₹7,500/month + ₹10,000 setup" },
+      { term: "Command", value: "₹18,000/month + ₹15,000 setup" },
+      { term: "Custom", value: "from ₹40,000/month + from ₹50,000 setup" },
     ],
   ),
   about: page(
@@ -170,70 +192,6 @@ export const PAGE_SEO: Record<string, PageSeo> = {
       { term: "Brief", value: "Trade, city, leak, link or photo of the current setup" },
     ],
   ),
-};
-
-const serviceSeo: Record<
-  string,
-  { title: string; description: string; keywords: string[]; facts: PageSeo["facts"] }
-> = {
-  websites: {
-    title: "Website design for small business India | Webify Bharat",
-    description:
-      "Mobile-first business websites with local SEO, Google Business Profile alignment, click-to-WhatsApp and UPI. Own the URL. ₹0 extra per organic enquiry.",
-    keywords: ["website design for small business India", "local SEO website", "MSME website"],
-    facts: [
-      { term: "Outcome", value: "Name search and Maps click land on a site you own" },
-      { term: "Includes", value: "Mobile-first pages, WhatsApp CTA, on-page SEO, schema basics" },
-      { term: "Not", value: "A Justdial profile pretending to be your website" },
-    ],
-  },
-  ecommerce: {
-    title: "E-commerce & catalogues you own | Webify Bharat",
-    description:
-      "D2C and dealer portals on your domain with UPI checkout. Keep repeat buyers off marketplace commission.",
-    keywords: ["ecommerce website India", "D2C store UPI", "dealer portal"],
-    facts: [
-      { term: "Own", value: "Catalogue, checkout, customer list" },
-      { term: "Optional", value: "Amazon/Flipkart for extra reach — not for every repeat" },
-    ],
-  },
-  payments: {
-    title: "UPI payment gateway setup for Indian businesses",
-    description:
-      "Razorpay, Cashfree or PayU-class checkout, payment links and WhatsApp receipts. Stop mixing GST money with personal GPay.",
-    keywords: ["UPI payment gateway", "Razorpay integration", "payment links India"],
-    facts: [
-      { term: "Methods", value: "UPI, cards, net-banking, payment links" },
-      { term: "Replace", value: "Personal QR in the bio" },
-    ],
-  },
-  whatsapp: {
-    title: "WhatsApp Business API & inbox for Indian SMEs",
-    description:
-      "Your number, menus, reminders and catalogues. No per-lead fee when a customer messages you. API when the green app breaks.",
-    keywords: ["WhatsApp Business API India", "WhatsApp automation SME"],
-    facts: [
-      { term: "Number", value: "Stays yours — not a directory’s" },
-      { term: "API", value: "When one phone cannot hold the queue" },
-    ],
-  },
-  analytics: {
-    title: "Analytics & BI for Indian MSMEs | Monday numbers",
-    description:
-      "Track WhatsApp clicks, payments and collections in INR. Not a 40-tile vanity dashboard.",
-    keywords: ["Google Analytics small business India", "MSME dashboard"],
-    facts: [{ term: "Weekly", value: "Enquiries, conversions, money landed, what is stuck" }],
-  },
-  compliance: {
-    title: "Bookkeeping workflows & GST-ready invoices | Webify Bharat",
-    description:
-      "Numbered invoices tied to payments so GSTR is not archaeology. We are not your CA.",
-    keywords: ["GST invoice website", "bookkeeping workflow MSME"],
-    facts: [
-      { term: "Goal", value: "Sale, payment and invoice as one event" },
-      { term: "Not", value: "Legal or CA advice" },
-    ],
-  },
 };
 
 const industrySeo: Record<
@@ -308,12 +266,6 @@ const ANSWERS: Record<string, string> = {
   about: "Webify Bharat is an India-based digital operations studio for MSMEs. We are not a lead-selling directory and not a US SaaS wrapper. Stack choices settle in INR and leave the customer list on your login.",
   blog: "Webify Bharat insights answer live Indian search demand: website cost, Justdial vs own site, WhatsApp API, UPI vs personal QR, Google Business Profile, Razorpay vs Cashfree, Hindi websites, Bing Places.",
   contact: "Contact Webify Bharat with five lines: what you sell, city, what is breaking, and a link or photo. The first working conversation is free; WhatsApp is the door.",
-  "service:site": "A Webify Bharat business website is a mobile-first URL you own, aligned with Google Business Profile, with WhatsApp and optional UPI — so name search and Maps clicks are not rented from Justdial.",
-  "service:store": "Webify Bharat e-commerce is a catalogue and checkout on your domain with UPI, so repeat buyers skip marketplace commission.",
-  "service:pay": "Payment gateway setup means a named Indian gateway (Razorpay, Cashfree, PayU class) with UPI, cards and WhatsApp receipts — not a personal GPay QR.",
-  "service:chat": "WhatsApp for Webify Bharat clients stays on your number: Business app until volume breaks, then WhatsApp Business API. No per-lead fee when a customer messages you.",
-  "service:pulse": "Analytics here means Monday numbers in INR: enquiries, WhatsApp clicks, payments, collections — not a 40-tile vanity dashboard.",
-  "service:ledger": "Bookkeeping workflows make sale, payment and invoice one event so GST filing is not archaeology. Webify Bharat is not your CA.",
   "industry:retail": "For Indian retail, Webify Bharat connects catalogue, WhatsApp order chat, UPI and Google Business Profile so “shop near me” is not a Justdial rent.",
   "industry:restaurant": "For restaurants, a menu site, Maps, WhatsApp and table QR-to-UPI keep regulars off 15–30% aggregator commission; Zomato stays optional discovery.",
   "industry:healthcare": "For clinics, we build the public layer — website, Maps, WhatsApp appointments, UPI — not a hospital EMR.",
@@ -403,22 +355,46 @@ export function getPageSeo(key: string): PageSeo {
     return { ...s, answer: ANSWERS[key] ?? s.answer };
   }
 
-  if (key.startsWith("service:")) {
-    const slug = key.slice(8);
-    const svc = getService(slug);
-    const extra = serviceSeo[slug];
-    return page(
-      extra?.title ?? svc?.title ?? "Service",
-      extra?.description ?? svc?.description ?? "",
-      `/systems/${slug}`,
-      extra?.keywords ?? [],
-      [
-        { name: "Services", path: "/systems" },
-        { name: svc?.title ?? slug, path: `/systems/${slug}` },
-      ],
-      extra?.facts ?? [],
-      ANSWERS[key] ?? "",
-    );
+  if (key.startsWith("block:")) {
+    const b = getBlock(key.slice(6));
+    if (b) {
+      return page(
+        `${b.name}: ${b.headline}`,
+        `${b.becomes}. ${b.oneLiner} ${b.example}`,
+        `/systems/${b.slug}`,
+        [b.name, ...b.capabilities.slice(0, 4)],
+        [{ name: "Systems", path: "/systems" }, { name: b.name, path: `/systems/${b.slug}` }],
+        [],
+      );
+    }
+  }
+
+  if (key.startsWith("reach:")) {
+    const r = getReachService(key.slice(6));
+    if (r) {
+      return page(
+        `${r.name}: ${r.headline}`,
+        `${r.promise} ${r.whatWeDo.slice(0, 4).join(", ")}. ${r.caveat}`,
+        `/marketing/${r.slug}`,
+        [r.kicker, r.short, "small business India"],
+        [{ name: "Marketing", path: "/marketing" }, { name: r.short, path: `/marketing/${r.slug}` }],
+        [],
+      );
+    }
+  }
+
+  if (key.startsWith("stage:")) {
+    const st = getStage(key.slice(6));
+    if (st) {
+      return page(
+        `${st.name} plan: ${st.tagline} ${st.monthly}/month`,
+        `${st.name}: ${st.monthly}/month and ${st.setup} setup. ${st.bestFor}. Limits, included features, add-ons and how to start.`,
+        `/pricing/${st.slug}`,
+        [`${st.name} plan`, "small business software pricing India"],
+        [{ name: "Pricing", path: "/pricing" }, { name: st.name, path: `/pricing/${st.slug}` }],
+        [],
+      );
+    }
   }
 
   if (key.startsWith("industry:")) {

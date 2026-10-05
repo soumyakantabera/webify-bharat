@@ -7,7 +7,15 @@ import { useId, useRef, useState, type KeyboardEvent, type ReactNode } from "rea
  * Panels are server-rendered; this only switches between them (ARIA tabs,
  * arrow keys move between tabs).
  */
-export function TabbedShowcase({ tabs, label }: { tabs: { id: string; label: ReactNode; panel: ReactNode }[]; label: string }) {
+export function TabbedShowcase({
+  tabs,
+  label,
+  orientation = "vertical",
+}: {
+  tabs: { id: string; label: ReactNode; panel: ReactNode }[];
+  label: string;
+  orientation?: "vertical" | "horizontal";
+}) {
   const [active, setActive] = useState(0);
   const base = useId().replace(/:/g, "");
   const refs = useRef<(HTMLButtonElement | null)[]>([]);
@@ -22,8 +30,8 @@ export function TabbedShowcase({ tabs, label }: { tabs: { id: string; label: Rea
   };
 
   return (
-    <div className="tabbed">
-      <div className="tabbed-list" role="tablist" aria-label={label} onKeyDown={onKey}>
+    <div className={`tabbed${orientation === "horizontal" ? " is-horizontal" : ""}`}>
+      <div className="tabbed-list" role="tablist" aria-label={label} aria-orientation={orientation} onKeyDown={onKey}>
         {tabs.map((t, i) => (
           <button
             key={t.id}

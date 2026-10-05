@@ -19,6 +19,19 @@ export type BlockSlug =
 
 export type BlockGroup = "sell" | "talk" | "run" | "see";
 
+/** Filter chips on the Systems hub (content-plan §9.6). */
+export type BlockFilter = "sell" | "pay" | "talk" | "track" | "comply" | "connect";
+
+export const BLOCK_FILTERS: { id: BlockFilter | "all"; label: string }[] = [
+  { id: "all", label: "All" },
+  { id: "sell", label: "Sell" },
+  { id: "pay", label: "Get paid" },
+  { id: "talk", label: "Talk" },
+  { id: "track", label: "Track" },
+  { id: "comply", label: "Comply" },
+  { id: "connect", label: "Connect" },
+];
+
 export type Block = {
   slug: BlockSlug;
   name: string;
@@ -44,6 +57,12 @@ export type Block = {
   /** Signature SVG component name (§6.10). */
   svg: string;
   waMessage: string;
+  filter: BlockFilter;
+  /** "Works best with" neighbours (§9.7 #5). */
+  related: BlockSlug[];
+  /** Pricing note parts (§9.7 #6). Amounts come from lib/offers.ts add-ons. */
+  pricing: { included: string; addon?: { slug: string; on: string } };
+  faqs: { q: string; a: string }[];
 };
 
 export const BLOCK_GROUPS: { id: BlockGroup; label: string; slugs: BlockSlug[] }[] = [
@@ -77,6 +96,14 @@ export const blocks: Block[] = [
     photo: "IMG-B01",
     svg: "SearchResultMock",
     waMessage: "Hi! I'm interested in Webify Site for my business.",
+    filter: "sell",
+    related: ["store", "chat", "pulse"],
+    pricing: { included: "Included in every plan, from Starter" },
+    faqs: [
+      { q: "Is the website a template?", a: "No. It's designed for your business, your customers and your brand — even when we start from one of our tested prototypes." },
+      { q: "Can I change things myself?", a: "Small changes are covered by the change hours in your monthly plan — just message us on WhatsApp. If you update often (menus, offers, prices), we can build you a simple editing screen." },
+      { q: "Will it show up on Google?", a: "Every plan includes the SEO and AI-ready basics and your Google Business Profile. Rankings take time and no one can honestly guarantee them; Reach Search is the ongoing work if you want it." },
+    ],
   },
   {
     slug: "store",
@@ -101,6 +128,14 @@ export const blocks: Block[] = [
     photo: "IMG-B02",
     svg: "MockScreen",
     waMessage: "Hi! I'm interested in Webify Store for my business.",
+    filter: "sell",
+    related: ["pay", "chat", "ledger"],
+    pricing: { included: "Included from Business", addon: { slug: "small-store", on: "Starter" } },
+    faqs: [
+      { q: "Do I have to leave Amazon, Flipkart or Zomato?", a: "No. Keep them for new customers. Your own store is for regulars and repeat orders, so they don't pay a commission every time." },
+      { q: "How many products can I list?", a: "Business includes 100 products and Command 1,000; more are charged per 100 a month, only after you approve. On Starter, a small store of up to 50 products is an add-on." },
+      { q: "Can dealers see their own prices?", a: "Yes. Dealer logins with their own price tier are a common build for manufacturers and traders." },
+    ],
   },
   {
     slug: "pay",
@@ -125,6 +160,14 @@ export const blocks: Block[] = [
     photo: "IMG-B03",
     svg: "MoneyPath",
     waMessage: "Hi! I'm interested in Webify Pay for my business.",
+    filter: "pay",
+    related: ["ledger", "store", "chat"],
+    pricing: { included: "Included from Business", addon: { slug: "payments", on: "Starter" } },
+    faqs: [
+      { q: "Whose account does the money go to?", a: "Yours. The gateway account is in your business name and settles to your bank; we help with the KYC paperwork." },
+      { q: "What does the gateway charge?", a: "Gateway fees are set and billed by the provider (Razorpay, Cashfree or Stripe), separately from our plan." },
+      { q: "Can customers abroad pay me?", a: "Yes, through Stripe. It's included in Command and available as an add-on on Starter and Business." },
+    ],
   },
   {
     slug: "chat",
@@ -149,6 +192,14 @@ export const blocks: Block[] = [
     photo: "IMG-B04",
     svg: "ChatFlow",
     waMessage: "Hi! I'm interested in Webify Chat for my business.",
+    filter: "talk",
+    related: ["site", "desk", "pay"],
+    pricing: { included: "WhatsApp Business API included from Business", addon: { slug: "wa-api", on: "Starter" } },
+    faqs: [
+      { q: "Will it use my existing number?", a: "Yes — your number, not ours. Moving a number to the WhatsApp Business API changes how it works in the regular app, so we explain exactly what changes before we move it." },
+      { q: "Are WhatsApp messages free?", a: "WhatsApp's conversation charges are billed separately by Meta or the provider, not by us." },
+      { q: "Can a person still reply?", a: "Always. Automations handle the routine questions and hand anything unusual to you or your staff." },
+    ],
   },
   {
     slug: "pulse",
@@ -173,6 +224,14 @@ export const blocks: Block[] = [
     photo: "IMG-B05",
     svg: "OwnerDashboard",
     waMessage: "Hi! I'm interested in Webify Pulse for my business.",
+    filter: "track",
+    related: ["desk", "ledger", "connect"],
+    pricing: { included: "Basic dashboard from Business, advanced on Command, custom on Custom" },
+    faqs: [
+      { q: "What numbers will I see?", a: "The three to five numbers you actually ask about — for example enquiries, collections and what's stuck. We agree them in your written scope." },
+      { q: "Where does the data come from?", a: "From your own system — orders, payments and WhatsApp — so you don't have to type anything twice." },
+      { q: "Do I need Desk or Ledger first?", a: "No. Pulse can start with what you have and grow as you add blocks." },
+    ],
   },
   {
     slug: "ledger",
@@ -197,6 +256,14 @@ export const blocks: Block[] = [
     photo: "IMG-B06",
     svg: "InvoiceFan",
     waMessage: "Hi! I'm interested in Webify Ledger for my business.",
+    filter: "comply",
+    related: ["pay", "connect", "file"],
+    pricing: { included: "Included in Command", addon: { slug: "ledger", on: "Business" } },
+    faqs: [
+      { q: "Do you replace my CA?", a: "No. We work alongside your CA. Ledger gives them clean records — an invoice for every payment — so filing isn't a reconstruction." },
+      { q: "Does it work with Tally?", a: "Yes. With Webify Connect, invoices and payments can flow into Tally or Zoho Books." },
+      { q: "Which plan includes it?", a: "Command includes it. On Business it's a monthly add-on." },
+    ],
   },
   {
     slug: "file",
@@ -220,6 +287,14 @@ export const blocks: Block[] = [
     photo: "IMG-B07",
     svg: "FilingStamp",
     waMessage: "Hi! I'm interested in Webify File for my business.",
+    filter: "comply",
+    related: ["ledger", "workspace", "site"],
+    pricing: { included: "Our GST and Udyam filing fee is included in Business; Command adds IEC" },
+    faqs: [
+      { q: "Who actually files the registration?", a: "We do, using documents and one-time passwords you share. Government fees are paid in your name." },
+      { q: "What do filings cost on their own?", a: "Our fee and the government fee are always separate lines — see the registrations page for each filing. Clients on a monthly plan pay a lower filing fee." },
+      { q: "Can you do UK VAT or EU IOSS?", a: "We coordinate them with a registered overseas agent or intermediary. They're quoted per case, and the agent's fees are separate." },
+    ],
   },
   {
     slug: "desk",
@@ -243,6 +318,14 @@ export const blocks: Block[] = [
     photo: "IMG-B09",
     svg: "PipelineBoard",
     waMessage: "Hi! I'd like a custom CRM/ERP for my business. Can we discuss?",
+    filter: "track",
+    related: ["team", "chat", "pulse"],
+    pricing: { included: "Desk Lite from Business; full CRM/ERP on Command", addon: { slug: "desk-lite", on: "Starter" } },
+    faqs: [
+      { q: "Custom, or Zoho / Odoo?", a: "Whichever fits. We build custom, adapt our prototype, or configure Odoo or Zoho — and tell you the licence costs up front." },
+      { q: "Can you move my Excel or Tally data in?", a: "Yes. Data migration is a one-time add-on, quoted on the size of your data." },
+      { q: "Can staff see only their own leads?", a: "Yes. Role-based access is part of every Desk build." },
+    ],
   },
   {
     slug: "team",
@@ -266,6 +349,14 @@ export const blocks: Block[] = [
     photo: "IMG-B10",
     svg: "AccessLayers",
     waMessage: "Hi! I need an employee portal with role-based access for my team.",
+    filter: "track",
+    related: ["desk", "workspace", "connect"],
+    pricing: { included: "Included in Command", addon: { slug: "team", on: "Business" } },
+    faqs: [
+      { q: "Can staff see only what they need?", a: "Yes. Each role sees only its own data and screens; the owner sees everything." },
+      { q: "What happens when someone leaves?", a: "Their login is switched off the same day — by you, or by us on WhatsApp — and their records stay with the business." },
+      { q: "Does it handle attendance and leave?", a: "Yes, along with tasks and documents. We include only what your team will actually use." },
+    ],
   },
   {
     slug: "workspace",
@@ -289,6 +380,14 @@ export const blocks: Block[] = [
     photo: "IMG-B11",
     svg: "WorkspaceMock",
     waMessage: "Hi! I need business email and docs set up (Google / Microsoft / your stack).",
+    filter: "connect",
+    related: ["team", "site", "connect"],
+    pricing: { included: "Business email setup is ₹0 in every plan; licences are billed by Google or Microsoft" },
+    faqs: [
+      { q: "Google Workspace or Microsoft 365?", a: "Whichever fits how you work — or our own stack if you don't need either. Licences are billed by Google or Microsoft." },
+      { q: "Can you move my old Gmail?", a: "Yes. Mailbox migration is a small one-time add-on per mailbox." },
+      { q: "Will staff get their own email?", a: "Yes, on your domain, with shared drives and calendars set up by team." },
+    ],
   },
   {
     slug: "connect",
@@ -312,6 +411,14 @@ export const blocks: Block[] = [
     photo: "IMG-B08",
     svg: "ConnectHub",
     waMessage: "Hi! I'm interested in Webify Connect for my business.",
+    filter: "connect",
+    related: ["desk", "ledger", "pulse"],
+    pricing: { included: "3 integrations included in Command", addon: { slug: "integration", on: "Business" } },
+    faqs: [
+      { q: "Which tools can you connect?", a: "Tally, Zoho, Odoo, Google Sheets, Microsoft 365, Shiprocket, WhatsApp and anything with an API or webhooks." },
+      { q: "What if the other tool changes?", a: "Monitoring and fixes are part of your monthly plan, so a broken connection is our problem, not yours." },
+      { q: "Do I have to replace my tools?", a: "No. Connect keeps the tools you already use and makes them talk to each other." },
+    ],
   },
 ];
 

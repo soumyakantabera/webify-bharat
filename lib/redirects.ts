@@ -17,6 +17,10 @@ export const REDIRECTS: { source: string; destination: string }[] = [
   { source: "/how-we-build", destination: "/how-we-work" },
   { source: "/pricing/launch", destination: "/pricing/starter" },
   { source: "/pricing/growth", destination: "/pricing/business" },
+  // Retired e-commerce add-on pages (replaced by the add-ons on /pricing).
+  { source: "/pricing/small", destination: "/pricing" },
+  { source: "/pricing/medium", destination: "/pricing" },
+  { source: "/pricing/expanding", destination: "/pricing" },
 ];
 
 export function redirectFor(source: string) {

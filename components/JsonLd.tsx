@@ -1,19 +1,19 @@
-import { SITE, services } from "@/lib/site";
+import { SITE } from "@/lib/site";
+import { blocks } from "@/lib/blocks";
 import { PLAN_STAGES } from "@/lib/offers";
 
 const BASE = "https://webify-bharat.vercel.app";
 
 export function OrgJsonLd() {
-  const serviceNodes = services.map((s) => ({
+  const serviceNodes = blocks.map((b) => ({
     "@type": "Service",
-    "@id": `${BASE}/systems/${s.slug}#service`,
-    name: s.title,
-    description: s.description,
-    url: `${BASE}/systems/${s.slug}`,
+    "@id": `${BASE}/systems/${b.slug}#service`,
+    name: b.name,
+    description: `${b.becomes}. ${b.oneLiner}`,
+    url: `${BASE}/systems/${b.slug}`,
     provider: { "@id": `${BASE}/#org` },
     areaServed: { "@type": "Country", name: "India" },
-    serviceType: s.title,
-    image: `${BASE}${s.image}`,
+    serviceType: b.becomes,
   }));
 
   const offerNodes = PLAN_STAGES.map((p) => ({

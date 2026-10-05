@@ -1,4 +1,4 @@
-import { waLink } from "@/lib/site";
+import { waLink } from "@/lib/wa-link";
 
 /**
  * Prefilled WhatsApp messages (content-plan §4.2).
@@ -31,6 +31,7 @@ export const waPrototype = (name: string) => `Hi! I'd like a walkthrough of the 
 export const waPrototypes = (industry: string) => `Hi! I'd like to see prototypes for a ${industry} business.`;
 export const waTier = (tier: string) =>
   `Hi! I'm interested in the ${tier} starting point. Can you scope it for me?`;
+export const waCompass = (offer: string) => `Hi! I'd like to book a ${offer}.`;
 export const waFiling = (filing: string) => `Hi! I want help with ${filing} registration.`;
 export const waPost = (title: string) => `Hi! I read "${title}" and have a question.`;
 export const waEstimate = (o: { path: string; tier: string; addons: string[]; from: string }) =>

@@ -24,16 +24,6 @@ export const entityDefine: Article = {
   ],
 };
 
-export const homeArticle: Article = {
-  kicker: "India search guide",
-  title: "Website, WhatsApp and UPI",
-  accent: "for Indian small businesses.",
-  paragraphs: [
-    "People searching “website design for small business India”, “WhatsApp Business API setup”, “UPI payment gateway for shop” or “Justdial alternative” are usually trying to stop paying for the same customer twice. A Google Business Profile without a site, a Zomato storefront that takes 15–30% commission, and IndiaMART lead packs all put the relationship on someone else’s ledger.",
-    "The durable system is small. A fast, mobile-first website that ranks for your business name and locality. A WhatsApp click-to-chat that lands on your number. UPI, cards and net-banking through a proper gateway so money is not sitting in a personal GPay. Google Analytics 4 (or a simple weekly dashboard) that counts enquiries and collections, not vanity sessions.",
-    "Webify Bharat is the partner that connects those pieces for Indian MSMEs: website development, local SEO, WhatsApp automation, payment gateway integration, GST-friendly invoicing workflows, and reporting the owner can open on Monday. Organic leads that come through what you own cost ₹0 extra per head. Ads stay optional fuel.",
-  ],
-};
 
 export const searchResearchArticle: Article = {
   kicker: "2026 search research",
@@ -52,76 +42,6 @@ export const searchResearchArticle: Article = {
   ],
 };
 
-export const serviceArticles: Record<string, Article> = {
-  site: {
-    kicker: "Website design India",
-    title: "Business websites that get",
-    accent: "enquiries, not just traffic.",
-    paragraphs: [
-      "A business website in India is not a brochure. It is the page a customer opens after they saw you on Google Maps, Instagram or a shop board. If it is slow, English-only, or has no WhatsApp button, they message the next listing. Webify Bharat builds mobile-first websites for MSMEs: clear offer, real photos, click-to-call, click-to-WhatsApp, service pages, and on-page SEO for your city and category.",
-      "Local SEO still starts with your own URL. Google Search and AI answers (Gemini, ChatGPT, Perplexity, Bing Copilot) prefer a named business with an owned site, NAP consistency, and Google Business Profile — not a rented Justdial profile. We align titles, service copy and schema so “best clinic in [city]” or “[trade] near me” can cite you.",
-      "Market rates in 2026 for a serious small-business site in India typically sit well above a ₹5,000 template: public quotes run from roughly ₹15,000–₹60,000 for a conversion-focused local site, and much more for catalogues. Webify Bharat Launch starts at ₹9,999 including 18% GST as a foundation; Growth and Command add payments and operations.",
-      "You keep the domain (.in or .com), hosting access and content. No marketplace tax when someone finds you organically. Optional: bilingual Hindi/English copy, GST invoice links, UPI checkout, Core Web Vitals on mid-range Android, and a blog that answers the questions your buyers already type.",
-    ],
-    bullets: [
-      "Mobile-first website design and development for Indian SMBs",
-      "Google Business Profile + local SEO for Maps and name searches",
-      "WhatsApp and call CTAs, Core Web Vitals, basic schema markup",
-    ],
-  },
-  store: {
-    kicker: "Own the store",
-    title: "E-commerce without",
-    accent: "marketplace commission.",
-    paragraphs: [
-      "Amazon, Flipkart, Meesho and food aggregators are discovery. They are not your company. Commission, ads inside the platform, and a customer who never sees your number eat margin. An owned catalogue or D2C store — on your domain — lets repeat buyers order on UPI with your WhatsApp support.",
-      "We set up catalogues, product pages, inventory-aware checkout, Razorpay / Cashfree / UPI, order WhatsApp alerts, and a simple packing flow your staff already understand. For B2B, that can be a dealer portal instead of a public cart.",
-      "Use marketplaces for extra reach if you want. Keep the profitable repeat order on a site and number you control.",
-    ],
-  },
-  pay: {
-    kicker: "UPI & checkout",
-    title: "Payment gateway setup",
-    accent: "for Indian businesses.",
-    paragraphs: [
-      "Indian customers expect UPI first — GPay, PhonePe, BHIM — then cards and net-banking. A personal QR in the bio is not a payment system: settlements mix with personal spend, refunds are messy, and GST invoices have no trail. A named payment gateway (Razorpay, Cashfree, PayU and similar) gives payment links, checkout on your site, instant receipts and a dashboard accounts can reconcile.",
-      "Webify Bharat handles KYC-ready integration, success/failure states, WhatsApp receipts, and GST-friendly invoice numbers when you need them. Clinics, institutes, retailers and service firms get the same pattern: collect at commitment, confirm automatically, keep a record.",
-    ],
-    bullets: [
-      "UPI, cards, net-banking and payment links",
-      "Named business account — not personal GPay",
-      "Receipts on WhatsApp, settlement visibility, GST trail",
-    ],
-  },
-  chat: {
-    kicker: "WhatsApp Business API India",
-    title: "WhatsApp that is a system,",
-    accent: "not a chaotic inbox.",
-    paragraphs: [
-      "India runs on WhatsApp. The WhatsApp Business app is fine until volume breaks it. WhatsApp Business Platform (API) adds multi-agent inbox, templates, catalogues, and automation — onboarding through a Business Solution Provider, with utility and marketing message rates that are among the lowest globally in India.",
-      "We design the flows that actually pay: welcome menu, price list, appointment reminders, order status, abandoned enquiry follow-up, and a human handoff. Broadcasts stay permissioned. Copy can be Hindi, Hinglish or English. The number stays yours. There is no Justdial-style per-lead bill when a customer messages that number.",
-      "Website forms, payment confirmations and a light CRM connect so enquiries do not die on one person’s phone. That is the cheapest front desk in the country if you own it.",
-    ],
-  },
-  pulse: {
-    kicker: "Analytics & BI",
-    title: "Numbers Indian owners",
-    accent: "actually open on Monday.",
-    paragraphs: [
-      "Google Analytics 4 without conversion events is a weather report. MSME owners ask: how many people messaged, how many paid, how much landed in the bank, what is stuck. Webify Bharat instruments WhatsApp clicks, form starts, payments and repeat customers — then a weekly INR view, not a 40-tile vanity dashboard.",
-      "When those definitions are trusted, we add channel mix (Google vs Instagram vs walk-in), location or SKU mix, and simple BI. Search engines and LLMs also read this page as “analytics for small business India” — practical measurement, not data-warehouse theatre.",
-    ],
-  },
-  ledger: {
-    kicker: "GST & books",
-    title: "Bookkeeping workflows",
-    accent: "that make GST easier.",
-    paragraphs: [
-      "GST pain is usually late invoices, cash off-system, and expenses sitting in WhatsApp. If sale, payment and invoice are one event, GSTR cycles stop being archaeology. We set numbered invoices, payment trail, due-date lists and export your CA can file from — without forcing a 200-feature ERP.",
-      "Start with PAN and a bank account. Add GSTIN when you actually need it. Webify Bharat will not make you incorporate a Pvt Ltd just to look like a startup.",
-    ],
-  },
-};
 
 export const industryArticles: Record<string, Article> = {
   retail: {
@@ -191,25 +111,7 @@ export const aboutArticle: Article = {
   ],
 };
 
-export const pricingArticle: Article = {
-  kicker: "Pricing in INR",
-  title: "What a business website",
-  accent: "and stack costs in India.",
-  paragraphs: [
-    "Launch is ₹9,999 and our GST and Udyam filing fees are inside it. Growth is ₹19,999 and adds IEC. Command is ₹39,999 and adds UK VAT and EU IOSS coordination. The ₹500 IEC receipt still goes to DGFT. If you manage the store, the shelf starts at ₹999, ₹2,999 and ₹6,999. If we load the products, it starts at ₹1,999, ₹4,999 and ₹9,999. Medium includes Small. Expanding includes Medium.",
-    "GST registration is ₹4,999, Udyam ₹2,499, IEC ₹4,999 plus ₹500 paid to DGFT. UK VAT support is ₹29,999. EU IOSS coordination is ₹24,999, and the intermediary’s fee is separate. Those are not bundled into a website. Hosting, the domain, and gateway MDR are quoted before you pay.",
-  ],
-};
 
-export const servicesIndexArticle: Article = {
-  kicker: "Services",
-  title: "The MSME digital stack",
-  accent: "India actually uses.",
-  paragraphs: [
-    "Webify Bharat services map to how Indian customers buy: find you on Google or Maps, message WhatsApp, pay with UPI, expect a GST invoice. We offer website design and development, e-commerce and dealer portals, payment gateway setup, WhatsApp Business API and campaigns, analytics and BI, and bookkeeping/compliance workflows.",
-    "Start with the leak — no site on name search, messy inbox, personal UPI, or blind reporting — then connect the next piece. You can buy a website only. We will still tell you if the rest of the loop is where money is leaking.",
-  ],
-};
 
 export const industriesIndexArticle: Article = {
   kicker: "Industries we know",
