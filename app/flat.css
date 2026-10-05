@@ -268,26 +268,94 @@ a.link-card .wb-img { pointer-events: none; }
 .mega-resources { width: 440px; left: auto; right: 0; transform: none; }
 .mega-resources .mm-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
-/* ——— Phone & tablet header: no menu button (the bottom dock has Menu);
-       the logo sits centred as a stacked lockup — mark above, name below. ——— */
-@media (max-width: 1079px) {
-  .sh-burger, .sh-right { display: none; }
-  .sh-inner { justify-content: center; }
-  .sh-logo .brand-logo { flex-direction: column; gap: 3px; }
-  .sh-logo .brand-mark { height: 32px; transition: height 0.25s ease; }
-  .sh-logo .brand-wordmark { flex-direction: row; gap: 4px; line-height: 1; animation: wordmark-rise 0.6s 0.35s cubic-bezier(0.22, 1, 0.36, 1) both; }
-  .sh-logo .brand-webify, .sh-logo .brand-bharat { font-size: 13px; letter-spacing: 0.02em; }
-  .site-header.is-scrolled .sh-logo .brand-mark { height: 24px; }
-  .site-header.is-scrolled .sh-logo .brand-webify,
-  .site-header.is-scrolled .sh-logo .brand-bharat { font-size: 12px; }
-}
-@keyframes wordmark-rise { from { opacity: 0; transform: translateY(6px); letter-spacing: 0.3em; } to { opacity: 1; transform: none; } }
-@media (prefers-reduced-motion: reduce) {
-  .sh-logo .brand-wordmark { animation: none; }
-}
 
 /* Phone: diagram overlays pinned on hero photos drop below the photo at full width */
 @media (max-width: 639px) {
   .photo-ui-layer > .pul-overlay { position: static; width: 100%; margin-top: 12px; }
   .photo-ui-layer > .pul-overlay .sig-art, .photo-ui-layer > .pul-overlay > svg { max-width: 100%; }
 }
+
+/* ——— Flip cards size to their content: both faces share one grid cell, so the
+       card is as tall as its taller face — no fixed 380px block of empty space. ——— */
+.flip-card, .flip-inner,
+.industry-page .flip-card, .industry-page .flip-inner,
+.values-grid .flip-card, .values-grid .flip-inner { min-height: 0; }
+.flip-inner { display: grid; height: auto; }
+.flip-face { position: relative; inset: auto; grid-area: 1 / 1; }
+.flip-front .flip-toggle { margin-top: auto; padding-top: 10px; }
+
+/* Cards in a row no longer stretch to the tallest neighbour (no empty blocks);
+   call-to-action tiles that must fill a cell centre their content instead. */
+:is(.info-card, .ro-own, .ro-rent, .series-card, .kanban-col) { align-self: start; }
+.industry-tile.is-other, .contact-main { display: flex; flex-direction: column; justify-content: center; }
+
+.sh-wa-mobile { display: none; }
+
+/* ——— Phone & tablet header (under 1080px): logo left, WhatsApp + Menu right.
+       No bottom dock — everything lives in the top menu. ——— */
+.mobile-dock { display: none !important; }
+@media (max-width: 1079px) {
+  body { padding-bottom: 0; }
+  .sh-inner { gap: 10px; }
+  .sh-logo { margin-right: auto; }
+  .sh-logo .brand-mark { animation: logo-pop 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+  .sh-logo .brand-wordmark { animation: logo-slide 0.6s 0.2s cubic-bezier(0.22, 1, 0.36, 1) both; }
+  .sh-logo .brand-webify, .sh-logo .brand-bharat { font-size: 15px; }
+  .sh-right { display: flex; align-items: center; gap: 8px; }
+  .sh-wa-mobile { display: inline-flex; }
+  .sh-wa-mobile .wa-cta { width: 42px; height: 42px; min-height: 0; padding: 0; border-radius: 50%; justify-content: center; }
+  .sh-burger {
+    display: inline-flex; align-items: center; gap: 6px; height: 42px; padding: 0 14px 0 12px;
+    border-radius: 999px; border: 1.5px solid var(--ink); background: #fff; color: var(--ink);
+    font: 700 14px var(--font-body); width: auto;
+  }
+  .sh-burger.is-open { background: var(--ink); color: #fff; }
+}
+@keyframes logo-pop { from { transform: scale(0.6) rotate(-20deg); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes logo-slide { from { transform: translateX(-8px); opacity: 0; } to { transform: none; opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .sh-logo .brand-mark, .sh-logo .brand-wordmark { animation: none; }
+}
+
+/* ——— Phone menu sheet ——— */
+.mobile-sheet { top: var(--sheet-top, 0px); padding: 16px 16px 32px; }
+.mobile-sheet.is-open { animation: sheet-in 0.25s ease-out; }
+@keyframes sheet-in { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+.mx { display: grid; gap: 22px; }
+.mx ul { list-style: none; margin: 0; padding: 0; }
+.mx a { color: var(--ink); text-decoration: none; }
+.mx-quick { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.mx-quick a { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-radius: 14px; background: #fff; border: 1px solid var(--line); font: 700 15px var(--font-display); }
+.mx-quick a .wb-ic { color: var(--rani); }
+.mx-sec { display: grid; gap: 10px; }
+.mx-head { display: flex; align-items: baseline; justify-content: space-between; }
+.mx-head h2 { margin: 0; font: 700 21px var(--font-display); }
+.mx-all { font-size: 13.5px; font-weight: 800; color: var(--rani-ink) !important; }
+.mx-label { margin-top: 6px; font-size: 11.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.mx-pillars { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.mx-pillars a { display: block; overflow: hidden; border-radius: 16px; background: #fff; border: 1px solid var(--line); border-top: 4px solid var(--accent); }
+.mx-photo { display: block; height: 84px; }
+.mx-photo img { height: 84px; }
+.mx-pillar-body { display: grid; grid-template-columns: auto 1fr; column-gap: 8px; align-items: center; padding: 10px 12px 12px; }
+.mx-pillar-ic { grid-row: span 2; display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 9px; background: color-mix(in srgb, var(--accent) 14%, #fff); color: var(--accent); }
+.mx-pillar-body strong { font: 700 15px/1.15 var(--font-display); }
+.mx-pillar-body small { font-size: 12px; font-weight: 600; color: var(--muted); }
+.mx-chipset { display: grid; gap: 6px; }
+.mx-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.mx-chips a { display: inline-flex; align-items: center; gap: 6px; padding: 7px 11px; border-radius: 999px; background: #fff; border: 1px solid color-mix(in srgb, var(--accent, var(--line)) 40%, var(--line)); font-size: 13.5px; font-weight: 700; }
+.mx-chips a .wb-ic { color: var(--accent, var(--rani)); }
+.mx-chips.is-plain a .wb-ic { color: var(--rani); }
+.mx-chips a.is-more { border-style: dashed; color: var(--rani-ink); }
+.mx-paths { display: grid; gap: 8px; }
+.mx-paths a { display: flex; gap: 12px; align-items: center; padding: 12px; border-radius: 14px; background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--accent); }
+.mx-path-ic { flex: none; display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; background: color-mix(in srgb, var(--accent) 14%, #fff); color: var(--accent); }
+.mx-paths strong { display: block; font: 700 16px var(--font-display); }
+.mx-paths small { font-size: 13px; color: var(--ink-2); }
+.mx-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.mx-grid a { display: flex; align-items: center; gap: 8px; min-height: 48px; padding: 8px 12px; border-radius: 12px; background: #fff; border: 1px solid var(--line); font-size: 14px; font-weight: 700; line-height: 1.2; }
+.mx-grid a .wb-ic { flex: none; color: var(--peacock-ink); }
+.mx-cta { padding: 18px; border-radius: 18px; background: var(--indigo); text-align: center; }
+.mx-cta .wa-cta { width: 100%; min-height: 52px; font-size: 16px; justify-content: center; }
+.mx-cta p { margin: 10px 0 0; color: rgba(255, 255, 255, 0.85); font-size: 13.5px; font-weight: 600; }
+:root { --dock-h: 0px; }
+.sh-wa-mobile .wa-cta { position: static; transform: none; margin: 0; top: auto; border: 0; }

@@ -111,34 +111,124 @@ function ResourcesPanel() {
   );
 }
 
-function MobileWhat() {
-  return (
-    <div className="ms-groups">
-      <Link href="/what-we-do" className="ms-overview">Overview: what we do <Arw /></Link>
-      {WHAT_WE_DO.map((p) => (
-        <div key={p.slug} className="ms-group" style={{ ["--accent" as string]: `var(${p.colour})` }}>
-          <Link href={p.href} className="ms-group-head">
-            <Icon name={p.icon} size={20} />
-            <strong>{p.name}</strong>
-            <small>{p.product}</small>
-          </Link>
-          {p.slug === "systems" || p.slug === "marketing" ? (
-            <LinkList links={p.groups.flatMap((g) => g.links)} className="mm-chips" />
-          ) : null}
-        </div>
-      ))}
-    </div>
-  );
-}
+const MAIN_ICONS: Record<string, string> = { "/how-we-work": "PencilSimpleLine", "/pricing": "Tag", "/prototypes": "Flask" };
 
-function MobileWho() {
+/** Phone menu: everything the desktop mega-menus offer, fully open — photos, icons, chips. */
+function MobileMenu() {
   return (
-    <div className="ms-groups">
-      <LinkList links={WHO_FOR.paths.map((p) => ({ href: p.href, label: p.label, icon: p.icon }))} />
-      <span className="mega-group-label">By industry</span>
-      <LinkList links={WHO_FOR.trades} />
-      <span className="mega-group-label">Anywhere in India</span>
-      <LinkList links={[...WHO_FOR.cities, WHO_FOR.allCities]} className="mm-chips" />
+    <div className="mx">
+      <ul className="mx-quick">
+        {[...MAIN_LINKS, { href: "/contact", label: "Contact" }].map((l) => (
+          <li key={l.href}>
+            <Link href={l.href}>
+              <Icon name={MAIN_ICONS[l.href] ?? "ChatCircleDots"} size={20} />
+              {l.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+
+      <section className="mx-sec" aria-labelledby="mx-what">
+        <div className="mx-head">
+          <h2 id="mx-what">What we do</h2>
+          <Link href="/what-we-do" className="mx-all">Overview <Arw /></Link>
+        </div>
+        <ul className="mx-pillars">
+          {WHAT_WE_DO.map((p) => (
+            <li key={p.slug} style={{ ["--accent" as string]: `var(${p.colour})` }}>
+              <Link href={p.href}>
+                <Img slot={p.photo} mask="none" className="mx-photo" width={320} height={180} decorative />
+                <span className="mx-pillar-body">
+                  <span className="mx-pillar-ic"><Icon name={p.icon} size={18} /></span>
+                  <strong>{p.name}</strong>
+                  <small>{p.product}</small>
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+        {WHAT_WE_DO.filter((p) => p.slug === "systems" || p.slug === "marketing").map((p) => (
+          <div key={p.slug} className="mx-chipset" style={{ ["--accent" as string]: `var(${p.colour})` }}>
+            <span className="mx-label">{p.slug === "systems" ? "The 11 blocks" : "Marketing services"}</span>
+            <ul className="mx-chips">
+              {p.groups.flatMap((g) => g.links).map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href}>
+                    {l.icon ? <Icon name={l.icon} size={16} /> : null}
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </section>
+
+      <section className="mx-sec" aria-labelledby="mx-who">
+        <div className="mx-head">
+          <h2 id="mx-who">Who it&apos;s for</h2>
+          <Link href="/industries" className="mx-all">All industries <Arw /></Link>
+        </div>
+        <ul className="mx-paths">
+          {WHO_FOR.paths.map((p) => (
+            <li key={p.href} style={{ ["--accent" as string]: `var(${p.colour})` }}>
+              <Link href={p.href}>
+                <span className="mx-path-ic"><Icon name={p.icon!} size={20} /></span>
+                <span>
+                  <strong>{p.label}</strong>
+                  <small>{p.desc}</small>
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <span className="mx-label">By industry</span>
+        <ul className="mx-grid">
+          {WHO_FOR.trades.map((t) => (
+            <li key={t.href}>
+              <Link href={t.href}>
+                <Icon name={t.icon!} size={20} />
+                {t.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <span className="mx-label">Anywhere in India</span>
+        <ul className="mx-chips is-plain">
+          {WHO_FOR.cities.map((c) => (
+            <li key={c.href}>
+              <Link href={c.href}>
+                <Icon name="MapPin" size={14} />
+                {c.label}
+              </Link>
+            </li>
+          ))}
+          <li>
+            <Link href={WHO_FOR.allCities.href} className="is-more">{WHO_FOR.allCities.label} <Arw /></Link>
+          </li>
+        </ul>
+      </section>
+
+      <section className="mx-sec" aria-labelledby="mx-res">
+        <div className="mx-head">
+          <h2 id="mx-res">Resources</h2>
+        </div>
+        <ul className="mx-grid">
+          {RESOURCES.map((r) => (
+            <li key={r.href}>
+              <Link href={r.href}>
+                <Icon name={r.icon!} size={20} />
+                {r.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <div className="mx-cta">
+        <WhatsAppCTA context="mobile-menu" className="ms-wa" />
+        <p>{SITE.replyShort}</p>
+      </div>
     </div>
   );
 }
@@ -160,19 +250,16 @@ export default function Header() {
           </>
         }
         menus={[
-          { id: "what", label: "What we do", panel: <WhatPanel />, mobile: <MobileWhat /> },
-          { id: "who", label: "Who it's for", panel: <WhoPanel />, mobile: <MobileWho /> },
-          { id: "resources", label: "Resources", panel: <ResourcesPanel />, mobile: <LinkList links={RESOURCES} /> },
+          { id: "what", label: "What we do", panel: <WhatPanel />, mobile: null },
+          { id: "who", label: "Who it's for", panel: <WhoPanel />, mobile: null },
+          { id: "resources", label: "Resources", panel: <ResourcesPanel />, mobile: null },
         ]}
         mainLinks={MAIN_LINKS}
         replyNote={SITE.replyShort}
         cta={<WhatsAppCTA context="header" className="nav-wa" />}
-        mobileCta={<WhatsAppCTA context="mobile-menu" className="ms-wa" />}
-        dockCta={<WhatsAppCTA variant="dock" context="dock" label="WhatsApp" />}
+        mobileMenu={<MobileMenu />}
+        mobileWa={<WhatsAppCTA variant="dock" context="header-mobile" label="WhatsApp" />}
         icons={{
-          home: <Icon name="House" size={22} />,
-          what: <Icon name="SquaresFour" size={22} />,
-          pricing: <Icon name="Tag" size={22} />,
           menu: <Icon name="List" size={22} weight="bold" />,
           close: <Icon name="X" size={22} weight="bold" />,
           caret: <Icon name="CaretDown" size={14} weight="bold" />,
