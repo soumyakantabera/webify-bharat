@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { glossify } from "@/components/clarity/glossify";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Layout from "@/components/Layout";
+import { BreadcrumbLd } from "@/components/SeoLd";
 import { Icon } from "@/components/Icon";
 import { LogoChip } from "@/components/LogoChip";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
@@ -46,6 +48,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
 
   return (
     <Layout cta={{ title: `Tell us how your ${ind.place} runs. We'll build around it.`, message, label: `Talk about my ${ind.place}`, webu: "pointing" }}>
+      <BreadcrumbLd seoKey={`industry:${slug}`} />
       <div className="industry-page" style={accent}>
         <PageHero
           kicker={ind.name}
@@ -121,7 +124,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
                       <Link href={`/systems/${b}`}>
                         <Icon name={block.icon} size={20} />
                         <span>
-                          <strong>{block.name}</strong> {block.becomes}
+                          <strong>{block.name}</strong> {glossify(block.becomes)}
                         </span>
                       </Link>
                     </li>

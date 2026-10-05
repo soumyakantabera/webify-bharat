@@ -21,7 +21,7 @@ export function FeeDonut({ slugs = ["gst", "udyam", "iec"] }: { slugs?: string[]
         <circle cx="100" cy="100" r={r} fill="none" stroke="#2B1E6B" strokeWidth="28" />
         <circle cx="100" cy="100" r={r} fill="none" stroke="#FFB400" strokeWidth="28" strokeDasharray={`${Math.max(govtLen, 3)} ${c}`} transform="rotate(-90 100 100)" />
         <text x="100" y="96" textAnchor="middle" fontSize="12" fill="#4A4458">Filings shown</text>
-        <text x="100" y="116" textAnchor="middle" fontSize="16" fontWeight="700" fill="#1B1030">{items.map((i) => i.short).join(" · ")}</text>
+        <text x="100" y="116" textAnchor="middle" fontSize={items.length > 2 ? 11 : 15} fontWeight="700" fill="#1B1030">{items.map((i) => i.short).join(" · ")}</text>
       </svg>
       <dl className="fee-legend">
         <div>
@@ -41,7 +41,7 @@ export function FeeDonut({ slugs = ["gst", "udyam", "iec"] }: { slugs?: string[]
         {items.map((i) => (
           <li key={i.slug}>
             <strong>{i.name}</strong> — our fee <span className="mono">{i.ourFee}</span>
-            {i.planFee ? <> (plan clients <span className="mono">{i.planFee}</span>)</> : null}, government fee <span className="mono">{i.govFee}</span>
+            {i.planFee ? <> (Starter clients <span className="mono">{i.planFee}</span>)</> : null}, government fee <span className="mono">{i.govFee}</span>
           </li>
         ))}
       </ul>

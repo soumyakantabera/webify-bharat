@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Layout from "@/components/Layout";
+import { BreadcrumbLd } from "@/components/SeoLd";
 import { Icon } from "@/components/Icon";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 import { Img, PhotoUiLayer } from "@/components/collage";
@@ -25,6 +26,7 @@ const LOOK = [
 export default function MarketingHub() {
   return (
     <Layout cta={{ title: "Tell us where you want to be found.", message: WA_MSG.marketing, label: "Help me get found", webu: "pointing" }}>
+      <BreadcrumbLd seoKey={"marketing"} />
       <PageHero
         kicker="Marketing · Webify Reach"
         tone="marigold"
@@ -57,7 +59,7 @@ export default function MarketingHub() {
 
       <section className="section surface-2" id="services" aria-labelledby="services-title">
         <div className="container">
-          <SectionHead kicker="Five Reach services" id="services-title" title="Pick one, or combine them." />
+          <SectionHead kicker="Five Reach services" id="services-title" title="Pick one, or combine them." sub="Search (SEO), ads (SEM), local maps, AI visibility and WhatsApp campaigns — run for you, reported monthly." />
           <div className="reach-bento">
             {reachServices.map((r) => (
               <Link key={r.slug} href={`/marketing/${r.slug}`} className={`reach-tile${r.slug === "ai-visibility" ? " is-featured" : ""}`} style={{ ["--accent" as string]: `var(${r.colour})` }}>
@@ -69,6 +71,12 @@ export default function MarketingHub() {
                 <span className="block-tile-more" aria-hidden="true">Explore →</span>
               </Link>
             ))}
+          </div>
+          <div className="caveat-box" role="note">
+            <Icon name="HandHeart" size={22} />
+            <p>
+              <strong>The honest part:</strong> no one can guarantee Google rankings or AI mentions. We do the work that improves your chances and report results every month. Ad spend is paid directly to Google or Meta.
+            </p>
           </div>
         </div>
       </section>
@@ -127,7 +135,7 @@ export default function MarketingHub() {
       <section className="section surface-2" id="faq" aria-labelledby="faq-title">
         <div className="container narrow">
           <SectionHead kicker="Poochho — ask us" id="faq-title" title="Marketing questions, answered." />
-          <FaqList items={REACH_HUB_FAQS.map((f) => ({ ...f, category: "marketing" as const }))} />
+          <FaqList items={REACH_HUB_FAQS.map((f) => ({ ...f, category: "process" as const }))} />
         </div>
       </section>
     </Layout>

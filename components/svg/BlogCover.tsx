@@ -1,5 +1,5 @@
 import { Icon } from "@/components/Icon";
-import { categoryFor, blogCategories, type BlogCategory } from "@/lib/blog-categories";
+import { getCategory, type BlogCategory } from "@/lib/blog-categories";
 
 /**
  * BlogCover (content-plan §17.3 #12, §17.4): category colour background,
@@ -7,17 +7,15 @@ import { categoryFor, blogCategories, type BlogCategory } from "@/lib/blog-categ
  * except the optional category chip — so the same art works as the OG image.
  */
 export function BlogCover({
-  post,
   category,
   showLabel = true,
   className,
 }: {
-  post?: string;
-  category?: BlogCategory["slug"];
+  category: BlogCategory["slug"];
   showLabel?: boolean;
   className?: string;
 }) {
-  const cat = category ? blogCategories.find((c) => c.slug === category)! : categoryFor(post ?? "");
+  const cat = getCategory(category);
   const n = cat.icons.length;
   const id = `bc-${cat.slug}`;
   return (

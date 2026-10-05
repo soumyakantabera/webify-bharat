@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Layout from "@/components/Layout";
+import { BreadcrumbLd } from "@/components/SeoLd";
 import { Icon } from "@/components/Icon";
 import { LogoChip } from "@/components/LogoChip";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
@@ -24,6 +25,7 @@ const HONEY = ["razorpay", "cashfree", "stripe", "whatsapp", "google-workspace",
 export default function SystemsHub() {
   return (
     <Layout cta={{ title: "Not sure which blocks you need? That's our job.", message: WA_MSG.default, webu: "thinking" }}>
+      <BreadcrumbLd seoKey={"systems"} />
       <PageHero
         kicker="Systems · the 11 blocks"
         tone="rani"

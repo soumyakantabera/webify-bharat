@@ -55,9 +55,9 @@ const slotList: ImageSlot[] = [
   // Blocks
   { id: "IMG-B01", now: photo(`${S}/cities.webp`, "50% 40%"), status: "launch", alt: "Person searching on a phone in a city lane" },
   { id: "IMG-B02", now: photo(`${R}/ecommerce.webp`, "70% 70%"), status: "launch", alt: "Products packed for online orders" },
-  { id: "IMG-B03", now: photo(`${R}/retail.webp`, "55% 60%"), status: "launch", alt: "UPI QR stand on a shop counter" },
+  { id: "IMG-B03", now: photo(`${R}/retail.webp`, "75% 55%", "none", 1.6), status: "launch", alt: "Shopkeeper handing over a paid order" },
   { id: "IMG-B04", now: photo(`${R}/whatsapp.webp`, "40% 50%"), status: "launch", alt: "Owner replying to customers on WhatsApp" },
-  { id: "IMG-B05", now: photo(`${R}/business-owner.webp`, "35% 55%"), status: "launch", alt: "Business owner checking numbers" },
+  { id: "IMG-B05", now: photo(`${R}/business-owner.webp`, "75% 60%", "none", 1.6), status: "launch", alt: "Business owner checking numbers" },
   { id: "IMG-B06", now: photo(`${S}/pricing.webp`, "50% 60%"), status: "launch", alt: "Invoices and accounts on a desk" },
   { id: "IMG-B07", now: photo(`${S}/legal.webp`, "50% 55%"), status: "launch", alt: "Registration documents being prepared" },
   { id: "IMG-B08", now: photo(`${S}/registrations.webp`, "60% 50%"), scene: "ConnectScene", status: "launch", alt: "Accounts and laptop side by side", sticker: "Tally ⇄ Zoho synced ✅" },
@@ -67,7 +67,7 @@ const slotList: ImageSlot[] = [
 
   // Industries (-1 hero, -2 secondary)
   { id: "IMG-I-RET-1", now: photo(`${S}/market-electronics.webp`, "50% 50%"), status: "launch", alt: "Electronics shop shelves" },
-  { id: "IMG-I-RET-2", now: photo(`${R}/retail.webp`, "30% 60%"), status: "launch", alt: "Kirana store counter" },
+  { id: "IMG-I-RET-2", now: photo(`${R}/retail.webp`, "62% 55%", "none", 1.6), status: "launch", alt: "Kirana store counter" },
   { id: "IMG-I-RES-1", now: photo(`${R}/restaurant.webp`, "20% 50%"), status: "launch", alt: "Restaurant kitchen" },
   { id: "IMG-I-RES-2", now: photo(`${S}/market-spice.webp`, "50% 50%"), status: "launch", alt: "Spices in a market" },
   { id: "IMG-I-CLI-1", now: photo(`${R}/healthcare.webp`, "70% 50%"), status: "launch", alt: "Clinic consultation room" },

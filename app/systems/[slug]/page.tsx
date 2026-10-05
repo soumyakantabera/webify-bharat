@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Layout from "@/components/Layout";
+import { BreadcrumbLd } from "@/components/SeoLd";
 import { Icon } from "@/components/Icon";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 import { Img, PhotoUiLayer } from "@/components/collage";
@@ -57,6 +58,7 @@ export default async function BlockPage({ params }: { params: Promise<{ slug: st
 
   return (
     <Layout cta={{ title: `Tell us how you work. We'll tailor ${block.name} around it.`, message: block.waMessage, webu: "pointing" }}>
+      <BreadcrumbLd seoKey={`block:${slug}`} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
       <PageHero
         kicker={block.name}

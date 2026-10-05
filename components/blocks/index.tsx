@@ -7,6 +7,7 @@ import { MockScreen, OwnerDashboard, PipelineBoard, SearchResultMock, WorkspaceM
 import { AccessLayers } from "@/components/svg/positioning";
 import { addons } from "@/lib/offers";
 import type { Block, BlockSlug } from "@/lib/blocks";
+import { glossify } from "@/components/clarity/glossify";
 
 export { BlockFilterGrid } from "./BlockFilterGrid";
 export { RentOwnStepper } from "./RentOwnStepper";
@@ -21,7 +22,7 @@ export function BlockTile({ block, photo = false, headingLevel = "h3" }: { block
         <Icon name={block.icon} size={28} />
       </span>
       <H className="block-tile-name">{block.name}</H>
-      <span className="block-tile-line">{block.oneLiner}</span>
+      <span className="block-tile-line">{glossify(block.oneLiner)}</span>
       <span className="block-tile-chips">
         {block.capabilities.slice(0, 2).map((c) => (
           <span key={c}>{c}</span>
@@ -98,7 +99,7 @@ export function Honeycomb({ items, accent = "--indigo" }: { items: string[]; acc
     <ul className="honeycomb" style={{ ["--accent" as string]: `var(${accent})` }}>
       {items.map((i) => (
         <li key={i}>
-          <span>{i}</span>
+          <span>{glossify(i)}</span>
         </li>
       ))}
     </ul>

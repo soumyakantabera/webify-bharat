@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { glossify } from "@/components/clarity/glossify";
 import Layout from "@/components/Layout";
+import { BreadcrumbLd } from "@/components/SeoLd";
 import { Icon } from "@/components/Icon";
 import { LogoChip } from "@/components/LogoChip";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
@@ -26,6 +28,7 @@ const BY_JOB: { job: string; icon: string; ids: string[]; extra?: string[] }[] =
 export default function Integrations() {
   return (
     <Layout cta={{ title: "Tell us what you use today.", message: waTool("Zoho / Tally / Odoo / Google / Microsoft"), label: "Ask about my tools", webu: "pointing" }}>
+      <BreadcrumbLd seoKey={"integrations"} />
       <PageHero
         kicker="Integrations"
         title="Use our stack, or keep yours. We build around it."
@@ -45,7 +48,7 @@ export default function Integrations() {
                 <div className="route-body">
                   <span className="route-icon"><Icon name={r.icon} size={22} /></span>
                   <h3>{r.name}</h3>
-                  <p>{r.when}</p>
+                  <p>{glossify(r.when)}</p>
                   <span className="cost-chip">{r.cost}</span>
                 </div>
               </article>

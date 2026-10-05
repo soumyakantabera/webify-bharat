@@ -1,71 +1,63 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Layout from "@/components/Layout";
-import { HeroShot } from "@/components/HeroShot";
-import { PageLead } from "@/components/PageIcons";
+import { WhatsAppCTA } from "@/components/WhatsAppCTA";
+import { BreadcrumbLd } from "@/components/SeoLd";
+import { pageMetadata } from "@/lib/page-seo";
 
-export const metadata: Metadata = {
-  title: "Additional charges — what is not in the card price",
-  description:
-    "Hosting, domain, gateway MDR, WhatsApp conversation fees, DSC, and government filing fees. Each is named before you pay. None is folded into the card.",
-};
+export const metadata: Metadata = pageMetadata("registrations-charges");
 
-const rows = [
-  ["Hosting and care", "After a site is live", "The host, or us if we resell", "Quoted before go-live. Month to month. You can leave."],
-  ["Domain", "If you do not already have one", "The registrar", "Your login. We do not keep the only access."],
-  ["Gateway MDR", "Every successful payment", "Your Razorpay, Cashfree, or PayU account", "Their rate. Not in the build fee."],
-  ["WhatsApp conversation charges", "API, not the free Business app", "Meta", "Outside the build fee. We do not invent a per-message rupee."],
-  ["Digital signature", "A company or LLP that cannot e-sign", "The certifying authority", "Pass-through, only if the portal requires it."],
-  ["Bank certificate", "The bank rejects a PDF statement", "The bank", "Their charge. Usually an IEC case."],
-  ["IEC government fee", "A new code", "DGFT", "₹500, receipt in your name."],
-  ["IEC detail change", "Address, bank, or ownership", "DGFT", "₹200, plus our fee only if you ask us to file it."],
-  ["IEC update, April–June", "Same details, once a year", "DGFT", "₹0 at the portal."],
-  ["Translation or apostille", "UK or EU asks for it", "The translator", "Pass-through, quoted first."],
-  ["EU intermediary", "IOSS for a seller outside the EU", "That firm", "Their invoice. Separate from our ₹24,999."],
-  ["UK fiscal representative", "Only if HMRC requires one", "That firm", "Quoted before you pay. Not inside ₹29,999."],
-  ["A refile of new facts", "You changed the story after we filed", "Us", "The first fee covers one clean refile of the same facts."],
-  ["Ads, 40 blogs a month, incorporation, CA certification", "Almost never", "Not us", "Out of every package and every filing."],
+const ROWS: [string, string, string][] = [
+  ["Government fees", "The department (e.g. DGFT's IEC fee)", "Paid on the portal, receipt in your name. Never marked up."],
+  ["Payment gateway fees", "Razorpay, Cashfree or Stripe", "Their published rate, charged on each payment."],
+  ["WhatsApp conversation charges", "Meta or its partners", "Billed per conversation when you use the WhatsApp Business API."],
+  ["Software licences", "Zoho, Odoo, Google, Microsoft", "Billed by the vendor, in your account."],
+  ["Domain renewal", "Your domain registrar", "Renewed in your name, so the domain stays yours."],
+  ["Ad spend", "Google or Meta", "Paid directly to the platform."],
+  ["Digital signature (DSC)", "A certifying authority", "Only if a portal requires one for your entity."],
+  ["Overseas agent or intermediary", "A registered UK or EU firm", "For UK VAT or EU IOSS. Quoted before you pay."],
+  ["Translation or attestation", "A translator or notary", "Only if a foreign authority asks for it. Quoted first."],
 ];
 
 export default function ChargesPage() {
   return (
-    <Layout>
-      <section className="page-hero">
-        <div className="container wrap">
-          <div className="page-copy">
-          <PageLead icon="pricing" kicker="Additional charges" />
-          <h1>
-            Two bills, both visible.
-            <br />
-            <span>Nothing folded in.</span>
-          </h1>
-          <p className="muted-copy">
-            The card price is our work, and 18% GST is inside it. Anything below is
-            either a government or vendor charge, or a later job. We quote it before
-            you pay.
-          </p>
-          <Link className="btn btn-secondary" href="/registrations">All filings</Link>
-          </div>
-          <HeroShot kind="charges" />
-        </div>
-      </section>
-      <section className="section">
+    <Layout cta={{ title: "Want a full list for your case? Ask us.", message: "Hi! Can you list every charge for my registration?", webu: "thinking" }}>
+      <BreadcrumbLd seoKey="registrations-charges" />
+      <section className="section" aria-labelledby="page-title">
         <div className="container">
-          <div className="charge-table" role="table">
-            <div className="charge-row charge-head" role="row">
-              <span>Item</span>
-              <span>When</span>
-              <span>Who is paid</span>
-              <span>How it is shown</span>
-            </div>
-            {rows.map((row) => (
-              <div className="charge-row" role="row" key={row[0]}>
-                {row.map((cell) => (
-                  <span key={cell}>{cell}</span>
-                ))}
-              </div>
-            ))}
+          <div className="sec-head">
+            <p className="kicker">Registrations · charges</p>
+            <h1 id="page-title" className="page-h1">Charges outside our fee.</h1>
+            <p className="sec-sub">These are billed by someone else. We list them before you pay, so nothing is folded into our number.</p>
           </div>
+          <div className="table-scroll">
+            <table className="addon-table charges-table">
+              <thead>
+                <tr>
+                  <th scope="col">Charge</th>
+                  <th scope="col">Who bills it</th>
+                  <th scope="col">How it works</th>
+                </tr>
+              </thead>
+              <tbody>
+                {ROWS.map(([a, b, c]) => (
+                  <tr key={a}>
+                    <th scope="row">{a}</th>
+                    <td>{b}</td>
+                    <td>{c}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="center-cta">
+            <WhatsAppCTA message="Hi! Can you list every charge for my registration?" context="charges" variant="ghost" label="Ask about my case" />
+          </div>
+          <p className="center-note">
+            <Link href="/registrations" className="text-link">
+              ← All filings
+            </Link>
+          </p>
         </div>
       </section>
     </Layout>

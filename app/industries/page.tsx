@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Layout from "@/components/Layout";
+import { BreadcrumbLd } from "@/components/SeoLd";
 import { Icon } from "@/components/Icon";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 import { PhotoBento } from "@/components/collage";
@@ -14,6 +15,7 @@ export const metadata: Metadata = pageMetadata("industries");
 export default function IndustriesPage() {
   return (
     <Layout cta={{ title: "Tell us about your trade. We'll show you how we'd build for it.", message: WA_MSG.default, webu: "pointing" }}>
+      <BreadcrumbLd seoKey={"industries"} />
       <PageHero
         kicker="Industries"
         title="Every trade works differently. So does every build."

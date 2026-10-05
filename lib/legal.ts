@@ -1,103 +1,172 @@
-import { BUSINESS } from "@/lib/site";
+import { BUSINESS, filled, SITE } from "@/lib/site";
 
+/**
+ * Legal pages (content-plan §9.17). Plain language, matching the monthly-plan
+ * model in lib/offers.ts. Owner TODO §14 #9: have a lawyer review these before
+ * launch. Business fields that are still placeholders are left out.
+ */
 export type LegalSection = { heading: string; body: string[] };
+export type LegalDocData = { summary: { icon: string; title: string; text: string }[]; sections: LegalSection[] };
 
-export const legalUpdated = "2 October 2026";
+export const legalUpdated = "5 October 2026";
 
-export const terms: LegalSection[] = [
-  {
-    heading: "Who you are dealing with",
-    body: [
-      `These terms are between you and ${BUSINESS.legalName}, a sole proprietorship at ${BUSINESS.address}. This website is fully managed and developed by ${BUSINESS.legalName}, and solely owned by ${BUSINESS.legalName}. Write to ${BUSINESS.email}.`,
-      "A package, an addon, or a filing on this site is the work described on that page. It is not a promise of enquiries, rankings, or sales.",
-    ],
-  },
-  {
-    heading: "What we deliver",
-    body: [
-      "We deliver the agreed output: the pages, the WhatsApp setup, the checkout path, the consulting notes, or the filing we submit in your name. Delivery is that output, handed over or filed.",
-      "After delivery, what the business does with it is yours. A site can be live and still not sell. A filing can be submitted and still wait on the department. A consulting note only works if you apply it.",
-    ],
-  },
-  {
-    heading: "No guarantee of more sales",
-    body: [
-      "We do not guarantee that sales, leads, bookings, or revenue will increase. Search, ads, season, price, staff follow-up, and your offer all sit outside the build.",
-      "Any result after delivery depends on how you apply what we handed over, and on your own strategy. We are not your sales team unless a later, written scope says so.",
-    ],
-  },
-  {
-    heading: "Your part",
-    body: [
-      "You send accurate content, access, and KYC. A wrong PAN, a missing photo, or a late reply moves the date. We do not invent claims about your business.",
-      "Government portals decide filings. We prepare and submit. Approval, a query, or a rejection is the department’s, not a failed delivery.",
-    ],
-  },
-  {
-    heading: "Fees",
-    body: [
-      "The price on the card includes 18% GST on our fee. A portal receipt, such as the ₹500 IEC fee to DGFT, is paid to that department in your name. It is not our fee and we do not mark it up.",
-      "Hosting, a domain, gateway charges, and WhatsApp conversation fees stay outside the build price, as listed on the additional charges page.",
-    ],
-  },
-];
+const entity = `${BUSINESS.legalName}${filled(BUSINESS.constitution) ? `, a ${BUSINESS.constitution.toLowerCase()}` : ""}${filled(BUSINESS.address) ? ` at ${BUSINESS.address}` : ""}`;
 
-export const privacy: LegalSection[] = [
-  {
-    heading: "What we collect",
-    body: [
-      "If you write on WhatsApp or use the contact form, we receive what you send: your name, number, city, and what you want built or filed.",
-      "We also see ordinary site logs, such as the page you opened. We do not run a lead marketplace and we do not buy contact lists.",
-    ],
-  },
-  {
-    heading: "How we use it",
-    body: [
-      "We use it to reply, to do the work you asked for, and to keep a record of what was agreed. WhatsApp messages sit on WhatsApp. The site is hosted so the pages can load.",
-      "We do not sell your number. We do not hand your customer list to another business.",
-    ],
-  },
-  {
-    heading: "How long, and who else sees it",
-    body: [
-      "We keep the thread for as long as the project, the invoice, or a legal question needs it. Then we delete what we no longer have a reason to hold.",
-      "A filing means your documents go to the portal you asked us to use, such as GST, Udyam, or DGFT. That department’s own rules apply once the form is there.",
-    ],
-  },
-  {
-    heading: "Asking about your information",
-    body: [
-      "To ask what we hold, or to ask us to correct it, message +91 83360 97642 on WhatsApp. Say your name and the number you used.",
-    ],
-  },
-];
+export const terms: LegalDocData = {
+  summary: [
+    { icon: "FileText", title: "Scope first", text: "We agree the work in writing before you pay." },
+    { icon: "CalendarDots", title: "Month to month", text: "No lock-in. 30 days' notice to stop." },
+    { icon: "Key", title: "Yours stays yours", text: "Domain, brand, content, data and accounts." },
+    { icon: "Scales", title: "No guarantees", text: "We don't promise rankings, mentions or sales." },
+  ],
+  sections: [
+    {
+      heading: "Who you're dealing with",
+      body: [`These terms are between you and ${entity}. Write to ${SITE.email} or message us on WhatsApp.`],
+    },
+    {
+      heading: "What we provide",
+      body: [
+        "We build, host and maintain software for your business — websites, stores, payments, WhatsApp systems, CRM/ERP, dashboards and integrations — and provide registrations, strategy and marketing services where agreed.",
+        "What we'll deliver, and its price, is set out in a written scope you approve before any payment.",
+      ],
+    },
+    {
+      heading: "Plans and payment",
+      body: [
+        "Plans have a setup fee and a monthly fee, as shown on the pricing page or in your scope. Annual prepay is charged for ten months and covers twelve.",
+        "Custom builds pay the setup fee in three parts: 40% to start, 40% at an agreed milestone and 20% at launch.",
+        "We share a secure payment link on WhatsApp after you approve the scope. Taxes apply as shown on your invoice.",
+      ],
+    },
+    {
+      heading: "Limits and add-ons",
+      body: ["Each stage has limits (users, products, orders, locations). When you reach 80% of a limit we message you with the options — an add-on or the next stage — and which is cheaper. Nothing extra is charged without your OK."],
+    },
+    {
+      heading: "Changing or stopping your plan",
+      body: [
+        "Monthly plans run month to month. To stop, give us 30 days' notice. You can move to a smaller stage at any time; features above it switch off and the related data is kept for 30 days.",
+        "When a plan ends, the hosted system is switched off and you receive a full export of your data and content. Your domain and business accounts stay with you.",
+      ],
+    },
+    {
+      heading: "What you own, and what we own",
+      body: [
+        "You own your domain, brand, content, data and business accounts (payment gateway, WhatsApp number, Google, Microsoft or Zoho).",
+        "The software code and our platform stay with us. We deploy, host and maintain them for you, which is why a monthly plan applies. Everything customer-facing can carry your brand.",
+      ],
+    },
+    {
+      heading: "Costs billed by others",
+      body: ["Payment gateway fees, WhatsApp conversation charges, software licences, government fees, ad spend and domain renewals are billed by those providers, not included in our fees."],
+    },
+    {
+      heading: "Your part",
+      body: [
+        "Please send accurate information, content, access and documents, and approve work in reasonable time. Delays on either side move dates.",
+        "For registrations, we prepare and submit using the documents and one-time passwords you share. Approval, queries and rejections are decided by the department.",
+      ],
+    },
+    {
+      heading: "No guarantee of results",
+      body: ["We don't guarantee search rankings, mentions by AI assistants, enquiries or sales. Results depend on many things outside the build, including your market, prices and follow-up. We do the work agreed and report honestly on it."],
+    },
+    {
+      heading: "Changes to these terms",
+      body: ["If we change these terms we'll update this page and the date above, and tell active clients on WhatsApp about anything significant. These terms are governed by the laws of India."],
+    },
+  ],
+};
 
-export const refund: LegalSection[] = [
-  {
-    heading: "Delivery is the output, not a sales result",
-    body: [
-      "Our fee is for the work we agreed: the site, the addon, the filing, or the consulting we actually deliver. It is not a fee for a higher turnover.",
-      "Once that output is delivered, the job we charged for is done. A quiet month after go-live is not an undelivered project.",
-    ],
-  },
-  {
-    heading: "Why there is no refund",
-    body: [
-      "There is no refund of our fee. Not after delivery, and not because sales, enquiries, or bookings did not rise.",
-      "What happens next depends on how you apply the work, and on your own strategy: your prices, your follow-up, your ads, your stock, your offer. Those are not things we can take back, so we do not refund them.",
-    ],
-  },
-  {
-    heading: "What we will do instead",
-    body: [
-      "If the agreed output is not what the page described, tell us and we correct that output. A missing page in the scope gets built. A filing error we made gets fixed. That is a correction, not a refund.",
-      "Money already paid to a department, a domain registry, a gateway, or Meta stays with them. We cannot refund a receipt that was never ours.",
-    ],
-  },
-  {
-    heading: "Before we start",
-    body: [
-      "If you do not want to proceed, say so before we start producing the work. Once we have started, the fee stands. The refund rule does not change because the market was slow.",
-    ],
-  },
-];
+export const privacy: LegalDocData = {
+  summary: [
+    { icon: "ChatCircleDots", title: "Only what we need", text: "What you send us to reply and do the work." },
+    { icon: "LockKey", title: "Never sold", text: "We don't sell or rent your data." },
+    { icon: "HandHeart", title: "Your consent", text: "Withdraw it any time; ask us to correct or delete." },
+    { icon: "Scales", title: "DPDP Act", text: "Handled under India's data protection law." },
+  ],
+  sections: [
+    {
+      heading: "Who is responsible",
+      body: [`${entity} is the data fiduciary for personal data collected through this website and our WhatsApp conversations. Contact: ${SITE.email}.`],
+    },
+    {
+      heading: "What we collect",
+      body: [
+        "What you send us: your name, phone number, city, business details and what you need. For registrations, the documents the portal requires.",
+        "Basic, privacy-friendly website analytics (pages visited, buttons clicked) to improve the site. We don't buy contact lists.",
+      ],
+    },
+    {
+      heading: "Why we use it, and your consent",
+      body: [
+        "We use your data to reply to you, scope and deliver the work you ask for, invoice you and meet legal obligations. By messaging us you consent to this use under the Digital Personal Data Protection Act, 2023.",
+        "You can withdraw consent at any time by messaging us. We'll stop processing, except where the law requires us to keep records.",
+      ],
+    },
+    {
+      heading: "WhatsApp communications",
+      body: [
+        "Conversations happen on WhatsApp, which is operated by Meta under its own terms and privacy policy. We message you about your enquiry, project and account.",
+        "We send offers or updates only if you've opted in, and you can opt out at any time by replying STOP or telling us.",
+      ],
+    },
+    {
+      heading: "Who else sees it",
+      body: [
+        "Service providers who help us run the work — website hosting, WhatsApp, payment gateways and the software tools in your scope — under their own data protection terms.",
+        "Government portals, when we file a registration you asked for. We never sell your data.",
+      ],
+    },
+    {
+      heading: "How long we keep it",
+      body: ["For as long as your project, plan, invoices or legal obligations need it. Then we delete it or make it anonymous."],
+    },
+    {
+      heading: "Your rights",
+      body: ["You can ask what data we hold about you, ask us to correct or erase it, nominate someone to act for you, and raise a grievance. Message us on WhatsApp or email us; we'll respond as the DPDP Act requires."],
+    },
+    {
+      heading: "Your customers' data",
+      body: ["When we run a system for your business, your customers' data belongs to your business. We process it only to run your system, and you can export it any time."],
+    },
+  ],
+};
+
+export const refund: LegalDocData = {
+  summary: [
+    { icon: "CalendarDots", title: "Stop any month", text: "30 days' notice; no lock-in." },
+    { icon: "FileText", title: "Fees are for work", text: "Not refunded once that work has started." },
+    { icon: "Wrench", title: "We fix our misses", text: "If it doesn't match the scope, we correct it." },
+    { icon: "Receipt", title: "Third-party money", text: "Paid to others stays with them." },
+  ],
+  sections: [
+    {
+      heading: "Cancelling a monthly plan",
+      body: [
+        "Give us 30 days' notice on WhatsApp or email. Your plan runs until the end of that notice period, then the hosted system is switched off and you receive a full export of your data and content.",
+        "Annual prepay terms, including cancellation, are set out in your written scope.",
+      ],
+    },
+    {
+      heading: "When fees aren't refunded",
+      body: [
+        "Setup fees and monthly fees pay for work and running costs. Once that work has started or that month has begun, they aren't refunded.",
+        "A quiet month after launch, or results that didn't meet hopes, is not a reason for a refund — we don't guarantee rankings, mentions or sales.",
+      ],
+    },
+    {
+      heading: "What we do instead",
+      body: ["If something we delivered doesn't match the agreed scope, tell us and we'll correct it. A missing page in the scope gets built; an error we made in a filing gets fixed."],
+    },
+    {
+      heading: "Money paid to others",
+      body: ["Government fees, gateway fees, WhatsApp charges, licences, ad spend and domain fees are paid to those providers. We can't refund money that was never ours, though we'll help you ask them where possible."],
+    },
+    {
+      heading: "Before we start",
+      body: ["If you don't want to go ahead, tell us before we start the work in your scope."],
+    },
+  ],
+};

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Layout from "@/components/Layout";
+import { BreadcrumbLd } from "@/components/SeoLd";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 import { BazaarStrip } from "@/components/collage";
 import { KanbanStrip, MiniGantt, ProcessRoadmap } from "@/components/process";
@@ -19,6 +20,7 @@ const STRIP = ["IMG-R01", "/images/snapshots/work.webp", "IMG-R03", "IMG-R04", "
 export default function HowWeWork() {
   return (
     <Layout cta={{ title: "Stop 1 is one WhatsApp message.", message: WA_MSG.default, webu: "waving" }}>
+      <BreadcrumbLd seoKey={"how-we-work"} />
       <PageHero
         kicker="How we work"
         tone="marigold"

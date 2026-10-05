@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Layout from "@/components/Layout";
+import { BreadcrumbLd } from "@/components/SeoLd";
 import { Icon } from "@/components/Icon";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 import { Img, PhotoUiLayer } from "@/components/collage";
@@ -46,6 +47,7 @@ export default function Organise() {
   const stageOpts = PLAN_STAGES.map((s) => ({ slug: s.slug, name: s.name, setup: s.setupAmount, monthly: s.monthlyAmount }));
   return (
     <Layout cta={{ title: "Show us how you work. We'll show you what we'd build.", message: path.waMessage, label: path.cta, webu: "pointing", path: "organise" }}>
+      <BreadcrumbLd seoKey={"organise"} />
       <PageHero
         kicker="Organise"
         title="Your business already works. Let's make your tools work the same way."

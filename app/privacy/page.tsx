@@ -1,30 +1,17 @@
 import type { Metadata } from "next";
 import Layout from "@/components/Layout";
-import { HeroShot } from "@/components/HeroShot";
 import { LegalDoc } from "@/components/LegalDoc";
+import { BreadcrumbLd } from "@/components/SeoLd";
 import { privacy } from "@/lib/legal";
+import { pageMetadata } from "@/lib/page-seo";
 
-export const metadata: Metadata = {
-  title: "Privacy",
-  description:
-    "What Webify Bharat India keeps when you message us, and what we do not do with it.",
-};
+export const metadata: Metadata = pageMetadata("privacy");
 
-export default function PrivacyPage() {
+export default function Page() {
   return (
-    <Layout>
-      <section className="page-hero">
-        <div className="container wrap">
-          <LegalDoc
-            kicker="Privacy"
-            title="Your number is for the work, not a list we sell."
-            lede="WhatsApp and the contact form are how a project starts. This page says what we keep."
-            sections={privacy}
-          >
-            <HeroShot kind="legal" />
-          </LegalDoc>
-        </div>
-      </section>
+    <Layout cta={{ title: "Questions about this policy? Ask us.", message: "Hi! I have a question about your privacy policy.", webu: "thinking" }}>
+      <BreadcrumbLd seoKey="privacy" />
+      <LegalDoc kicker="Privacy" title="Your data, handled with care." lede="What we collect, why, who sees it and your rights under India's Digital Personal Data Protection Act." doc={privacy} />
     </Layout>
   );
 }

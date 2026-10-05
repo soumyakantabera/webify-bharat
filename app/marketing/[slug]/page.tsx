@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { glossify } from "@/components/clarity/glossify";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Layout from "@/components/Layout";
+import { BreadcrumbLd } from "@/components/SeoLd";
 import { Icon } from "@/components/Icon";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 import { PhotoUiLayer } from "@/components/collage";
@@ -51,13 +53,14 @@ export default async function ReachPage({ params }: { params: Promise<{ slug: st
   const others = reachServices.filter((o) => o.slug !== r.slug);
   return (
     <Layout cta={{ title: r.promise, message: r.waMessage, webu: "pointing" }}>
+      <BreadcrumbLd seoKey={`reach:${slug}`} />
       <PageHero
         kicker={r.name}
         tone={TONE[r.slug]}
         title={r.headline}
         sub={
           <>
-            {term ? <GlossaryChip term={term}>{r.kicker}</GlossaryChip> : r.kicker}. Honest work, reported every month.
+            {term ? <GlossaryChip term={term}>{r.kicker}</GlossaryChip> : glossify(r.kicker)}. Honest work, reported every month.
           </>
         }
         cta={<WhatsAppCTA message={r.waMessage} context="hero" label={`Talk about ${r.short}`} />}
@@ -108,7 +111,7 @@ export default async function ReachPage({ params }: { params: Promise<{ slug: st
 
       <section className="section surface-2" id="related" aria-labelledby="related-title">
         <div className="container">
-          <SectionHead kicker="Works best with" id="related-title" title="Pairs well with" />
+          <SectionHead kicker="Works best with" id="related-title" title="Pairs well with" sub={`Other Reach services: ${others.map((o) => o.short).join(", ")}.`} />
           <div className="related-grid">
             {r.related.map((b) => <BlockTile key={b} block={getBlock(b)!} />)}
           </div>
@@ -131,7 +134,7 @@ export default async function ReachPage({ params }: { params: Promise<{ slug: st
       <section className="section" id="faq" aria-labelledby="faq-title">
         <div className="container narrow">
           <SectionHead kicker="Poochho — ask us" id="faq-title" title={`${r.short}: questions, answered.`} />
-          <FaqList items={r.faqs.map((f, i) => ({ key: `${r.slug}-${i}`, q: f.q, a: f.a, category: "marketing" as const }))} />
+          <FaqList items={r.faqs.map((f, i) => ({ key: `${r.slug}-${i}`, q: f.q, a: f.a, category: "process" as const }))} />
         </div>
       </section>
     </Layout>

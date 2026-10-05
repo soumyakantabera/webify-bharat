@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Layout from "@/components/Layout";
+import { BreadcrumbLd } from "@/components/SeoLd";
 import { Icon } from "@/components/Icon";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 import { Img, PhotoUiLayer } from "@/components/collage";
@@ -41,6 +42,7 @@ export default function Grow() {
   const stageOpts = PLAN_STAGES.map((s) => ({ slug: s.slug, name: s.name, setup: s.setupAmount, monthly: s.monthlyAmount }));
   return (
     <Layout cta={{ title: "Tell us what's working. We'll build what's next.", message: path.waMessage, label: path.cta, webu: "pointing", path: "grow" }}>
+      <BreadcrumbLd seoKey={"grow"} />
       <PageHero
         kicker="Grow"
         tone="mehendi"
@@ -116,7 +118,7 @@ export default function Grow() {
 
       <section className="section surface-2" id="get-found" aria-labelledby="found-title">
         <div className="container">
-          <SectionHead kicker="Get found everywhere" id="found-title" title="Growth starts with being found — on Google, maps, ads and AI assistants." />
+          <SectionHead kicker="Get found everywhere" id="found-title" title="Growth starts with being found — on Google, maps, ads and AI assistants." sub="Search (SEO), ads (SEM), local maps, AI visibility and WhatsApp campaigns." />
           <div className="split">
             <Img slot="IMG-B01" mask="rounded" width={800} height={600} />
             <div>

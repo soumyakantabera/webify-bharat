@@ -5,7 +5,7 @@ import { blocks } from "@/lib/blocks";
 import { stages } from "@/lib/offers";
 import { reachServices } from "@/lib/reach";
 import { industryPages } from "@/lib/industries";
-import { posts } from "@/lib/site";
+import { publishedPosts } from "@/lib/posts";
 
 export const dynamic = "force-static";
 
@@ -29,6 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/about",
     "/blog",
     "/contact",
+    "/faq",
     "/terms",
     "/privacy",
     "/refund",
@@ -40,7 +41,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/integrations",
     ...industryPages.map((i) => `/industries/${i.slug}`),
     ...cities.map((c) => `/cities/${c.slug}`),
-    ...posts.map((p) => `/blog/${p.slug}`),
+    ...publishedPosts.map((p) => `/blog/${p.slug}`),
   ];
   return paths.map((path) => ({
     url: `${base}${path}`,

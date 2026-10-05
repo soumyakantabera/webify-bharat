@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { glossify } from "@/components/clarity/glossify";
 import Link from "next/link";
 import Layout from "@/components/Layout";
+import { BreadcrumbLd } from "@/components/SeoLd";
 import { Icon } from "@/components/Icon";
 import { LogoChip } from "@/components/LogoChip";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
@@ -40,6 +42,7 @@ export default function WhatWeDo() {
         webu: "pointing",
       }}
     >
+      <BreadcrumbLd seoKey="what-we-do" />
       <PageHero
         kicker="What we do"
         title="Plan it. Build it. Run it. Grow it."
@@ -57,7 +60,7 @@ export default function WhatWeDo() {
               <li key={g.exists}>
                 <span className="gt-icon"><Icon name={g.icon} size={24} /></span>
                 <div><small>What exists</small><p>{g.exists}</p></div>
-                <div><small>What's missing</small><p>{g.lack}</p></div>
+                <div><small>What's missing</small><p>{glossify(g.lack)}</p></div>
                 <div className="gt-fit"><small>Where we fit</small><p>{g.fit}</p></div>
               </li>
             ))}
@@ -79,7 +82,7 @@ export default function WhatWeDo() {
                     <h3>{p.name}: {p.oneLine}</h3>
                     <p><strong>For you if:</strong> {d.who}</p>
                     <ul className="mini-chips">
-                      {p.inside.map((i) => <li key={i}>{i}</li>)}
+                      {p.inside.map((i) => <li key={i}>{glossify(i)}</li>)}
                     </ul>
                     <p className="price-note">{d.price}</p>
                     <Link href={p.href} className="text-link">

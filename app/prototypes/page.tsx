@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Layout from "@/components/Layout";
+import { BreadcrumbLd } from "@/components/SeoLd";
 import { Icon } from "@/components/Icon";
 import { Webu } from "@/components/Webu";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
@@ -37,6 +38,7 @@ export default function PrototypesPage() {
 
   return (
     <Layout cta={{ title: "Ask for a walkthrough. We'll pick the ones closest to your business.", message: WA_MSG.prototypes, label: "Show me prototypes", webu: "curtain" }}>
+      <BreadcrumbLd seoKey={"prototypes"} />
       <section className="proto-hero" id="hero" aria-labelledby="page-title">
         <BlueprintGrid className="proto-hero-grid" notes={[]} />
         <div className="container phv-grid">
@@ -64,7 +66,7 @@ export default function PrototypesPage() {
 
       <section className="section" id="prototypes" aria-labelledby="protos-title">
         <div className="container">
-          <SectionHead kicker="Eight prototypes" id="protos-title" title="Pick what's closest to you." sub="Concept views only — the prototypes themselves are shown privately, on WhatsApp." />
+          <SectionHead kicker="Eight prototypes" id="protos-title" title="Pick what's closest to you." sub="Ordering, bookings, admissions, dealer portals, CRM and ERP dashboards, staff portals and exporter payments. Concept views only — the prototypes themselves are shown privately, on WhatsApp." />
           <PrototypeFilter groups={groups} items={publishedPrototypes.map((p) => ({ slug: p.slug, group: p.group, node: <PrototypeTeaser proto={p} /> }))} />
         </div>
       </section>

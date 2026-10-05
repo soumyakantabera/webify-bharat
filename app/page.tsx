@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { glossify } from "@/components/clarity/glossify";
 import Link from "next/link";
 import Layout from "@/components/Layout";
 import { Icon } from "@/components/Icon";
@@ -124,7 +125,7 @@ export default function Home() {
                   <p>{p.oneLine}</p>
                   <ul className="mini-chips">
                     {p.inside.map((i) => (
-                      <li key={i}>{i}</li>
+                      <li key={i}>{glossify(i)}</li>
                     ))}
                   </ul>
                   <Link href={p.href} className="text-link">
@@ -148,7 +149,7 @@ export default function Home() {
             {GAP_ROWS.map((g) => (
               <li key={g.exists}>
                 <span className="gap-exists">{g.exists}</span>
-                <span className="gap-lack">{g.lack}</span>
+                <span className="gap-lack">{glossify(g.lack)}</span>
                 <span className="gap-fit">{g.fit}</span>
               </li>
             ))}
@@ -332,7 +333,7 @@ export default function Home() {
             ))}
           </div>
           <p className="center-note">
-            <Icon name="Tag" size={18} /> {WHITE_LABEL_LINE}
+            <Icon name="Tag" size={18} /> {glossify(WHITE_LABEL_LINE)}
           </p>
         </div>
       </section>

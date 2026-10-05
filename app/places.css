@@ -89,7 +89,7 @@ a.industry-tile:focus-visible { outline: 3px solid var(--haldi); outline-offset:
 .city-state { font-size: 12.5px; color: var(--ink-2); line-height: 1.35; }
 .city-zone { margin-top: auto; padding-top: 6px; font-size: 11.5px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--indigo); }
 
-.page-hero-v2.tone-indigo .phv-copy > .kicker { font: italic 700 22px var(--font-display); letter-spacing: 0; text-transform: none; color: var(--rani-ink); }
+.city-page .page-hero-v2 .phv-copy > .kicker { font: italic 700 22px var(--font-display); letter-spacing: 0; text-transform: none; color: var(--rani-ink); }
 .greet-caption { margin: 14px 0 0; font-size: 13.5px; color: var(--ink-2); }
 .city-hero-art { position: relative; max-width: 420px; margin-inline: auto; padding-bottom: 20px; }
 .city-hero-art .arch-windows { max-width: 300px; margin-inline: auto; }

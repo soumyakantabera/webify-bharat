@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { glossify } from "@/components/clarity/glossify";
 import Layout from "@/components/Layout";
+import { BreadcrumbLd } from "@/components/SeoLd";
 import { Icon } from "@/components/Icon";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 import { ArchWindows, Img } from "@/components/collage";
@@ -31,6 +33,7 @@ export default function Strategy() {
   const gst = gstNote();
   return (
     <Layout cta={{ title: "One session. A clear plan.", message: WA_MSG.strategy, label: "Book a strategy session", webu: "thinking" }}>
+      <BreadcrumbLd seoKey={"strategy"} />
       <PageHero
         kicker="Strategy · paid consulting"
         title="Know what to build before you spend a rupee on it."
@@ -59,7 +62,7 @@ export default function Strategy() {
                 <Img slot={STRIPS[i]} mask="none" className="tier-strip" width={600} height={150} decorative />
                 <div className="tier-body">
                   <h3>{o.name}</h3>
-                  <p className="tier-tagline">{o.what}</p>
+                  <p className="tier-tagline">{glossify(o.what)}</p>
                   <p className="tier-price">
                     <span className="mono">{o.price}</span>
                     {gst ? <small>{gst}</small> : null}

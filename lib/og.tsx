@@ -1,3 +1,4 @@
+import type { BlogCategorySlug } from "@/lib/blog-categories";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import type { ReactElement } from "react";
@@ -57,7 +58,8 @@ export type OgInput = {
   kicker?: string;
   accent?: OgAccent;
   /** Blog posts use their generated cover as the right-hand art. */
-  blogPost?: string;
+  /** Blog category slug — renders that category's cover beside the title. */
+  blogPost?: BlogCategorySlug;
 };
 
 /** The bundled Sora/Manrope subsets have no ₹ glyph, so write it out for OG text. */
@@ -68,7 +70,7 @@ export async function ogImage({ title: rawTitle, kicker: rawKicker, accent = "ra
   const kicker = rawKicker ? safe(rawKicker) : undefined;
   const a = await loadAssets();
   const colour = OG_ACCENTS[accent];
-  const cover = blogPost ? await svgUri(<BlogCover post={blogPost} showLabel={false} />) : null;
+  const cover = blogPost ? await svgUri(<BlogCover category={blogPost} showLabel={false} />) : null;
   const titleSize = title.length > 70 ? 50 : title.length > 44 ? 58 : 66;
 
   return new ImageResponse(

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Layout from "@/components/Layout";
+import { BreadcrumbLd } from "@/components/SeoLd";
 import { Icon } from "@/components/Icon";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 import { ArchWindows } from "@/components/collage";
@@ -52,6 +53,7 @@ export default function Pricing() {
   const gst = gstNote();
   return (
     <Layout cta={{ title: "Tell us roughly what you need. We'll send an exact quote.", accent: { phrase: "Seedha hisaab.", meaning: "straight accounts." }, message: WA_MSG.default, webu: "pointing" }}>
+      <BreadcrumbLd seoKey={"pricing"} />
       <PageHero
         kicker="Pricing"
         tone="rani"

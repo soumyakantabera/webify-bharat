@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { glossify } from "@/components/clarity/glossify";
 import { Icon } from "@/components/Icon";
 import { Img } from "@/components/collage";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
@@ -38,7 +39,7 @@ export function StageCard({ stage }: { stage: Stage }) {
         </p>
         <ul className="ticks">
           {stage.keyFeatures.map((f) => (
-            <li key={f}>{f}</li>
+            <li key={f}>{glossify(f)}</li>
           ))}
         </ul>
         <ul className="tier-limits">
@@ -91,7 +92,7 @@ export function CompareTable() {
               .filter((r) => r.group === g)
               .map((r) => (
                 <tr key={r.label}>
-                  <th scope="row">{r.label}</th>
+                  <th scope="row">{glossify(r.label)}</th>
                   {stages.map((s) => (
                     <td key={s.slug} className={s.popular ? "is-popular" : undefined}>
                       <Cell v={r.cells[s.slug]} />
@@ -107,7 +108,7 @@ export function CompareTable() {
           </tr>
           {limitRows.map((r) => (
             <tr key={r.key}>
-              <th scope="row">{r.label}</th>
+              <th scope="row">{glossify(r.label)}</th>
               {stages.map((s) => (
                 <td key={s.slug} className={s.popular ? "is-popular" : undefined}>
                   <LimitCell v={r.cells[s.slug]} />

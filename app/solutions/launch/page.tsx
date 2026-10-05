@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Layout from "@/components/Layout";
+import { BreadcrumbLd } from "@/components/SeoLd";
 import { Icon } from "@/components/Icon";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 import { PhotoBento, PolaroidCluster } from "@/components/collage";
@@ -31,6 +32,7 @@ export default function Launch() {
   const path = getPath("launch")!;
   return (
     <Layout cta={{ title: "Tell us your idea.", accent: { phrase: "Chalo, shuru karein.", meaning: "let's get started." }, message: path.waMessage, label: path.cta, webu: "celebrating", path: "launch" }}>
+      <BreadcrumbLd seoKey={"launch"} />
       <PageHero
         kicker="Launch"
         tone="marigold"

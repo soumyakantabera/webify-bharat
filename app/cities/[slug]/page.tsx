@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Layout from "@/components/Layout";
+import { BreadcrumbLd, LdScript, SITE_URL } from "@/components/SeoLd";
 import { LogoChip } from "@/components/LogoChip";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 import { ArchWindows } from "@/components/collage";
@@ -71,6 +72,21 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
 
   return (
     <Layout cta={{ title: greet ? `${city.greeting}! Let's talk about your business.` : `Let's talk about your ${city.name} business.`, message, label: `I'm in ${city.name}`, webu: "waving" }}>
+      <BreadcrumbLd seoKey={`city:${slug}`} />
+      <LdScript
+        data={{
+          "@context": "https://schema.org",
+          "@type": ["LocalBusiness", "ProfessionalService"],
+          "@id": `${SITE_URL}/cities/${city.slug}#business`,
+          name: `Webify Bharat — ${city.name}`,
+          url: `${SITE_URL}/cities/${city.slug}`,
+          description: `Custom websites, stores, payments, WhatsApp systems and CRM/ERP for ${city.name} businesses, delivered fully remote over WhatsApp.`,
+          areaServed: { "@type": "City", name: city.name, containedInPlace: { "@type": "State", name: city.state } },
+          address: { "@type": "PostalAddress", addressLocality: "Kolkata", addressRegion: "West Bengal", addressCountry: "IN" },
+          parentOrganization: { "@id": `${SITE_URL}/#org` },
+        }}
+      />
+      <div className="city-page">
       <PageHero
         kicker={greet ?? `${city.name} · ${city.state}`}
         title={`Custom digital systems for ${city.name} businesses.`}
@@ -85,6 +101,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
         }
         tone="indigo"
       />
+      </div>
 
       <section className="section surface-2" id="industries" aria-labelledby="ind-title">
         <div className="container">

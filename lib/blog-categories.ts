@@ -1,5 +1,6 @@
 /**
  * Blog categories (content-plan §9.14) and cover recipes (§17.4).
+ * Post → category lives on each post in lib/posts.ts.
  * Covers are generated SVG (components/svg/BlogCover.tsx) — no photos.
  */
 export type BlogCategorySlug =
@@ -33,29 +34,6 @@ export const blogCategories: BlogCategory[] = [
   { slug: "ai-search", name: "AI & search", bg: "#2B1E6B", ink: "#FFFFFF", icons: ["Sparkle", "ChatCircleDots", "MagnifyingGlass"] },
 ];
 
-/** Existing post slugs → category (§9.14 table). */
-export const POST_CATEGORY: Record<string, BlogCategorySlug> = {
-  "upi-payment-gateway-msme": "payments",
-  "razorpay-vs-cashfree-vs-payu": "payments",
-  "payment-trends": "payments",
-  "whatsapp-business-api-india": "whatsapp",
-  "clinic-whatsapp-appointments-india": "whatsapp",
-  "whatsapp-automation": "whatsapp",
-  "google-business-profile-india": "get-found",
-  "local-seo-near-me-india": "get-found",
-  "hindi-hinglish-business-website": "get-found",
-  "website-growth": "get-found",
-  "bing-places-copilot-india": "ai-search",
-  "justdial-vs-own-website": "rent-own",
-  "zomato-commission-vs-own-ordering": "rent-own",
-  "website-cost-india-2026": "costs-gst",
-  "gst-website-quote-india": "costs-gst",
-  "gst-compliance": "costs-gst",
-  "analytics-guide": "costs-gst",
-  "business-growth": "costs-gst",
-};
-
-export function categoryFor(postSlug: string): BlogCategory {
-  const slug = POST_CATEGORY[postSlug] ?? "get-found";
+export function getCategory(slug: BlogCategorySlug) {
   return blogCategories.find((c) => c.slug === slug)!;
 }

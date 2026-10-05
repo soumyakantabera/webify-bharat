@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { glossify } from "@/components/clarity/glossify";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Layout from "@/components/Layout";
+import { BreadcrumbLd } from "@/components/SeoLd";
 import { Icon } from "@/components/Icon";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 import { Img } from "@/components/collage";
@@ -50,6 +52,7 @@ export default async function StagePage({ params }: { params: Promise<{ slug: st
 
   return (
     <Layout cta={{ title: `Interested in ${stage.name}? We'll scope it for you.`, message: waTier(stage.name), label: "Get my quote", webu: "pointing" }}>
+      <BreadcrumbLd seoKey={`stage:${slug}`} />
       <PageHero
         kicker={`Pricing · ${stage.name}`}
         title={
@@ -75,7 +78,7 @@ export default async function StagePage({ params }: { params: Promise<{ slug: st
                 const v = r.cells[stage.slug];
                 return (
                   <li key={r.label}>
-                    {r.label}
+                    {glossify(r.label)}
                     {typeof v === "string" ? <strong> — {v}</strong> : null}
                   </li>
                 );

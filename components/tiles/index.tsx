@@ -8,6 +8,7 @@ import type { Path } from "@/lib/paths";
 import type { Stage } from "@/lib/offers";
 import { gstNote } from "@/lib/site";
 import { waTier } from "@/lib/wa";
+import { glossify } from "@/components/clarity/glossify";
 
 export { FlipCard } from "./FlipCard";
 
@@ -31,14 +32,14 @@ export function SectionHead({
 }) {
   return (
     <div className={`sec-head${align === "center" ? " is-center" : ""}`}>
-      {kicker ? <p className="kicker">{kicker}</p> : null}
-      <h2 id={id}>{title}</h2>
+      {kicker ? <p className="kicker">{glossify(kicker)}</p> : null}
+      <h2 id={id}>{glossify(title)}</h2>
       {accent ? (
         <p className="hinglish accent-line">
           {accent.phrase} <span>— {accent.meaning}</span>
         </p>
       ) : null}
-      {sub ? <p className="sec-sub">{sub}</p> : null}
+      {sub ? <p className="sec-sub">{glossify(sub)}</p> : null}
       {children}
     </div>
   );
@@ -90,8 +91,8 @@ export function StickerCard({ icon, title, children, tone = "rani" }: { icon?: s
           <Icon name={icon} size={26} />
         </span>
       ) : null}
-      <h3>{title}</h3>
-      {children ? <p>{children}</p> : null}
+      <h3>{glossify(title)}</h3>
+      {children ? <p>{glossify(children)}</p> : null}
     </div>
   );
 }
@@ -118,7 +119,7 @@ export function TierTicket({ stage, photo = true }: { stage: Stage; photo?: bool
         </p>
         <ul className="tier-limits">
           {stage.keyLimits.map((l) => (
-            <li key={l}>{l}</li>
+            <li key={l}>{glossify(l)}</li>
           ))}
         </ul>
         <WhatsAppCTA message={waTier(stage.name)} context={`tier-${stage.slug}`} label="Get my quote" />
@@ -175,13 +176,13 @@ export function PageHero({
       <div className="container phv-grid">
         <div className="phv-copy">
           <p className="kicker">{kicker}</p>
-          <h1 id="page-title">{title}</h1>
+          <h1 id="page-title">{glossify(title)}</h1>
           {accent ? (
             <p className="hinglish accent-line">
               {accent.phrase} <span>— {accent.meaning}</span>
             </p>
           ) : null}
-          <p className="hero-sub">{sub}</p>
+          <p className="hero-sub">{glossify(sub)}</p>
           <div className="hero-actions">{cta}</div>
           {chips}
         </div>

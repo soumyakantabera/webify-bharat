@@ -2,7 +2,19 @@
  * Must-include Q&As (content-plan §9.15). Used by the home mini-FAQ now and
  * by /faq in Phase 5. Keys let pages pick specific questions.
  */
-export type CoreFaq = { key: string; q: string; a: string; category: "custom" | "process" | "payments" | "launch" | "ownership" | "support" | "marketing" };
+export type CoreFaq = { key: string; q: string; a: string; category: FaqCategory };
+
+export type FaqCategory = "custom" | "process" | "payments" | "launch" | "ownership" | "support";
+
+/** FAQ tabs (content-plan §9.15), colour-coded. */
+export const FAQ_CATEGORIES: { id: FaqCategory; label: string; tone: string }[] = [
+  { id: "custom", label: "Custom work", tone: "rani" },
+  { id: "process", label: "Process", tone: "marigold" },
+  { id: "payments", label: "Payments", tone: "peacock" },
+  { id: "launch", label: "Launch & registrations", tone: "haldi" },
+  { id: "ownership", label: "Ownership & tech", tone: "indigo" },
+  { id: "support", label: "Support", tone: "mehendi" },
+];
 
 export const CORE_FAQS: CoreFaq[] = [
   { key: "templates", category: "custom", q: "Do you use templates?", a: "No. Every design and build is made for your business." },
@@ -28,9 +40,13 @@ export const CORE_FAQS: CoreFaq[] = [
   { key: "competing", category: "custom", q: "Are you competing with Zoho, Google or Microsoft?", a: "No. We work with them. They make great tools; we choose, set up, customise and connect them for your business — or build custom where they don't fit." },
   { key: "what-is", category: "custom", q: "What exactly is Webify — software or a service?", a: "Both: your own software, built on our platform, and run for you as a service. You use it; we keep it working." },
   { key: "strategy-paid", category: "process", q: "Is the strategy session free?", a: "The first WhatsApp chat is free. Webify Compass (session, audit, roadmap) is paid, deeper work." },
-  { key: "guarantee", category: "marketing", q: "Can you guarantee Google rankings or ChatGPT mentions?", a: "No one honestly can. We do the work that improves your chances and report results every month." },
-  { key: "ai-visibility", category: "marketing", q: "What is AI visibility?", a: "Making sure AI assistants like ChatGPT, Gemini and Perplexity can find clear, correct information about your business when customers ask." },
-  { key: "ads-spend", category: "marketing", q: "Do I pay for ads through you?", a: "Our fee covers managing ads. Ad spend is paid directly to Google or Meta." },
+  { key: "guarantee", category: "process", q: "Can you guarantee Google rankings or ChatGPT mentions?", a: "No one honestly can. We do the work that improves your chances and report results every month." },
+  { key: "ai-visibility", category: "process", q: "What is AI visibility?", a: "Making sure AI assistants like ChatGPT, Gemini and Perplexity can find clear, correct information about your business when customers ask." },
+  { key: "ads-spend", category: "process", q: "Do I pay for ads through you?", a: "Our fee covers managing ads. Ad spend is paid directly to Google or Meta." },
+  { key: "start", category: "process", q: "How does a project start?", a: "Message us on WhatsApp with your business type, city and what you need. We ask a few questions, suggest a starting point and send a written scope with the price before any work begins." },
+  { key: "approve", category: "process", q: "Do I approve things before you build them?", a: "Yes. You approve the written scope first, then see progress on WhatsApp along the way. Nothing goes live without your OK." },
+  { key: "breaks", category: "support", q: "What if something breaks?", a: "Message us on WhatsApp. Keeping the system working is part of your monthly plan — that's why we host and maintain it for you." },
+  { key: "changes", category: "support", q: "Can I ask for changes after launch?", a: "Yes. Small updates are part of running your system; bigger new features are scoped and quoted before we start." },
   { key: "remote", category: "support", q: "Do you work outside my city?", a: "Yes. We work fully remote across India over WhatsApp." },
 ];
 

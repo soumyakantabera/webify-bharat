@@ -1,30 +1,17 @@
 import type { Metadata } from "next";
 import Layout from "@/components/Layout";
-import { HeroShot } from "@/components/HeroShot";
 import { LegalDoc } from "@/components/LegalDoc";
+import { BreadcrumbLd } from "@/components/SeoLd";
 import { refund } from "@/lib/legal";
+import { pageMetadata } from "@/lib/page-seo";
 
-export const metadata: Metadata = {
-  title: "Refund policy",
-  description:
-    "Webify Bharat India does not refund fees after delivery. A website or a filing is not a guarantee that sales will increase.",
-};
+export const metadata: Metadata = pageMetadata("refund");
 
-export default function RefundPage() {
+export default function Page() {
   return (
-    <Layout>
-      <section className="page-hero">
-        <div className="container wrap">
-          <LegalDoc
-            kicker="Refunds"
-            title="No refund once the output is delivered."
-            lede="We charge for the site, the filing, or the consulting we hand over. We do not charge for a sales increase, and we do not refund when sales stay flat."
-            sections={refund}
-          >
-            <HeroShot kind="legal" />
-          </LegalDoc>
-        </div>
-      </section>
+    <Layout cta={{ title: "Questions about this policy? Ask us.", message: "Hi! I have a question about your cancellation and refund policy.", webu: "thinking" }}>
+      <BreadcrumbLd seoKey="refund" />
+      <LegalDoc kicker="Cancellations & refunds" title="Cancellations and refunds." lede="How stopping a plan works, what happens to your data, and when fees can and can't be refunded." doc={refund} />
     </Layout>
   );
 }

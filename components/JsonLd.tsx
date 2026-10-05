@@ -1,4 +1,4 @@
-import { SITE } from "@/lib/site";
+import { BUSINESS, filled, SITE } from "@/lib/site";
 import { blocks } from "@/lib/blocks";
 import { PLAN_STAGES } from "@/lib/offers";
 
@@ -42,7 +42,8 @@ export function OrgJsonLd() {
         "@type": "Organization",
         "@id": `${BASE}/#org`,
         name: SITE.name,
-        legalName: "Webify Bharat",
+        legalName: BUSINESS.legalName,
+        email: SITE.email,
         url: BASE,
         logo: {
           "@type": "ImageObject",
@@ -64,13 +65,13 @@ export function OrgJsonLd() {
           "Google Business Profile",
           "GST invoicing",
           "MSME digital operations",
-          "Justdial alternative",
-          "Zomato commission alternative",
+          "CRM and ERP for small business",
+          "AI visibility",
         ],
         sameAs: [],
         hasOfferCatalog: {
           "@type": "OfferCatalog",
-          name: "Webify Bharat packages",
+          name: "Webify Bharat plans",
           itemListElement: offerNodes,
         },
       },
@@ -90,16 +91,12 @@ export function OrgJsonLd() {
         },
         address: {
           "@type": "PostalAddress",
+          ...(filled(BUSINESS.address) ? { streetAddress: "108, Shri Krishna Nagar", postalCode: "700056" } : {}),
+          addressLocality: "Kolkata",
+          addressRegion: "West Bengal",
           addressCountry: "IN",
         },
-        serviceType: [
-          "Website development",
-          "WhatsApp Business API setup",
-          "Payment gateway integration",
-          "Analytics and BI",
-          "E-commerce portals",
-          "GST-friendly bookkeeping workflows",
-        ],
+        serviceType: blocks.map((b) => b.becomes),
         parentOrganization: { "@id": `${BASE}/#org` },
         makesOffer: offerNodes.map((o) => ({ "@id": o["@id"] })),
       },

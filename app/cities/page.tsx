@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Layout from "@/components/Layout";
+import { BreadcrumbLd } from "@/components/SeoLd";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 import { ArchWindows, Img } from "@/components/collage";
 import { CityExplorer } from "@/components/cities/CityExplorer";
@@ -20,6 +21,7 @@ export default function CitiesPage() {
 
   return (
     <Layout cta={{ title: "Wherever you are, we're one WhatsApp away.", message: WA_MSG.default, webu: "scooter" }}>
+      <BreadcrumbLd seoKey={"cities"} />
       <PageHero
         kicker="Cities"
         title="From Leh to Port Blair — we build for your business, wherever you are."

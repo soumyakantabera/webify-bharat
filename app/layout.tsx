@@ -22,6 +22,7 @@ import "./rangoli.css";
 import "./sections.css";
 import "./pillars.css";
 import "./places.css";
+import "./rest.css";
 import { Analytics } from "@vercel/analytics/next";
 import { jetbrains, manrope, sora } from "./fonts";
 

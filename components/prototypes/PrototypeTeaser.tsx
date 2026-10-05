@@ -5,6 +5,7 @@ import { getBlock } from "@/lib/blocks";
 import { getLogo } from "@/lib/logos";
 import type { Prototype } from "@/lib/prototypes";
 import { waPrototype } from "@/lib/wa";
+import { glossify } from "@/components/clarity/glossify";
 
 /**
  * PrototypeTeaser (content-plan §6.6, §9.10): illustrated concept view,
@@ -19,7 +20,7 @@ export function PrototypeTeaser({ proto }: { proto: Prototype }) {
         <MockScreen variant={proto.image} />
       </div>
       <div className="proto-body">
-        <h3>{proto.name}</h3>
+        <h3>{glossify(proto.name)}</h3>
         <ul className="mini-chips" aria-label="What it shows">
           {proto.shows.map((s) => (
             <li key={s}>{s}</li>

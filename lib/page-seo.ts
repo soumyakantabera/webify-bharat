@@ -3,7 +3,8 @@ import { getStage } from "./offers";
 import { getReachService } from "./reach";
 import { getIndustryPage } from "./industries";
 import { citiesIndexSeo, cityPageSeo } from "./page-seo-cities";
-import { getPost } from "./site";
+import { getPost } from "./posts";
+import { getRegistration } from "./registrations";
 
 export type PageSeo = {
   title: string;
@@ -153,123 +154,60 @@ export const PAGE_SEO: Record<string, PageSeo> = {
     ],
   ),
   about: page(
-    "About Webify Bharat — MSME digital operations, India",
-    "Webify Bharat is a digital operations studio for Indian MSMEs. We build owned websites, WhatsApp and UPI — not lead directories or US SaaS wrappers.",
+    "About Webify Bharat: no two businesses should get the same website",
+    "Webify Bharat builds and runs custom software for Indian businesses — websites, stores, payments, WhatsApp, CRM/ERP and marketing — fully remote over WhatsApp, from Kolkata.",
     "/about",
-    ["Webify Bharat", "digital agency India MSME", "about Webify Bharat"],
+    ["about Webify Bharat", "custom software company India", "small business software Kolkata"],
     [{ name: "About", path: "/about" }],
-    [
-      { term: "Entity", value: "Webify Bharat — India, MSME digital operations" },
-      { term: "Offer", value: "Website, WhatsApp, UPI, analytics, GST-ready ops" },
-      { term: "Fit", value: "Family-run and GST-registered firms, not only startups" },
-    ],
+    [],
   ),
   blog: page(
-    "Insights: websites, UPI, WhatsApp, GST and local SEO in India",
-    "Practical guides for Indian business owners: Justdial vs own site, Zomato commission, WhatsApp API, Google Business Profile, Razorpay vs Cashfree, Hindi websites.",
+    "Blog: practical guides for Indian business owners",
+    "Plain-language guides on getting found, getting paid, WhatsApp, GST and running a small business on one system.",
     "/blog",
-    ["MSME blog India", "local SEO India", "UPI guide", "WhatsApp Business API guide"],
-    [{ name: "Insights", path: "/blog" }],
-    [
-      { term: "For", value: "Owners who already sell in India" },
-      { term: "Not", value: "Series-B growth-hacking theatre" },
-    ],
+    ["small business guide India", "UPI payment gateway guide", "WhatsApp Business API guide", "Google Business Profile guide"],
+    [{ name: "Blog", path: "/blog" }],
+    [],
   ),
   contact: page(
-    "Contact Webify Bharat — WhatsApp consult for Indian businesses",
-    "Brief us in five lines: what you sell, city, what is breaking. First working conversation is free. Website, UPI, WhatsApp, analytics.",
+    "Contact: the fastest way to reach us is WhatsApp",
+    "WhatsApp Webify Bharat with your business type, city and what you need. We reply within a few hours, 7 days a week.",
     "/contact",
-    ["contact Webify Bharat", "website developer India WhatsApp"],
+    ["contact Webify Bharat", "Webify Bharat WhatsApp"],
     [{ name: "Contact", path: "/contact" }],
-    [
-      { term: "First call", value: "Free working conversation — we say if we are the fit" },
-      { term: "Brief", value: "Trade, city, leak, link or photo of the current setup" },
-    ],
+    [],
   ),
+  faq: page(
+    "FAQ: questions about custom work, pricing, ownership and support",
+    "Answers on templates, prototypes, what you own, how you pay, limits, lock-in, registrations, integrations, marketing and support.",
+    "/faq",
+    ["Webify Bharat FAQ", "custom website questions", "monthly plan questions"],
+    [{ name: "FAQ", path: "/faq" }],
+    [],
+  ),
+  registrations: page(
+    "Registrations: GST, Udyam and IEC filed for you",
+    "We file GST, Udyam and IEC for Indian businesses, and coordinate UK VAT and EU IOSS with a registered agent. Our fee and the government fee are shown separately.",
+    "/registrations",
+    ["GST registration service", "Udyam registration help", "IEC registration India"],
+    [{ name: "Registrations", path: "/registrations" }],
+    [],
+  ),
+  "registrations-charges": page(
+    "Registrations: charges outside our fee",
+    "Government fees, gateway fees, WhatsApp charges, licences and other costs billed by someone else — listed before you pay.",
+    "/registrations/charges",
+    ["registration government fees", "additional charges"],
+    [{ name: "Registrations", path: "/registrations" }, { name: "Charges", path: "/registrations/charges" }],
+    [],
+  ),
+  terms: page("Terms of service", "The terms for Webify Bharat's monthly plans, custom builds, registrations and marketing services, in plain language.", "/terms", ["Webify Bharat terms"], [{ name: "Terms", path: "/terms" }], []),
+  privacy: page("Privacy policy", "What Webify Bharat collects, why, how long we keep it and your rights under India's Digital Personal Data Protection Act — including WhatsApp conversations.", "/privacy", ["Webify Bharat privacy", "DPDP"], [{ name: "Privacy", path: "/privacy" }], []),
+  refund: page("Cancellations and refunds", "How cancelling a monthly plan works, what happens to your data, and when fees can and can't be refunded.", "/refund", ["Webify Bharat refund policy"], [{ name: "Refunds", path: "/refund" }], []),
 };
 
 const ANSWERS: Record<string, string> = {
   home: "Webify Bharat builds and runs your own business software — and markets your business — so every tool you use actually works for you.",
-  services: "Webify Bharat services are the Indian MSME stack: website design, e-commerce on your domain, UPI payment gateway, WhatsApp Business API, analytics and GST-ready invoices. Start with the leak, then connect the next piece.",
-  pricing: "Webify Bharat pricing starts at ₹9,999 (Launch), ₹19,999 (Growth) and ₹39,999 (Command), all inclusive of 18% GST. You pay to build the system, not per organic lead.",
-  about: "Webify Bharat is an India-based digital operations studio for MSMEs. We are not a lead-selling directory and not a US SaaS wrapper. Stack choices settle in INR and leave the customer list on your login.",
-  blog: "Webify Bharat insights answer live Indian search demand: website cost, Justdial vs own site, WhatsApp API, UPI vs personal QR, Google Business Profile, Razorpay vs Cashfree, Hindi websites, Bing Places.",
-  contact: "Contact Webify Bharat with five lines: what you sell, city, what is breaking, and a link or photo. The first working conversation is free; WhatsApp is the door.",
-};
-
-const POST_SEO: Record<string, { keywords: string[]; answer: string }> = {
-  "website-growth": {
-    keywords: ["business website India", "website that gets enquiries"],
-    answer: "An Indian business website earns its keep when a stranger understands the offer, trusts you are real, and can WhatsApp or pay without hunting.",
-  },
-  "payment-trends": {
-    keywords: ["UPI checkout", "digital payments MSME"],
-    answer: "Indian customers pay UPI first. A named gateway with instant confirmation beats a personal QR for GST and refunds.",
-  },
-  "whatsapp-automation": {
-    keywords: ["WhatsApp automation India", "WhatsApp flows SME"],
-    answer: "WhatsApp automation for SMEs is welcome menus, reminders, receipts and a human handoff — not spam blasts.",
-  },
-  "analytics-guide": {
-    keywords: ["MSME analytics", "Google Analytics India"],
-    answer: "Track enquiries, conversions and collections weekly. Analytics without those events is a weather report.",
-  },
-  "gst-compliance": {
-    keywords: ["GST operations MSME", "invoice workflow"],
-    answer: "GST pain is late invoices and cash off-system. Make sale, payment and invoice the same event.",
-  },
-  "business-growth": {
-    keywords: ["MSME digital operating system", "small business growth India"],
-    answer: "Growth needs a small system: website, payments, WhatsApp, a customer record, a weekly number. Automate last.",
-  },
-  "justdial-vs-own-website": {
-    keywords: ["Justdial alternative", "Justdial vs website", "IndiaMART vs own site"],
-    answer: "Justdial and IndiaMART bill you for visibility. An owned website, Maps pin and WhatsApp number charge ₹0 extra when that person messages you.",
-  },
-  "zomato-commission-vs-own-ordering": {
-    keywords: ["Zomato commission", "restaurant QR UPI", "Swiggy alternative"],
-    answer: "Aggregators are discovery. Regulars should order on your menu, WhatsApp and UPI so you do not pay 15–30% on guests who already know you.",
-  },
-  "whatsapp-business-api-india": {
-    keywords: ["WhatsApp Business API India", "WhatsApp BSP"],
-    answer: "Use the WhatsApp Business app until volume breaks. The API adds inbox, templates and automation on your number, with India among the lowest message rates.",
-  },
-  "upi-payment-gateway-msme": {
-    keywords: ["UPI payment gateway small business", "Razorpay vs personal QR"],
-    answer: "A personal UPI QR is not a GST ledger. A named payment gateway gives UPI, cards, links, receipts and settlements.",
-  },
-  "google-business-profile-india": {
-    keywords: ["Google Business Profile India", "Map Pack", "near me SEO"],
-    answer: "Most Google Business Profile views are category searches. Point Maps at a website you own, keep NAP identical, add WhatsApp.",
-  },
-  "website-cost-india-2026": {
-    keywords: ["website cost India 2026", "website design price MSME"],
-    answer: "Indian website quotes range from a few thousand rupees for a template to lakhs for catalogues. Webify Bharat Launch starts at ₹9,999 including 18% GST.",
-  },
-  "razorpay-vs-cashfree-vs-payu": {
-    keywords: ["Razorpay vs Cashfree", "PayU TDR", "cheapest payment gateway India"],
-    answer: "Card TDR clusters near 2% in India. Pick on UPI success rate, settlement and KYC — not 0.1% of fee. Personal GPay is the wrong baseline.",
-  },
-  "hindi-hinglish-business-website": {
-    keywords: ["Hindi website design", "Hinglish website India"],
-    answer: "If the counter runs in Hindi or Hinglish, English-only UI loses the customer. Bilingual buttons and WhatsApp copy are usually enough.",
-  },
-  "local-seo-near-me-india": {
-    keywords: ["local SEO India", "near me SEO", "Google Map Pack"],
-    answer: "Local SEO in India is verified GBP, matching NAP on your site, service pages for the area, and reviews you reply to — not 200 fake citations.",
-  },
-  "clinic-whatsapp-appointments-india": {
-    keywords: ["clinic WhatsApp India", "doctor appointment WhatsApp"],
-    answer: "Clinics need a public layer first: website, Maps, WhatsApp slots, UPI, reminders. That is not a hospital EMR.",
-  },
-  "bing-places-copilot-india": {
-    keywords: ["Bing Places India", "Copilot local SEO"],
-    answer: "Google wins Indian search. Bing Places is free NAP insurance so Copilot and Bing Chat can cite the same name, address and phone.",
-  },
-  "gst-website-quote-india": {
-    keywords: ["GST on website quote", "18% GST web design"],
-    answer: "Webify Bharat package prices on the pricing page include 18% GST. Always compare other vendors on the same tax basis.",
-  },
 };
 
 export function getPageSeo(key: string): PageSeo {
@@ -341,21 +279,31 @@ export function getPageSeo(key: string): PageSeo {
   }
 
   if (key.startsWith("blog:")) {
-    const slug = key.slice(5);
-    const post = getPost(slug);
-    const extra = POST_SEO[slug];
-    return page(
-      post?.title ?? "Insight",
-      extra?.answer ?? post?.excerpt ?? "Practical guide for Indian MSMEs from Webify Bharat.",
-      `/blog/${slug}`,
-      extra?.keywords ?? ["Webify Bharat insights", "MSME India"],
-      [
-        { name: "Insights", path: "/blog" },
-        { name: post?.title ?? slug, path: `/blog/${slug}` },
-      ],
-      [{ term: "Direct answer", value: extra?.answer ?? "Practical operating guide for Indian owners" }],
-      extra?.answer ?? "",
-    );
+    const post = getPost(key.slice(5));
+    if (post) {
+      return page(
+        post.title,
+        post.excerpt,
+        `/blog/${post.slug}`,
+        [post.title, "small business India"],
+        [{ name: "Blog", path: "/blog" }, { name: post.title, path: `/blog/${post.slug}` }],
+        [],
+      );
+    }
+  }
+
+  if (key.startsWith("registration:")) {
+    const r = getRegistration(key.slice(13));
+    if (r) {
+      return page(
+        `${r.name}: filed for you`,
+        `${r.forWhom} Filed on ${r.portal}. Our fee ${r.ourFee}; government fee ${r.govFee}, paid in your name.`,
+        `/registrations/${r.slug}`,
+        [r.name, `${r.short} registration help`],
+        [{ name: "Registrations", path: "/registrations" }, { name: r.name, path: `/registrations/${r.slug}` }],
+        [],
+      );
+    }
   }
 
   const fallback = PAGE_SEO.home;
