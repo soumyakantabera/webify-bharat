@@ -225,7 +225,8 @@ a.gx-fit-badge .ic-arw { margin-left: 2px; }
 .block-brick:hover, .block-brick:focus-within { border-color: var(--brick); outline: 2px solid var(--brick); outline-offset: -1px; }
 .block-brick-link:focus-visible { outline: none; }
 
-.link-card { position: relative; display: block; color: inherit; text-decoration: none; }
+:where(.link-card) { position: relative; display: block; }
+.link-card { color: inherit; text-decoration: none; }
 .link-card::after {
   content: "";
   position: absolute;
