@@ -11,7 +11,7 @@
 export type Treatment = "duotone" | "blur" | "none";
 
 export type SlotSource =
-  | { kind: "photo"; src: string; crop: string; treatment?: Treatment }
+  | { kind: "photo"; src: string; crop: string; treatment?: Treatment; zoom?: number }
   | { kind: "svg"; component: string };
 
 export type ImageSlot = {
@@ -34,8 +34,9 @@ export const IMAGE_MODE: "photo" | "mixed" = "photo";
 const S = "/images/snapshots";
 const R = "/images/real";
 
-function photo(src: string, crop: string, treatment: Treatment = "none"): SlotSource {
-  return { kind: "photo", src, crop, treatment };
+/** `zoom` scales the photo around its crop point — used to push signage out of frame (§17.2). */
+function photo(src: string, crop: string, treatment: Treatment = "none", zoom?: number): SlotSource {
+  return { kind: "photo", src, crop, treatment, zoom };
 }
 
 const slotList: ImageSlot[] = [
@@ -70,15 +71,15 @@ const slotList: ImageSlot[] = [
   { id: "IMG-I-RES-1", now: photo(`${R}/restaurant.webp`, "20% 50%"), status: "launch", alt: "Restaurant kitchen" },
   { id: "IMG-I-RES-2", now: photo(`${S}/market-spice.webp`, "50% 50%"), status: "launch", alt: "Spices in a market" },
   { id: "IMG-I-CLI-1", now: photo(`${R}/healthcare.webp`, "70% 50%"), status: "launch", alt: "Clinic consultation room" },
-  { id: "IMG-I-CLI-2", now: photo(`${R}/healthcare.webp`, "75% 40%"), scene: "ClinicScene", status: "launch", alt: "Clinic front desk" },
+  { id: "IMG-I-CLI-2", now: photo(`${R}/healthcare.webp`, "78% 70%", "none", 1.6), scene: "ClinicScene", status: "launch", alt: "Clinic front desk" },
   { id: "IMG-I-EDU-1", now: photo(`${R}/education.webp`, "30% 50%"), status: "launch", alt: "Coaching classroom" },
   { id: "IMG-I-EDU-2", now: photo(`${S}/blog.webp`, "50% 50%"), status: "launch", alt: "Notebook and study material" },
   { id: "IMG-I-MFG-1", now: photo(`${R}/manufacturing.webp`, "30% 50%"), status: "launch", alt: "Machines in a workshop" },
   { id: "IMG-I-MFG-2", now: photo(`${S}/market-grain.webp`, "70% 50%"), status: "launch", alt: "Bulk goods in sacks" },
   { id: "IMG-I-EXP-1", now: photo(`${S}/market-textile.webp`, "50% 50%"), status: "launch", alt: "Textiles stacked for export" },
   { id: "IMG-I-EXP-2", now: photo(`${R}/ecommerce.webp`, "20% 70%"), scene: "ExportScene", status: "launch", alt: "Boxes ready to ship abroad" },
-  { id: "IMG-I-RE-1", now: photo(`${R}/real-estate.webp`, "60% 55%"), status: "launch", alt: "Property site visit" },
-  { id: "IMG-I-RE-2", now: photo(`${R}/real-estate.webp`, "80% 60%"), scene: "PropertyScene", status: "launch", alt: "Apartment building exterior" },
+  { id: "IMG-I-RE-1", now: photo(`${R}/real-estate.webp`, "68% 55%"), status: "launch", alt: "Property site visit" },
+  { id: "IMG-I-RE-2", now: photo(`${R}/real-estate.webp`, "88% 80%", "none", 1.6), scene: "PropertyScene", status: "launch", alt: "Apartment building exterior" },
 
   // Process / road
   { id: "IMG-R01", now: photo(`${S}/contact.webp`, "30% 50%"), status: "launch", alt: "Discovery chat over the phone" },
@@ -125,6 +126,7 @@ export const slots: Record<string, ImageSlot> = Object.fromEntries(slotList.map(
 
 export type ResolvedImage = {
   src: string;
+  zoom?: number;
   alt: string;
   crop: string;
   treatment: Treatment;
@@ -142,7 +144,7 @@ export function resolveImage(id: string): ResolvedImage | null {
     return { src: slot.later, alt: slot.alt, crop: "50% 50%", treatment: "none" };
   }
   if (slot.now.kind === "photo") {
-    return { src: slot.now.src, alt: slot.alt, crop: slot.now.crop, treatment: slot.now.treatment ?? "none" };
+    return { src: slot.now.src, alt: slot.alt, crop: slot.now.crop, treatment: slot.now.treatment ?? "none", zoom: slot.now.zoom };
   }
   return null;
 }

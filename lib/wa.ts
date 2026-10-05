@@ -19,13 +19,14 @@ export const WA_MSG = {
   ads: "Hi! I want to run Google / Meta ads that bring enquiries.",
   aiVisibility: "Hi! Can you check how my business appears in ChatGPT and other AI assistants?",
   featured: "Hi! I'd like my business to be one of your first client stories.",
+  prototypes: "Hi! I'd like to see prototypes close to my business.",
   notFound: "Hi! I was looking for something on your site and couldn't find it.",
 } as const;
 
 export const waBlock = (block: string) => `Hi! I'm interested in ${block} for my business.`;
 export const waTool = (tool: string) => `Hi! We use ${tool}. Can you build around it?`;
 export const waIndustry = (industry: string) =>
-  `Hi! I run a ${industry} business and want to discuss a custom solution.`;
+  `Hi! I run ${/^[aeiou]/i.test(industry) ? "an" : "a"} ${industry} business and want to discuss a custom solution.`;
 export const waCity = (city: string) => `Hi! I'm based in ${city} and want to discuss my business.`;
 export const waPrototype = (name: string) => `Hi! I'd like a walkthrough of the "${name}" prototype.`;
 export const waPrototypes = (industry: string) => `Hi! I'd like to see prototypes for a ${industry} business.`;

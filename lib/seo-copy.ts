@@ -43,62 +43,6 @@ export const searchResearchArticle: Article = {
 };
 
 
-export const industryArticles: Record<string, Article> = {
-  retail: {
-    kicker: "Retail India",
-    title: "Store websites, catalogue and UPI",
-    accent: "for kirana to brand retail.",
-    paragraphs: [
-      "Retail search intent in India is local: “shop near me”, Maps, then WhatsApp for stock and price. A Justdial listing rents that click. An owned site plus Google Business Profile plus UPI checkout keeps the customer and the margin. We connect catalogue, inventory notes, WhatsApp order chat and a daily collection view.",
-      "Kirana, boutiques and multi-store retail all hit the same leak: personal QR, stock in a notebook, and Instagram DMs that vanish. A WhatsApp catalogue or site catalogue with sizes and GST-ready bills is the upgrade. Marketplaces stay for extra reach; repeats should land on your number.",
-    ],
-  },
-  restaurant: {
-    kicker: "Restaurants",
-    title: "QR menu and UPI — without",
-    accent: "a 20% aggregator cut.",
-    paragraphs: [
-      "Zomato and Swiggy are useful for discovery. Commission on every plate (often mid-teens to high twenties, plus ads) is expensive for guests who already know you. A restaurant website with menu, Google Maps embed, WhatsApp table or parcel chat, and QR-to-UPI on the table keeps regulars on your books.",
-      "Digital marketing for restaurants in India is Google for intent, WhatsApp for the regular, and the aggregator for overflow. If a large share of orders are repeats, moving even part of those off the platform is real margin. We do not tell you to delete Zomato. We stop you paying platform rent on people who would have come anyway.",
-    ],
-  },
-  healthcare: {
-    kicker: "Clinics & healthcare",
-    title: "Appointments, reminders and",
-    accent: "payments for Indian clinics.",
-    paragraphs: [
-      "Patients Google the doctor (“dentist near me”, “clinic in [area]”), check Maps, then WhatsApp the reception. No-shows drop when reminders go on WhatsApp. Collections improve when UPI links replace cash-only counters. Dedicated clinic software exists from a few hundred rupees a month — we are not an EMR. We are the public layer: clinic website, GBP, appointment capture, reminder copy, and named payments.",
-      "Do not buy ads into an unanswered phone. First: a page that proves the practice is real, a number that replies, and a receipt the accountant can file.",
-    ],
-  },
-  education: {
-    kicker: "Education",
-    title: "Admissions, fees and parent",
-    accent: "WhatsApp for institutes.",
-    paragraphs: [
-      "Tuition centres, schools and coaching brands lose admissions in the gap between Instagram and a missing website. Parents want batch timings, fees on UPI, receipts, and a number that answers. CBSE/ICSE/state-board copy should be plain, not startup English.",
-      "Webify Bharat sets institute sites, enquiry forms, fee links and WhatsApp updates in the language the desk already uses. That is how “tuition classes near me” becomes an owned enquiry instead of a Justdial pack.",
-    ],
-  },
-  "real-estate": {
-    kicker: "Real estate",
-    title: "Project pages and lead follow-up",
-    accent: "you actually own.",
-    paragraphs: [
-      "Portals sell the same lead to five brokers. An owned site for a project or local desk, with listing pages, WhatsApp capture and a follow-up list, keeps the buyer on your number. Photos, maps, site-visit CTAs — without locking you into a national portal’s auction.",
-      "RERA-sensitive copy stays factual. We do not invent inventory. We make sure the Google search for the project name hits you first, not only a listing site.",
-    ],
-  },
-  manufacturing: {
-    kicker: "Manufacturing MSME",
-    title: "Factory-direct presence vs",
-    accent: "IndiaMART lead packs.",
-    paragraphs: [
-      "IndiaMART works for some B2B discovery. Subscription plus competing quotes is rent. A manufacturer website with product specs, GST-ready enquiry, WhatsApp to the sales desk and a simple order status view lets repeat OEM and dealer buyers skip the portal.",
-      "Buyers still search HS codes, material and city. Dedicated product pages beat a single PDF. We build that factory-direct layer so the RFQ is yours.",
-    ],
-  },
-};
 
 export const aboutArticle: Article = {
   kicker: "About the studio",
@@ -113,25 +57,7 @@ export const aboutArticle: Article = {
 
 
 
-export const industriesIndexArticle: Article = {
-  kicker: "Industries we know",
-  title: "Retail, food, clinics, tuition,",
-  accent: "property and the factory floor.",
-  paragraphs: [
-    "Generic “digital transformation” decks fail because a restaurant’s leak is Zomato commission, a clinic’s leak is no-shows, and a factory’s leak is IndiaMART quote wars. Webify Bharat ships the same owned stack — site, WhatsApp, UPI, reporting — with copy and workflows that match the floor.",
-    "Pick your trade. Each industry page answers the search that owners actually type: restaurant website with QR menu, clinic appointment WhatsApp, tuition fee UPI, real-estate project page, manufacturer catalogue. Same partner, different bottleneck.",
-  ],
-};
 
-export const workArticle: Article = {
-  kicker: "Proof of work",
-  title: "Systems around shops, clinics",
-  accent: "and plants — not mock startups.",
-  paragraphs: [
-    "Case studies here are formatted around real Indian operations: retail catalogues, restaurant QR + WhatsApp, clinic reminders, reporting and compliance workflows. Named client logos go up only when publication is approved. Until then, the pattern is the product: enquiry you own, payment you can reconcile, a Monday number the owner believes.",
-    "If you are comparing agencies on Dribbble shots, look instead for UPI, GST and WhatsApp in the workflow. That is the work that ranks and converts in this market.",
-  ],
-};
 
 export const contactArticle: Article = {
   kicker: "How to brief us",

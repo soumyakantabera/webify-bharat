@@ -1,105 +1,111 @@
 import type { Metadata } from "next";
-import { asset } from "@/lib/asset";
-import { pageMetadata } from "@/lib/page-seo";
-export const metadata: Metadata = pageMetadata("work");
-
 import Layout from "@/components/Layout";
-import { SeoChunk } from "@/components/SeoChunk";
-import { ArticleBlock } from "@/components/ArticleBlock";
-import { workArticle } from "@/lib/seo-copy";
-import { PageLead } from "@/components/PageIcons";
-import { FaqSection } from "@/components/FaqSection";
-import { getFaq } from "@/lib/faqs";
-import { HeroShot } from "@/components/HeroShot";
-import { workItems } from "@/lib/site";
+import { Icon } from "@/components/Icon";
+import { Webu } from "@/components/Webu";
+import { WhatsAppCTA } from "@/components/WhatsAppCTA";
+import { PrototypeFilter } from "@/components/prototypes/PrototypeFilter";
+import { PrototypeTeaser } from "@/components/prototypes/PrototypeTeaser";
+import { MockScreen } from "@/components/svg/mocks";
+import { BlueprintGrid, FiveRoutes } from "@/components/svg/positioning";
+import { SectionHead } from "@/components/tiles";
+import { pageMetadata } from "@/lib/page-seo";
+import { publishedPrototypes } from "@/lib/prototypes";
+import { WA_MSG } from "@/lib/wa";
 
-export default function WorkPage() {
+export const metadata: Metadata = pageMetadata("prototypes");
+
+const GROUPS = [
+  { id: "sell", label: "Sell" },
+  { id: "book", label: "Book" },
+  { id: "teach", label: "Teach" },
+  { id: "make", label: "Make" },
+  { id: "export", label: "Export" },
+  { id: "manage", label: "Manage (CRM/ERP)" },
+  { id: "team", label: "Team" },
+];
+
+const WALKTHROUGH = [
+  { icon: "ChatCircleDots", title: "You message us", text: "Tell us what you sell and how your day runs." },
+  { icon: "SquaresFour", title: "We pick 1–3 prototypes", text: "The ones closest to your business." },
+  { icon: "DeviceMobile", title: "A short walkthrough", text: "Screen-share or a video, right on WhatsApp." },
+  { icon: "FileText", title: "A written scope", text: "What we'd change for you, and what it costs." },
+];
+
+export default function PrototypesPage() {
+  const groups = GROUPS.filter((g) => publishedPrototypes.some((p) => p.group === g.id));
+  const pinned = publishedPrototypes.slice(0, 4);
+
   return (
-    <Layout>
-      <section className="page-hero">
-        <div className="container wrap">
-          <div className="page-copy">
-          <PageLead icon="work" kicker="Work" />
-          <h1>
-            Systems designed around <span>real operations.</span>
-          </h1>
-          <p className="muted-copy">
-            Illustrative case-study formats until client work is approved for publication.
-          </p>
+    <Layout cta={{ title: "Ask for a walkthrough. We'll pick the ones closest to your business.", message: WA_MSG.prototypes, label: "Show me prototypes", webu: "curtain" }}>
+      <section className="proto-hero" id="hero" aria-labelledby="page-title">
+        <BlueprintGrid className="proto-hero-grid" notes={[]} />
+        <div className="container phv-grid">
+          <div className="phv-copy">
+            <p className="kicker">Prototype Room</p>
+            <h1 id="page-title">We've already built for businesses like yours.</h1>
+            <p className="hero-sub">
+              Eight working prototypes. Ask on WhatsApp and we'll walk you through the ones closest to your business — then rebuild it around you.
+            </p>
+            <div className="hero-actions">
+              <WhatsAppCTA message={WA_MSG.prototypes} context="hero" label="Show me prototypes" />
+            </div>
           </div>
-          <HeroShot kind="work" />
+          <div className="phv-visual proto-pinboard" aria-hidden="true">
+            {pinned.map((p, i) => (
+              <figure key={p.slug} className={`proto-pin proto-pin-${i + 1}`}>
+                <span className="washi washi-l" />
+                <MockScreen variant={p.image} />
+              </figure>
+            ))}
+            <Webu state="curtain" size={110} className="proto-webu" />
+          </div>
         </div>
       </section>
 
-      <SeoChunk pageKey="work" />
-      <section className="section">
+      <section className="section" id="prototypes" aria-labelledby="protos-title">
         <div className="container">
-          <div className="section-head">
-            <div>
-              <div className="eyebrow">
-                <span className="dot" /> Illustrative, not a client claim
-              </div>
-              <h2>
-                Same search. <span>Different owner.</span>
-              </h2>
-            </div>
+          <SectionHead kicker="Eight prototypes" id="protos-title" title="Pick what's closest to you." sub="Concept views only — the prototypes themselves are shown privately, on WhatsApp." />
+          <PrototypeFilter groups={groups} items={publishedPrototypes.map((p) => ({ slug: p.slug, group: p.group, node: <PrototypeTeaser proto={p} /> }))} />
+        </div>
+      </section>
+
+      <section className="section surface-2" id="why" aria-labelledby="why-title">
+        <div className="container two-col">
+          <div>
+            <SectionHead kicker="Why start from a prototype" id="why-title" title="Proven base → faster launch → lower setup cost." sub="Still rebuilt for your workflow and your brand. A prototype is one of five ways we can start your build." />
+          </div>
+          <FiveRoutes highlight="prototype" className="why-routes" />
+        </div>
+      </section>
+
+      <section className="section" id="walkthrough" aria-labelledby="walk-title">
+        <div className="container">
+          <SectionHead kicker="How a walkthrough works" id="walk-title" title="Four steps, all on WhatsApp." align="center" />
+          <ol className="walk-steps">
+            {WALKTHROUGH.map((s, i) => (
+              <li key={s.title}>
+                <span className="walk-num mono">{i + 1}</span>
+                <Icon name={s.icon} size={26} />
+                <strong>{s.title}</strong>
+                <span>{s.text}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="section surface-2" id="honesty" aria-labelledby="honest-title">
+        <div className="container narrow proto-honesty">
+          <Icon name="HandHeart" size={30} />
+          <h2 id="honest-title">Prototypes start the conversation. Your build is customised for your business.</h2>
+          <div className="proto-soon">
+            <Webu state="building" size={90} />
             <p>
-              A worked example, not a client. A published number waits until that business
-              approves it. Nothing on this page is a result.
+              <strong>Live client showcase — coming soon.</strong> We'll publish client work only with each client's permission.
             </p>
           </div>
-          <div className="control-grid">
-            <article className="control-card rent">
-              <img
-                src={asset("/images/real/ecommerce.webp")}
-                alt="Directory listing illustration in the Webify Bharat style"
-                width={800}
-                height={800}
-              />
-              <p className="control-kicker">Before</p>
-              <h3>The enquiry sits on a directory.</h3>
-              <ul>
-                <li>A lead pack or listing fee</li>
-                <li>The follow-up belongs to their login</li>
-                <li>You pay again when they already wanted you</li>
-              </ul>
-            </article>
-            <article className="control-card own">
-              <img
-                src={asset("/images/snapshots/cities.webp")}
-                alt="Owned website illustration in the Webify Bharat style"
-                width={800}
-                height={800}
-              />
-              <p className="control-kicker">After</p>
-              <h3>That search lands on your site.</h3>
-              <ul>
-                <li>Website, Maps and WhatsApp in your name</li>
-                <li>The chat stays on your number</li>
-                <li>No extra fee on that organic enquiry</li>
-              </ul>
-            </article>
-          </div>
         </div>
       </section>
-      <section className="section">
-        <div className="container industry-grid">
-          {workItems.map((item) => (
-            <article className="industry-card real-photo" key={item.title}>
-              <img src={asset(item.image)} alt="" />
-              <p className="staged-note">Staged. Not a customer.</p>
-              <div className="content">
-                <span className="badge">{item.industry}</span>
-                <h3 style={{ marginTop: 12 }}>{item.title}</h3>
-                <p>{item.summary}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-      <ArticleBlock article={workArticle} />
-
-      <FaqSection block={getFaq("work")} />
     </Layout>
   );
 }

@@ -16,6 +16,7 @@ export function Img({
   mask = "rounded",
   tone,
   crop,
+  zoom,
   className,
   width = 800,
   height = 600,
@@ -30,6 +31,8 @@ export function Img({
   tone?: Tone;
   /** Override the slot's crop (object-position). */
   crop?: string;
+  /** Override the slot's zoom (scale around the crop point). */
+  zoom?: number;
   className?: string;
   width?: number;
   height?: number;
@@ -61,7 +64,7 @@ export function Img({
         loading={priority ? "eager" : "lazy"}
         fetchPriority={priority ? "high" : undefined}
         decoding="async"
-        style={{ objectPosition: crop ?? img.crop }}
+        style={(zoom ?? img.zoom) ? { objectPosition: crop ?? img.crop, transform: `scale(${zoom ?? img.zoom})`, transformOrigin: crop ?? img.crop } : { objectPosition: crop ?? img.crop }}
       />
     </span>
   );

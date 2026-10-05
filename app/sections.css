@@ -120,13 +120,13 @@
   .home-hero { padding: 72px 0 88px; }
   .home-hero-grid { grid-template-columns: 1fr 1fr; gap: 56px; }
 }
-.home-hero h1, .page-hero-v2 h1 {
+.home-hero h1, .page-hero-v2 h1, .proto-hero h1 {
   margin: 0;
   font: 700 36px/1.05 var(--font-display);
   letter-spacing: -0.02em;
   color: var(--ink);
 }
-@media (min-width: 1024px) { .home-hero h1, .page-hero-v2 h1 { font-size: 56px; } }
+@media (min-width: 1024px) { .home-hero h1, .page-hero-v2 h1, .proto-hero h1 { font-size: 56px; } }
 .trust-chips { list-style: none; padding: 0; margin: 24px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .trust-chips li { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; background: #fff; border: 1px solid var(--line); font-size: 13px; font-weight: 700; }
 .trust-chips svg { color: var(--rani); }

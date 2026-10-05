@@ -1,7 +1,9 @@
 import { getBlock } from "./blocks";
 import { getStage } from "./offers";
 import { getReachService } from "./reach";
-import { getIndustry, getPost } from "./site";
+import { getIndustryPage } from "./industries";
+import { citiesIndexSeo, cityPageSeo } from "./page-seo-cities";
+import { getPost } from "./site";
 
 export type PageSeo = {
   title: string;
@@ -90,28 +92,20 @@ export const PAGE_SEO: Record<string, PageSeo> = {
     [],
   ),
   industries: page(
-    "Industries: retail, restaurants, clinics, education, property, manufacturing",
-    "Owned websites, WhatsApp and UPI for Indian retail, restaurants (vs Zomato cut), clinics, tuition, real estate and factory-direct manufacturers.",
+    "Industries: retail, restaurants, clinics, coaching, manufacturing, exporters, real estate",
+    "Every trade works differently, so every Webify Bharat build does too. Custom websites, stores, payments, WhatsApp systems and CRM/ERP for retail, restaurants, clinics, coaching, manufacturers, exporters and real estate.",
     "/industries",
-    ["restaurant website India", "clinic WhatsApp", "manufacturer website", "retail UPI"],
+    ["software for small business India", "custom website by industry", "restaurant ordering system", "clinic appointment booking", "dealer portal"],
     [{ name: "Industries", path: "/industries" }],
-    [
-      { term: "Retail", value: "Catalogue, WhatsApp order chat, UPI, not Justdial rent" },
-      { term: "Restaurants", value: "QR menu and UPI for regulars; aggregator optional" },
-      { term: "Clinics", value: "GBP, appointments, reminders, named payments" },
-      { term: "Factories", value: "Product pages vs IndiaMART quote wars" },
-    ],
+    [],
   ),
-  work: page(
-    "Work: digital systems for real Indian operations",
-    "Illustrative systems for retail, restaurants, clinics, reporting and compliance. Named case studies publish only with permission.",
+  prototypes: page(
+    "Prototype Room: we've already built for businesses like yours",
+    "Eight working prototypes — restaurant ordering, clinic booking, coaching admissions, retail, dealer portal, CRM/ERP, employee portal and exporter payments. Ask on WhatsApp for a walkthrough; your build is customised for your business.",
     "/prototypes",
-    ["Webify Bharat work", "MSME website case study India"],
-    [{ name: "Work", path: "/prototypes" }],
-    [
-      { term: "Proof", value: "Workflows around UPI, GST and WhatsApp — not Dribbble shots" },
-      { term: "Publish", value: "Named logos only when the client agrees" },
-    ],
+    ["software prototype small business", "restaurant ordering demo", "clinic booking demo", "CRM ERP demo India"],
+    [{ name: "Prototypes", path: "/prototypes" }],
+    [],
   ),
   systems: page(
     "Systems: the 11 building blocks, tailored for your business",
@@ -194,84 +188,13 @@ export const PAGE_SEO: Record<string, PageSeo> = {
   ),
 };
 
-const industrySeo: Record<
-  string,
-  { title: string; description: string; keywords: string[]; facts: PageSeo["facts"] }
-> = {
-  retail: {
-    title: "Retail websites, catalogue and UPI | Webify Bharat",
-    description:
-      "Kirana to brand retail: owned site, WhatsApp catalogue, UPI, Google Business Profile. Stop renting Justdial clicks.",
-    keywords: ["retail website India", "kirana UPI", "shop near me SEO"],
-    facts: [
-      { term: "Leak", value: "Personal QR and DMs" },
-      { term: "Fix", value: "Catalogue + WhatsApp + UPI you own" },
-    ],
-  },
-  restaurant: {
-    title: "Restaurant website, QR menu and UPI without aggregator tax",
-    description:
-      "Menu, Maps, WhatsApp parcel and table QR-to-UPI. Keep Zomato for strangers; keep regulars on your books.",
-    keywords: ["restaurant website India", "QR menu UPI", "Zomato commission alternative"],
-    facts: [
-      { term: "Aggregator", value: "Discovery" },
-      { term: "Owned QR", value: "Regulars without 15–30% cut" },
-    ],
-  },
-  healthcare: {
-    title: "Clinic website, WhatsApp appointments and UPI | India",
-    description:
-      "Patients Google, check Maps, then WhatsApp. We build the public layer — not an EMR.",
-    keywords: ["clinic website India", "WhatsApp appointment", "dentist near me"],
-    facts: [
-      { term: "Public layer", value: "Site, GBP, WhatsApp, UPI" },
-      { term: "Not", value: "Hospital EMR replacement" },
-    ],
-  },
-  education: {
-    title: "Institute website, admissions and fee UPI | Webify Bharat",
-    description:
-      "Tuition and school sites with enquiry forms, fee links and parent WhatsApp in the desk’s language.",
-    keywords: ["tuition website India", "school fee UPI", "coaching institute website"],
-    facts: [{ term: "Parents want", value: "Timings, UPI fees, a number that answers" }],
-  },
-  "real-estate": {
-    title: "Real estate project pages and WhatsApp capture you own",
-    description:
-      "Listing pages, maps and follow-up on your number — not a portal that sells the lead five times.",
-    keywords: ["real estate website India", "project landing page", "RERA listing site"],
-    facts: [
-      { term: "Portals", value: "Shared leads" },
-      { term: "Owned page", value: "Buyer on your WhatsApp" },
-    ],
-  },
-  manufacturing: {
-    title: "Manufacturer website vs IndiaMART lead packs",
-    description:
-      "Factory-direct product specs, GST-ready enquiry and dealer WhatsApp. Repeat OEM buyers skip the portal.",
-    keywords: ["manufacturer website India", "IndiaMART alternative", "B2B catalogue"],
-    facts: [
-      { term: "IndiaMART", value: "Discovery + quote wars" },
-      { term: "Factory-direct", value: "Spec pages you own" },
-    ],
-  },
-};
-
 const ANSWERS: Record<string, string> = {
   home: "Webify Bharat builds and runs your own business software — and markets your business — so every tool you use actually works for you.",
   services: "Webify Bharat services are the Indian MSME stack: website design, e-commerce on your domain, UPI payment gateway, WhatsApp Business API, analytics and GST-ready invoices. Start with the leak, then connect the next piece.",
-  industries: "We ship the same owned stack for retail, restaurants, clinics, tuition, real estate and manufacturing — each trade has a different leak (Justdial, Zomato, no-shows, IndiaMART) and a matching workflow.",
-  work: "Webify Bharat work is systems around UPI, WhatsApp and GST for real Indian operations. Named case studies publish only with client permission.",
   pricing: "Webify Bharat pricing starts at ₹9,999 (Launch), ₹19,999 (Growth) and ₹39,999 (Command), all inclusive of 18% GST. You pay to build the system, not per organic lead.",
   about: "Webify Bharat is an India-based digital operations studio for MSMEs. We are not a lead-selling directory and not a US SaaS wrapper. Stack choices settle in INR and leave the customer list on your login.",
   blog: "Webify Bharat insights answer live Indian search demand: website cost, Justdial vs own site, WhatsApp API, UPI vs personal QR, Google Business Profile, Razorpay vs Cashfree, Hindi websites, Bing Places.",
   contact: "Contact Webify Bharat with five lines: what you sell, city, what is breaking, and a link or photo. The first working conversation is free; WhatsApp is the door.",
-  "industry:retail": "For Indian retail, Webify Bharat connects catalogue, WhatsApp order chat, UPI and Google Business Profile so “shop near me” is not a Justdial rent.",
-  "industry:restaurant": "For restaurants, a menu site, Maps, WhatsApp and table QR-to-UPI keep regulars off 15–30% aggregator commission; Zomato stays optional discovery.",
-  "industry:healthcare": "For clinics, we build the public layer — website, Maps, WhatsApp appointments, UPI — not a hospital EMR.",
-  "industry:education": "For institutes, parents want timings, fee UPI and a number that answers. That is the site and WhatsApp we build.",
-  "industry:real-estate": "For real estate, owned project pages and WhatsApp capture beat portals that sell the same lead five times.",
-  "industry:manufacturing": "For manufacturers, spec pages and GST-ready enquiry let repeat OEM buyers skip IndiaMART quote wars.",
 };
 
 const POST_SEO: Record<string, { keywords: string[]; answer: string }> = {
@@ -398,21 +321,23 @@ export function getPageSeo(key: string): PageSeo {
   }
 
   if (key.startsWith("industry:")) {
-    const slug = key.slice(9);
-    const ind = getIndustry(slug);
-    const extra = industrySeo[slug];
-    return page(
-      extra?.title ?? ind?.title ?? "Industry",
-      extra?.description ?? ind?.description ?? "",
-      `/industries/${slug}`,
-      extra?.keywords ?? [],
-      [
-        { name: "Industries", path: "/industries" },
-        { name: ind?.title ?? slug, path: `/industries/${slug}` },
-      ],
-      extra?.facts ?? [],
-      ANSWERS[key] ?? "",
-    );
+    const ind = getIndustryPage(key.slice(9));
+    if (ind) {
+      return page(
+        ind.seoTitle,
+        ind.seoDescription,
+        `/industries/${ind.slug}`,
+        ind.keywords,
+        [{ name: "Industries", path: "/industries" }, { name: ind.name, path: `/industries/${ind.slug}` }],
+        [],
+      );
+    }
+  }
+
+  if (key === "cities") return citiesIndexSeo;
+  if (key.startsWith("city:")) {
+    const c = cityPageSeo(key.slice(5));
+    if (c) return c;
   }
 
   if (key.startsWith("blog:")) {

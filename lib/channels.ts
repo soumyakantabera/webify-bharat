@@ -90,6 +90,30 @@ export const channelSets: ChannelSet[] = [
     ownLabel: "Webify Ledger",
     own: ["An invoice created with every payment", "Payments matched automatically", "Due reminders before the scramble", "Clean exports for your CA"],
   },
+  {
+    slug: "b2b",
+    rentLabel: "A B2B lead portal",
+    keep: "Good for being found by buyers who don't know you yet.",
+    stages: [
+      { name: "Free listing", detail: "Your products sit alongside every other supplier in the category." },
+      { name: "Shared enquiries", detail: "The same enquiry often reaches several suppliers at once." },
+      { name: "Paid packages", detail: "Staying visible becomes a yearly subscription." },
+    ],
+    ownLabel: "Your own catalogue and dealer portal",
+    own: ["Repeat buyers and dealers order directly", "Spec pages buyers can share inside their company", "Each dealer's prices and history in one place", "Keep the portal for new buyers"],
+  },
+  {
+    slug: "export",
+    rentLabel: "A marketplace export programme",
+    keep: "Good for reaching buyers abroad without building everything at once.",
+    stages: [
+      { name: "Listing abroad", detail: "Your products appear in another country's marketplace." },
+      { name: "Their rules", detail: "Fees, policies and placement are set by the platform." },
+      { name: "Their customer", detail: "Buyers belong to the marketplace, not to you." },
+    ],
+    ownLabel: "Your own export site",
+    own: ["Buyers who want to deal direct can find you", "Card payments in their currency", "Wholesale enquiries come straight to you", "Keep the marketplace for retail reach"],
+  },
 ];
 
 export function getChannelSet(slug: string) {

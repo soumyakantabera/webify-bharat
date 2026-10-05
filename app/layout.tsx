@@ -5,7 +5,6 @@ import "./pricing-ui.css";
 import "./home-pricing.css";
 import "./blog-images.css";
 import "./about-brand.css";
-import "./city-cards.css";
 import "./perf-a11y.css";
 import "./button-anim.css";
 import "./site-motion.css";
@@ -22,6 +21,7 @@ import "./hero-overlay.css";
 import "./rangoli.css";
 import "./sections.css";
 import "./pillars.css";
+import "./places.css";
 import { Analytics } from "@vercel/analytics/next";
 import { jetbrains, manrope, sora } from "./fonts";
 

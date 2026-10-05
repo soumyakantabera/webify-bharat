@@ -1,63 +1,47 @@
 import type { Metadata } from "next";
-import { asset } from "@/lib/asset";
-import { pageMetadata } from "@/lib/page-seo";
-export const metadata: Metadata = pageMetadata("industries");
-
-import Link from "next/link";
 import Layout from "@/components/Layout";
-import { SeoChunk } from "@/components/SeoChunk";
-import { ArticleBlock } from "@/components/ArticleBlock";
-import { industriesIndexArticle } from "@/lib/seo-copy";
-import { PageLead } from "@/components/PageIcons";
-import { FaqSection } from "@/components/FaqSection";
-import { getFaq } from "@/lib/faqs";
-import { WhatsAppCta } from "@/components/icons";
-import { industries, WA_CHAT } from "@/lib/site";
+import { Icon } from "@/components/Icon";
+import { WhatsAppCTA } from "@/components/WhatsAppCTA";
+import { PhotoBento } from "@/components/collage";
+import { IndustryTile } from "@/components/industries";
+import { PageHero, SectionHead } from "@/components/tiles";
+import { industryPages } from "@/lib/industries";
+import { pageMetadata } from "@/lib/page-seo";
+import { WA_MSG } from "@/lib/wa";
+
+export const metadata: Metadata = pageMetadata("industries");
 
 export default function IndustriesPage() {
   return (
-    <Layout>
-      <section className="page-hero">
-        <div className="container wrap">
-          <div className="page-copy">
-            <PageLead icon="industries" kicker="Industries" />
-            <h1>
-              Built for <span>real businesses.</span>
-            </h1>
-            <p className="muted-copy">
-              Practical digital systems for retail, restaurants, healthcare, education,
-              real estate and manufacturing.
-            </p>
-            <WhatsAppCta href={WA_CHAT}>Talk to an expert</WhatsAppCta>
+    <Layout cta={{ title: "Tell us about your trade. We'll show you how we'd build for it.", message: WA_MSG.default, webu: "pointing" }}>
+      <PageHero
+        kicker="Industries"
+        title="Every trade works differently. So does every build."
+        sub="A kirana, a clinic and a dealer network each need different things. Pick yours to see a typical day, the usual headaches and how we'd build around them."
+        cta={<WhatsAppCTA message={WA_MSG.default} context="hero" label="Talk about my business" />}
+        visual={<PhotoBento cells={industryPages.map((i) => ({ slot: i.tileCrop ? i.photo2 : i.photo }))} />}
+      />
+
+      <section className="section surface-2" id="industries" aria-labelledby="ind-title">
+        <div className="container">
+          <SectionHead kicker="Pick your trade" id="ind-title" title="Seven trades we know well. Built fresh for each business." />
+          <div className="industry-grid-v2">
+            {industryPages.map((ind) => (
+              <IndustryTile key={ind.slug} ind={ind} />
+            ))}
+            <div className="industry-tile is-other">
+              <span className="industry-tile-body">
+                <span className="industry-tile-icon">
+                  <Icon name="Sparkle" size={22} />
+                </span>
+                <h3 className="industry-tile-name">Not listed? We build for any business.</h3>
+                <span className="industry-tile-line">Salons, gyms, travel, logistics, services — tell us how your day runs and we'll tailor from there.</span>
+                <WhatsAppCTA message={WA_MSG.default} context="industries-other" label="Tell us about yours" />
+              </span>
+            </div>
           </div>
-          <img
-            src={asset("/images/real/retail.webp")}
-            alt="Retail business using digital systems"
-          />
         </div>
       </section>
-
-      <SeoChunk pageKey="industries" />
-      <section className="section section-soft">
-        <div className="container industry-grid">
-          {industries.map((industry) => (
-            <Link
-              key={industry.slug}
-              href={`/industries/${industry.slug}`}
-              className="industry-card real-photo"
-            >
-              <img src={asset(`/images/real/${industry.photo}`)} alt={industry.title} />
-              <div className="content">
-                <h3>{industry.title}</h3>
-                <p>{industry.description}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-      <ArticleBlock article={industriesIndexArticle} />
-
-      <FaqSection block={getFaq("industries")} />
     </Layout>
   );
 }

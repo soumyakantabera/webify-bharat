@@ -1,0 +1,145 @@
+/* =====================================================================
+   Phase 4 — industries, cities, Prototype Room (content-plan §9.8–9.11)
+   ===================================================================== */
+
+.page-hero-v2.tone-indigo { --tone-c: var(--indigo); }
+.sticker-grid.is-three { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.center-cta { display: flex; justify-content: center; margin-top: 24px; }
+
+/* ---------- Industry hub tiles ---------- */
+.industry-grid-v2 { display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.industry-tile { position: relative; display: flex; flex-direction: column; border-radius: var(--radius-lg); overflow: hidden; background: #fff; border: 1px solid var(--line); color: var(--ink); text-decoration: none; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+a.industry-tile:hover { transform: translateY(-3px); box-shadow: var(--shadow-soft); }
+a.industry-tile:focus-visible { outline: 3px solid var(--haldi); outline-offset: 3px; }
+.industry-tile-photo { aspect-ratio: 16 / 10; width: 100%; }
+.industry-tile-photo img { width: 100%; height: 100%; object-fit: cover; }
+.industry-tile-band { height: 6px; background: var(--accent); }
+.industry-tile-body { display: flex; flex-direction: column; gap: 8px; padding: 18px 18px 20px; flex: 1; }
+.industry-tile-icon { width: 44px; height: 44px; margin-top: -40px; border-radius: 14px; display: grid; place-items: center; background: #fff; color: var(--accent); box-shadow: var(--shadow-soft); position: relative; }
+.industry-tile-name { margin: 0; font: 700 20px/1.2 var(--font-display); }
+.industry-tile-line { font-size: 14.5px; color: var(--ink-2); line-height: 1.45; }
+.industry-tile-stack { font-size: 13px; font-weight: 700; color: color-mix(in srgb, var(--accent) 70%, var(--ink)); }
+.industry-tile-more { margin-top: auto; padding-top: 6px; font-weight: 800; font-size: 14px; color: var(--rani-ink); }
+.industry-tile.is-other { --accent: var(--rani); border-style: dashed; background: var(--rani-tint); justify-content: center; }
+.industry-tile.is-other .industry-tile-icon { margin-top: 0; }
+.industry-tile.is-other .wa-cta { align-self: flex-start; margin-top: 8px; }
+
+/* ---------- Industry page ---------- */
+.ind-hero-art { position: relative; max-width: 460px; margin-inline: auto; padding-bottom: 30px; }
+.ind-hero-art .arch-windows { max-width: 340px; }
+.ind-polaroids { position: absolute; right: 0; bottom: 0; display: flex; gap: 10px; }
+.ind-polaroid { position: relative; margin: 0; width: 150px; padding: 8px 8px 22px; background: #fff; border-radius: 6px; box-shadow: var(--shadow-soft); transform: rotate(4deg); }
+.ind-polaroid-2 { transform: rotate(-5deg) translateY(-30px); }
+.ind-polaroid img { display: block; width: 100%; aspect-ratio: 6 / 5; object-fit: cover; border-radius: 3px; }
+@media (max-width: 520px) { .ind-polaroid { width: 112px; } .ind-polaroid-2 { display: none; } }
+
+#day { background: linear-gradient(135deg, var(--ink) 0%, color-mix(in srgb, var(--accent, var(--indigo)) 55%, var(--ink)) 100%); color: #fff; }
+#day .sec-head .kicker, #day .sec-sub { color: rgba(255, 255, 255, 0.86); }
+.day-slide { height: 100%; display: flex; flex-direction: column; gap: 14px; padding: 26px; border-radius: var(--radius-lg); background: #fff; color: var(--ink); border-top: 6px solid var(--accent); }
+.day-time { margin: 0; font-size: 30px; font-weight: 700; color: var(--accent); }
+.day-scene { margin: 0; font: 600 19px/1.45 var(--font-display); }
+.day-block { margin-top: auto; display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; padding: 8px 14px; border-radius: 999px; background: color-mix(in srgb, var(--accent) 14%, #fff); color: var(--ink); font-weight: 800; font-size: 14px; text-decoration: none; }
+.day-block:hover { background: color-mix(in srgb, var(--accent) 24%, #fff); }
+
+.pain-mark { display: block; padding: 18px 16px 0; font: 700 64px/0.8 var(--font-display); color: var(--accent, var(--rani)); }
+.industry-page .flip-card, .industry-page .flip-inner { min-height: 240px; }
+.industry-page .flip-front { background: color-mix(in srgb, var(--accent) 8%, #fff); }
+.industry-page .flip-front .flip-quote { font-size: 17px; font-style: normal; font-weight: 600; color: var(--ink); }
+
+.ind-stack { display: grid; gap: 28px; align-items: center; }
+@media (min-width: 900px) { .ind-stack { grid-template-columns: 1fr 1fr; } }
+.ind-stack-links { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.ind-stack-links a { display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; border-radius: 14px; background: #fff; border: 1px solid var(--line); color: var(--ink); text-decoration: none; font-size: 14.5px; line-height: 1.45; }
+.ind-stack-links a:hover { border-color: var(--accent, var(--indigo)); }
+.ind-stack-links svg { flex-shrink: 0; margin-top: 2px; color: var(--accent, var(--indigo)); }
+
+.ind-burst { background: color-mix(in srgb, var(--accent, var(--indigo)) 12%, var(--surface)); }
+.ro-logos { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: -6px 0 20px; font-size: 13.5px; font-weight: 700; color: var(--ink-2); }
+
+.local-tile { display: grid; gap: 28px; align-items: center; }
+@media (min-width: 900px) { .local-tile { grid-template-columns: 1fr 1fr; } }
+.local-art { position: relative; max-width: 460px; margin-inline: auto; width: 100%; }
+.local-map { width: 100%; height: auto; display: block; }
+.local-search { display: block; width: 72%; height: auto; margin: -60px 0 0 auto; position: relative; filter: drop-shadow(0 12px 24px rgba(27, 16, 48, 0.18)); }
+#food .local-search { width: 80%; margin: 0 auto; }
+
+.proto-row { display: grid; gap: 16px; }
+@media (min-width: 1000px) { .proto-row { grid-template-columns: repeat(auto-fit, minmax(0, 600px)); justify-content: center; } }
+.ind-stack .block-stack { padding-right: 14px; }
+
+/* ---------- Cities ---------- */
+.city-explorer { display: grid; gap: 28px; }
+@media (min-width: 1000px) { .city-explorer { grid-template-columns: minmax(300px, 0.85fr) 1.15fr; align-items: start; } .city-map-col { position: sticky; top: 96px; } }
+.city-map { max-width: 440px; margin-inline: auto; }
+.city-map .india-map { width: 100%; height: auto; display: block; }
+.india-map a.is-dim { opacity: 0.18; }
+.india-map a { transition: opacity 0.2s ease; }
+.city-preview { margin: 10px auto 0; max-width: 440px; min-height: 48px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 10px; justify-content: center; padding: 12px 16px; border-radius: 14px; background: #fff; border: 1px solid var(--line); font-size: 14.5px; color: var(--ink-2); }
+.city-preview strong { font: 700 17px var(--font-display); color: var(--ink); }
+.city-banner { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 3 / 1; margin-bottom: 12px; }
+.city-banner .wb-img, .city-banner img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.city-count { margin: 0 0 10px; font-size: 13.5px; font-weight: 700; color: var(--ink-2); }
+.city-grid { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+.city-grid.is-three { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.city-tile { display: flex; flex-direction: column; gap: 2px; height: 100%; padding: 14px 14px 12px; border-radius: 14px; background: #fff; border: 1px solid var(--line); color: var(--ink); text-decoration: none; transition: transform 0.2s ease, border-color 0.2s ease; }
+.city-tile:hover { transform: translateY(-2px); border-color: var(--indigo); }
+.city-tile:focus-visible { outline: 3px solid var(--haldi); outline-offset: 2px; }
+.city-greet { font: italic 700 14px var(--font-display); color: var(--rani-ink); }
+.city-name { font: 700 17px/1.2 var(--font-display); overflow-wrap: anywhere; hyphens: auto; }
+.city-state { font-size: 12.5px; color: var(--ink-2); line-height: 1.35; }
+.city-zone { margin-top: auto; padding-top: 6px; font-size: 11.5px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--indigo); }
+
+.page-hero-v2.tone-indigo .phv-copy > .kicker { font: italic 700 22px var(--font-display); letter-spacing: 0; text-transform: none; color: var(--rani-ink); }
+.greet-caption { margin: 14px 0 0; font-size: 13.5px; color: var(--ink-2); }
+.city-hero-art { position: relative; max-width: 420px; margin-inline: auto; padding-bottom: 20px; }
+.city-hero-art .arch-windows { max-width: 300px; margin-inline: auto; }
+.city-hero-skyline { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: auto; }
+.city-skyline .sky-sun { fill: #ffb400; opacity: 0.9; }
+.city-skyline .sky-back { fill: #b9b0e0; }
+.city-skyline .sky-front { fill: #2b1e6b; }
+.city-skyline .sky-windows { fill: #ffb400; }
+.city-skyline .sky-ground { fill: #2b1e6b; }
+
+/* ---------- Prototype Room ---------- */
+.proto-hero { position: relative; overflow: hidden; padding: 56px 0 72px; background: var(--indigo); color: #fff; }
+.proto-hero .kicker { color: var(--haldi); }
+.proto-hero h1 { color: #fff; }
+.proto-hero .hero-sub { color: rgba(255, 255, 255, 0.88); }
+.proto-hero-grid { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.35; pointer-events: none; }
+.proto-hero .container { position: relative; }
+@media (min-width: 900px) { .proto-hero { padding: 88px 0 100px; } }
+.proto-pinboard { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; max-width: 460px; margin-inline: auto; padding-bottom: 20px; }
+.proto-pin { position: relative; margin: 0; padding: 10px; background: #fff; border-radius: 8px; box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3); }
+.proto-pin-1 { transform: rotate(-4deg); }
+.proto-pin-2 { transform: rotate(3deg) translateY(18px); }
+.proto-pin-3 { transform: rotate(2deg); }
+.proto-pin-4 { transform: rotate(-3deg) translateY(18px); }
+.proto-pin svg { display: block; width: 100%; height: auto; max-height: 220px; }
+.proto-webu { position: absolute; left: 50%; bottom: -26px; transform: translateX(-50%); }
+
+.proto-masonry { display: grid; gap: 16px; animation: proto-in 0.35s ease; }
+@media (min-width: 1000px) { .proto-masonry { grid-template-columns: repeat(2, 1fr); } }
+@keyframes proto-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.proto-cell { min-width: 0; }
+
+.two-col { display: grid; gap: 28px; align-items: center; }
+@media (min-width: 900px) { .two-col { grid-template-columns: 1fr 1fr; } }
+.why-routes { width: 100%; height: auto; max-width: 520px; margin-inline: auto; display: block; }
+
+.walk-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); counter-reset: none; }
+.walk-steps li { position: relative; display: flex; flex-direction: column; gap: 6px; padding: 22px 18px 18px; border-radius: var(--radius); background: var(--indigo-tint); color: var(--ink); font-size: 14.5px; line-height: 1.45; }
+.walk-steps li svg { color: var(--indigo); }
+.walk-steps strong { font: 700 17px var(--font-display); }
+.walk-num { position: absolute; top: 14px; right: 16px; font-size: 22px; font-weight: 700; color: var(--indigo); opacity: 0.35; }
+
+.proto-honesty { text-align: center; display: grid; justify-items: center; gap: 14px; }
+.proto-honesty > svg { color: var(--rani); }
+.proto-honesty h2 { margin: 0; font: 700 clamp(22px, 3vw, 30px)/1.25 var(--font-display); }
+.proto-soon { display: flex; align-items: center; gap: 14px; text-align: left; padding: 14px 18px; border-radius: var(--radius); background: #fff; border: 1px dashed var(--line); max-width: 560px; }
+.proto-soon p { margin: 0; font-size: 14.5px; color: var(--ink-2); }
+.proto-soon strong { color: var(--ink); }
+
+@media (prefers-reduced-motion: reduce) {
+  .industry-tile, .city-tile, .india-map a, .proto-masonry { transition: none !important; animation: none !important; }
+}
+.center-cta .wa-cta { max-width: 100%; white-space: normal; text-align: center; }

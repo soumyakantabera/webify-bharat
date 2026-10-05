@@ -1,104 +1,59 @@
 import type { Metadata } from "next";
-import { asset } from "@/lib/asset";
 import Layout from "@/components/Layout";
-import { SeoChunk } from "@/components/SeoChunk";
-import { PageLead } from "@/components/PageIcons";
-import { WhatsAppCta } from "@/components/icons";
-import { cities } from "@/lib/cities";
-import { CityBrowser } from "@/components/CityBrowser";
-import { HeroShot } from "@/components/HeroShot";
-import { WA_CHAT } from "@/lib/site";
-import { citiesIndexSeo } from "@/lib/page-seo-cities";
+import { WhatsAppCTA } from "@/components/WhatsAppCTA";
+import { ArchWindows, Img } from "@/components/collage";
+import { CityExplorer } from "@/components/cities/CityExplorer";
+import { CityTile } from "@/components/cities/CityTile";
+import { IndiaDotMap } from "@/components/svg/IndiaDotMap";
+import { PageHero, SectionHead, StickerCard } from "@/components/tiles";
+import { cities, cityGreeting, CITY_ZONES } from "@/lib/cities";
+import { pageMetadata } from "@/lib/page-seo";
+import { WA_MSG } from "@/lib/wa";
 
-export const metadata: Metadata = {
-  title: citiesIndexSeo.title,
-  description: citiesIndexSeo.description,
-  keywords: citiesIndexSeo.keywords,
-  alternates: { canonical: `https://webify-bharat.vercel.app${citiesIndexSeo.path}` },
-  openGraph: {
-    title: citiesIndexSeo.title,
-    description: citiesIndexSeo.description,
-    url: `https://webify-bharat.vercel.app${citiesIndexSeo.path}`,
-    locale: "en_IN",
-    type: "website",
-    siteName: "Webify Bharat",
-  },
-};
+export const metadata: Metadata = pageMetadata("cities");
 
 export default function CitiesPage() {
+  const banners: Record<string, React.ReactNode> = {
+    all: <Img slot="IMG-C03" mask="rounded" width={900} height={300} />,
+    ...Object.fromEntries(CITY_ZONES.map((z) => [z.id, <Img key={z.id} slot={z.banner} mask="rounded" width={900} height={300} />])),
+  };
+
   return (
-    <Layout>
-      <section className="page-hero">
-        <div className="container wrap">
-          <div className="page-copy">
-          <PageLead icon="industries" kicker="Cities across India" />
-          <h1>
-            Digital systems for every <span>state capital.</span>
-          </h1>
-          <p className="muted-copy">
-            Websites, WhatsApp and UPI for MSMEs in India’s capitals — so Amazon,
-            Flipkart, food apps and directories stay optional channels, not the only
-            customer relationship. Pick your city.
-          </p>
-          <WhatsAppCta href={WA_CHAT}>Talk about your city business</WhatsAppCta>
-          </div>
-          <HeroShot kind="cities" />
-        </div>
-      </section>
+    <Layout cta={{ title: "Wherever you are, we're one WhatsApp away.", message: WA_MSG.default, webu: "scooter" }}>
+      <PageHero
+        kicker="Cities"
+        title="From Leh to Port Blair — we build for your business, wherever you are."
+        sub="We work fully remote over WhatsApp — wherever you are. Same team, same process, same prices in every city."
+        cta={<WhatsAppCTA message={WA_MSG.default} context="hero" label="Talk about my business" />}
+        visual={<ArchWindows slots={["IMG-C01", "IMG-C02", "IMG-C05"]} tone="indigo" priority />}
+        tone="indigo"
+      />
 
-      <SeoChunk pageKey="cities" />
-
-      <section className="section">
+      <section className="section surface-2" id="find-city" aria-labelledby="find-title">
         <div className="container">
-          <div className="section-head">
-            <div>
-              <div className="eyebrow">
-                <span className="dot" /> Why city pages
-              </div>
-              <h2>
-                Local search is how India <span>buys.</span>
-              </h2>
-            </div>
-            <p>
-              “Website design in Jaipur”, “cloud kitchen Hyderabad”, “clinic WhatsApp
-              Patna” — owners search by city. These pages answer that intent with owned
-              digital systems, not marketplace rent.
-            </p>
-          </div>
-
-          <CityBrowser
-            cities={cities.map((city) => ({
-              slug: city.slug,
-              name: city.name,
-              state: city.state,
-              region: city.region,
-              photo: city.photo,
-              headline: city.headline,
-            }))}
+          <SectionHead kicker={`${cities.length} cities`} id="find-title" title="Find your city." sub="Pick a region, or hover the map." />
+          <CityExplorer
+            zones={CITY_ZONES.map((z) => ({ id: z.id, label: z.label }))}
+            banners={banners}
+            map={<IndiaDotMap />}
+            items={cities.map((c) => ({ slug: c.slug, zone: c.zone, name: c.name, state: c.state, greeting: cityGreeting(c), node: <CityTile city={c} /> }))}
           />
         </div>
       </section>
 
-      <section className="section section-soft">
+      <section className="section" id="remote" aria-labelledby="remote-title">
         <div className="container">
-          <div className="cta-band">
-            <div>
-              <h2>Your city is not on a marketplace’s payroll.</h2>
-              <p>
-                Build a site and WhatsApp system you own. Organic enquiries stay at ₹0
-                extra per lead.
-              </p>
-              <WhatsAppCta href={WA_CHAT}>Chat on WhatsApp</WhatsAppCta>
-            </div>
-            <div className="cta-photo">
-              <img
-                src={asset("/images/real/growth-success.webp")}
-                alt="Indian business owner growing with owned digital channels"
-                width={640}
-                height={400}
-                loading="lazy"
-              />
-            </div>
+          <SectionHead kicker="How remote works" id="remote-title" title="No office visit needed. Ever." align="center" />
+          <div className="sticker-grid is-three">
+            <StickerCard icon="ChatCircleDots" title="WhatsApp first" tone="mehendi">
+              Questions, updates and approvals happen in one chat with the team building your system.
+            </StickerCard>
+            <StickerCard icon="DeviceMobile" title="Screen-share walkthroughs" tone="peacock">
+              We show progress on a short call or video — you don't need a laptop to follow along.
+            </StickerCard>
+            <StickerCard icon="Key" title="Everything in your name" tone="haldi">
+              Domain, accounts and data are yours, wherever you're based.
+            </StickerCard>
           </div>
         </div>
       </section>
