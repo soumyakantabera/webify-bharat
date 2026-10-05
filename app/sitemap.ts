@@ -10,6 +10,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const base = process.env.NEXT_PUBLIC_SITE_URL || "https://webify-bharat.vercel.app";
   const paths = [
     "",
+    "/what-we-do",
+    "/solutions/launch",
+    "/solutions/organise",
+    "/solutions/grow",
+    "/how-we-work",
     "/systems",
     "/industries",
     "/cities",

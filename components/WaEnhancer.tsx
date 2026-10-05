@@ -62,6 +62,7 @@ export function WaEnhancer({ qrSvg, href }: { qrSvg: string; href: string }) {
         a.closest("section[id]")?.id ||
         (a.closest("header") ? "header" : a.closest("footer") ? "footer" : "page");
       track("wa_click", { page: window.location.pathname, section, path: a.dataset.waPath || pathFromUrl(window.location.pathname) });
+      if (section.startsWith("prototype-")) track("prototype_request", { slug: section.slice("prototype-".length) });
       if (a.classList.contains("wa-cta--primary") || a.classList.contains("wa-cta--dock")) {
         gulalBurst(e.clientX || a.getBoundingClientRect().left + 20, e.clientY || a.getBoundingClientRect().top + 10);
         setToast(true);

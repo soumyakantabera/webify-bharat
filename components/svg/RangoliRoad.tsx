@@ -1,16 +1,17 @@
 import { Webu } from "@/components/Webu";
+import { Img } from "@/components/collage";
 
-export type RoadStop = { label: string; detail?: string; colour: string };
+export type RoadStop = { label: string; detail?: string; colour: string; photo?: string };
 
 /** The sales journey stops (content-plan §3). */
 export const SALES_JOURNEY: RoadStop[] = [
-  { label: "WhatsApp hello", detail: "You message us. A real person replies.", colour: "#25D366" },
+  { label: "WhatsApp hello", detail: "You message us. A real person replies.", colour: "#25D366", photo: "IMG-R01" },
   { label: "Chai-pe-charcha", detail: "A free discovery chat.", colour: "#E6007E" },
-  { label: "Prototype walkthrough", detail: "Shown privately, close to your business.", colour: "#2B1E6B" },
-  { label: "We map your workflow", detail: "A one-page map of how you work.", colour: "#FFB400" },
+  { label: "Prototype walkthrough", detail: "Shown privately, close to your business.", colour: "#2B1E6B", photo: "IMG-R03" },
+  { label: "We map your workflow", detail: "A one-page map of how you work.", colour: "#FFB400", photo: "IMG-B09" },
   { label: "Written scope + price", detail: "On WhatsApp, before you pay anything.", colour: "#FF6B00" },
-  { label: "Design → Build → Revise", detail: "Preview links as we go.", colour: "#00A6A6" },
-  { label: "Launch, then care & grow", detail: "Your monthly plan keeps it running.", colour: "#4F8A10" },
+  { label: "Design → Build → Revise", detail: "Preview links as we go.", colour: "#00A6A6", photo: "IMG-R04" },
+  { label: "Launch, then care & grow", detail: "Your monthly plan keeps it running.", colour: "#4F8A10", photo: "IMG-R05" },
 ];
 
 /**
@@ -64,6 +65,7 @@ export function RangoliRoad({
             style={{ ["--stop" as string]: s.colour, ["--top" as string]: `${(pts[i].y / h) * 100}%` }}
           >
             <span className="rr-num" aria-hidden="true">{i + 1}</span>
+            {s.photo ? <Img slot={s.photo} mask="circle" className="rr-thumb" width={96} height={96} decorative /> : null}
             <strong>{s.label}</strong>
             {s.detail ? <span>{s.detail}</span> : null}
           </li>

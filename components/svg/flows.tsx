@@ -120,7 +120,7 @@ export function ConnectHub({ tools = ["Tally", "Zoho", "Google Sheets", "Shiproc
 /** LaunchRocket (#11): rocket rising past launch milestones. */
 export function LaunchRocket({ milestones = ["Registered", "Brand ready", "Site live", "Payments live", "Launch day"], className }: { milestones?: string[]; className?: string }) {
   return (
-    <svg viewBox="0 0 360 320" className={cls("svg-launchrocket", className)} role="img" aria-label={`A rocket rising past: ${milestones.join(", ")}`}>
+    <svg viewBox="-40 0 400 320" className={cls("svg-launchrocket", className)} role="img" aria-label={`A rocket rising past: ${milestones.join(", ")}`}>
       <path d="M90 300 V30" stroke={C.line} strokeWidth="4" strokeLinecap="round" />
       {milestones.map((m, i) => {
         const y = 280 - i * 60;

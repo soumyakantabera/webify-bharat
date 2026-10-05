@@ -34,24 +34,57 @@ function page(
 
 export const PAGE_SEO: Record<string, PageSeo> = {
   home: page(
-    "Website, WhatsApp & UPI for Indian MSMEs | Own your customers",
-    "Webify Bharat builds websites, WhatsApp Business, UPI gateways and analytics for Indian MSMEs. ₹0 per organic lead. No Justdial pack or Zomato tax on people who already want you.",
+    "Webify Bharat | Custom software & marketing for Indian MSMEs",
+    "Webify Bharat builds and runs your own business software — and markets your business — so every tool you use actually works for you. Websites, payments, WhatsApp, CRM/ERP, SEO and AI visibility, made for your business.",
     "/",
-    [
-      "Webify Bharat",
-      "website design for small business India",
-      "WhatsApp Business API",
-      "UPI payment gateway",
-      "Justdial alternative",
-      "MSME digital",
-    ],
+    ["Webify Bharat", "custom software for small business India", "MSME CRM ERP", "WhatsApp Business API", "website design India", "AI visibility"],
     [],
     [
-      { term: "What it is", value: "Digital operations partner for Indian MSMEs" },
-      { term: "You own", value: "Domain, WhatsApp number, customer list" },
-      { term: "Organic leads", value: "₹0 extra per Google, Maps or WhatsApp enquiry" },
-      { term: "Not this", value: "Justdial packs, IndiaMART rent, aggregator commission" },
+      { term: "What it is", value: "Custom software and marketing for Indian MSMEs, built and run for you" },
+      { term: "You own", value: "Domain, brand, content, data and accounts" },
+      { term: "Pricing", value: "Setup from ₹5,000, plans from ₹3,000/month, no lock-in" },
+      { term: "Contact", value: "WhatsApp — replies within a few hours, 7 days a week" },
     ],
+  ),
+  "what-we-do": page(
+    "What we do: strategy, systems, marketing and care",
+    "Four things Webify Bharat does for your business: paid strategy (Compass), your own software (11 blocks), marketing on Google, maps, ads and AI (Reach), and care built into every plan.",
+    "/what-we-do",
+    ["what Webify Bharat does", "custom software MSME", "digital strategy India", "SEO and AI visibility"],
+    [{ name: "What we do", path: "/what-we-do" }],
+    [],
+  ),
+  organise: page(
+    "Organise: one custom system for a running business",
+    "Your business already works. We map how you sell, collect and follow up — then build one custom system around it, connected to the tools you already use.",
+    "/solutions/organise",
+    ["custom system for small business", "replace Excel and WhatsApp chaos", "MSME CRM India"],
+    [{ name: "Solutions", path: "/solutions/organise" }, { name: "Organise", path: "/solutions/organise" }],
+    [],
+  ),
+  launch: page(
+    "Launch: set up a new business from scratch",
+    "Registrations, brand, website, payments, WhatsApp and books — a new business set up and ready on launch day, with our fee and government fees shown separately.",
+    "/solutions/launch",
+    ["start a business India", "GST Udyam registration help", "new business website and payments"],
+    [{ name: "Solutions", path: "/solutions/launch" }, { name: "Launch", path: "/solutions/launch" }],
+    [],
+  ),
+  grow: page(
+    "Grow: more customers, and keep more of what they pay",
+    "Direct ordering, dealer portals, international payments, automation, dashboards and marketing on Google, maps, ads and AI — for businesses already selling.",
+    "/solutions/grow",
+    ["grow small business online India", "direct ordering restaurant", "dealer portal", "international payments Stripe India"],
+    [{ name: "Solutions", path: "/solutions/grow" }, { name: "Grow", path: "/solutions/grow" }],
+    [],
+  ),
+  "how-we-work": page(
+    "How we work: no templates, a process that starts with you",
+    "From one WhatsApp message to a live system: free discovery chat, private prototype walkthrough, written scope and price, design, build, launch and monthly care.",
+    "/how-we-work",
+    ["how Webify Bharat works", "custom website process", "software project process India"],
+    [{ name: "How we work", path: "/how-we-work" }],
+    [],
   ),
   services: page(
     "Services: website, WhatsApp, UPI, analytics for MSMEs",
@@ -267,7 +300,7 @@ const industrySeo: Record<
 };
 
 const ANSWERS: Record<string, string> = {
-  home: "Webify Bharat builds the website, WhatsApp, and UPI checkout an Indian business owns. Card prices include 18% GST. An organic enquiry after that has no per-lead fee. It does not replace a directory for category search.",
+  home: "Webify Bharat builds and runs your own business software — and markets your business — so every tool you use actually works for you.",
   services: "Webify Bharat services are the Indian MSME stack: website design, e-commerce on your domain, UPI payment gateway, WhatsApp Business API, analytics and GST-ready invoices. Start with the leak, then connect the next piece.",
   industries: "We ship the same owned stack for retail, restaurants, clinics, tuition, real estate and manufacturing — each trade has a different leak (Justdial, Zomato, no-shows, IndiaMART) and a matching workflow.",
   work: "Webify Bharat work is systems around UPI, WhatsApp and GST for real Indian operations. Named case studies publish only with client permission.",

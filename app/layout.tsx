@@ -21,6 +21,7 @@ import "./service-grid.css";
 import "./hero-shot.css";
 import "./hero-overlay.css";
 import "./rangoli.css";
+import "./sections.css";
 import { Analytics } from "@vercel/analytics/next";
 import { jetbrains, manrope, sora } from "./fonts";
 

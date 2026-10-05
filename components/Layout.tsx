@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import QRCode from "qrcode";
-import Footer from "./Footer";
+import Footer, { type CtaBand } from "./Footer";
 import Header from "./Header";
 import Motion from "./Motion";
 import { OrgJsonLd } from "./JsonLd";
@@ -20,7 +20,7 @@ async function waQr() {
   return qrCache;
 }
 
-export default async function Layout({ children }: { children: ReactNode }) {
+export default async function Layout({ children, cta }: { children: ReactNode; cta?: CtaBand }) {
   const qrSvg = await waQr();
   return (
     <>
@@ -31,7 +31,7 @@ export default async function Layout({ children }: { children: ReactNode }) {
       <Motion />
       <Header />
       <main id="main-content">{children}</main>
-      <Footer />
+      <Footer cta={cta} />
       <WaEnhancer qrSvg={qrSvg} href={WA_DEFAULT} />
     </>
   );

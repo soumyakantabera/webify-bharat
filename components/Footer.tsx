@@ -7,9 +7,29 @@ import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 import { logosIn, TRADEMARK_DISCLAIMER } from "@/lib/logos";
 import { FOOTER_COLUMNS } from "@/lib/nav";
 import { BUSINESS, filled, SITE } from "@/lib/site";
+import { WA_MSG } from "@/lib/wa";
+import type { WebuState } from "@/components/Webu";
+
+/** A page's closing CTA band. Replaces the default pre-footer copy so pages never stack two bands. */
+export type CtaBand = {
+  title: string;
+  accent?: { phrase: string; meaning: string };
+  message?: string;
+  label?: string;
+  webu?: WebuState;
+  path?: string;
+};
+
+const DEFAULT_BAND: CtaBand = {
+  title: "Every business is different. Yours deserves a system built for it.",
+  accent: { phrase: "Har business alag hai.", meaning: "every business is different." },
+  message: WA_MSG.default,
+  webu: "waving",
+};
 
 /** Global footer (content-plan §8): pre-footer CTA band, link columns, strips. */
-export default function Footer() {
+export default function Footer({ cta }: { cta?: CtaBand }) {
+  const band = { ...DEFAULT_BAND, ...cta };
   const details = [
     { label: "Legal name", value: BUSINESS.legalName },
     { label: "Constitution", value: BUSINESS.constitution },
@@ -27,12 +47,16 @@ export default function Footer() {
         </svg>
         <BazaarStrip className="cta-band-bazaar" decorative />
         <div className="container cta-band-inner">
-          <Webu state="waving" size={112} className="cta-band-webu" />
+          <Webu state={band.webu ?? "waving"} size={112} className="cta-band-webu" />
           <div className="cta-band-copy">
-            <h2 id="cta-band-title">Every business is different. Yours deserves a system built for it.</h2>
-            <p className="hinglish">Har business alag hai. <span>— every business is different.</span></p>
+            <h2 id="cta-band-title">{band.title}</h2>
+            {band.accent ? (
+              <p className="hinglish">
+                {band.accent.phrase} <span>— {band.accent.meaning}</span>
+              </p>
+            ) : null}
             <div className="cta-band-actions">
-              <WhatsAppCTA context="pre-footer" />
+              <WhatsAppCTA context="pre-footer" message={band.message} label={band.label} path={band.path} />
               <span className="cta-band-promise">{SITE.replyPromise}</span>
             </div>
           </div>

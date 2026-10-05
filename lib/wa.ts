@@ -18,6 +18,7 @@ export const WA_MSG = {
   seo: "Hi! I want my business to show up on Google.",
   ads: "Hi! I want to run Google / Meta ads that bring enquiries.",
   aiVisibility: "Hi! Can you check how my business appears in ChatGPT and other AI assistants?",
+  featured: "Hi! I'd like my business to be one of your first client stories.",
   notFound: "Hi! I was looking for something on your site and couldn't find it.",
 } as const;
 

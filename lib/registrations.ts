@@ -6,6 +6,8 @@ export type Registration = {
   portal: string;
   portalUrl: string;
   ourFee: string;
+  /** Our fee for clients on a monthly plan (content-plan §10.3). */
+  planFee?: string;
   govFee: string;
   govNote: string;
   forWhom: string;
@@ -23,7 +25,8 @@ export const registrations: Registration[] = [
     name: "GST registration",
     portal: "gst.gov.in",
     portalUrl: "https://www.gst.gov.in",
-    ourFee: "₹4,999",
+    ourFee: "₹5,000",
+    planFee: "₹3,000",
     govFee: "₹0",
     govNote: "The portal does not charge to apply. Our invoice is the only fee.",
     forWhom: "A business that must charge GST, or wants a GSTIN before the first taxable invoice.",
@@ -39,7 +42,8 @@ export const registrations: Registration[] = [
     name: "Udyam registration",
     portal: "udyamregistration.gov.in",
     portalUrl: "https://udyamregistration.gov.in",
-    ourFee: "₹2,499",
+    ourFee: "₹2,500",
+    planFee: "₹1,500",
     govFee: "₹0",
     govNote: "Udyam is free on the government portal. Anyone charging a “government fee” for it is adding one.",
     forWhom: "The MSME record for a proprietorship, partnership, or company that already has Aadhaar and PAN.",
@@ -55,7 +59,8 @@ export const registrations: Registration[] = [
     name: "IEC (import export code)",
     portal: "dgft.gov.in",
     portalUrl: "https://www.dgft.gov.in",
-    ourFee: "₹4,999",
+    ourFee: "₹5,000",
+    planFee: "₹3,500",
     govFee: "₹500",
     govNote: "₹500 is paid on the DGFT portal. The receipt is in your name. We do not fold it into our fee. An April–June update on the same details is ₹0 at DGFT.",
     forWhom: "A business that imports or exports goods. IEC follows your PAN. It is not your GSTIN.",
@@ -71,7 +76,7 @@ export const registrations: Registration[] = [
     name: "UK VAT registration",
     portal: "gov.uk",
     portalUrl: "https://www.gov.uk/register-for-vat",
-    ourFee: "₹29,999",
+    ourFee: "Quoted",
     govFee: "£0",
     govNote: "HMRC does not charge to apply. If they require a UK fiscal representative, that firm’s fee is quoted before you pay and is not inside ₹29,999.",
     forWhom: "Your own website selling goods of £135 or less to a UK consumer. Marketplace-only sales are often the marketplace’s VAT, not yours.",
@@ -87,7 +92,7 @@ export const registrations: Registration[] = [
     name: "EU IOSS coordination",
     portal: "EU Import One-Stop Shop",
     portalUrl: "https://vat-one-stop-shop.ec.europa.eu/one-stop-shop_en",
-    ourFee: "₹24,999",
+    ourFee: "Quoted",
     govFee: "Quoted",
     govNote: "A seller outside the EU cannot hold an IOSS number alone. An EU intermediary files it. Their fee is a separate invoice, shown before you pay. ₹24,999 is our coordination, not their fee.",
     forWhom: "Your own website, goods outside the EU at the sale, a consignment of €150 or less, sold to an EU consumer.",
@@ -111,7 +116,6 @@ export function getRegistration(slug: string) {
 }
 
 export function registrationChat(item: Registration) {
-  return waLink(
-    `Hi, I want help with ${item.name}. Our fee ${item.ourFee} incl. GST, government fee ${item.govFee} separate.`,
-  );
+  // §4.2 "Start my [filing]" message.
+  return waLink(`Hi! I want help with ${item.short} registration.`);
 }

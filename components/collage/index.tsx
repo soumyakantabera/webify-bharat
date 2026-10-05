@@ -103,11 +103,11 @@ export function PolaroidCluster({ items }: { items: { slot: string; caption: str
 
 export type BentoCell = { slot: string; alt?: string } | { icon: ReactNode; label: string; tone: Tone };
 
-/** D — 1 large (2×2) + 4–6 small cells mixing photos and colour tiles. */
+/** D — 1 large (2×2) + up to 8 small cells mixing photos and colour tiles. */
 export function PhotoBento({ cells }: { cells: BentoCell[] }) {
   return (
     <div className="photo-bento">
-      {cells.slice(0, 7).map((cell, i) =>
+      {cells.slice(0, 9).map((cell, i) =>
         "slot" in cell ? (
           <Img key={cell.slot + i} slot={cell.slot} alt={cell.alt} mask="rounded" className={`pb-cell${i === 0 ? " pb-large" : ""}`} width={i === 0 ? 900 : 480} height={i === 0 ? 900 : 480} />
         ) : (
