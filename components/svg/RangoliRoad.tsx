@@ -1,3 +1,4 @@
+import { withArrows } from "@/components/Glyph";
 import { Webu } from "@/components/Webu";
 import { Img } from "@/components/collage";
 
@@ -66,7 +67,7 @@ export function RangoliRoad({
           >
             <span className="rr-num" aria-hidden="true">{i + 1}</span>
             {s.photo ? <Img slot={s.photo} mask="circle" className="rr-thumb" width={96} height={96} decorative /> : null}
-            <strong>{s.label}</strong>
+            <strong>{withArrows(s.label)}</strong>
             {s.detail ? <span>{s.detail}</span> : null}
           </li>
         ))}

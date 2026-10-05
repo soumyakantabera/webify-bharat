@@ -1,6 +1,8 @@
 # Builds the static export (out/) and publishes it to GitHub Pages.
 # One-time repo setting: Settings → Pages → Source = "GitHub Actions".
-# (With "Deploy from a branch", GitHub publishes the raw repo and shows README.md.)
+# (With "Deploy from a branch", GitHub also runs its own "pages build and
+# deployment" on every push, which publishes the raw repo and shows README.md.
+# The guard step below cancels that build so this one always deploys last.)
 name: Deploy to GitHub Pages
 
 on:
@@ -9,6 +11,7 @@ on:
   workflow_dispatch:
 
 permissions:
+  actions: write
   contents: read
   pages: write
   id-token: write
@@ -31,8 +34,22 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+        env:
+          # Served from https://<owner>.github.io/<repo>/, whatever the repo is called.
+          PAGES_BASE_PATH: /${{ github.event.repository.name }}
+          NEXT_PUBLIC_SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out
+      - name: Cancel GitHub's branch-based Pages build
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ids=$(gh api "repos/${{ github.repository }}/actions/runs?per_page=30" \
+            --jq '.workflow_runs[] | select(.name == "pages build and deployment" and .status != "completed") | .id')
+          for id in $ids; do
+            echo "Cancelling branch-based Pages build $id"
+            gh api -X POST "repos/${{ github.repository }}/actions/runs/$id/cancel" || true
+          done
       - id: deployment
         uses: actions/deploy-pages@v4

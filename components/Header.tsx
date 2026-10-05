@@ -89,13 +89,13 @@ function WhoPanel() {
         <div className="mega-col">
           <span className="mega-col-title">By industry</span>
           <LinkList links={WHO_FOR.trades} />
-          <Link href={WHO_FOR.anyOther.href} className="mega-more">{WHO_FOR.anyOther.label}</Link>
+          <Link href={WHO_FOR.anyOther.href} className="mega-more">{WHO_FOR.anyOther.label} <Arw /></Link>
         </div>
         <div className="mega-col">
           <span className="mega-col-title">Anywhere in India</span>
           <p className="mega-oneline">Fully remote over WhatsApp.</p>
           <LinkList links={WHO_FOR.cities} className="mm-chips" />
-          <Link href={WHO_FOR.allCities.href} className="mega-more">{WHO_FOR.allCities.label}</Link>
+          <Link href={WHO_FOR.allCities.href} className="mega-more">{WHO_FOR.allCities.label} <Arw /></Link>
           <IndiaDotMap compact linkDots={false} className="mega-map" />
         </div>
       </div>

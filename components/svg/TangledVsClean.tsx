@@ -42,8 +42,8 @@ export function TangledVsClean({ className }: { className?: string }) {
       <g>
         <rect x={380} y={48} width={220} height={210} rx={22} fill="#fff" stroke="#E7E2DA" strokeWidth={2} />
         {[
-          { y: 66, label: "Your website & orders", fill: "#E6007E" },
-          { y: 112, label: "Payments → your bank", fill: "#00A6A6" },
+          { y: 66, label: "Website & orders", fill: "#E6007E" },
+          { y: 112, label: "Payments to your bank", fill: "#00A6A6" },
           { y: 158, label: "WhatsApp on your number", fill: "#4F8A10" },
           { y: 204, label: "One dashboard", fill: "#2B1E6B" },
         ].map((row) => (

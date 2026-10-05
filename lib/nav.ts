@@ -63,9 +63,9 @@ export const WORKS_WITH_STRIP = { text: "Works with Zoho · Odoo · Tally · Goo
 export const WHO_FOR = {
   paths: paths.map((p) => ({ href: p.href, label: p.name, desc: p.oneLine, icon: p.icon, colour: p.colour })),
   trades: FEATURED_TRADES,
-  anyOther: { href: "/industries", label: "Any other business → we build for it too" },
+  anyOther: { href: "/industries", label: "Any other business? We build for it too" },
   cities: TOP_CITIES.slice(0, 8),
-  allCities: { href: "/cities", label: "All 33 cities →" },
+  allCities: { href: "/cities", label: "All 33 cities" },
 };
 
 export const RESOURCES: NavLink[] = [

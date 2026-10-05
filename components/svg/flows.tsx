@@ -1,4 +1,6 @@
 import { Icon } from "@/components/Icon";
+import { BUILD_ROUTES, WHITE_LABEL_LINE } from "@/lib/build-routes";
+import { EXAMPLE } from "@/lib/examples";
 import { C, Label } from "./mocks/frames";
 
 /**
@@ -234,7 +236,7 @@ export function ReachFunnel({ className }: { className?: string }) {
         );
       })}
       <rect x="236" y="88" width="120" height="64" rx="16" fill="#fff" stroke={C.ink} strokeWidth="2" />
-      <Label x={296} y={116} size={12} anchor="middle">Your site</Label>
+      <Label x={296} y={116} size={11} anchor="middle">{EXAMPLE.restaurant.domain}</Label>
       <Label x={296} y={134} size={9} weight={600} anchor="middle" fill={C.ink2}>Webify Site</Label>
       <path d="M358 120 H392" stroke={C.ink} strokeWidth="2.5" markerEnd="url(#rf-a)" />
       <rect x="398" y="94" width="112" height="52" rx="26" fill={C.wa} />
@@ -243,35 +245,68 @@ export function ReachFunnel({ className }: { className?: string }) {
   );
 }
 
-/** DecisionTree (§9.7b): build vs buy. */
+/** DecisionTree (§9.7b): build vs buy — question, an example business, the route and its cost. */
 export function DecisionTree({ className }: { className?: string }) {
+  const route = (slug: string) => BUILD_ROUTES.find((r) => r.slug === slug)!;
   const leaves = [
-    { q: "Standard need, tight budget", a: "Zoho / Odoo, set up for you", f: C.haldiT },
-    { q: "Already on Google / Microsoft", a: "Build around your tools", f: C.peacockT },
-    { q: "Unique workflow", a: "Custom build", f: C.raniT },
-    { q: "Close to our prototype", a: "Adapt our prototype", f: C.mehendiT },
+    { q: "Standard need, tight budget", qi: "Calculator", ex: `${EXAMPLE.kirana.name}: billing and stock, nothing unusual`, a: "Zoho / Odoo, set up for you", r: route("budget"), f: C.haldiT, s: C.marigold },
+    { q: "Already on Google / Microsoft", qi: "CloudArrowUp", ex: `${EXAMPLE.clinic.name}: already runs on Google Workspace`, a: "Build around your tools", r: route("your-tools"), f: C.peacockT, s: C.peacock },
+    { q: "Unique workflow", qi: "PuzzlePiece", ex: `${EXAMPLE.traders.name}: dealer price tiers no app handles`, a: "Custom build", r: route("scratch"), f: C.raniT, s: C.rani },
+    { q: "Close to our prototype", qi: "SquaresFour", ex: `${EXAMPLE.restaurant.name}: direct ordering, like our prototype`, a: "Adapt our prototype", r: route("prototype"), f: C.mehendiT, s: C.mehendi },
   ];
   return (
-    <svg viewBox="0 0 560 300" className={cls("svg-decisiontree", className)} role="img" aria-label="Build or buy: standard need and tight budget means Zoho or Odoo; already on Google or Microsoft means build around them; a unique workflow means custom; close to a prototype means adapt it">
-      <rect x="200" y="12" width="160" height="40" rx="20" fill={C.indigo} />
-      <Label x={280} y={37} size={12} anchor="middle" fill="#fff">What do you need?</Label>
+    <svg viewBox="0 0 720 440" className={cls("svg-decisiontree", className)} role="img" aria-label="Build or buy: standard need and tight budget means Zoho or Odoo set up for you; already on Google or Microsoft means we build around them; a unique workflow means a custom build; close to a prototype means we adapt it">
+      <defs>
+        <marker id="dt-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0 0 L10 5 L0 10 z" fill={C.ink2} />
+        </marker>
+      </defs>
+      <rect x="240" y="14" width="240" height="50" rx="25" fill={C.indigo} />
+      <circle cx="270" cy="39" r="15" fill="#fff" />
+      <g transform="translate(260 29)" color={C.indigo}>
+        <Icon name="Compass" size={20} weight="bold" />
+      </g>
+      <Label x={378} y={45} size={16} anchor="middle" fill="#fff">What do you need?</Label>
       {leaves.map((l, i) => {
-        const x = 12 + i * 137;
+        const x = 16 + i * 174;
+        const cx = x + 80;
         return (
           <g key={l.q}>
-            <path d={`M280 52 C280 90 ${x + 64} 80 ${x + 64} 112`} fill="none" stroke={C.ink2} strokeWidth="2" />
-            <rect x={x} y="112" width="128" height="74" rx="12" fill="#fff" stroke={C.line} strokeWidth="1.5" />
-            <foreignObject x={x + 8} y="118" width="112" height="64">
-              <p className="mock-fo">{l.q}</p>
+            <path d={`M360 64 C360 100 ${cx} 92 ${cx} 124`} fill="none" stroke={C.ink2} strokeWidth="2" markerEnd="url(#dt-a)" />
+            {/* the question */}
+            <rect x={x} y="128" width="160" height="118" rx="14" fill="#fff" stroke={C.line} strokeWidth="1.5" />
+            <circle cx={x + 26} cy="154" r="16" fill={l.f} />
+            <g transform={`translate(${x + 16} 144)`} color={l.s}>
+              <Icon name={l.qi} size={20} weight="bold" />
+            </g>
+            <foreignObject x={x + 48} y="136" width="106" height="40">
+              <p className="dt-q">{l.q}</p>
             </foreignObject>
-            <path d={`M${x + 64} 186 V214`} stroke={C.ink2} strokeWidth="2" />
-            <rect x={x} y="214" width="128" height="64" rx="12" fill={l.f} />
-            <foreignObject x={x + 8} y="222" width="112" height="52">
-              <p className="mock-fo strong">{l.a}</p>
+            <path d={`M${x + 12} 184 H${x + 148}`} stroke={C.line} strokeDasharray="3 4" />
+            <foreignObject x={x + 12} y="190" width="138" height="52">
+              <p className="dt-ex">e.g. {l.ex}</p>
+            </foreignObject>
+            <path d={`M${cx} 246 V274`} stroke={C.ink2} strokeWidth="2" markerEnd="url(#dt-a)" />
+            {/* the route */}
+            <rect x={x} y="278" width="160" height="100" rx="14" fill={l.f} stroke={l.s} strokeWidth="1.5" />
+            <g transform={`translate(${x + 12} 290)`} color={l.s}>
+              <Icon name={l.r.icon} size={20} weight="bold" />
+            </g>
+            <foreignObject x={x + 38} y="286" width="116" height="44">
+              <p className="dt-a">{l.a}</p>
+            </foreignObject>
+            <rect x={x + 8} y="342" width="144" height="26" rx="13" fill="#fff" />
+            <foreignObject x={x + 8} y="342" width="144" height="26">
+              <p className="dt-cost">{l.r.cost}</p>
             </foreignObject>
           </g>
         );
       })}
+      <rect x="16" y="396" width="688" height="34" rx="17" fill={C.indigoT} />
+      <g transform="translate(150 404)" color={C.indigo}>
+        <Icon name="Tag" size={18} weight="bold" />
+      </g>
+      <Label x={176} y={418} size={11.5} weight={700} fill={C.indigo}>{WHITE_LABEL_LINE}</Label>
     </svg>
   );
 }

@@ -229,7 +229,7 @@ export const industryPages: IndustryPage[] = [
     ],
     pains: [
       { pain: "Dealer orders come by phone and get written down twice.", fix: "A dealer portal where they order at their own price tier.", block: "store" },
-      { pain: "Dispatch runs on memory.", fix: "Orders → production → dispatch on one board.", block: "desk" },
+      { pain: "Dispatch runs on memory.", fix: "Orders, production and dispatch on one board.", block: "desk" },
       { pain: "Invoices are typed again into Tally.", fix: "Invoices that flow into Tally automatically.", block: "connect" },
       { pain: "Outstanding payments are a guess until month-end.", fix: "Dues per dealer, with reminders before they slip.", block: "ledger" },
     ],

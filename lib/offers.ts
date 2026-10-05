@@ -240,7 +240,7 @@ export const addons: Addon[] = [
   { slug: "priority", name: "Priority support", kind: "monthly", availableOn: "Starter, Business", price: "₹1,000", amount: 1000 },
   { slug: "brand", name: "Logo & brand basics", kind: "one-time", availableOn: "All", price: "₹10,000", amount: 10000 },
   { slug: "content", name: "Content writing", kind: "one-time", availableOn: "All", price: "₹1,500 per page · ₹2,500 per article" },
-  { slug: "migration", name: "Data migration (Excel / Tally → system)", kind: "one-time", availableOn: "All", price: "from ₹10,000", amount: 10000 },
+  { slug: "migration", name: "Data migration (Excel or Tally into your system)", kind: "one-time", availableOn: "All", price: "from ₹10,000", amount: 10000 },
   { slug: "custom-dev", name: "Custom feature development", kind: "one-time", availableOn: "All", price: "₹2,500/hour or quoted" },
   { slug: "partner-custom", name: "Partner product customisation (Zoho/Odoo)", kind: "one-time", availableOn: "All", price: "from ₹25,000", amount: 25000 },
   { slug: "mailbox", name: "Mailbox migration (Google/Microsoft)", kind: "one-time", availableOn: "All", price: "₹500 per mailbox", amount: 500 },
@@ -262,7 +262,7 @@ export const OWNERSHIP_LINE =
   "Yours: domain, brand, content, data and accounts. Ours: the software we build, host and support — that's what your monthly plan covers.";
 
 export const PAYMENT_TERMS = [
-  "Starter / Business / Command: setup + first month paid upfront via WhatsApp payment link → build starts. Monthly billing starts at launch.",
+  "Starter / Business / Command: setup + first month paid upfront via WhatsApp payment link, then the build starts. Monthly billing starts at launch.",
   "Custom: 40% start · 40% preview · 20% before launch on the setup fee; monthly from launch.",
   "Downgrade: any time; features above the new stage switch off, data kept 30 days.",
   "Cancel: 30 days' notice; full data & content export; system switched off.",

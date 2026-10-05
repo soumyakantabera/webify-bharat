@@ -87,7 +87,7 @@ export const trades: Trade[] = [
     blocks: ["store", "desk", "ledger", "connect"],
     pillars: ["strategy", "systems"],
     photo: "IMG-I-MFG-2",
-    organise: ["A dealer portal with each dealer's price tier", "Orders → production → dispatch on one board", "Invoices that flow into Tally"],
+    organise: ["A dealer portal with each dealer's price tier", "Orders, production and dispatch on one board", "Invoices that flow into Tally"],
     grow: ["New dealers onboarded without phone calls", "Sell abroad with international payments", "Integrations with Tally, Zoho and Shiprocket"],
   },
   {
