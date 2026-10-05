@@ -210,3 +210,7 @@ button:hover > .ic-arw-left { transform: translateX(-3px); }
   .has-gloss-float .gloss:focus .gloss-tip,
   .has-gloss-float .gloss:focus-within .gloss-tip { display: none; }
 }
+a.gx-fit-badge { text-decoration: none; transition: transform 0.2s ease, filter 0.2s ease; }
+a.gx-fit-badge:hover { transform: translateY(-1px); filter: brightness(1.08); }
+a.gx-fit-badge:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+a.gx-fit-badge .ic-arw { margin-left: 2px; }

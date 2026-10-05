@@ -35,11 +35,11 @@ export const metadata: Metadata = pageMetadata("home");
 
 /** §2.0.2 — the gap we fill. */
 const GAP_ROWS: GapRow[] = [
-  { exists: ["zoho", "odoo", "tally", "google", "microsoft-365"], lack: "Someone to choose, set up and customise them", fit: "We plan, configure or build it — in your brand", fitIcon: "SquaresFour", tone: "rani" },
-  { exists: ["upi", "razorpay", "cashfree", "stripe"], lack: "Payments connected to invoices, WhatsApp and books", fit: "We wire it all together", fitIcon: "PlugsConnected", tone: "peacock" },
-  { exists: ["zomato", "swiggy", "amazon", "indiamart"], lack: "A channel of your own for regulars", fit: "We build it alongside them", fitIcon: "ShoppingBag", tone: "marigold" },
-  { exists: ["google", "meta", "bing", { label: "AI assistants", icon: "Sparkle" }], lack: "Know-how and time for ads, SEO and AI visibility", fit: "We run your marketing", fitIcon: "Megaphone", tone: "mehendi" },
-  { exists: [{ label: "Freelancers", icon: "UserCircleGear" }, { label: "Agencies", icon: "Buildings" }], lack: "Someone who stays after launch", fit: "Your monthly plan includes care", fitIcon: "Lifebuoy", tone: "indigo" },
+  { exists: ["zoho", "odoo", "tally", "google", "microsoft-365"], lack: "Someone to choose, set up and customise them", fit: "We plan, configure or build it — in your brand", fitIcon: "SquaresFour", tone: "rani", href: "/systems" },
+  { exists: ["upi", "razorpay", "cashfree", "stripe"], lack: "Payments connected to invoices, WhatsApp and books", fit: "We wire it all together", fitIcon: "PlugsConnected", tone: "peacock", href: "/systems/pay" },
+  { exists: ["zomato", "swiggy", "amazon", "indiamart"], lack: "A channel of your own for regulars", fit: "We build it alongside them", fitIcon: "ShoppingBag", tone: "marigold", href: "/systems/store" },
+  { exists: ["google", "meta", "bing", { label: "AI assistants", icon: "Sparkle" }], lack: "Know-how and time for ads, SEO and AI visibility", fit: "We run your marketing", fitIcon: "Megaphone", tone: "mehendi", href: "/marketing" },
+  { exists: [{ label: "Freelancers", icon: "UserCircleGear" }, { label: "Agencies", icon: "Buildings" }], lack: "Someone who stays after launch", fit: "Your monthly plan includes care", fitIcon: "Lifebuoy", tone: "indigo", href: "/pricing#care" },
 ];
 
 const BENTO_ICONS = ["site", "chat", "ledger"] as const;
