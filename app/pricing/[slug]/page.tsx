@@ -94,7 +94,7 @@ export default async function StagePage({ params }: { params: Promise<{ slug: st
                 return (
                   <div key={r.key}>
                     <dt>{r.label}</dt>
-                    <dd className="mono">{v === null ? "—" : v === "agreed" ? "Agreed" : v.toLocaleString("en-IN")}</dd>
+                    <dd className="mono">{v === null ? "—" : v === "agreed" ? "Agreed" : v === "unlimited" ? "Unlimited" : v.toLocaleString("en-IN")}</dd>
                   </div>
                 );
               })}

@@ -77,7 +77,7 @@ export const stages: Stage[] = [
       "Lead & customer tracker (Desk Lite)",
       "Owner dashboard + Reach Local Lite",
     ],
-    keyLimits: ["15 pages", "3 users", "100 products", "300 orders or bookings / month"],
+    keyLimits: ["15 pages", "3 users", "100 products", "Unlimited orders & customers"],
     terms: "Setup + first month upfront; monthly billing from launch.",
     photo: "IMG-B02",
   },
@@ -101,7 +101,7 @@ export const stages: Stage[] = [
       "Stripe international payments + integrations",
       "Reach AI Basic + monthly review call",
     ],
-    keyLimits: ["15 users", "1,000 products", "2,000 orders or bookings / month", "3 locations"],
+    keyLimits: ["15 users", "1,000 products", "3 locations", "Unlimited orders & customers"],
     terms: "Setup + first month upfront; monthly billing from launch.",
     photo: "IMG-H05",
   },
@@ -126,7 +126,7 @@ export const stages: Stage[] = [
       "Priority support + agreed SLA",
       "Quoted after a Compass session",
     ],
-    keyLimits: ["Users: agreed", "Products: agreed", "Orders: agreed", "Locations: agreed"],
+    keyLimits: ["Users: agreed", "Products: agreed", "Locations: agreed", "Unlimited orders & customers"],
     terms: "40% start · 40% preview · 20% before launch on the setup fee; monthly from launch.",
     photo: "IMG-B09",
   },
@@ -177,14 +177,15 @@ export const featureRows: FeatureRow[] = [
 
 export type LimitKey = "pages" | "users" | "products" | "orders" | "automations" | "integrations" | "locations" | "changeHours" | "storageGb";
 
-/** `null` = not available on this stage; `"agreed"` = set per contract. */
-export type LimitValue = number | null | "agreed";
+/** `null` = not available on this stage; `"agreed"` = set per contract; `"unlimited"` = never capped. */
+export type LimitValue = number | null | "agreed" | "unlimited";
 
 export const limitRows: { key: LimitKey; label: string; cells: Record<StageSlug, LimitValue> }[] = [
   { key: "pages", label: "Website pages", cells: { starter: 6, business: 15, command: 30, custom: "agreed" } },
   { key: "users", label: "Users / logins", cells: { starter: 1, business: 3, command: 15, custom: "agreed" } },
   { key: "products", label: "Products in store", cells: { starter: null, business: 100, command: 1000, custom: "agreed" } },
-  { key: "orders", label: "Orders or bookings / month", cells: { starter: null, business: 300, command: 2000, custom: "agreed" } },
+  // Orders, bookings and customers are never capped: the customers are the client's, not ours to meter.
+  { key: "orders", label: "Orders, bookings & customers", cells: { starter: "unlimited", business: "unlimited", command: "unlimited", custom: "unlimited" } },
   { key: "automations", label: "WhatsApp automations", cells: { starter: null, business: 3, command: 10, custom: "agreed" } },
   { key: "integrations", label: "Integrations", cells: { starter: null, business: null, command: 3, custom: "agreed" } },
   { key: "locations", label: "Locations / branches", cells: { starter: 1, business: 1, command: 3, custom: "agreed" } },
@@ -199,7 +200,6 @@ export const overLimits: { key: LimitKey; label: string; unitSize: number; cells
   { key: "pages", label: "Extra page", unitSize: 1, cells: { starter: 300, business: 300, command: 200 } },
   { key: "users", label: "Extra user", unitSize: 1, cells: { starter: 600, business: 600, command: 400 } },
   { key: "products", label: "+100 products", unitSize: 100, cells: { starter: null, business: 1000, command: 500 } },
-  { key: "orders", label: "+100 orders/bookings", unitSize: 100, cells: { starter: null, business: 750, command: 400 } },
   { key: "automations", label: "Extra WhatsApp automation", unitSize: 1, cells: { starter: null, business: 1000, command: 750 } },
   { key: "integrations", label: "Extra integration", unitSize: 1, cells: { starter: null, business: null, command: 2000 } },
   { key: "locations", label: "Extra location", unitSize: 1, cells: { starter: 2000, business: 2000, command: 1500 } },

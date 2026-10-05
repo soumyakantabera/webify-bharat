@@ -77,7 +77,7 @@ export function quoteStage(stage: PlanSlug, needs: Needs, features: FeatureId[])
   }
 
   // Over-limit charges (§10.2), pro-rated per unit.
-  for (const key of ["users", "products", "orders", "locations", "integrations"] as const) {
+  for (const key of ["users", "products", "locations", "integrations"] as const) {
     const need = needs[key];
     const limit = limitOf(stage, key);
     if (typeof limit !== "number") {

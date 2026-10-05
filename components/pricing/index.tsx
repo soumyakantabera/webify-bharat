@@ -62,6 +62,7 @@ function Cell({ v }: { v: FeatureCell }) {
 function LimitCell({ v }: { v: LimitValue }) {
   if (v === null) return <span className="cell-no" role="img" aria-label="Not available"><Icon name="Minus" size={18} weight="bold" /></span>;
   if (v === "agreed") return <span className="cell-text">Agreed</span>;
+  if (v === "unlimited") return <span className="cell-unlimited"><Icon name="Infinity" size={16} weight="bold" /> Unlimited</span>;
   return <span className="mono">{v.toLocaleString("en-IN")}</span>;
 }
 

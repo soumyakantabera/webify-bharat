@@ -41,7 +41,7 @@ export const terms: LegalDocData = {
     },
     {
       heading: "Limits and add-ons",
-      body: ["Each stage has limits (users, products, orders, locations). When you reach 80% of a limit we message you with the options — an add-on or the next stage — and which is cheaper. Nothing extra is charged without your OK."],
+      body: ["Each stage has limits (users, products, locations). Orders, bookings and customers are never capped. When you reach 80% of a limit we message you with the options — an add-on or the next stage — and which is cheaper. Nothing extra is charged without your OK."],
     },
     {
       heading: "Changing or stopping your plan",
