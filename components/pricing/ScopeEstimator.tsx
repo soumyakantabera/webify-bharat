@@ -24,7 +24,7 @@ type PathOpt = { slug: string; name: string; suggestedTier: PlanSlug };
 const NEED_FIELDS: { key: keyof Needs; label: string; hint: string }[] = [
   { key: "users", label: "People who'll log in", hint: "You and your staff" },
   { key: "products", label: "Products to sell online", hint: "0 if you don't sell online" },
-  { key: "orders", label: "Orders or bookings a month", hint: "Rough is fine" },
+  { key: "orders", label: "Orders or bookings a month", hint: "Never capped on any plan — this just helps us plan" },
   { key: "locations", label: "Locations / branches", hint: "" },
   { key: "integrations", label: "Tools to connect", hint: "Tally, Zoho, Shiprocket, Sheets…" },
 ];

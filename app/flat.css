@@ -366,3 +366,4 @@ a.link-card .wb-img { pointer-events: none; }
   .rr-num { background: color-mix(in srgb, var(--stop) 22%, #fff); border: 2px solid var(--stop); color: var(--ink); }
 }
 .day-time { color: color-mix(in srgb, var(--accent) 65%, var(--ink)); }
+.cell-unlimited { display: inline-flex; align-items: center; gap: 4px; font-weight: 800; font-size: 13px; color: var(--mehendi-ink); }

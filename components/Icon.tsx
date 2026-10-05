@@ -78,6 +78,7 @@ import { Minus } from "@phosphor-icons/react/dist/ssr/Minus";
 import { Stack } from "@phosphor-icons/react/dist/ssr/Stack";
 import { Bank } from "@phosphor-icons/react/dist/ssr/Bank";
 import { AddressBook } from "@phosphor-icons/react/dist/ssr/AddressBook";
+import { Infinity as InfinityIcon } from "@phosphor-icons/react/dist/ssr/Infinity";
 import { INDIA_ICONS } from "@/components/icons/india";
 
 /**
@@ -165,6 +166,7 @@ const PH = {
   Stack,
   Bank,
   AddressBook,
+  Infinity: InfinityIcon,
 } as const;
 
 const CUSTOM = INDIA_ICONS;

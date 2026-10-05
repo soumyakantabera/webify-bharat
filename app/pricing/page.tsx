@@ -59,7 +59,7 @@ export default function Pricing() {
         kicker="Pricing"
         tone="rani"
         title="One flat monthly fee — not a cut of every order."
-        sub={`Setup from ₹5,000. Plans from ₹3,000/month. No lock-in, and third-party costs shown separately.${gst ? ` Prices ${gst}.` : ""}`}
+        sub={`Setup from ₹5,000. Plans from ₹3,000/month. No cap on orders or customers, no lock-in, and third-party costs shown separately.${gst ? ` Prices ${gst}.` : ""}`}
         accent={{ phrase: "Seedha hisaab.", meaning: "straight accounts." }}
         cta={<WhatsAppCTA context="hero" label="Get my quote" />}
         visual={<ArchWindows priority slots={["/images/snapshots/pricing.webp"]} />}

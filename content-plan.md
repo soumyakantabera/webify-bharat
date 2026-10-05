@@ -1219,7 +1219,7 @@ Webu with torch · **"Yeh page kho gaya!"** — *This page wandered off.* · Pat
 | **Setup** | **₹5,000–₹15,000** one-time for plan-based builds (made possible by our prototypes and stack). Custom builds from scratch are quoted separately. |
 | **Monthly** | Covers hosting, the software, support, a set number of change hours and the features of your stage. |
 | **Commitment** | **None.** Month-to-month, 30 days' notice. Annual prepay: **pay 10 months, get 12**. |
-| **Stages & limits** | Each plan has clear limits (users, products, orders, automations, locations, change hours). Go over → small monthly add-on charges. Bigger stages include more features **and** cost less per unit — upgrading is always the cheaper option once you're near a limit. |
+| **Stages & limits** | Each plan has clear limits (users, products, automations, locations, change hours); orders, bookings and customers are never capped. Go over → small monthly add-on charges. Bigger stages include more features **and** cost less per unit — upgrading is always the cheaper option once you're near a limit. |
 | **Upgrade nudge (honest)** | At 80% of any limit, we message you on WhatsApp with both options (add-on vs next stage) and which is cheaper. No surprise charges: overage is only billed after you approve. |
 | **Code** | Closed deployment — source code stays with Webify Bharat. Client owns domain, brand, content, data and accounts. On exit: full data export; system switched off. |
 | **Partner products** | Zoho / Odoo / Google Workspace / Microsoft 365: licences at vendor price; **standard setup ₹0**; customisation paid. |
@@ -1271,7 +1271,7 @@ Webu with torch · **"Yeh page kho gaya!"** — *This page wandered off.* · Pat
 | Website pages | 6 | 15 | 30 | Agreed |
 | Users / logins | 1 | 3 | 15 | Agreed |
 | Products in store | — | 100 | 1,000 | Agreed |
-| Orders or bookings / month | — | 300 | 2,000 | Agreed |
+| Orders, bookings & customers | Unlimited | Unlimited | Unlimited | Unlimited |  (owner decision: never cap orders — clients own their customers)
 | WhatsApp automations | — | 3 | 10 | Agreed |
 | Integrations | — | — | 3 | Agreed |
 | Locations / branches | 1 | 1 | 3 | Agreed |
@@ -1287,7 +1287,7 @@ Priced so the next stage becomes cheaper once you need two or three of these.
 | Extra page | ₹300/page | ₹300/page | ₹200/page |
 | Extra user | ₹600 | ₹600 | ₹400 |
 | +100 products | — | ₹1,000 | ₹500 |
-| +100 orders/bookings | — | ₹750 | ₹400 |
+| ~~+100 orders/bookings~~ | — | removed | removed |  (orders are never capped)
 | Extra WhatsApp automation | — | ₹1,000 | ₹750 |
 | Extra integration | — | — | ₹2,000 |
 | Extra location | ₹2,000 | ₹2,000 | ₹1,500 |
@@ -1353,7 +1353,7 @@ Session ₹5,000 · Audit ₹15,000 · Roadmap ₹30,000. **100% credited** agai
 
 ### 10.7 Scope estimator (`components/ScopeEstimator.tsx`)
 1. Pick path (Launch / Organise / Grow) → suggests a stage.
-2. Enter rough needs (users, products, orders, locations) → estimator **recommends the cheapest stage** (stage + over-limits vs next stage).
+2. Enter rough needs (users, products, locations; orders are never capped) → estimator **recommends the cheapest stage** (stage + over-limits vs next stage).
 3. Toggle add-ons and Reach plans.
 4. Output: **Setup ₹X** · **Monthly ₹Y** · **Annual ₹Z (2 months free)** · "+ GST" per gate · third-party costs listed.
 5. CTA `💬 Send this scope on WhatsApp`.
