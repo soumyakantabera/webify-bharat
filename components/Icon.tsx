@@ -62,7 +62,10 @@ import { Stamp } from "@phosphor-icons/react/dist/ssr/Stamp";
 import { List } from "@phosphor-icons/react/dist/ssr/List";
 import { X } from "@phosphor-icons/react/dist/ssr/X";
 import { CaretDown } from "@phosphor-icons/react/dist/ssr/CaretDown";
-import { ChaiCup, RupeeSlash, StampIcon, TailorTapeIcon, UpiArrow } from "@/components/icons/india";
+import { DeviceMobile } from "@phosphor-icons/react/dist/ssr/DeviceMobile";
+import { Plant } from "@phosphor-icons/react/dist/ssr/Plant";
+import { ChatsCircle } from "@phosphor-icons/react/dist/ssr/ChatsCircle";
+import { INDIA_ICONS } from "@/components/icons/india";
 
 /**
  * Icon map (content-plan §6.9). Phosphor, duotone by default.
@@ -133,15 +136,15 @@ const PH = {
   List,
   X,
   CaretDown,
+  DeviceMobile,
+  Plant,
+  ChatsCircle,
 } as const;
 
-const CUSTOM = {
-  stamp: StampIcon,
-  chai: ChaiCup,
-  "rupee-slash": RupeeSlash,
-  "tailor-tape": TailorTapeIcon,
-  "upi-arrow": UpiArrow,
-} as const;
+const CUSTOM = INDIA_ICONS;
+
+/** All Phosphor names available through <Icon name=… /> (used by the /brand grid). */
+export const PHOSPHOR_NAMES = Object.keys(PH);
 
 export type IconName = keyof typeof PH | `custom:${keyof typeof CUSTOM}`;
 

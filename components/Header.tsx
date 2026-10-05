@@ -4,6 +4,7 @@ import { Icon } from "@/components/Icon";
 import { Img } from "@/components/collage";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 import HeaderClient from "@/components/HeaderClient";
+import { IndiaDotMap } from "@/components/svg/IndiaDotMap";
 import { MAIN_LINKS, RESOURCES, WHAT_WE_DO, WHO_FOR, WORKS_WITH_STRIP, type NavLink } from "@/lib/nav";
 import { SITE } from "@/lib/site";
 
@@ -94,6 +95,7 @@ function WhoPanel() {
           <p className="mega-oneline">Fully remote over WhatsApp.</p>
           <LinkList links={WHO_FOR.cities} className="mm-chips" />
           <Link href={WHO_FOR.allCities.href} className="mega-more">{WHO_FOR.allCities.label}</Link>
+          <IndiaDotMap compact linkDots={false} className="mega-map" />
         </div>
       </div>
     </div>

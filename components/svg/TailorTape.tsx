@@ -4,7 +4,7 @@
  */
 export function TailorTape({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 320 260" className={`svg-tailortape${className ? ` ${className}` : ""}`} aria-hidden="true">
+    <svg viewBox="0 0 320 260" className={`wb-svg svg-tailortape${className ? ` ${className}` : ""}`} aria-hidden="true">
       {/* Shopfront */}
       <rect x={70} y={70} width={180} height={160} rx={8} fill="#fff" stroke="#1B1030" strokeWidth={2} />
       <path d="M60 70 H260 L250 40 H70 Z" fill="#E6007E" stroke="#1B1030" strokeWidth={2} />

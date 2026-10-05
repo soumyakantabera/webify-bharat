@@ -907,3 +907,81 @@ body.nav-open .site-header { background: var(--surface); }
   .wa-toast { animation: none !important; }
   .wa-cta, .sh-inner, .block-brick, .polaroid, .mm-paths a { transition: none !important; }
 }
+
+/* =====================================================================
+   Phase 1b — brand & SVG system (content-plan §6.10, §17.3)
+   ===================================================================== */
+
+/* SVG text uses the site fonts (attributes can't take var()). */
+.wb-svg { display: block; width: 100%; height: auto; overflow: hidden; }
+.mock-card, .svg-mandala, .india-map { overflow: visible; }
+.wb-svg text { font-family: var(--font-body), Arial, Helvetica, sans-serif; }
+.wb-svg text.display, .wb-svg .display text { font-family: var(--font-display), Arial, sans-serif; }
+.wb-svg text.mono { font-family: var(--font-mono), ui-monospace, monospace; }
+.mock-fo { margin: 0; font: 600 10px/1.3 var(--font-body), Arial, sans-serif; color: var(--ink); }
+.mock-fo.small { font-size: 8.5px; }
+.mock-fo.strong { font-weight: 800; font-size: 11px; }
+
+/* Motion for diagrams (all off under reduced motion, below) */
+.flow-dash { animation: dash-flow 1.4s linear infinite; }
+.svg-mandala .draw { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw-in 1.6s ease-out forwards; }
+@keyframes draw-in { to { stroke-dashoffset: 0; } }
+.stamp-thump { animation: stamp-thump 2.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center bottom; }
+@keyframes stamp-thump { 0%, 60%, 100% { transform: translateY(0); } 70% { transform: translateY(26px); } 80% { transform: translateY(0); } }
+.rocket-rise { animation: rocket-rise 3s ease-in-out infinite alternate; }
+@keyframes rocket-rise { from { transform: translateY(8px); } to { transform: translateY(-8px); } }
+.coins-fall circle, .coins-fall { animation: coin-bob 2.4s ease-in-out infinite; }
+@keyframes coin-bob { 50% { transform: translateY(6px); } }
+.pipe-move { animation: pipe-move 4s ease-in-out infinite; }
+@keyframes pipe-move { 0%, 30% { transform: translate(8px, 34px); } 50%, 80% { transform: translate(220px, 134px); } 100% { transform: translate(8px, 34px); } }
+.mock-toast { animation: toast-pop 4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes toast-pop { 0%, 15% { opacity: 0; transform: translateY(6px); } 25%, 85% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+.svg-whitelabel .wl-a { animation: wl-swap 5s ease-in-out infinite; }
+.svg-whitelabel .wl-b { animation: wl-swap 5s ease-in-out infinite reverse; }
+.svg-whitelabel .wl-btn { fill: var(--rani); animation: wl-btn 5s ease-in-out infinite; }
+@keyframes wl-swap { 0%, 45% { opacity: 1; } 55%, 95% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes wl-btn { 0%, 45% { fill: var(--rani); } 55%, 95% { fill: var(--indigo); } 100% { fill: var(--rani); } }
+
+/* India dot map */
+.india-map .india-land { fill: var(--indigo-tint); stroke: var(--indigo); stroke-width: 1.2; stroke-linejoin: round; }
+.india-dot-core { fill: var(--rani); }
+.india-dot-pulse { fill: var(--rani); opacity: 0; transform-box: fill-box; transform-origin: center; animation: dot-pulse 3.2s ease-out infinite; animation-delay: var(--d); }
+@keyframes dot-pulse { 0% { opacity: 0.45; transform: scale(0.3); } 70%, 100% { opacity: 0; transform: scale(1.4); } }
+.india-dot-label { font-size: 9px; font-weight: 700; fill: var(--ink); opacity: 0; pointer-events: none; transition: opacity 0.15s ease; paint-order: stroke; stroke: #fff; stroke-width: 3px; }
+.india-map a:hover .india-dot-label, .india-map a:focus-visible .india-dot-label, .india-dot.is-active .india-dot-label { opacity: 1; }
+.india-map a:hover .india-dot-core, .india-dot.is-active .india-dot-core { fill: var(--marigold); }
+.india-map a:focus-visible { outline: none; }
+.india-map a:focus-visible .india-dot-core { stroke: var(--ink); stroke-width: 2; }
+.india-map.is-compact .india-land { stroke-width: 1; }
+.mega-map { max-width: 150px; margin-top: 12px; }
+
+/* Patterns */
+.pattern-fill { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.block-print, .kolam-line, .marigold-garland, .wave-divider { display: block; width: 100%; }
+.kolam-line { height: 24px; }
+.marigold-garland { height: auto; max-height: 90px; }
+.wave-divider { height: 48px; }
+.jaali-band { position: relative; height: 40px; color: var(--indigo); opacity: 0.12; overflow: hidden; }
+
+/* Photo treatments (§17.3 #13) */
+.is-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.18;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.blur-backdrop { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.blur-backdrop .wb-img { width: 100%; height: 100%; }
+.blur-backdrop img { filter: blur(8px); transform: scale(1.06); }
+
+@media (prefers-reduced-motion: reduce) {
+  .flow-dash, .svg-mandala .draw, .stamp-thump, .rocket-rise, .coins-fall, .coins-fall circle,
+  .pipe-move, .mock-toast, .svg-whitelabel .wl-a, .svg-whitelabel .wl-b, .svg-whitelabel .wl-btn,
+  .india-dot-pulse { animation: none !important; }
+  .svg-mandala .draw { stroke-dashoffset: 0; }
+  .svg-whitelabel .wl-b { opacity: 0; }
+}

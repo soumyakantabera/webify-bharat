@@ -41,15 +41,7 @@ export const metadata: Metadata = {
   },
   description:
     "Webify Bharat builds and runs your own business software — and markets your business — so every tool you use actually works for you.",
-  icons: {
-    icon: [
-      { url: asset("/favicon.ico"), sizes: "48x48" },
-      { url: asset("/favicon.svg"), type: "image/svg+xml" },
-      { url: asset("/favicon-32.png"), sizes: "32x32", type: "image/png" },
-    ],
-    apple: [{ url: asset("/apple-touch-icon.png") }],
-    shortcut: [asset("/favicon.ico")],
-  },
+  // Icons come from app/favicon.ico, app/icon.svg and app/apple-icon.png (content-plan §17.3 #2).
 };
 
 export default function RootLayout({

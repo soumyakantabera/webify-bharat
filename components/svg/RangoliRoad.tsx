@@ -40,7 +40,7 @@ export function RangoliRoad({
 
   return (
     <div className={`rangoli-road${className ? ` ${className}` : ""}`}>
-      <svg viewBox={`0 0 ${w} ${h}`} className="rangoli-road-svg" aria-hidden="true" preserveAspectRatio="xMidYMin meet">
+      <svg viewBox={`0 0 ${w} ${h}`} className="wb-svg rangoli-road-svg" aria-hidden="true" preserveAspectRatio="xMidYMin meet">
         <path d={d} stroke="#F4F1EA" strokeWidth={30} fill="none" strokeLinecap="round" />
         <path d={d} stroke="#E7E2DA" strokeWidth={30} fill="none" strokeLinecap="round" opacity={0.6} />
         <path d={d} stroke="#6F6A7A" strokeWidth={2.5} strokeDasharray="2 10" fill="none" strokeLinecap="round" />

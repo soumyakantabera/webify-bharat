@@ -164,3 +164,15 @@ export function PhotoUiLayer({
 export function MasonryWall({ children, className }: { children: ReactNode; className?: string }) {
   return <div className={`masonry-wall${className ? ` ${className}` : ""}`}>{children}</div>;
 }
+
+/**
+ * Blurred photo backdrop for burst sections and CTA bands (§16.5): 8px blur,
+ * 10–15% opacity, sits behind a gradient. Decorative.
+ */
+export function BlurBackdrop({ slot, opacity = 0.14, className }: { slot: string; opacity?: number; className?: string }) {
+  return (
+    <div className={`blur-backdrop${className ? ` ${className}` : ""}`} style={{ opacity }} aria-hidden="true">
+      <Img slot={slot} mask="none" decorative width={1600} height={900} />
+    </div>
+  );
+}

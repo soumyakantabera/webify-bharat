@@ -21,6 +21,7 @@ export function Img({
   height = 600,
   priority = false,
   decorative = false,
+  grain = false,
 }: {
   slot: string;
   alt?: string;
@@ -34,6 +35,8 @@ export function Img({
   height?: number;
   priority?: boolean;
   decorative?: boolean;
+  /** Film-grain overlay (§17.3 #13). */
+  grain?: boolean;
 }) {
   const img = resolveImage(slot);
   if (!img) return <ImageSlot id={slot} tint={tone} className={className} />;
@@ -43,6 +46,7 @@ export function Img({
     `mask-${mask}`,
     duotone ? `is-duotone tone-${duotone}` : "",
     img.treatment === "blur" ? "is-blur" : "",
+    grain ? "is-grain" : "",
     className ?? "",
   ]
     .filter(Boolean)

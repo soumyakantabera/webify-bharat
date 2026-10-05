@@ -7,3 +7,5 @@
 - Run `npm run build` and `npm run lint` before finishing any task. Fix all errors.
 - Commit at the end of each phase with message "Phase N: <summary>".
 - The site also ships as a static export to GitHub Pages (`GITHUB_PAGES=true`). Redirects there are static stub pages (see `lib/redirects.ts`); always wrap public-file paths in `asset()`.
+- Brand assets are generated, not hand-edited: `python3 scripts/brand/build_logos.py` (needs `pip install fonttools brotli`) then `node scripts/brand/rasterize_icons.mjs`. Review everything on `/brand`.
+- SVG text must not rely on `var()` in attributes; give the root `<svg>` the `wb-svg` class so CSS sets the fonts.

@@ -1,0 +1,382 @@
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import Layout from "@/components/Layout";
+import { Icon, PHOSPHOR_NAMES } from "@/components/Icon";
+import { INDIA_ICONS } from "@/components/icons/india";
+import { Webu, type WebuState } from "@/components/Webu";
+import { WhatsAppCTA } from "@/components/WhatsAppCTA";
+import { ArchWindows, BazaarStrip, BlurBackdrop, Img, PhotoBento, PhotoUiLayer, PolaroidCluster, RangoliCollage } from "@/components/collage";
+import { BlockStack } from "@/components/svg/BlockStack";
+import { BlogCover } from "@/components/svg/BlogCover";
+import { ChatFlow, ConnectHub, DecisionTree, FilingStamp, GrowthTree, InvoiceFan, LaunchRocket, ReachFunnel, RentLadder } from "@/components/svg/flows";
+import { IndiaDotMap } from "@/components/svg/IndiaDotMap";
+import { MoneyPath } from "@/components/svg/MoneyPath";
+import { AdCardMock, AiAnswerMock, BroadcastBubbles, MapPinCard, MockScreen, OwnerDashboard, PipelineBoard, SearchResultMock, UpiSuccessMock, WhatsAppChatMock, WorkspaceMock, type MockVariant } from "@/components/svg/mocks";
+import { PathFork } from "@/components/svg/PathFork";
+import { BlockPrintBorder, JaaliLattice, KolamLine, MarigoldGarland, PaisleyCorner, RangoliDotGrid, WaveDivider } from "@/components/svg/patterns";
+import { AccessLayers, BlueprintGrid, FiveRoutes, FourPillars, GapBridge, OneStopWheel, PlatformLayers, RangoliMandala, WhiteLabelSwap } from "@/components/svg/positioning";
+import { RangoliRoad } from "@/components/svg/RangoliRoad";
+import { TailorTape } from "@/components/svg/TailorTape";
+import { TangledVsClean } from "@/components/svg/TangledVsClean";
+import { asset } from "@/lib/asset";
+import { blogCategories } from "@/lib/blog-categories";
+import { contrast, GLOSSARY, GRADIENTS, HINGLISH, LOGO_DO, LOGO_DONT, LOGO_FILES, PALETTE, TYPE_SCALE, VOICE_RULES } from "@/lib/brand";
+import "./brand.css";
+
+/** Internal brand review page (content-plan §17.3 #15, §18.2 Phase 1b). Not indexed. */
+export const metadata: Metadata = {
+  title: "Brand kit | Webify Bharat",
+  description: "Internal review page for the Webify Bharat brand and SVG system.",
+  robots: { index: false, follow: false },
+};
+
+const WEBU_STATES: WebuState[] = ["waving", "pointing", "thinking", "building", "scooter", "curtain", "torch", "celebrating"];
+const MOCKS: MockVariant[] = ["restaurant", "clinic", "coaching", "retail", "manufacturer", "crm", "hr", "exporter"];
+const TONES = ["rani", "haldi", "peacock", "indigo", "marigold", "mehendi"] as const;
+const OG_ROUTES = ["/opengraph-image", "/pricing/opengraph-image", "/systems/site/opengraph-image", "/cities/kolkata/opengraph-image", "/blog/upi-payment-gateway-msme/opengraph-image", "/prototypes/opengraph-image"];
+
+const SECTIONS = [
+  ["logo", "Logo"],
+  ["colour", "Colour"],
+  ["type", "Type"],
+  ["icons", "Icons"],
+  ["patterns", "Patterns"],
+  ["webu", "Webu"],
+  ["diagrams", "Diagrams"],
+  ["mocks", "UI mocks"],
+  ["map", "India map"],
+  ["photos", "Photo treatments"],
+  ["covers", "Blog covers"],
+  ["og", "Share images"],
+  ["voice", "Voice & glossary"],
+] as const;
+
+function Section({ id, title, intro, children }: { id: string; title: string; intro?: string; children: ReactNode }) {
+  return (
+    <section id={id} className="brand-section" aria-labelledby={`${id}-h`}>
+      <div className="container">
+        <h2 id={`${id}-h`}>{title}</h2>
+        {intro ? <p className="brand-intro">{intro}</p> : null}
+        {children}
+      </div>
+    </section>
+  );
+}
+
+function Tile({ label, children, wide = false }: { label: string; children: ReactNode; wide?: boolean }) {
+  return (
+    <figure className={`brand-tile${wide ? " is-wide" : ""}`}>
+      <div className="brand-tile-art">{children}</div>
+      <figcaption>{label}</figcaption>
+    </figure>
+  );
+}
+
+function Ratio({ value }: { value: number }) {
+  const pass = value >= 4.5 ? "AA" : value >= 3 ? "AA large" : "Fail";
+  return (
+    <span className={`ratio ratio-${pass === "Fail" ? "fail" : pass === "AA" ? "pass" : "large"}`}>
+      {value.toFixed(1)}:1 · {pass}
+    </span>
+  );
+}
+
+export default function BrandPage() {
+  return (
+    <Layout>
+      <header className="brand-hero">
+        <div className="container brand-hero-inner">
+          <div>
+            <p className="brand-kicker">Internal · not indexed</p>
+            <h1>Webify Bharat brand kit</h1>
+            <p>
+              Every logo, colour, icon, pattern, mascot state, diagram and mock built for the Rangoli Pro redesign — in one place to review
+              before Phase 2. Logo files can be downloaded below.
+            </p>
+            <nav className="brand-toc" aria-label="Brand kit sections">
+              {SECTIONS.map(([id, label]) => (
+                <a key={id} href={`#${id}`}>{label}</a>
+              ))}
+            </nav>
+          </div>
+          <RangoliMandala className="brand-hero-mandala" />
+        </div>
+      </header>
+
+      <Section id="logo" title="Logo" intro="Built from the existing mark — its paths are reused, never redrawn. The wordmark is Sora 700, converted to outlines so the files look the same everywhere.">
+        <div className="brand-grid brand-grid-3">
+          {LOGO_FILES.map((l) => (
+            <figure key={l.file} className={`brand-tile logo-tile bg-${l.bg}`}>
+              <div className="brand-tile-art">
+                <img src={asset(`/brand/logo/${l.file}`)} alt={`${l.name} logo`} />
+              </div>
+              <figcaption>
+                {l.name}
+                <a href={asset(`/brand/logo/${l.file}`)} download>Download SVG</a>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+        <div className="brand-grid brand-grid-2 logo-rules">
+          <div className="clearspace">
+            <div className="clearspace-box">
+              <img src={asset("/brand/logo/webify-bharat-horizontal.svg")} alt="Clear space example" />
+            </div>
+            <p>Clear space = half the mark&apos;s height on every side. Minimum size: 24px mark height.</p>
+          </div>
+          <div className="dodont">
+            <div>
+              <h3>Do</h3>
+              <ul>{LOGO_DO.map((t) => <li key={t}>{t}</li>)}</ul>
+            </div>
+            <div>
+              <h3>Don&apos;t</h3>
+              <ul>{LOGO_DONT.map((t) => <li key={t}>{t}</li>)}</ul>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      <Section id="colour" title="Colour" intro="Calm canvas, colourful details. Max two accents per viewport plus WhatsApp green on CTAs. Ratios are computed WCAG 2 contrast against white and ink.">
+        {PALETTE.map((g) => (
+          <div key={g.group} className="swatch-group">
+            <h3>{g.group}</h3>
+            <div className="brand-grid brand-grid-4">
+              {g.swatches.map((s) => (
+                <div key={s.token} className="swatch">
+                  <span className="swatch-chip" style={{ background: s.hex }} />
+                  <strong>{s.name}</strong>
+                  <code>{s.hex} · var({s.token})</code>
+                  <span className="swatch-role">{s.role}</span>
+                  <span className="swatch-ratios">
+                    on white <Ratio value={contrast(s.hex, "#FFFFFF")} />
+                  </span>
+                  <span className="swatch-ratios">
+                    on ink <Ratio value={contrast(s.hex, "#1B1030")} />
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+        <h3>Gradients — burst sections only</h3>
+        <div className="brand-grid brand-grid-4">
+          {GRADIENTS.map((g) => (
+            <div key={g.token} className="swatch">
+              <span className="swatch-chip" style={{ background: `var(${g.token})` }} />
+              <strong>{g.name}</strong>
+              <code>var({g.token})</code>
+              <span className="swatch-role">{g.use}</span>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section id="type" title="Type" intro="Sora for display, Manrope for body, JetBrains Mono for numbers and prices.">
+        <dl className="type-scale">
+          {TYPE_SCALE.map((t) => (
+            <div key={t.role} className={`type-row type-${t.role.toLowerCase().replace(/\s+/g, "-")}`}>
+              <dt>
+                <strong>{t.role}</strong>
+                <span>{t.font} · {t.size}</span>
+              </dt>
+              <dd>{t.sample}</dd>
+            </div>
+          ))}
+        </dl>
+      </Section>
+
+      <Section id="icons" title="Icons" intro="Phosphor, duotone weight, at 24 / 32 / 48. Custom India icons sit on the same 24px grid with a 2px stroke and 30% duotone fill.">
+        <h3>Custom India icons</h3>
+        <ul className="icon-grid is-india">
+          {Object.keys(INDIA_ICONS).map((k) => (
+            <li key={k}>
+              <Icon name={`custom:${k}`} size={32} />
+              <span>{k}</span>
+            </li>
+          ))}
+        </ul>
+        <h3>Phosphor set in use</h3>
+        <ul className="icon-grid">
+          {PHOSPHOR_NAMES.map((k) => (
+            <li key={k}>
+              <Icon name={k} size={28} />
+              <span>{k}</span>
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      <Section id="patterns" title="Patterns & dividers" intro="Tileable, drawn in currentColor. On section backgrounds they run at 4–6% opacity.">
+        <div className="brand-grid brand-grid-3">
+          <Tile label="Rangoli dot-grid"><div className="pattern-box tone-rani-text"><RangoliDotGrid /></div></Tile>
+          <Tile label="Jaali lattice"><div className="pattern-box tone-indigo-text"><JaaliLattice /></div></Tile>
+          <Tile label="Paisley corner"><div className="pattern-box tone-marigold-text"><PaisleyCorner /></div></Tile>
+          <Tile label="Block-print border" wide><div className="tone-peacock-text"><BlockPrintBorder /></div></Tile>
+          <Tile label="Kolam line" wide><div className="tone-mehendi-text"><KolamLine loops={14} /></div></Tile>
+          <Tile label="Marigold garland" wide><MarigoldGarland /></Tile>
+          <Tile label="Wave divider" wide><div className="tone-indigo-text"><WaveDivider /></div></Tile>
+        </div>
+      </Section>
+
+      <Section id="webu" title="Webu" intro="A chai cup with a peacock-feather tuft and rangoli-dot cheeks. One SVG, eight states.">
+        <ul className="webu-grid">
+          {WEBU_STATES.map((s) => (
+            <li key={s}>
+              <Webu state={s} size={120} title={`Webu ${s}`} />
+              <span>{s}</span>
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      <Section id="diagrams" title="Diagrams" intro="Every §6.10 diagram as a React SVG component with props. Labels are real text, so they stay sharp and readable by screen readers.">
+        <div className="brand-grid brand-grid-2">
+          <Tile label="RangoliMandala"><RangoliMandala className="diagram-sm" /></Tile>
+          <Tile label="BlockStack (highlight: Site, Pay, Chat, Desk)"><BlockStack highlight={["site", "pay", "chat", "desk"]} /></Tile>
+          <Tile label="PathFork"><PathFork /></Tile>
+          <Tile label="FourPillars"><FourPillars /></Tile>
+          <Tile label="GapBridge" wide><GapBridge /></Tile>
+          <Tile label="PlatformLayers"><PlatformLayers /></Tile>
+          <Tile label="OneStopWheel"><OneStopWheel className="diagram-sm" /></Tile>
+          <Tile label="FiveRoutes" wide><FiveRoutes /></Tile>
+          <Tile label="WhiteLabelSwap"><WhiteLabelSwap /></Tile>
+          <Tile label="AccessLayers"><AccessLayers /></Tile>
+          <Tile label="TangledVsClean" wide><TangledVsClean /></Tile>
+          <Tile label="MoneyPath"><MoneyPath /></Tile>
+          <Tile label="ChatFlow"><ChatFlow /></Tile>
+          <Tile label="InvoiceFan"><InvoiceFan /></Tile>
+          <Tile label="FilingStamp"><FilingStamp /></Tile>
+          <Tile label="ConnectHub"><ConnectHub /></Tile>
+          <Tile label="LaunchRocket"><LaunchRocket /></Tile>
+          <Tile label="GrowthTree"><GrowthTree /></Tile>
+          <Tile label="RentLadder"><RentLadder /></Tile>
+          <Tile label="ReachFunnel" wide><ReachFunnel /></Tile>
+          <Tile label="DecisionTree (build vs buy)" wide><DecisionTree /></Tile>
+          <Tile label="TailorTape"><TailorTape /></Tile>
+          <Tile label="BlueprintGrid"><div className="blueprint-box"><BlueprintGrid /></div></Tile>
+          <Tile label="RangoliRoad" wide><RangoliRoad /></Tile>
+        </div>
+      </Section>
+
+      <Section id="mocks" title="UI mocks" intro="Generic UI — no third-party branding. Prototype teasers are concept views; the real prototypes are only shown on WhatsApp.">
+        <h3>Prototype teasers (MockScreen)</h3>
+        <div className="brand-grid brand-grid-4 mock-grid">
+          {MOCKS.map((m) => (
+            <Tile key={m} label={m}><MockScreen variant={m} /></Tile>
+          ))}
+        </div>
+        <h3>Marketing & system mocks</h3>
+        <div className="brand-grid brand-grid-3">
+          <Tile label="SearchResultMock"><SearchResultMock /></Tile>
+          <Tile label="AiAnswerMock"><AiAnswerMock /></Tile>
+          <Tile label="OwnerDashboard (Sample data)"><OwnerDashboard /></Tile>
+          <Tile label="PipelineBoard"><PipelineBoard /></Tile>
+          <Tile label="WorkspaceMock"><WorkspaceMock /></Tile>
+          <Tile label="AdCardMock"><AdCardMock /></Tile>
+          <Tile label="MapPinCard"><MapPinCard /></Tile>
+          <Tile label="WhatsApp chat"><div className="phone-sm"><WhatsAppChatMock /></div></Tile>
+          <Tile label="UPI success"><div className="phone-sm"><UpiSuccessMock /></div></Tile>
+          <Tile label="Broadcast bubbles"><div className="phone-sm"><BroadcastBubbles /></div></Tile>
+        </div>
+      </Section>
+
+      <Section id="map" title="India dot map" intro="33 city dots from lib/cities.ts on a simplified outline. Hover or focus a dot for its name; dots link to city pages.">
+        <div className="brand-grid brand-grid-2">
+          <Tile label="Full map"><IndiaDotMap className="map-lg" /></Tile>
+          <Tile label="Compact (menus)"><IndiaDotMap compact linkDots={false} className="map-sm" /></Tile>
+        </div>
+      </Section>
+
+      <Section id="photos" title="Photo treatments" intro="Launch uses only existing photos. Masks, duotones, grain and blur make the same photo tell different stories without repeating on one screen.">
+        <h3>Masks</h3>
+        <div className="brand-grid brand-grid-6 mask-grid">
+          {(["rounded", "arch", "petal", "blob", "circle", "polaroid"] as const).map((m) => (
+            <Tile key={m} label={m}><Img slot="IMG-P01" mask={m} width={300} height={300} /></Tile>
+          ))}
+        </div>
+        <h3>Duotone per accent</h3>
+        <div className="brand-grid brand-grid-6 mask-grid">
+          {TONES.map((t) => (
+            <Tile key={t} label={t}><Img slot="IMG-C02" tone={t} width={300} height={300} /></Tile>
+          ))}
+        </div>
+        <h3>Grain & blur backdrop</h3>
+        <div className="brand-grid brand-grid-2">
+          <Tile label="Grain overlay"><Img slot="IMG-H05" grain width={600} height={400} className="ratio-43" /></Tile>
+          <Tile label="Blur backdrop under a gradient">
+            <div className="blur-demo">
+              <BlurBackdrop slot="IMG-P03" opacity={0.35} />
+              <span>Burst section</span>
+            </div>
+          </Tile>
+        </div>
+        <h3>Collages</h3>
+        <div className="brand-grid brand-grid-2">
+          <Tile label="RangoliCollage">
+            <RangoliCollage large="IMG-H01" small={["IMG-H02", "IMG-H03", "IMG-H04", "IMG-H05"]} stickers={[{ text: "UPI received ✅" }, { text: "New lead from Google" }, { text: "Mentioned by AI assistant ✨" }]} phone={<MockScreen variant="restaurant" />} />
+          </Tile>
+          <Tile label="PhotoUiLayer"><PhotoUiLayer slot="IMG-B01" stickers={[{ text: "Found on maps" }]}><SearchResultMock /></PhotoUiLayer></Tile>
+          <Tile label="ArchWindows"><ArchWindows slots={["IMG-B09", "IMG-B06", "IMG-R03"]} /></Tile>
+          <Tile label="PolaroidCluster"><PolaroidCluster items={[{ slot: "IMG-A01", caption: "planning" }, { slot: "IMG-A02", caption: "sketching" }, { slot: "IMG-A03", caption: "Kolkata" }]} /></Tile>
+          <Tile label="PhotoBento" wide>
+            <PhotoBento cells={[{ slot: "IMG-B11" }, { slot: "IMG-B05" }, { icon: <Icon name="Key" size={28} />, label: "Your data stays yours", tone: "peacock" }, { slot: "IMG-B07" }, { icon: <Icon name="Tag" size={28} />, label: "White-label", tone: "rani" }]} />
+          </Tile>
+          <Tile label="BazaarStrip" wide><BazaarStrip /></Tile>
+        </div>
+      </Section>
+
+      <Section id="covers" title="Blog covers" intro="Generated per category: colour, composed icons, quiet pattern. The same art is used for each post's share image.">
+        <div className="brand-grid brand-grid-4">
+          {blogCategories.map((c) => (
+            <Tile key={c.slug} label={c.name}><BlogCover category={c.slug} /></Tile>
+          ))}
+        </div>
+      </Section>
+
+      <Section id="og" title="Share images" intro="One data-driven template for every route (1200×630): title, colour band, rangoli corner, Webu and the logo.">
+        <div className="brand-grid brand-grid-3">
+          {OG_ROUTES.map((r) => (
+            <figure key={r} className="brand-tile">
+              <div className="brand-tile-art og-art">
+                <img src={asset(r)} alt={`Share image for ${r.replace("/opengraph-image", "") || "/"}`} width={1200} height={630} loading="lazy" />
+              </div>
+              <figcaption>{r.replace("/opengraph-image", "") || "/"}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </Section>
+
+      <Section id="voice" title="Voice & glossary">
+        <div className="brand-grid brand-grid-2">
+          <div>
+            <h3>Voice rules</h3>
+            <ul className="brand-list">{VOICE_RULES.map((v) => <li key={v}>{v}</li>)}</ul>
+            <h3>Approved Hinglish</h3>
+            <dl className="brand-defs">
+              {HINGLISH.map((h) => (
+                <div key={h.phrase}>
+                  <dt className="hinglish">{h.phrase}</dt>
+                  <dd>{h.meaning} · <em>{h.where}</em></dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+          <div>
+            <h3>Plain-words glossary</h3>
+            <dl className="brand-defs">
+              {GLOSSARY.map((g) => (
+                <div key={g.term}>
+                  <dt>{g.term}</dt>
+                  <dd>{g.plain}</dd>
+                </div>
+              ))}
+            </dl>
+            <h3>The one CTA</h3>
+            <WhatsAppCTA context="brand" />
+          </div>
+        </div>
+      </Section>
+    </Layout>
+  );
+}

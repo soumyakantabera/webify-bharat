@@ -15,7 +15,7 @@ function Chip({ x, y, label, fill }: { x: number; y: number; label: string; fill
 
 export function TangledVsClean({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 640 280" className={`svg-tangled${className ? ` ${className}` : ""}`} role="img" aria-label="Before: a personal QR, Excel, WhatsApp chats and a directory listing tangled together. After: one clean system with site, payments and records connected.">
+    <svg viewBox="0 0 640 280" className={`wb-svg svg-tangled${className ? ` ${className}` : ""}`} role="img" aria-label="Before: a personal QR, Excel, WhatsApp chats and a directory listing tangled together. After: one clean system with site, payments and records connected.">
       <text x={150} y={24} textAnchor="middle" fontFamily={FONT} fontWeight={800} fontSize={12} letterSpacing="0.08em" fill="#B8005F">TODAY</text>
       <g fill="none" stroke="#E6007E" strokeWidth={2} opacity={0.75} strokeLinecap="round">
         <path d="M70 70 C200 40 40 200 230 210" />

@@ -4,7 +4,7 @@
  */
 export function PathFork({ className, labels = true }: { className?: string; labels?: boolean }) {
   return (
-    <svg viewBox="0 0 320 220" className={`svg-pathfork${className ? ` ${className}` : ""}`} aria-hidden="true">
+    <svg viewBox="0 0 320 220" className={`wb-svg svg-pathfork${className ? ` ${className}` : ""}`} aria-hidden="true">
       <path d="M160 220 V150" stroke="#E7E2DA" strokeWidth={34} strokeLinecap="round" fill="none" />
       <path d="M160 150 C160 110 70 110 52 40" stroke="#FF6B00" strokeWidth={26} strokeLinecap="round" fill="none" />
       <path d="M160 150 V40" stroke="#E6007E" strokeWidth={26} strokeLinecap="round" fill="none" />

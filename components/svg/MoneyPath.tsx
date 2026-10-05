@@ -22,7 +22,7 @@ function Arrow({ x1, y1, x2, y2 }: { x1: number; y1: number; x2: number; y2: num
 
 export function MoneyPath({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 640 300" className={`svg-moneypath${className ? ` ${className}` : ""}`} role="img" aria-label="Payments from India go through Razorpay or Cashfree to your bank; payments from abroad go through Stripe to your bank; each payment creates an invoice.">
+    <svg viewBox="0 0 640 300" className={`wb-svg svg-moneypath${className ? ` ${className}` : ""}`} role="img" aria-label="Payments from India go through Razorpay or Cashfree to your bank; payments from abroad go through Stripe to your bank; each payment creates an invoice.">
       <defs>
         <marker id="mp-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
           <path d="M0 0 L10 5 L0 10 z" fill="#2B1E6B" />

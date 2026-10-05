@@ -7,6 +7,9 @@ export type City = {
   name: string;
   state: string;
   region: "North" | "South" | "East" | "West" | "Central" | "Northeast" | "UT";
+  /** Approximate city-centre coordinates, used by IndiaDotMap. */
+  lat: number;
+  lng: number;
   hub?: string;
   photo: string;
   industries: string[];
@@ -45,6 +48,8 @@ function cityFaqs(name: string, state: string): CityFaq[] {
 export const cities: City[] = [
   {
     slug: "mumbai",
+    lat: 19.08,
+    lng: 72.88,
     name: "Mumbai",
     state: "Maharashtra",
     region: "West",
@@ -86,6 +91,8 @@ export const cities: City[] = [
   },
   {
     slug: "bengaluru",
+    lat: 12.97,
+    lng: 77.59,
     name: "Bengaluru",
     state: "Karnataka",
     region: "South",
@@ -127,6 +134,8 @@ export const cities: City[] = [
   },
   {
     slug: "delhi",
+    lat: 28.61,
+    lng: 77.21,
     name: "New Delhi",
     state: "Delhi (NCT)",
     region: "UT",
@@ -169,6 +178,8 @@ export const cities: City[] = [
   },
   {
     slug: "chennai",
+    lat: 13.08,
+    lng: 80.27,
     name: "Chennai",
     state: "Tamil Nadu",
     region: "South",
@@ -209,6 +220,8 @@ export const cities: City[] = [
   },
   {
     slug: "hyderabad",
+    lat: 17.39,
+    lng: 78.49,
     name: "Hyderabad",
     state: "Telangana",
     region: "South",
@@ -249,6 +262,8 @@ export const cities: City[] = [
   },
   {
     slug: "kolkata",
+    lat: 22.57,
+    lng: 88.36,
     name: "Kolkata",
     state: "West Bengal",
     region: "East",
@@ -288,6 +303,8 @@ export const cities: City[] = [
   },
   {
     slug: "jaipur",
+    lat: 26.91,
+    lng: 75.79,
     name: "Jaipur",
     state: "Rajasthan",
     region: "North",
@@ -327,6 +344,8 @@ export const cities: City[] = [
   },
   {
     slug: "lucknow",
+    lat: 26.85,
+    lng: 80.95,
     name: "Lucknow",
     state: "Uttar Pradesh",
     region: "North",
@@ -365,6 +384,8 @@ export const cities: City[] = [
   },
   {
     slug: "ahmedabad",
+    lat: 23.02,
+    lng: 72.57,
     name: "Ahmedabad",
     state: "Gujarat",
     region: "West",
@@ -405,6 +426,8 @@ export const cities: City[] = [
   },
   {
     slug: "gandhinagar",
+    lat: 23.22,
+    lng: 72.65,
     name: "Gandhinagar",
     state: "Gujarat",
     region: "West",
@@ -442,6 +465,8 @@ export const cities: City[] = [
   },
   {
     slug: "patna",
+    lat: 25.59,
+    lng: 85.14,
     name: "Patna",
     state: "Bihar",
     region: "East",
@@ -478,6 +503,8 @@ export const cities: City[] = [
   },
   {
     slug: "bhopal",
+    lat: 23.26,
+    lng: 77.41,
     name: "Bhopal",
     state: "Madhya Pradesh",
     region: "Central",
@@ -514,6 +541,8 @@ export const cities: City[] = [
   },
   {
     slug: "bhubaneswar",
+    lat: 20.3,
+    lng: 85.82,
     name: "Bhubaneswar",
     state: "Odisha",
     region: "East",
@@ -550,6 +579,8 @@ export const cities: City[] = [
   },
   {
     slug: "chandigarh",
+    lat: 30.73,
+    lng: 76.78,
     name: "Chandigarh",
     state: "Chandigarh (shared capital — Punjab & Haryana)",
     region: "North",
@@ -586,6 +617,8 @@ export const cities: City[] = [
   },
   {
     slug: "thiruvananthapuram",
+    lat: 8.52,
+    lng: 76.94,
     name: "Thiruvananthapuram",
     state: "Kerala",
     region: "South",
@@ -622,6 +655,8 @@ export const cities: City[] = [
   },
   {
     slug: "raipur",
+    lat: 21.25,
+    lng: 81.63,
     name: "Raipur",
     state: "Chhattisgarh",
     region: "Central",
@@ -658,6 +693,8 @@ export const cities: City[] = [
   },
   {
     slug: "ranchi",
+    lat: 23.34,
+    lng: 85.31,
     name: "Ranchi",
     state: "Jharkhand",
     region: "East",
@@ -694,6 +731,8 @@ export const cities: City[] = [
   },
   {
     slug: "dehradun",
+    lat: 30.32,
+    lng: 78.03,
     name: "Dehradun",
     state: "Uttarakhand",
     region: "North",
@@ -730,6 +769,8 @@ export const cities: City[] = [
   },
   {
     slug: "shimla",
+    lat: 31.1,
+    lng: 77.17,
     name: "Shimla",
     state: "Himachal Pradesh",
     region: "North",
@@ -766,6 +807,8 @@ export const cities: City[] = [
   },
   {
     slug: "panaji",
+    lat: 15.49,
+    lng: 73.83,
     name: "Panaji",
     state: "Goa",
     region: "West",
@@ -802,6 +845,8 @@ export const cities: City[] = [
   },
   {
     slug: "amaravati",
+    lat: 16.51,
+    lng: 80.52,
     name: "Amaravati",
     state: "Andhra Pradesh",
     region: "South",
@@ -839,6 +884,8 @@ export const cities: City[] = [
   },
   {
     slug: "dispur",
+    lat: 26.14,
+    lng: 91.79,
     name: "Dispur",
     state: "Assam",
     region: "Northeast",
@@ -876,6 +923,8 @@ export const cities: City[] = [
   },
   {
     slug: "itanagar",
+    lat: 27.08,
+    lng: 93.61,
     name: "Itanagar",
     state: "Arunachal Pradesh",
     region: "Northeast",
@@ -912,6 +961,8 @@ export const cities: City[] = [
   },
   {
     slug: "imphal",
+    lat: 24.82,
+    lng: 93.94,
     name: "Imphal",
     state: "Manipur",
     region: "Northeast",
@@ -948,6 +999,8 @@ export const cities: City[] = [
   },
   {
     slug: "shillong",
+    lat: 25.58,
+    lng: 91.89,
     name: "Shillong",
     state: "Meghalaya",
     region: "Northeast",
@@ -984,6 +1037,8 @@ export const cities: City[] = [
   },
   {
     slug: "aizawl",
+    lat: 23.73,
+    lng: 92.72,
     name: "Aizawl",
     state: "Mizoram",
     region: "Northeast",
@@ -1020,6 +1075,8 @@ export const cities: City[] = [
   },
   {
     slug: "kohima",
+    lat: 25.67,
+    lng: 94.11,
     name: "Kohima",
     state: "Nagaland",
     region: "Northeast",
@@ -1056,6 +1113,8 @@ export const cities: City[] = [
   },
   {
     slug: "agartala",
+    lat: 23.83,
+    lng: 91.29,
     name: "Agartala",
     state: "Tripura",
     region: "Northeast",
@@ -1092,6 +1151,8 @@ export const cities: City[] = [
   },
   {
     slug: "gangtok",
+    lat: 27.33,
+    lng: 88.61,
     name: "Gangtok",
     state: "Sikkim",
     region: "Northeast",
@@ -1128,6 +1189,8 @@ export const cities: City[] = [
   },
   {
     slug: "srinagar",
+    lat: 34.08,
+    lng: 74.8,
     name: "Srinagar",
     state: "Jammu and Kashmir",
     region: "UT",
@@ -1164,6 +1227,8 @@ export const cities: City[] = [
   },
   {
     slug: "puducherry",
+    lat: 11.94,
+    lng: 79.81,
     name: "Puducherry",
     state: "Puducherry",
     region: "UT",
@@ -1200,6 +1265,8 @@ export const cities: City[] = [
   },
   {
     slug: "port-blair",
+    lat: 11.62,
+    lng: 92.73,
     name: "Port Blair",
     state: "Andaman and Nicobar Islands",
     region: "UT",
@@ -1236,6 +1303,8 @@ export const cities: City[] = [
   },
   {
     slug: "leh",
+    lat: 34.15,
+    lng: 77.58,
     name: "Leh",
     state: "Ladakh",
     region: "UT",
