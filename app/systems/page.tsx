@@ -1,0 +1,65 @@
+import type { Metadata } from "next";
+import { asset } from "@/lib/asset";
+import { pageMetadata } from "@/lib/page-seo";
+export const metadata: Metadata = pageMetadata("services");
+
+import Link from "next/link";
+import Layout from "@/components/Layout";
+import { SeoChunk } from "@/components/SeoChunk";
+import { ArticleBlock } from "@/components/ArticleBlock";
+import { servicesIndexArticle } from "@/lib/seo-copy";
+import { PageLead } from "@/components/PageIcons";
+import { FaqSection } from "@/components/FaqSection";
+import { getFaq } from "@/lib/faqs";
+import { IconArrow } from "@/components/icons";
+import { HeroShot } from "@/components/HeroShot";
+import { services } from "@/lib/site";
+
+export default function ServicesPage() {
+  return (
+    <Layout>
+      <section className="page-hero">
+        <div className="container wrap">
+          <div className="page-copy">
+          <PageLead icon="services" kicker="Services" />
+          <h1>
+            Digital systems that connect to <span>real work.</span>
+          </h1>
+          <p className="muted-copy">
+            Photographs on this page are staged. Not a customer. The drawings are the
+            product UI, in the same teal frame as the rest of the site.
+          </p>
+          </div>
+          <HeroShot kind="services" />
+        </div>
+      </section>
+
+      <SeoChunk pageKey="services" />
+      <section className="section">
+        <div className="container bento">
+          {services.map((service) => (
+            <Link
+              key={service.slug}
+              href={`/systems/${service.slug}`}
+              className={`card service-card${service.featured ? " featured" : ""}`}
+            >
+              <div className="card-media">
+                <img src={asset(service.image)} alt={service.title} width={800} height={600} />
+              </div>
+              <div className="card-body">
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
+                <span className="card-link">
+                  Explore service <IconArrow />
+                </span>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+      <ArticleBlock article={servicesIndexArticle} />
+
+      <FaqSection block={getFaq("services")} />
+    </Layout>
+  );
+}

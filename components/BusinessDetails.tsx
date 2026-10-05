@@ -1,4 +1,4 @@
-import { BUSINESS } from "@/lib/site";
+import { BUSINESS, filled } from "@/lib/site";
 
 const rows = [
   ["Legal name", BUSINESS.legalName],
@@ -10,24 +10,18 @@ const rows = [
   ["Email", BUSINESS.email],
 ] as const;
 
-const skeleton = new Set(["xxxx", "....", "..."]);
-
+/** Business details. Fields the owner hasn't filled yet are hidden (content-plan §1 #24). */
 export function BusinessDetails() {
   return (
     <dl className="biz">
-      {rows.map(([label, value]) => (
-        <div
-          key={label}
-          className={[skeleton.has(value) ? "is-pending" : "", label === "Registered address" ? "biz-wide" : ""]
-            .filter(Boolean)
-            .join(" ")}
-        >
-          <dt>{label}</dt>
-          <dd>
-            {label === "Email" ? <a href={`mailto:${value}`}>{value}</a> : value}
-          </dd>
-        </div>
-      ))}
+      {rows
+        .filter(([, value]) => filled(value))
+        .map(([label, value]) => (
+          <div key={label} className={label === "Registered address" ? "biz-wide" : undefined}>
+            <dt>{label}</dt>
+            <dd>{label === "Email" ? <a href={`mailto:${value}`}>{value}</a> : value}</dd>
+          </div>
+        ))}
     </dl>
   );
 }

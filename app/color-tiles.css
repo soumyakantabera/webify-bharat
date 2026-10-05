@@ -1,12 +1,11 @@
-/* Temporary palette. Core brand stays teal / papaya / gold / ink.
-   These extras are for tiles only and can be pulled later. */
+/* Legacy tile palette, now mapped onto Rangoli Pro accents (globals.css).
+   --indigo is no longer redefined here. Remove once Phases 2–5 replace these tiles. */
 :root {
-  --saffron: #f5a524;
-  --indigo: #3a3f92;
-  --rose: #e15b6a;
-  --mango: #ff8a1e;
-  --leaf: #1aa37a;
-  --sky: #3b82c4;
+  --saffron: var(--haldi);
+  --rose: var(--rani);
+  --mango: var(--marigold);
+  --leaf: var(--mehendi);
+  --sky: var(--peacock-ink);
 }
 
 .claim-facts > div:nth-child(4n + 1) {

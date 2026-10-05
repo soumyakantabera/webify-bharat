@@ -11,7 +11,7 @@ import { getFaq } from "@/lib/faqs";
 import { WhatsAppCta } from "@/components/icons";
 import { getPost, posts, WA_CHAT } from "@/lib/site";
 import { HeroShot } from "@/components/HeroShot";
-import { hdSrc } from "@/lib/hd-images";
+import { asset } from "@/lib/asset";
 
 export function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
@@ -35,7 +35,7 @@ export default async function ArticlePage({
   const post = getPost(slug);
   if (!post) notFound();
 
-  const image = hdSrc(post.image);
+  const image = asset(post.image);
 
   return (
     <Layout>

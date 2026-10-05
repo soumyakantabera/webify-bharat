@@ -82,7 +82,7 @@ export const faqsByPage: Record<string, FaqBlock> = {
       },
     ],
   },
-  "service:websites": {
+  "service:site": {
     kicker: "Website FAQ",
     title: "Will this site get us",
     accent: "enquiries — not just likes?",
@@ -110,7 +110,7 @@ export const faqsByPage: Record<string, FaqBlock> = {
       },
     ],
   },
-  "service:ecommerce": {
+  "service:store": {
     kicker: "Store FAQ",
     title: "Selling online without",
     accent: "the marketplace headache.",
@@ -138,7 +138,7 @@ export const faqsByPage: Record<string, FaqBlock> = {
       },
     ],
   },
-  "service:payments": {
+  "service:pay": {
     kicker: "Payments FAQ",
     title: "UPI, cards, settlements —",
     accent: "without the screenshot circus.",
@@ -166,7 +166,7 @@ export const faqsByPage: Record<string, FaqBlock> = {
       },
     ],
   },
-  "service:whatsapp": {
+  "service:chat": {
     kicker: "WhatsApp FAQ",
     title: "Your real front desk",
     accent: "is already this app.",
@@ -194,7 +194,7 @@ export const faqsByPage: Record<string, FaqBlock> = {
       },
     ],
   },
-  "service:analytics": {
+  "service:pulse": {
     kicker: "Numbers FAQ",
     title: "Dashboards you will",
     accent: "actually open on Monday.",
@@ -222,7 +222,7 @@ export const faqsByPage: Record<string, FaqBlock> = {
       },
     ],
   },
-  "service:compliance": {
+  "service:ledger": {
     kicker: "Books FAQ",
     title: "GST season without",
     accent: "the archaeology.",

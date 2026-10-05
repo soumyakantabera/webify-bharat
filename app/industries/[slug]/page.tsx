@@ -88,7 +88,7 @@ export default async function IndustryPage({
             </div>
             <div className="system-illustration">
               <img
-                src={asset(`/images/industries/${industry.illustration}`)}
+                src={asset(industry.illustration)}
                 alt={`${industry.title} digital system illustration`}
               />
               <div className="pair-copy">

@@ -1,26 +1,34 @@
-import { SITE, services, plans } from "@/lib/site";
+import { SITE, services } from "@/lib/site";
+import { PLAN_STAGES } from "@/lib/offers";
 
 const BASE = "https://webify-bharat.vercel.app";
 
 export function OrgJsonLd() {
   const serviceNodes = services.map((s) => ({
     "@type": "Service",
-    "@id": `${BASE}/services/${s.slug}#service`,
+    "@id": `${BASE}/systems/${s.slug}#service`,
     name: s.title,
     description: s.description,
-    url: `${BASE}/services/${s.slug}`,
+    url: `${BASE}/systems/${s.slug}`,
     provider: { "@id": `${BASE}/#org` },
     areaServed: { "@type": "Country", name: "India" },
     serviceType: s.title,
-    image: `${BASE}/images/services/${s.image}`,
+    image: `${BASE}${s.image}`,
   }));
 
-  const offerNodes = plans.map((p) => ({
+  const offerNodes = PLAN_STAGES.map((p) => ({
     "@type": "Offer",
-    "@id": `${BASE}/pricing#${p.name.toLowerCase()}`,
-    name: `${p.name} package`,
-    description: `${p.desc} Price ${p.price} including 18% GST.`,
-    price: p.price.replace(/[^0-9]/g, ""),
+    "@id": `${BASE}/pricing#${p.slug}`,
+    name: `${p.name} plan`,
+    description: `${p.tagline} Setup ${p.setup}, then ${p.monthly} per month. Prices exclude GST.`,
+    price: String(p.monthlyAmount),
+    priceSpecification: {
+      "@type": "UnitPriceSpecification",
+      price: String(p.monthlyAmount),
+      priceCurrency: "INR",
+      unitCode: "MON",
+      valueAddedTaxIncluded: false,
+    },
     priceCurrency: "INR",
     availability: "https://schema.org/InStock",
     url: `${BASE}/pricing`,

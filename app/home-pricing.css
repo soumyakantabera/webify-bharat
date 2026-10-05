@@ -20,7 +20,7 @@
 
 .home-price-item-hot {
   border-color: var(--teal);
-  box-shadow: 0 12px 32px rgba(15, 118, 110, 0.12);
+  box-shadow: 0 12px 32px rgba(0, 115, 115, 0.12);
 }
 
 .home-price-label {
@@ -73,7 +73,7 @@
   }
 }
 
-.hero .trust-item.trust-teal { background: #e7f5f1; box-shadow: 0 10px 24px rgba(15, 118, 110, 0.16); }
+.hero .trust-item.trust-teal { background: #e7f5f1; box-shadow: 0 10px 24px rgba(0, 115, 115, 0.16); }
 .hero .trust-item.trust-teal .trust-icon { background: var(--teal); color: #fff; }
 .hero .trust-item.trust-mango { background: #fff1e4; box-shadow: 0 10px 24px rgba(255, 138, 30, 0.2); }
 .hero .trust-item.trust-mango .trust-icon { background: var(--mango); color: #fff; }

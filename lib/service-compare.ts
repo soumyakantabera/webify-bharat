@@ -67,7 +67,7 @@ export const serviceMatrix: { label: string; cells: Record<string, string> }[] =
 
 export const serviceCompares: ServiceCompare[] = [
   {
-    slug: "websites",
+    slug: "site",
     rentLabel: "Directory listing",
     ownLabel: "Website you own",
     bars: [
@@ -83,7 +83,7 @@ export const serviceCompares: ServiceCompare[] = [
     includes: ["Mobile-first pages", "Click-to-WhatsApp", "On-page local SEO", "Schema basics"],
   },
   {
-    slug: "ecommerce",
+    slug: "store",
     rentLabel: "Marketplace aisle",
     ownLabel: "Catalogue you own",
     bars: [
@@ -99,7 +99,7 @@ export const serviceCompares: ServiceCompare[] = [
     includes: ["Catalogue", "UPI checkout", "Order handoff", "GST-ready invoice option"],
   },
   {
-    slug: "payments",
+    slug: "pay",
     rentLabel: "Personal GPay QR",
     ownLabel: "Named gateway",
     bars: [
@@ -115,7 +115,7 @@ export const serviceCompares: ServiceCompare[] = [
     includes: ["UPI", "Cards", "Payment links", "WhatsApp receipts"],
   },
   {
-    slug: "whatsapp",
+    slug: "chat",
     rentLabel: "A chaotic phone",
     ownLabel: "Inbox on your number",
     bars: [
@@ -131,7 +131,7 @@ export const serviceCompares: ServiceCompare[] = [
     includes: ["Your number", "Menus", "Reminders", "Catalogue messages"],
   },
   {
-    slug: "analytics",
+    slug: "pulse",
     rentLabel: "Monday guesswork",
     ownLabel: "One screen in INR",
     bars: [
@@ -147,7 +147,7 @@ export const serviceCompares: ServiceCompare[] = [
     includes: ["Enquiry count", "WhatsApp clicks", "Collections", "What is stuck"],
   },
   {
-    slug: "compliance",
+    slug: "ledger",
     rentLabel: "Filing-season archaeology",
     ownLabel: "Books from the sale",
     bars: [

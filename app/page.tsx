@@ -23,12 +23,12 @@ import { industries, services, WA_CHAT, WA_CONSULT } from "@/lib/site";
 import { getFaq } from "@/lib/faqs";
 
 const serviceStarts: Record<string, string> = {
-  websites: "From ₹9,999",
-  ecommerce: "You run it from ₹999",
-  payments: "Gateway on Growth",
-  whatsapp: "On your number",
-  analytics: "Monday view on Command",
-  compliance: "GST and Udyam in Launch",
+  site: "From ₹9,999",
+  store: "You run it from ₹999",
+  pay: "Gateway on Growth",
+  chat: "On your number",
+  pulse: "Monday view on Command",
+  ledger: "GST and Udyam in Launch",
 };
 
 export default function Home() {
@@ -49,7 +49,7 @@ export default function Home() {
               Category leads from a directory are a different product.
             </p>
             <div className="hero-actions">
-              <Link className="btn btn-primary" href="/services">
+              <Link className="btn btn-primary" href="/systems">
                 Run the shop
               </Link>
               <Link className="btn btn-secondary" href="/registrations">
@@ -87,10 +87,10 @@ export default function Home() {
           <div className="hero-visual is-overlay">
             <img
               className="hero-dash"
-              src={asset("/images/hero/dashboard-art.webp")}
-              alt="Webify Bharat dashboard: orders, revenue, WhatsApp and UPI payments"
-              width={1111}
-              height={871}
+              src={asset("/images/real/payments.webp")}
+              alt="Shop owner taking a UPI payment at the counter"
+              width={1440}
+              height={1080}
               fetchPriority="high"
               decoding="async"
             />
@@ -101,7 +101,7 @@ export default function Home() {
 
       <section className="home-paths" aria-label="Where to start">
         <div className="container home-path-row">
-          <Link className="home-path path-teal" href="/pricing/launch">
+          <Link className="home-path path-teal" href="/pricing/starter">
             <strong>₹9,999</strong>
             <span>Site, GST and Udyam</span>
           </Link>
@@ -262,12 +262,12 @@ export default function Home() {
             {services.map((service) => (
               <Link
                 key={service.slug}
-                href={`/services/${service.slug}`}
+                href={`/systems/${service.slug}`}
                 className={`card service-card${service.featured ? " featured" : ""}`}
               >
                 <div className="card-media">
                   <img
-                    src={asset(`/images/services/${service.image}`)}
+                    src={asset(service.image)}
                     alt={service.title}
                     width={640}
                     height={400}

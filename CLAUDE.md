@@ -1,0 +1,9 @@
+# Project rules
+- Source of truth: content-plan.md. Follow §0 instructions and §1 decisions exactly.
+- Never invent numbers, stats, testimonials or client names. Placeholders stay hidden (published:false).
+- Use existing images in /public/images only (photo-only mode, §17.2a). No new raster images, no illustration scenes for now.
+- Every CTA uses waLink() with the page-specific message (§4.2). Messages live in `lib/wa.ts`.
+- Fonts: Sora / Manrope / JetBrains Mono (already in app/fonts.ts).
+- Run `npm run build` and `npm run lint` before finishing any task. Fix all errors.
+- Commit at the end of each phase with message "Phase N: <summary>".
+- The site also ships as a static export to GitHub Pages (`GITHUB_PAGES=true`). Redirects there are static stub pages (see `lib/redirects.ts`); always wrap public-file paths in `asset()`.

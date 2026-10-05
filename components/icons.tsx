@@ -59,6 +59,7 @@ export function CheckItem({ children }: { children: ReactNode }) {
   );
 }
 
+/** @deprecated Use <WhatsAppCTA message=… /> from components/WhatsAppCTA.tsx (content-plan §4). */
 export function WhatsAppCta({
   href,
   children = "Chat on WhatsApp",

@@ -56,7 +56,7 @@ export default function AboutPage() {
           <div className="about-visual">
             <img
               className="about-team-img"
-              src={asset("/images/brand/about-team.png")}
+              src={asset("/images/snapshots/work.webp")}
               alt="Webify Bharat brand story illustration"
             />
             <div className="about-logo-plate">

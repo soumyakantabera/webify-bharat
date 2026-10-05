@@ -29,7 +29,7 @@
 }
 
 .price-card:hover {
-  border-color: rgba(15, 118, 110, 0.28);
+  border-color: rgba(0, 115, 115, 0.28);
   box-shadow: 0 14px 36px rgba(28, 31, 29, 0.08);
 }
 
@@ -249,7 +249,7 @@
 
 .price-card-cta .btn-secondary {
   background: #f4faf8;
-  border: 1.5px solid rgba(15, 118, 110, 0.28);
+  border: 1.5px solid rgba(0, 115, 115, 0.28);
 }
 
 .price-card-cta .btn-primary {
@@ -358,11 +358,11 @@
   }
 }
 
-.price-card.tone-launch {
+.price-card.tone-starter {
   box-shadow: 0 16px 34px rgba(13, 107, 69, 0.12);
 }
-.price-card.tone-growth,
-.price-card.popular.tone-growth {
+.price-card.tone-business,
+.price-card.popular.tone-business {
   box-shadow: 0 16px 34px rgba(154, 52, 18, 0.14);
 }
 .price-card.tone-command {

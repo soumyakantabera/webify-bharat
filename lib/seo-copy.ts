@@ -53,7 +53,7 @@ export const searchResearchArticle: Article = {
 };
 
 export const serviceArticles: Record<string, Article> = {
-  websites: {
+  site: {
     kicker: "Website design India",
     title: "Business websites that get",
     accent: "enquiries, not just traffic.",
@@ -69,7 +69,7 @@ export const serviceArticles: Record<string, Article> = {
       "WhatsApp and call CTAs, Core Web Vitals, basic schema markup",
     ],
   },
-  ecommerce: {
+  store: {
     kicker: "Own the store",
     title: "E-commerce without",
     accent: "marketplace commission.",
@@ -79,7 +79,7 @@ export const serviceArticles: Record<string, Article> = {
       "Use marketplaces for extra reach if you want. Keep the profitable repeat order on a site and number you control.",
     ],
   },
-  payments: {
+  pay: {
     kicker: "UPI & checkout",
     title: "Payment gateway setup",
     accent: "for Indian businesses.",
@@ -93,7 +93,7 @@ export const serviceArticles: Record<string, Article> = {
       "Receipts on WhatsApp, settlement visibility, GST trail",
     ],
   },
-  whatsapp: {
+  chat: {
     kicker: "WhatsApp Business API India",
     title: "WhatsApp that is a system,",
     accent: "not a chaotic inbox.",
@@ -103,7 +103,7 @@ export const serviceArticles: Record<string, Article> = {
       "Website forms, payment confirmations and a light CRM connect so enquiries do not die on one person’s phone. That is the cheapest front desk in the country if you own it.",
     ],
   },
-  analytics: {
+  pulse: {
     kicker: "Analytics & BI",
     title: "Numbers Indian owners",
     accent: "actually open on Monday.",
@@ -112,7 +112,7 @@ export const serviceArticles: Record<string, Article> = {
       "When those definitions are trusted, we add channel mix (Google vs Instagram vs walk-in), location or SKU mix, and simple BI. Search engines and LLMs also read this page as “analytics for small business India” — practical measurement, not data-warehouse theatre.",
     ],
   },
-  compliance: {
+  ledger: {
     kicker: "GST & books",
     title: "Bookkeeping workflows",
     accent: "that make GST easier.",

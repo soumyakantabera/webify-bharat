@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { REDIRECTS } from "./lib/redirects";
 
 const pages = process.env.GITHUB_PAGES === "true";
 const basePath = pages ? "/webify-bharat" : "";
@@ -31,6 +32,9 @@ const nextConfig: NextConfig = {
 };
 
 if (!pages) {
+  // 301s for retired URLs (content-plan §9.0). The static export uses stub pages instead.
+  nextConfig.redirects = async () => REDIRECTS.map((r) => ({ ...r, statusCode: 301 as const }));
+
   nextConfig.headers = async () => [
     {
       source: "/fonts/:path*",

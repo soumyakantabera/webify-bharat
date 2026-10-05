@@ -3,19 +3,22 @@ import { asset } from "@/lib/asset";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Layout from "@/components/Layout";
-import { RivalBoard } from "@/components/RivalBoard";
+import { RentOwnBoard } from "@/components/RentOwnBoard";
 import { PageLead } from "@/components/PageIcons";
 import { CheckItem, WhatsAppCta } from "@/components/icons";
-import { getOffer, offerFamily, offers } from "@/lib/offers";
+import { getOffer, offerFamily, offers } from "@/lib/legacy-offers";
 import { FilingMark } from "@/components/FilingMark";
 import { filingsIn } from "@/lib/registrations";
 import { HeroShot } from "@/components/HeroShot";
 import { waLink } from "@/lib/site";
+import { RedirectStub, redirectMetadata } from "@/components/RedirectStub";
+import { oldSlugs, redirectFor } from "@/lib/redirects";
 
 const BASE = "https://webify-bharat.vercel.app";
 
 export function generateStaticParams() {
-  return offers.map((o) => ({ slug: o.slug }));
+  // Old slugs (launch, growth) render static redirect stubs for the GitHub Pages export.
+  return [...offers.map((o) => o.slug), ...oldSlugs("/pricing/")].map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -24,6 +27,8 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
+  const moved = redirectFor(`/pricing/${slug}`);
+  if (moved) return redirectMetadata(moved);
   const offer = getOffer(slug);
   if (!offer) return {};
   const title = `${offer.name} ${offer.kind} ${offer.price} incl. GST | Webify Bharat`;
@@ -41,6 +46,8 @@ export default async function OfferPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  const moved = redirectFor(`/pricing/${slug}`);
+  if (moved) return <RedirectStub to={moved} />;
   const offer = getOffer(slug);
   if (!offer) notFound();
 
@@ -138,7 +145,7 @@ export default async function OfferPage({
             </div>
             <p>We are not scoring Launch against Growth. The comparison is the ladder those companies already sell — listing, pack, ads — versus a system you own.</p>
           </div>
-          <RivalBoard slug={offer.slug} />
+          <RentOwnBoard slug={offer.slug} />
           <div className="control-grid" style={{ marginTop: 18 }}>
             <article className="control-card rent">
               <p className="control-kicker">{offer.rentLabel}</p>

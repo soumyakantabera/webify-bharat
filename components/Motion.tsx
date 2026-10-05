@@ -56,6 +56,8 @@ function markMediaLoaded(img: HTMLImageElement) {
 
 function setupSkeletonForImage(img: HTMLImageElement) {
   if (img.closest(".hero-shot")) return;
+  // Rangoli Pro collage images manage their own masks/duotone (components/collage).
+  if (img.closest(".wb-img")) return;
   if (img.classList.contains("skeleton-bound")) return;
   img.classList.add("skeleton-bound");
 

@@ -14,7 +14,7 @@ import { getFaq } from "@/lib/faqs";
 import { IconArrow } from "@/components/icons";
 import { HeroShot } from "@/components/HeroShot";
 import { posts } from "@/lib/site";
-import { hdSrc } from "@/lib/hd-images";
+import { asset } from "@/lib/asset";
 
 export default function BlogPage() {
   return (
@@ -46,7 +46,7 @@ export default function BlogPage() {
             >
               <div className="blog-card-media">
                 <Image
-                  src={hdSrc(post.image)}
+                  src={asset(post.image)}
                   alt={post.title}
                   width={1200}
                   height={720}

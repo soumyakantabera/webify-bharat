@@ -87,7 +87,7 @@
 .pro-value { text-anchor: middle; }
 .pro-value { fill: var(--ink); font-weight: 800; }
 .pro-hit { fill: transparent; cursor: pointer; }
-.pro-hit.is-on { fill: rgba(15, 118, 110, 0.05); }
+.pro-hit.is-on { fill: rgba(0, 115, 115, 0.05); }
 .pro-bar.rent { fill: var(--papaya); }
 .pro-bar.own { fill: var(--teal); }
 .pro-bar.muted { fill: #c9d5d1; }

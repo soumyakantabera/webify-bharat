@@ -82,7 +82,7 @@ const HEADLINES: Record<string, { kicker: string; title: ReactNode }> = {
       </>
     ),
   },
-  "/services": {
+  "/systems": {
     kicker: "Services",
     title: (
       <>
@@ -106,7 +106,7 @@ const HEADLINES: Record<string, { kicker: string; title: ReactNode }> = {
       </>
     ),
   },
-  "/work": {
+  "/prototypes": {
     kicker: "Work",
     title: (
       <>

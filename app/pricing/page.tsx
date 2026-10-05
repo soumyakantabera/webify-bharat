@@ -29,7 +29,8 @@ import { HeroShot } from "@/components/HeroShot";
 import { FilingMark } from "@/components/FilingMark";
 import { ecommerceAddons } from "@/lib/ecommerce-addons";
 import { filingsIn, registrationChat, registrations } from "@/lib/registrations";
-import { plans, WA_PACKAGES } from "@/lib/site";
+import { WA_PACKAGES } from "@/lib/site";
+import { legacyPlans as plans } from "@/lib/legacy-offers";
 
 const planIcons: Record<string, LucideIcon> = {
   Launch: Rocket,
@@ -53,8 +54,8 @@ const fences: Record<string, string> = {
 };
 
 const planSlugs: Record<string, string> = {
-  Launch: "launch",
-  Growth: "growth",
+  Launch: "starter",
+  Growth: "business",
   Command: "command",
 };
 
