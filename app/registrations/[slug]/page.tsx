@@ -2,128 +2,113 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Layout from "@/components/Layout";
-import { PageLead } from "@/components/PageIcons";
-import { WhatsAppCta } from "@/components/icons";
+import { Icon } from "@/components/Icon";
 import { FilingMark } from "@/components/FilingMark";
-import { HeroShot } from "@/components/HeroShot";
-import { getRegistration, registrationChat, registrations } from "@/lib/registrations";
+import { WhatsAppCTA } from "@/components/WhatsAppCTA";
+import { BreadcrumbLd } from "@/components/SeoLd";
+import { FilingStamp } from "@/components/svg/flows";
+import { FeeDonut } from "@/components/viz/FeeDonut";
+import { PageHero, SectionHead } from "@/components/tiles";
+import { getStage } from "@/lib/offers";
+import { pageMetadata } from "@/lib/page-seo";
+import { getRegistration, registrationMessage, registrations } from "@/lib/registrations";
+
+export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return registrations.map((item) => ({ slug: item.slug }));
+  return registrations.map((r) => ({ slug: r.slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const item = getRegistration(slug);
-  if (!item) return {};
-  return {
-    title: `${item.name} — ${item.ourFee} incl. GST, government fee ${item.govFee}`,
-    description: `${item.forWhom} Filed on ${item.portal}. ${item.govNote}`,
-  };
+  return pageMetadata(`registration:${slug}`);
 }
 
-export default async function RegistrationPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export default async function RegistrationPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const item = getRegistration(slug);
   if (!item) notFound();
+  const message = registrationMessage(item);
+  const label = `Start my ${item.short}`;
+  const hasFees = item.ourFee !== "Quoted";
 
   return (
-    <Layout>
-      <section className="page-hero offer-hero">
-        <div className="container wrap">
-          <div className="page-copy">
-          <div className="reg-logo">
-            <FilingMark slug={item.slug} mark={item.mark} size={64} />
+    <Layout cta={{ title: `Ready to file ${item.short}? Send us a message.`, message, label, webu: "pointing" }}>
+      <BreadcrumbLd seoKey={`registration:${item.slug}`} />
+      <PageHero
+        kicker="Registration"
+        title={`${item.name}, filed for you.`}
+        sub={item.forWhom}
+        cta={<WhatsAppCTA message={message} context="hero" label={label} />}
+        visual={
+          <div className="reg-detail-art">
+            <FilingMark slug={item.slug} mark={item.mark} size={96} />
+            <FilingStamp portal={item.portal} className="reg-detail-stamp" />
           </div>
-          <PageLead icon="registrations" kicker="Registration" />
-          <h1>
-            {item.name}
-            <br />
-            <span>Filed on {item.portal}. We are not the department.</span>
-          </h1>
-          <p className="muted-copy">{item.forWhom}</p>
-          <div className="reg-prices reg-prices-hero">
+        }
+        chips={
+          <dl className="reg-fee-strip">
             <div>
-              <span>Our fee</span>
-              <strong>{item.ourFee}</strong>
-              <small>incl. 18% GST</small>
+              <dt>Our fee</dt>
+              <dd className="mono">{item.ourFee}</dd>
             </div>
             <div>
-              <span>Government</span>
-              <strong>{item.govFee}</strong>
-              <small>not inside our fee</small>
+              <dt>Government fee</dt>
+              <dd className="mono">{item.govFee}</dd>
             </div>
+            {item.includedIn.length ? (
+              <div>
+                <dt>Included in</dt>
+                <dd>{item.includedIn.map((s) => getStage(s)!.name).join(", ")}</dd>
+              </div>
+            ) : null}
+          </dl>
+        }
+        tone="indigo"
+      />
+
+      <section className="section surface-2" id="documents" aria-labelledby="docs-title">
+        <div className="container two-col is-top">
+          <div>
+            <SectionHead kicker="Bring these" id="docs-title" title="Documents checklist." sub="The portal's own list — we don't invent a shorter one." />
+            <ul className="doc-checklist">
+              {item.documents.map((d, i) => (
+                <li key={d} style={{ ["--i" as string]: i }}>
+                  <Icon name="ShieldCheck" size={20} /> {d}
+                </li>
+              ))}
+            </ul>
           </div>
-          <div className="gift-band">
-            <strong>Our fee is ₹0 with {item.ridesWith}.</strong>
-            <p>
-              {item.ourFee} is only if you want the filing and no website.{" "}
-              {item.govFee === "₹0"
-                ? "The portal does not charge either."
-                : `The government line stays ${item.govFee}, paid to them, not marked up.`}
+          <div className="not-included">
+            <h2 className="h3">What's not included</h2>
+            <p>{item.refuse}</p>
+            <ul>
+              {item.notIncluded.map((n) => (
+                <li key={n}>{n}</li>
+              ))}
+            </ul>
+            <p className="portal-link">
+              Official portal:{" "}
+              <a href={item.portalUrl} target="_blank" rel="noopener noreferrer">
+                {item.portal} ↗
+              </a>
             </p>
           </div>
-          <div className="offer-actions">
-            <WhatsAppCta href={registrationChat(item)}>Start {item.name}</WhatsAppCta>
-            <Link className="btn btn-secondary" href="/registrations/charges">Additional charges</Link>
-          </div>
-          <div className="offer-switch">
-            {registrations.map((other) => (
-              <Link key={other.slug} href={`/registrations/${other.slug}`} className={other.slug === item.slug ? "is-on" : undefined}>
-                {other.name}
-              </Link>
-            ))}
-          </div>
-          </div>
-          <HeroShot
-            kind="registrations"
-            kicker={item.name}
-            figure={item.ourFee}
-            note={`Government ${item.govFee}`}
-            footer={`₹0 with ${item.ridesWith}`}
-            points={[
-              "Our fee and the department’s fee",
-              `Filed on ${item.portal}`,
-              "We are not the portal",
-            ]}
-          />
         </div>
       </section>
 
-      <section className="section">
-        <div className="container">
-          <div className="control-grid">
-            <article className="control-card rent">
-              <p className="control-kicker">Bring these</p>
-              <h3>The portal asks for this. We do not invent a shorter list.</h3>
-              <ul>
-                {item.documents.map((doc) => (
-                  <li key={doc}>{doc}</li>
-                ))}
-              </ul>
-            </article>
-            <article className="control-card own">
-              <p className="control-kicker">We will not pretend</p>
-              <h3>{item.refuse}</h3>
-              <ul>
-                {item.notIncluded.map((line) => (
-                  <li key={line}>{line}</li>
-                ))}
-              </ul>
-            </article>
-          </div>
-          <p className="control-note">
-            Often a few working days after the portal has a complete file. KYC and a
-            department query can take longer. Approval is theirs, not ours.{" "}
-            <Link href="/registrations">All filings</Link>
+      <section className="section" id="fees" aria-labelledby="fees-title">
+        <div className="container narrow">
+          <SectionHead kicker="Fees" id="fees-title" title="Two numbers, never folded together." sub={item.govNote} />
+          {hasFees ? <FeeDonut slugs={[item.slug]} /> : <p className="caveat-box">Both fees are quoted after a short chat, before you pay anything.</p>}
+          <p className="center-note">
+            <Link href="/registrations" className="text-link">
+              All filings
+            </Link>{" "}
+            ·{" "}
+            <Link href="/registrations/charges" className="text-link">
+              Other charges
+            </Link>
           </p>
         </div>
       </section>

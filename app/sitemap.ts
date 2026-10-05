@@ -1,8 +1,11 @@
 import type { MetadataRoute } from "next";
 import { cities } from "@/lib/cities";
 import { registrations } from "@/lib/registrations";
-import { offers } from "@/lib/offers";
-import { industries, posts, services } from "@/lib/site";
+import { blocks } from "@/lib/blocks";
+import { stages } from "@/lib/offers";
+import { reachServices } from "@/lib/reach";
+import { industryPages } from "@/lib/industries";
+import { publishedPosts } from "@/lib/posts";
 
 export const dynamic = "force-static";
 
@@ -10,10 +13,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const base = process.env.NEXT_PUBLIC_SITE_URL || "https://webify-bharat.vercel.app";
   const paths = [
     "",
-    "/services",
+    "/what-we-do",
+    "/solutions/launch",
+    "/solutions/organise",
+    "/solutions/grow",
+    "/how-we-work",
+    "/systems",
     "/industries",
     "/cities",
-    "/work",
+    "/prototypes",
     "/pricing",
     "/registrations",
     "/registrations/charges",
@@ -21,14 +29,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/about",
     "/blog",
     "/contact",
+    "/faq",
     "/terms",
     "/privacy",
     "/refund",
-    ...offers.map((o) => `/pricing/${o.slug}`),
-    ...services.map((s) => `/services/${s.slug}`),
-    ...industries.map((i) => `/industries/${i.slug}`),
+    ...stages.map((s) => `/pricing/${s.slug}`),
+    ...blocks.map((b) => `/systems/${b.slug}`),
+    "/strategy",
+    "/marketing",
+    ...reachServices.map((r) => `/marketing/${r.slug}`),
+    "/integrations",
+    ...industryPages.map((i) => `/industries/${i.slug}`),
     ...cities.map((c) => `/cities/${c.slug}`),
-    ...posts.map((p) => `/blog/${p.slug}`),
+    ...publishedPosts.map((p) => `/blog/${p.slug}`),
   ];
   return paths.map((path) => ({
     url: `${base}${path}`,

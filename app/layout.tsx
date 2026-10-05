@@ -5,7 +5,6 @@ import "./pricing-ui.css";
 import "./home-pricing.css";
 import "./blog-images.css";
 import "./about-brand.css";
-import "./city-cards.css";
 import "./perf-a11y.css";
 import "./button-anim.css";
 import "./site-motion.css";
@@ -15,15 +14,23 @@ import "./photo-caption.css";
 import "./claim-panel.css";
 import "./offer-pages.css";
 import "./pro-chart.css";
-import "./rival-board.css";
 import "./color-tiles.css";
 import "./service-grid.css";
 import "./hero-shot.css";
 import "./hero-overlay.css";
+import "./rangoli.css";
+import "./sections.css";
+import "./pillars.css";
+import "./places.css";
+import "./rest.css";
+import { Analytics } from "@vercel/analytics/next";
 import { jetbrains, manrope, sora } from "./fonts";
 
+/** Vercel Analytics only exists on Vercel; the GitHub Pages export has no endpoint. */
+const onVercel = !process.env.NEXT_PUBLIC_BASE_PATH;
+
 export const viewport: Viewport = {
-  themeColor: "#0f766e",
+  themeColor: "#2B1E6B",
   width: "device-width",
   initialScale: 1,
 };
@@ -31,20 +38,12 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://webify-bharat.vercel.app"),
   title: {
-    default: "Webify Bharat | Website, WhatsApp & UPI for Indian MSMEs",
+    default: "Webify Bharat | Custom software & marketing for Indian MSMEs",
     template: "%s",
   },
   description:
-    "Webify Bharat builds websites, WhatsApp Business, UPI gateways and analytics for Indian MSMEs. Own your customers. \u20b90 per organic lead.",
-  icons: {
-    icon: [
-      { url: asset("/favicon.ico"), sizes: "48x48" },
-      { url: asset("/favicon.svg"), type: "image/svg+xml" },
-      { url: asset("/favicon-32.png"), sizes: "32x32", type: "image/png" },
-    ],
-    apple: [{ url: asset("/apple-touch-icon.png") }],
-    shortcut: [asset("/favicon.ico")],
-  },
+    "Webify Bharat builds and runs your own business software — and markets your business — so every tool you use actually works for you.",
+  // Icons come from app/favicon.ico, app/icon.svg and app/apple-icon.png (content-plan §17.3 #2).
 };
 
 export default function RootLayout({
@@ -57,9 +56,11 @@ export default function RootLayout({
       <head>
         <link rel="preload" href={asset("/fonts/sora.woff2")} as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href={asset("/fonts/manrope.woff2")} as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" as="image" href={asset("/images/hero/digital-growth-dashboard.png")} />
       </head>
-      <body className={manrope.className}>{children}</body>
+      <body className={manrope.className}>
+        {children}
+        {onVercel ? <Analytics /> : null}
+      </body>
     </html>
   );
 }

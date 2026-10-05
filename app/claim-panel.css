@@ -215,7 +215,7 @@
 .claim-facts > div:hover {
   transform: translateY(-4px);
   box-shadow: 0 16px 36px rgba(28, 31, 29, 0.08);
-  border-color: rgba(15, 118, 110, 0.2);
+  border-color: rgba(0, 115, 115, 0.2);
 }
 .claim-facts > div:hover .trust-icon {
   transform: scale(1.08);

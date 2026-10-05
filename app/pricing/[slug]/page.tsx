@@ -1,195 +1,152 @@
 import type { Metadata } from "next";
-import { asset } from "@/lib/asset";
+import { glossify } from "@/components/clarity/glossify";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Layout from "@/components/Layout";
-import { RivalBoard } from "@/components/RivalBoard";
-import { PageLead } from "@/components/PageIcons";
-import { CheckItem, WhatsAppCta } from "@/components/icons";
-import { getOffer, offerFamily, offers } from "@/lib/offers";
-import { FilingMark } from "@/components/FilingMark";
-import { filingsIn } from "@/lib/registrations";
-import { HeroShot } from "@/components/HeroShot";
-import { waLink } from "@/lib/site";
+import { BreadcrumbLd } from "@/components/SeoLd";
+import { Icon } from "@/components/Icon";
+import { WhatsAppCTA } from "@/components/WhatsAppCTA";
+import { Img } from "@/components/collage";
+import { RedirectStub, redirectMetadata } from "@/components/RedirectStub";
+import { PageHero, SectionHead } from "@/components/tiles";
+import { addons, featureRows, getStage, limitRows, stages } from "@/lib/offers";
+import { pageMetadata } from "@/lib/page-seo";
+import { oldSlugs, redirectFor } from "@/lib/redirects";
+import { gstNote } from "@/lib/site";
+import { waTier } from "@/lib/wa";
 
-const BASE = "https://webify-bharat.vercel.app";
+export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return offers.map((o) => ({ slug: o.slug }));
+  // Old slugs render static redirect stubs for the GitHub Pages export.
+  return [...stages.map((s) => s.slug), ...oldSlugs("/pricing/")].map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const offer = getOffer(slug);
-  if (!offer) return {};
-  const title = `${offer.name} ${offer.kind} ${offer.price} incl. GST | Webify Bharat`;
-  const description = `${offer.lead} Starting ${offer.price} including 18% GST.`;
-  return {
-    title,
-    description,
-    alternates: { canonical: `${BASE}/pricing/${offer.slug}` },
-  };
+  const moved = redirectFor(`/pricing/${slug}`);
+  if (moved) return redirectMetadata(moved);
+  return pageMetadata(`stage:${slug}`);
 }
 
-export default async function OfferPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
-  const offer = getOffer(slug);
-  if (!offer) notFound();
+const START = [
+  { icon: "ChatCircleDots", text: "Message us on WhatsApp — a real person replies within a few hours." },
+  { icon: "Flask", text: "Free discovery chat and a private prototype walkthrough." },
+  { icon: "FileText", text: "A written scope and price on WhatsApp." },
+  { icon: "Link", text: "Pay the setup and first month by payment link — your start date is locked." },
+  { icon: "RocketLaunch", text: "We design, build and launch. Monthly billing starts at launch." },
+];
 
-  const family = offerFamily(offer.kind);
-  const chat = waLink(`Hi, I want the ${offer.name} ${offer.kind} (${offer.price} incl. GST)`);
-  const ld = {
-    "@context": "https://schema.org",
-    "@type": "Offer",
-    name: `${offer.name} ${offer.kind}`,
-    description: offer.lead,
-    url: `${BASE}/pricing/${offer.slug}`,
-    priceCurrency: "INR",
-    price: offer.price.replace(/[^\d]/g, ""),
-    availability: "https://schema.org/InStock",
-    seller: { "@type": "Organization", name: "Webify Bharat", url: BASE },
-  };
+export default async function StagePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const moved = redirectFor(`/pricing/${slug}`);
+  if (moved) return <RedirectStub to={moved} />;
+  const stage = getStage(slug);
+  if (!stage) notFound();
+  const gst = gstNote();
+  const idx = stages.findIndex((s) => s.slug === stage.slug);
+  const next = stages[idx + 1];
+  const included = featureRows.filter((r) => r.cells[stage.slug] !== false);
+  const popular = addons.filter((a) => a.availableOn === "All" || a.availableOn.includes(stage.name));
+  const monthly = stage.monthly.replace(/^from\s+/, "");
 
   return (
-    <Layout>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
-      <section className="page-hero offer-hero">
-        <div className="container wrap">
-          <div className="page-copy">
-          <PageLead icon="pricing" kicker={offer.kind === "package" ? "Package" : "E-commerce addon"} />
-          <h1>
-            {offer.headline}
-            <br />
-            <span>{offer.accent}</span>
-          </h1>
-          <p className="muted-copy">{offer.lead}</p>
-          <div className="offer-price">
-            {offer.price}
-            <small>{offer.managed ? "you manage · incl. GST" : "incl. GST"}</small>
-          </div>
-          {offer.managed ? <p className="price-managed">We manage the products from {offer.managed}, incl. GST.</p> : null}
-          <p className="price-best-for">{offer.bestFor}</p>
-          {offer.kind === "package" ? (
-            <div className="gift-band">
-              <strong>
-                {offer.name === "Launch" && "GST and Udyam ride in this price."}
-                {offer.name === "Growth" && "GST, Udyam, and IEC ride in this price."}
-                {offer.name === "Command" && "Every filing we sell rides in this price."}
-              </strong>
-              <p>
-                Our fee is ₹0. You do not get a second invoice for the paperwork.
-                {offer.name !== "Launch" ? " IEC still pays ₹500 to DGFT, in your name." : ""}
-                {offer.name === "Command" ? " An EU intermediary, if the shop needs one, is still their bill." : ""}
-              </p>
-              <div className="filing-pack">
-                {filingsIn(offer.name as "Launch" | "Growth" | "Command").map((item) => (
-                  <span className="filing-slot" key={item.slug}>
-                    <FilingMark slug={item.slug} mark={item.mark} />
-                    <em>{item.short}</em>
-                  </span>
-                ))}
-              </div>
-            </div>
-          ) : null}
-          <div className="offer-actions">
-            <WhatsAppCta href={chat}>Choose {offer.name}</WhatsAppCta>
-            <Link className="btn btn-secondary" href="/pricing">All packages</Link>
-          </div>
-          <div className="offer-switch">
-            {family.map((item) => (
-              <Link key={item.slug} href={`/pricing/${item.slug}`} className={item.slug === offer.slug ? "is-on" : undefined}>
-                {item.name} {item.price}
-              </Link>
-            ))}
-          </div>
-          </div>
-          <HeroShot
-            kind="pricing"
-            kicker={offer.name}
-            figure={offer.price}
-            note="The number on the card is the invoice."
-            points={[
-              offer.bestFor,
-              "No fee on an organic enquiry.",
-              offer.kind === "package"
-                ? "The filings on this card ride in the price."
-                : "This sits on top of a website package.",
-            ]}
-          />
-        </div>
-      </section>
+    <Layout cta={{ title: `Interested in ${stage.name}? We'll scope it for you.`, message: waTier(stage.name), label: "Get my quote", webu: "pointing" }}>
+      <BreadcrumbLd seoKey={`stage:${slug}`} />
+      <PageHero
+        kicker={`Pricing · ${stage.name}`}
+        title={
+          <>
+            {stage.emoji} {stage.name}: {stage.tagline}
+          </>
+        }
+        sub={
+          <>
+            <span className="mono hero-price">{stage.from ? "from " : ""}{monthly}/month</span> + <span className="mono">{stage.setup}</span> setup{gst ? ` (${gst})` : ""}. Best for {stage.bestFor.toLowerCase()}.
+          </>
+        }
+        cta={<WhatsAppCTA message={waTier(stage.name)} context="hero" label="Get my quote" />}
+        visual={<Img slot={stage.photo} mask="arch" priority width={700} height={800} className="stage-hero-photo" />}
+      />
 
-      <section className="section">
-        <div className="container">
-          <div className="section-head">
-            <div>
-              <div className="eyebrow"><span className="dot" /> Against their stages</div>
-              <h2>
-                What the other companies charge you to climb. <span>And why {offer.name} does not.</span>
-              </h2>
-            </div>
-            <p>We are not scoring Launch against Growth. The comparison is the ladder those companies already sell — listing, pack, ads — versus a system you own.</p>
-          </div>
-          <RivalBoard slug={offer.slug} />
-          <div className="control-grid" style={{ marginTop: 18 }}>
-            <article className="control-card rent">
-              <p className="control-kicker">{offer.rentLabel}</p>
-              <h3>Rent on intent you already earned.</h3>
-              <ul>{offer.vs.map((row) => <li key={row.they}>{row.they}</li>)}</ul>
-            </article>
-            <article className="control-card own">
-              <p className="control-kicker">{offer.ownLabel}</p>
-              <h3>{offer.desc}</h3>
-              <ul>{offer.features.map((feature) => <li key={feature}>{feature}</li>)}</ul>
-            </article>
-          </div>
-          <p className="control-note">{offer.note} Gateway MDR, shipping and WhatsApp conversation charges stay outside the build fee.</p>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container process-wrap">
+      <section className="section" id="included" aria-labelledby="inc-title">
+        <div className="container split is-top">
           <div>
-            <div className="eyebrow"><span className="dot" /> How {offer.name} ships</div>
-            <h2 className="display-h2">Four moves.<br /><span>Then it is yours.</span></h2>
-            <div className="steps">
-              {offer.steps.map((step, index) => (
-                <div className="step" key={step.title}>
-                  <div className="step-num">{index + 1}</div>
-                  <div>
-                    <h3>{step.title}</h3>
-                    <p>{step.detail}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <SectionHead kicker="Everything included" id="inc-title" title={`What ${stage.name} includes.`} />
+            <ul className="ticks">
+              {included.map((r) => {
+                const v = r.cells[stage.slug];
+                return (
+                  <li key={r.label}>
+                    {glossify(r.label)}
+                    {typeof v === "string" ? <strong> — {v}</strong> : null}
+                  </li>
+                );
+              })}
+            </ul>
           </div>
-          <div className="values">
-            {offer.features.map((feature) => <CheckItem key={feature}>{feature}</CheckItem>)}
+          <div>
+            <SectionHead kicker="Limits" title="Room to grow." />
+            <dl className="limit-list">
+              {limitRows.map((r) => {
+                const v = r.cells[stage.slug];
+                return (
+                  <div key={r.key}>
+                    <dt>{r.label}</dt>
+                    <dd className="mono">{v === null ? "—" : v === "agreed" ? "Agreed" : v.toLocaleString("en-IN")}</dd>
+                  </div>
+                );
+              })}
+            </dl>
+            <p className="caveat">Over a limit? We message you at 80% with both options and which is cheaper. Nothing is charged without your OK.</p>
           </div>
         </div>
       </section>
 
-      <section className="section">
-        <div className="container">
-          <div className="cta-band">
-            <div>
-              <h2>Start with {offer.name}.</h2>
-              <p>{offer.price} incl. GST to build. Not a fee on the next organic customer.</p>
-              <WhatsAppCta href={chat}>Chat about {offer.name}</WhatsAppCta>
-            </div>
-            <div className="image-wrap cta-real-photo">
-              <img src={asset("/images/real/growth-success.webp")} alt="Indian business owner after setting up an owned website and UPI" width={640} height={400} loading="lazy" decoding="async" />
-            </div>
+      {stage.slug !== "custom" ? (
+        <section className="section surface-2" id="addons" aria-labelledby="addons-title">
+          <div className="container">
+            <SectionHead kicker="Popular add-ons" id="addons-title" title={`Add-ons that work with ${stage.name}.`} />
+            <ul className="addon-chips">
+              {popular.map((a) => (
+                <li key={a.slug}>
+                  <span>{a.name}</span>
+                  <span className="mono">{a.price}{a.kind === "monthly" && !/\//.test(a.price) ? "/mo" : ""}</span>
+                </li>
+              ))}
+            </ul>
           </div>
+        </section>
+      ) : null}
+
+      <section className="section" id="next" aria-labelledby="next-title">
+        <div className="container split">
+          <Img slot={stage.slug === "custom" ? "IMG-B09" : "IMG-B11"} mask="rounded" width={800} height={600} />
+          <div>
+            {next ? (
+              <>
+                <SectionHead kicker="When to move up" id="next-title" title={`When ${next.name} makes more sense.`} sub={`${next.name} (${next.monthly}/month) adds: ${next.keyFeatures.slice(1, 4).join(", ").toLowerCase()}. Once you need two or three over-limit add-ons, moving up is usually cheaper — we'll tell you when.`} />
+                <Link href={`/pricing/${next.slug}`} className="text-link">See {next.name} →</Link>
+              </>
+            ) : (
+              <SectionHead kicker="Who it's for" id="next-title" title="Built from zero, run for you." sub="For unique workflows, multi-unit businesses and platforms. We start with a Compass session, then quote a setup with 40% at start, 40% at preview and 20% before launch." />
+            )}
+            <p><Link href="/pricing#compare" className="text-link">Compare all stages →</Link></p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section surface-2" id="start" aria-labelledby="start-title">
+        <div className="container narrow">
+          <SectionHead kicker="Steps to start" id="start-title" title="How to start on this stage." />
+          <ol className="start-steps">
+            {START.map((s) => (
+              <li key={s.text}>
+                <Icon name={s.icon} size={22} /> {s.text}
+              </li>
+            ))}
+          </ol>
+          <p className="caveat">{stage.terms}</p>
         </div>
       </section>
     </Layout>

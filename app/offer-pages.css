@@ -215,7 +215,7 @@
 .ix-row.is-on,
 .ix-family-row.is-current,
 .ix-family-row:hover {
-  border-color: rgba(15, 118, 110, 0.28);
+  border-color: rgba(0, 115, 115, 0.28);
   background: #fff;
   box-shadow: 0 8px 20px rgba(28, 31, 29, 0.05);
 }

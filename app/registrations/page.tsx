@@ -1,119 +1,114 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Layout from "@/components/Layout";
-import { PageLead } from "@/components/PageIcons";
-import { WhatsAppCta } from "@/components/icons";
+import { Icon } from "@/components/Icon";
 import { FilingMark } from "@/components/FilingMark";
-import { registrations } from "@/lib/registrations";
-import { HeroShot } from "@/components/HeroShot";
-import { waLink } from "@/lib/site";
+import { WhatsAppCTA } from "@/components/WhatsAppCTA";
+import { ArchWindows } from "@/components/collage";
+import { BreadcrumbLd } from "@/components/SeoLd";
+import { FilingStamp } from "@/components/svg/flows";
+import { FeeDonut } from "@/components/viz/FeeDonut";
+import { PageHero, SectionHead } from "@/components/tiles";
+import { getStage } from "@/lib/offers";
+import { pageMetadata } from "@/lib/page-seo";
+import { registrations, type Registration } from "@/lib/registrations";
 
-export const metadata: Metadata = {
-  title: "GST, Udyam, IEC, UK VAT and EU IOSS filings",
-  description:
-    "Registration filings for Indian businesses. Government fee and our fee are two numbers. GST ₹4,999, Udyam ₹2,499, IEC ₹4,999 plus ₹500 DGFT. 18% GST is inside our fee.",
-};
+export const metadata: Metadata = pageMetadata("registrations");
 
-const chat = waLink("Hi, I want to ask about a registration filing.");
+const ASK = "Hi! I want help with a registration. Which one do I need?";
 
-export default function RegistrationsPage() {
+function FilingTile({ item }: { item: Registration }) {
   return (
-    <Layout>
-      <section className="page-hero">
-        <div className="container wrap">
-          <div className="page-copy">
-          <PageLead icon="registrations" kicker="Registrations" />
-          <h1>
-            The paper, filed properly.
-            <br />
-            <span>Not a ₹499 mill.</span>
-          </h1>
-          <p className="muted-copy">
-            Take Launch and our GST and Udyam fees are already in it. Growth adds IEC.
-            Command takes the lot, UK and EU included. Buying a filing on its own is the
-            price below. The department’s receipt, if any, is never our markup.
-          </p>
-          <div className="offer-actions">
-            <WhatsAppCta href={chat}>Ask which filing you need</WhatsAppCta>
-            <Link className="btn btn-secondary" href="/registrations/charges">
-              Additional charges
-            </Link>
-          </div>
-          </div>
-          <HeroShot kind="registrations" />
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container">
-          <div className="section-head">
-            <div>
-              <div className="eyebrow"><span className="dot" /> India</div>
-              <h2>GST, Udyam, and the export code.</h2>
-            </div>
-            <p>Our fee includes 18% GST. The portal fee, if any, is extra and receipted to you.</p>
-          </div>
-          <div className="pricing-grid">
-            {registrations.slice(0, 3).map((item) => (
-              <RegCard key={item.slug} item={item} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section section-soft">
-        <div className="container">
-          <div className="section-head">
-            <div>
-              <div className="eyebrow"><span className="dot" /> Selling abroad</div>
-              <h2>UK VAT and EU IOSS. Only if your own site needs them.</h2>
-            </div>
-            <p>Marketplace-only sales are often covered by the marketplace. Do not buy a registration you do not need.</p>
-          </div>
-          <div className="pricing-grid">
-            {registrations.slice(3).map((item) => (
-              <RegCard key={item.slug} item={item} />
-            ))}
-          </div>
-        </div>
-      </section>
-    </Layout>
+    <Link href={`/registrations/${item.slug}`} className="filing-tile">
+      <FilingMark slug={item.slug} mark={item.mark} size={52} />
+      <span className="filing-tile-name">{item.name}</span>
+      <span className="filing-tile-for">{item.forWhom}</span>
+      <span className="filing-fees">
+        <span>
+          <small>Our fee</small>
+          <strong className="mono">{item.ourFee}</strong>
+          {item.planFee ? <small>Starter clients {item.planFee}</small> : null}
+        </span>
+        <span>
+          <small>Government fee</small>
+          <strong className="mono">{item.govFee}</strong>
+          <small>paid in your name</small>
+        </span>
+      </span>
+      {item.includedIn.length ? (
+        <span className="filing-included">
+          <Icon name="ShieldCheck" size={16} /> Our fee included in {item.includedIn.map((s) => getStage(s)!.name).join(" and ")}
+        </span>
+      ) : (
+        <span className="filing-included is-agent">
+          <Icon name="GlobeHemisphereWest" size={16} /> Coordinated with a registered agent
+        </span>
+      )}
+      <span className="filing-more">What you need →</span>
+    </Link>
   );
 }
 
-function RegCard({ item }: { item: (typeof registrations)[number] }) {
+export default function RegistrationsPage() {
   return (
-    <article className={`price-card price-card-filing tone-${item.slug}`}>
-      <div className="price-card-top">
-        <div className="filing-head">
-          <FilingMark slug={item.slug} mark={item.mark} size={48} />
-          <p className="price-best-for">Filed on {item.portal}</p>
-        </div>
-        <h2>
-          <Link href={`/registrations/${item.slug}`}>{item.name}</Link>
-        </h2>
-        <p className="price-desc">{item.forWhom}</p>
-        <div className="reg-prices">
-          <div>
-            <span>Alone</span>
-            <strong>{item.ourFee}</strong>
-            <small>no website</small>
+    <Layout cta={{ title: "Not sure which filing you need? Ask us.", message: ASK, label: "Ask which filing I need", webu: "pointing" }}>
+      <BreadcrumbLd seoKey="registrations" />
+      <PageHero
+        kicker="Registrations · Webify File"
+        title="GST, Udyam, IEC — filed for you."
+        sub="Our fee and the government fee shown separately. Government fees are paid in your name."
+        cta={<WhatsAppCTA message={ASK} context="hero" label="Ask which filing I need" />}
+        visual={
+          <div className="reg-hero-art">
+            <ArchWindows slots={["/images/snapshots/registrations.webp", "IMG-B07"]} priority />
+            <FilingStamp className="reg-hero-stamp" />
           </div>
-          <div className="fee-in">
-            <span>With {item.ridesWith}</span>
-            <strong>₹0</strong>
-            <small>our fee</small>
+        }
+        tone="indigo"
+      />
+
+      <section className="section surface-2" id="filings" aria-labelledby="filings-title">
+        <div className="container">
+          <SectionHead kicker="India" id="filings-title" title="The filings most businesses need." sub="We prepare and submit using documents and one-time passwords you share. Approval is the department's." />
+          <div className="filing-grid">
+            {registrations.slice(0, 3).map((r) => (
+              <FilingTile key={r.slug} item={r} />
+            ))}
+          </div>
+          <div className="launch-banner">
+            <Icon name="RocketLaunch" size={26} />
+            <p>
+              <strong>Starting from scratch?</strong> Registrations are part of the Launch path — with brand, website, payments and WhatsApp.
+            </p>
+            <Link href="/solutions/launch" className="text-link">
+              See the Launch path →
+            </Link>
           </div>
         </div>
-      </div>
-      <div className="price-card-cta">
-        <Link className="btn btn-secondary price-cta" href={`/registrations/${item.slug}`}>
-          What you need
-        </Link>
-        <Link className="btn btn-primary price-cta" href="/registrations/charges">
-          Extra charges
-        </Link>
-      </div>
-    </article>
+      </section>
+
+      <section className="section" id="abroad" aria-labelledby="abroad-title">
+        <div className="container">
+          <SectionHead kicker="Selling abroad" id="abroad-title" title="UK VAT and EU IOSS — only if your own site needs them." sub="Marketplace-only sales are often covered by the marketplace. We coordinate with a registered overseas agent or intermediary; their fee is billed by them." />
+          <div className="filing-grid is-two">
+            {registrations.slice(3).map((r) => (
+              <FilingTile key={r.slug} item={r} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section surface-2" id="fees" aria-labelledby="fees-title">
+        <div className="container narrow">
+          <SectionHead kicker="Two separate numbers" id="fees-title" title="Our fee, and the government's." />
+          <FeeDonut />
+          <p className="center-note">
+            <Link href="/registrations/charges" className="text-link">
+              Other charges outside our fee →
+            </Link>
+          </p>
+        </div>
+      </section>
+    </Layout>
   );
 }

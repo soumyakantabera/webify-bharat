@@ -1,30 +1,17 @@
 import type { Metadata } from "next";
 import Layout from "@/components/Layout";
-import { HeroShot } from "@/components/HeroShot";
 import { LegalDoc } from "@/components/LegalDoc";
+import { BreadcrumbLd } from "@/components/SeoLd";
 import { terms } from "@/lib/legal";
+import { pageMetadata } from "@/lib/page-seo";
 
-export const metadata: Metadata = {
-  title: "Terms",
-  description:
-    "Terms of Webify Bharat India. Delivery is the agreed output. We do not guarantee a rise in sales.",
-};
+export const metadata: Metadata = pageMetadata("terms");
 
-export default function TermsPage() {
+export default function Page() {
   return (
-    <Layout>
-      <section className="page-hero">
-        <div className="container wrap">
-          <LegalDoc
-            kicker="Terms"
-            title="The work we sell is the work we deliver."
-            lede="Read this with the pricing page. The card is the scope. These terms say what that scope is not."
-            sections={terms}
-          >
-            <HeroShot kind="legal" />
-          </LegalDoc>
-        </div>
-      </section>
+    <Layout cta={{ title: "Questions about this policy? Ask us.", message: "Hi! I have a question about your terms.", webu: "thinking" }}>
+      <BreadcrumbLd seoKey="terms" />
+      <LegalDoc kicker="Terms" title="Terms of service, in plain language." lede="How our plans, payments, ownership and responsibilities work." doc={terms} />
     </Layout>
   );
 }

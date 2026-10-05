@@ -1,26 +1,34 @@
-import { SITE, services, plans } from "@/lib/site";
+import { BUSINESS, filled, SITE } from "@/lib/site";
+import { blocks } from "@/lib/blocks";
+import { PLAN_STAGES } from "@/lib/offers";
 
 const BASE = "https://webify-bharat.vercel.app";
 
 export function OrgJsonLd() {
-  const serviceNodes = services.map((s) => ({
+  const serviceNodes = blocks.map((b) => ({
     "@type": "Service",
-    "@id": `${BASE}/services/${s.slug}#service`,
-    name: s.title,
-    description: s.description,
-    url: `${BASE}/services/${s.slug}`,
+    "@id": `${BASE}/systems/${b.slug}#service`,
+    name: b.name,
+    description: `${b.becomes}. ${b.oneLiner}`,
+    url: `${BASE}/systems/${b.slug}`,
     provider: { "@id": `${BASE}/#org` },
     areaServed: { "@type": "Country", name: "India" },
-    serviceType: s.title,
-    image: `${BASE}/images/services/${s.image}`,
+    serviceType: b.becomes,
   }));
 
-  const offerNodes = plans.map((p) => ({
+  const offerNodes = PLAN_STAGES.map((p) => ({
     "@type": "Offer",
-    "@id": `${BASE}/pricing#${p.name.toLowerCase()}`,
-    name: `${p.name} package`,
-    description: `${p.desc} Price ${p.price} including 18% GST.`,
-    price: p.price.replace(/[^0-9]/g, ""),
+    "@id": `${BASE}/pricing#${p.slug}`,
+    name: `${p.name} plan`,
+    description: `${p.tagline} Setup ${p.setup}, then ${p.monthly} per month. Prices exclude GST.`,
+    price: String(p.monthlyAmount),
+    priceSpecification: {
+      "@type": "UnitPriceSpecification",
+      price: String(p.monthlyAmount),
+      priceCurrency: "INR",
+      unitCode: "MON",
+      valueAddedTaxIncluded: false,
+    },
     priceCurrency: "INR",
     availability: "https://schema.org/InStock",
     url: `${BASE}/pricing`,
@@ -34,7 +42,8 @@ export function OrgJsonLd() {
         "@type": "Organization",
         "@id": `${BASE}/#org`,
         name: SITE.name,
-        legalName: "Webify Bharat",
+        legalName: BUSINESS.legalName,
+        email: SITE.email,
         url: BASE,
         logo: {
           "@type": "ImageObject",
@@ -56,13 +65,13 @@ export function OrgJsonLd() {
           "Google Business Profile",
           "GST invoicing",
           "MSME digital operations",
-          "Justdial alternative",
-          "Zomato commission alternative",
+          "CRM and ERP for small business",
+          "AI visibility",
         ],
         sameAs: [],
         hasOfferCatalog: {
           "@type": "OfferCatalog",
-          name: "Webify Bharat packages",
+          name: "Webify Bharat plans",
           itemListElement: offerNodes,
         },
       },
@@ -82,16 +91,12 @@ export function OrgJsonLd() {
         },
         address: {
           "@type": "PostalAddress",
+          ...(filled(BUSINESS.address) ? { streetAddress: "108, Shri Krishna Nagar", postalCode: "700056" } : {}),
+          addressLocality: "Kolkata",
+          addressRegion: "West Bengal",
           addressCountry: "IN",
         },
-        serviceType: [
-          "Website development",
-          "WhatsApp Business API setup",
-          "Payment gateway integration",
-          "Analytics and BI",
-          "E-commerce portals",
-          "GST-friendly bookkeeping workflows",
-        ],
+        serviceType: blocks.map((b) => b.becomes),
         parentOrganization: { "@id": `${BASE}/#org` },
         makesOffer: offerNodes.map((o) => ({ "@id": o["@id"] })),
       },
