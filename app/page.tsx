@@ -35,11 +35,11 @@ export const metadata: Metadata = pageMetadata("home");
 
 /** §2.0.2 — the gap we fill. */
 const GAP_ROWS: GapRow[] = [
-  { exists: ["zoho", "odoo", "tally", "google", "microsoft-365"], lack: "Someone to choose, set up and customise them", fit: "We plan, configure or build it — in your brand", fitIcon: "SquaresFour", tone: "rani" },
-  { exists: ["upi", "razorpay", "cashfree", "stripe"], lack: "Payments connected to invoices, WhatsApp and books", fit: "We wire it all together", fitIcon: "PlugsConnected", tone: "peacock" },
-  { exists: ["zomato", "swiggy", "amazon", "indiamart"], lack: "A channel of your own for regulars", fit: "We build it alongside them", fitIcon: "ShoppingBag", tone: "marigold" },
-  { exists: ["google", "meta", "bing", { label: "AI assistants", icon: "Sparkle" }], lack: "Know-how and time for ads, SEO and AI visibility", fit: "We run your marketing", fitIcon: "Megaphone", tone: "mehendi" },
-  { exists: [{ label: "Freelancers", icon: "UserCircleGear" }, { label: "Agencies", icon: "Buildings" }], lack: "Someone who stays after launch", fit: "Your monthly plan includes care", fitIcon: "Lifebuoy", tone: "indigo" },
+  { exists: ["zoho", "odoo", "tally", "google", "microsoft-365"], lack: "Someone to choose, set up and customise them", fit: "We plan, configure or build it — in your brand", fitIcon: "SquaresFour", tone: "rani", href: "/systems" },
+  { exists: ["upi", "razorpay", "cashfree", "stripe"], lack: "Payments connected to invoices, WhatsApp and books", fit: "We wire it all together", fitIcon: "PlugsConnected", tone: "peacock", href: "/systems/pay" },
+  { exists: ["zomato", "swiggy", "amazon", "indiamart"], lack: "A channel of your own for regulars", fit: "We build it alongside them", fitIcon: "ShoppingBag", tone: "marigold", href: "/systems/store" },
+  { exists: ["google", "meta", "bing", { label: "AI assistants", icon: "Sparkle" }], lack: "Know-how and time for ads, SEO and AI visibility", fit: "We run your marketing", fitIcon: "Megaphone", tone: "mehendi", href: "/marketing" },
+  { exists: [{ label: "Freelancers", icon: "UserCircleGear" }, { label: "Agencies", icon: "Buildings" }], lack: "Someone who stays after launch", fit: "Your monthly plan includes care", fitIcon: "Lifebuoy", tone: "indigo", href: "/pricing#care" },
 ];
 
 const BENTO_ICONS = ["site", "chat", "ledger"] as const;
@@ -63,12 +63,12 @@ export default function Home() {
       <section className="home-hero" id="hero" aria-labelledby="hero-title">
         <div className="container home-hero-grid">
           <div className="home-hero-copy">
-            <p className="kicker">Your software · your marketing · run for you</p>
-            <h1 id="hero-title">Built for your business. Not for everyone&apos;s.</h1>
+            <p className="kicker">One-stop software &amp; marketing partner for Indian businesses</p>
+            <h1 id="hero-title">Custom software for your whole business. All in one place.</h1>
             <p className="hinglish accent-line">
               {SITE.accent} <span>— your business, your way.</span>
             </p>
-            <p className="hero-sub">{SITE.description}</p>
+            <p className="hero-sub">Website, billing, payments, WhatsApp, staff and marketing — built around how you work, simple for your team, and run for you every month.</p>
             <div className="hero-actions">
               <WhatsAppCTA context="hero" />
               <Link href="/what-we-do" className="btn-ghost">
@@ -76,7 +76,8 @@ export default function Home() {
               </Link>
             </div>
             <ul className="trust-chips">
-              <li><Icon name="custom:tailor-tape" size={18} /> Custom, not templates</li>
+              <li><Icon name="UsersThree" size={18} /> Easy for your staff</li>
+              <li><Icon name="Key" size={18} /> Your brand, your data</li>
               <li><Icon name="PlugsConnected" size={18} /> Works with Zoho, Google, Microsoft, Tally</li>
               <li><Icon name="ChatCircleDots" size={18} /> Replies in a few hours, 7 days</li>
             </ul>

@@ -16,7 +16,6 @@ import { FlipCard, PageHero, SectionHead } from "@/components/tiles";
 import { cities } from "@/lib/cities";
 import { pageMetadata } from "@/lib/page-seo";
 import { paths } from "@/lib/paths";
-import { SITE } from "@/lib/site";
 import { WA_MSG } from "@/lib/wa";
 
 export const metadata: Metadata = pageMetadata("about");
@@ -40,8 +39,8 @@ export default function AboutPage() {
       <BreadcrumbLd seoKey="about" />
       <PageHero
         kicker="About"
-        title="We believe no two businesses should get the same website."
-        sub={SITE.description}
+        title="No two businesses run alike. So no two of our builds are alike."
+        sub="We build and run custom software for Indian businesses — in your brand, with your data kept yours — fully remote over WhatsApp, from Kolkata."
         cta={<WhatsAppCTA message={WA_MSG.default} context="hero" label="Talk to us" />}
         visual={
           <div className="about-hero-art">

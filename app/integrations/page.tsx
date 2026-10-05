@@ -31,8 +31,8 @@ export default function Integrations() {
       <BreadcrumbLd seoKey={"integrations"} />
       <PageHero
         kicker="Integrations"
-        title="Use our stack, or keep yours. We build around it."
-        sub="Zoho, Odoo, Tally, Google Workspace, Microsoft 365 — or something built only for you."
+        title="Keep Tally, Zoho or Google. We join them into one system."
+        sub="No starting over: we connect what you already use — Zoho, Odoo, Tally, Google Workspace, Microsoft 365 — or build only for you."
         cta={<WhatsAppCTA message={waTool("Zoho / Tally / Odoo / Google / Microsoft")} context="hero" label="Ask about my tools" />}
         visual={<PhotoUiLayer slot="IMG-N01" priority stickers={[{ text: "Tally and Zoho synced" }, { text: "Order → invoice → books" }]} />}
       />

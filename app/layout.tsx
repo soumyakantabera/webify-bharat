@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     template: "%s",
   },
   description:
-    "Webify Bharat builds and runs your own business software — and markets your business — so every tool you use actually works for you.",
+    "One team for your business software and marketing — built around how you work, simple for your staff, and run for you every month.",
   // Icons come from app/favicon.ico, app/icon.svg and app/apple-icon.png (content-plan §17.3 #2).
 };
 

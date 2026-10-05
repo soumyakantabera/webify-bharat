@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { ReactNode } from "react";
 import { Arw } from "@/components/Glyph";
 import { Icon } from "@/components/Icon";
@@ -14,6 +15,8 @@ export type GapRow = {
   lack: ReactNode;
   fit: string;
   fitIcon: string;
+  /** The service page this row points to. */
+  href: string;
   tone: "rani" | "peacock" | "marigold" | "mehendi" | "indigo";
 };
 
@@ -73,10 +76,11 @@ export function GapTable({ rows }: { rows: GapRow[] }) {
             <span className="gx-arrow" aria-hidden="true">
               <Arw />
             </span>
-            <span className="gx-fit-badge">
+            <Link href={r.href} className="gx-fit-badge">
               <Icon name={r.fitIcon} size={20} weight="bold" />
-              {r.fit}
-            </span>
+              <span>{r.fit}</span>
+              <Arw />
+            </Link>
           </p>
         </div>
       ))}

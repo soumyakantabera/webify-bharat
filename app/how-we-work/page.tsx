@@ -24,8 +24,8 @@ export default function HowWeWork() {
       <PageHero
         kicker="How we work"
         tone="marigold"
-        title="No templates. A process that starts with you."
-        sub="We listen first, show you what we've built, measure how you work — then build, launch and stay."
+        title="Simple from the first hello: one WhatsApp chat, start to launch."
+        sub="We listen first, show you what we've built and map how you work — then build, launch and stay. No tech jargon, no forms to fill."
         accent={{ phrase: "Chai-pe-charcha", meaning: "it starts with a chat over chai." }}
         cta={<WhatsAppCTA context="hero" />}
         visual={<TailorTape />}
