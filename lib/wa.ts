@@ -14,6 +14,7 @@ export const WA_MSG = {
   workspace: "Hi! I need business email and docs set up (Google / Microsoft / your stack).",
   budget: "Hi! I have a tight budget. Can you set up Zoho or Odoo for us?",
   strategy: "Hi! I'd like a paid strategy session to plan my business's digital setup.",
+  advisory: "Hi! I'd like ongoing help with my business numbers, profit and marketing (Compass Advisory).",
   marketing: "Hi! I want more customers from Google, maps, ads and AI assistants.",
   seo: "Hi! I want my business to show up on Google.",
   ads: "Hi! I want to run Google / Meta ads that bring enquiries.",
@@ -33,6 +34,7 @@ export const waPrototypes = (industry: string) => `Hi! I'd like to see prototype
 export const waTier = (tier: string) =>
   `Hi! I'm interested in the ${tier} starting point. Can you scope it for me?`;
 export const waCompass = (offer: string) => `Hi! I'd like to book a ${offer}.`;
+export const waAdvisory = (plan: string) => `Hi! I'm interested in ${plan} — reports, profit review and live sessions. Can we talk?`;
 export const waFiling = (filing: string) => `Hi! I want help with ${filing} registration.`;
 export const waPost = (title: string) => `Hi! I read "${title}" and have a question.`;
 export const waEstimate = (o: { path: string; tier: string; addons: string[]; from: string }) =>

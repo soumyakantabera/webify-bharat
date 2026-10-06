@@ -119,9 +119,9 @@ export const PAGE_SEO: Record<string, PageSeo> = {
   ),
   strategy: page(
     "Strategy: Webify Compass — know what to build before you spend",
-    "Paid strategy sessions, digital audits and roadmaps for Indian MSMEs: build vs buy, Zoho or Odoo vs Google or Microsoft vs custom, with budget ranges. Session ₹5,000, audit ₹15,000, roadmap ₹30,000.",
+    "Paid strategy sessions, digital audits and roadmaps for Indian MSMEs: build vs buy, Zoho or Odoo vs Google or Microsoft vs custom, with budget ranges. Session ₹5,000, audit ₹15,000, roadmap ₹30,000. Ongoing advisory: year-end statements, profitability, marketing strategy and weekly live sessions.",
     "/strategy",
-    ["digital strategy small business India", "Zoho vs Odoo vs custom", "business software roadmap"],
+    ["digital strategy small business India", "Zoho vs Odoo vs custom", "business software roadmap", "profitability consulting MSME", "monthly MIS and annual report"],
     [{ name: "Strategy", path: "/strategy" }],
     [],
   ),

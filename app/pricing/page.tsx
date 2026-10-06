@@ -11,7 +11,7 @@ import { BillingToggle, CompareTable, InfoCard, MoveUpBar, ScopeEstimator, Stage
 import { TabbedShowcase } from "@/components/slides/TabbedShowcase";
 import { PageHero, SectionHead } from "@/components/tiles";
 import { RentVsOwnChart } from "@/components/viz/RentVsOwnChart";
-import { COMPASS_CREDIT, compassOffers } from "@/lib/compass";
+import { advisoryPlans, COMPASS_CREDIT, compassOffers } from "@/lib/compass";
 import { pickFaqs } from "@/lib/faq-core";
 import { addons, ANNUAL_RULE, COMMITMENT_RULE, OVER_LIMIT_RULE, OWNERSHIP_LINE, PARTNER_SETUP, PAYMENT_TERMS, PLAN_STAGES, PRICING_MODEL_LINE, stages, THIRD_PARTY_COSTS } from "@/lib/offers";
 import { pageMetadata } from "@/lib/page-seo";
@@ -150,6 +150,9 @@ export default function Pricing() {
               <h3><Icon name="Compass" size={22} /> Strategy · Webify Compass</h3>
               <p>
                 {compassOffers.map((o) => `${o.name.replace("Compass ", "")} ${o.price}`).join(" · ")}. {COMPASS_CREDIT.compassCreditable ? COMPASS_CREDIT.line : ""} The first WhatsApp chat is always free.
+              </p>
+              <p>
+                Ongoing advisory — year-end statements, profit review, marketing strategy and live sessions: {advisoryPlans.map((p) => `${p.name.replace("Compass ", "")} ${p.monthly}/month`).join(" · ")}. Pay-as-you-go work too.
               </p>
             </div>
             <Link href="/strategy" className="text-link">About Compass <Arw /></Link>

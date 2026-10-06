@@ -41,6 +41,7 @@ export const WHAT_WE_DO = pillars.map((p) => {
       { href: "/strategy", label: "Compass Session" },
       { href: "/strategy", label: "Compass Audit" },
       { href: "/strategy", label: "Compass Roadmap" },
+      { href: "/strategy#advisory", label: "Compass Advisory" },
     ] }];
   } else if (p.slug === "systems") {
     groups = BLOCK_GROUPS.map((g) => ({
