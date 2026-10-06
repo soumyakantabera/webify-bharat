@@ -263,3 +263,9 @@
   .block-tile, .block-tile::after, .reach-tile, .stage-card, .honeycomb li { transition: none !important; }
   .mu-seg { animation: none; }
 }
+
+/* Compass Advisory (/strategy) */
+@media (min-width: 1200px) { .stage-row.is-three { grid-template-columns: repeat(3, 1fr); } }
+.advisory-sub { margin: 40px 0 16px; font-size: 20px; }
+.advisory-start { margin-top: 24px; }
+.advisory-rules { margin-top: 24px; grid-template-columns: 1fr; }
