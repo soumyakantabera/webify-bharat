@@ -367,3 +367,17 @@ a.link-card .wb-img { pointer-events: none; }
 }
 .day-time { color: color-mix(in srgb, var(--accent) 65%, var(--ink)); }
 .cell-unlimited { display: inline-flex; align-items: center; gap: 4px; font-weight: 800; font-size: 13px; color: var(--mehendi-ink); }
+
+/* ——— Rhythm: no dead bands between sections (≈100px max between blocks) ——— */
+.section { padding: 44px 0; }
+.burst { padding: 52px 0; }
+.page-hero-v2 { padding: 32px 0 28px; }
+.section-tight { padding: 24px 0; }
+@media (min-width: 1024px) {
+  .section { padding: 56px 0; }
+  .burst { padding: 64px 0; }
+  .page-hero-v2 { padding: 48px 0 32px; }
+  .section-tight { padding: 32px 0; }
+}
+/* Hero → first plain section share a background: let them sit closer. */
+.page-hero-v2 + .section:not([class*="surface"]):not([class*="soft"]) { padding-top: 16px; }
