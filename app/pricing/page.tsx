@@ -152,7 +152,7 @@ export default function Pricing() {
                 {compassOffers.map((o) => `${o.name.replace("Compass ", "")} ${o.price}`).join(" · ")}. {COMPASS_CREDIT.compassCreditable ? COMPASS_CREDIT.line : ""} The first WhatsApp chat is always free.
               </p>
               <p>
-                Ongoing advisory — year-end statements, profit review, marketing strategy and live sessions: {advisoryPlans.map((p) => `${p.name.replace("Compass ", "")} ${p.monthly}/month`).join(" · ")}. Pay-as-you-go work too.
+                Ongoing advisory — year-end statements, profit review, marketing strategy and a free weekly live meeting: {advisoryPlans.map((p) => `${p.name.replace("Compass ", "")} ${p.monthly}/month`).join(" · ")}. Pay-as-you-go work too.
               </p>
             </div>
             <Link href="/strategy" className="text-link">About Compass <Arw /></Link>

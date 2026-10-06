@@ -58,7 +58,7 @@ Your own software and marketing — planned, built, run and grown for you · The
 | 28 | **Stance** | **Gap-filler, not competitor.** We work *with* Zoho, Odoo, Google, Microsoft, Tally, marketplaces and payment apps. The gap: powerful tools exist, but MSMEs have no one to choose, set up, connect, customise, run and market them. No "vs" headlines; no rival-bashing. |
 | 29 | **Four pillars** | Everything we sell sits in one of four pillars: **Strategy** (paid consulting) · **Systems** (the 11 blocks) · **Marketing** (Reach) · **Care** (included in every monthly plan). Paths (Launch / Organise / Grow) say *where you are*; pillars say *what we do*. |
 | 29a | **Care rule (copy)** | Care is **built into every monthly plan** — hosting, security, backups, support and change hours. Never sell Care separately. Copy: *"Your monthly plan keeps it running, secure and improving."* |
-| 30 | **Strategy consulting** | **Paid** strategy sessions and digital roadmaps (product name **Webify Compass**). Session ₹5,000 · Audit ₹15,000 · Roadmap ₹30,000 (§10.3); 100% credited against a setup signed within 60 days (default). **Compass Advisory** (ongoing, added Oct 2026): year-end P&L / balance sheet / cash flow / annual report, profitability, marketing strategy, reporting and live online sessions — Monthly ₹15,000 · Growth ₹30,000 · Turnaround ₹50,000 per month, annual = 10 months, plus pay-as-you-go and add-ons (§2.4d). Audit and tax filings stay with a Chartered Accountant. |
+| 30 | **Strategy consulting** | **Paid** strategy sessions and digital roadmaps (product name **Webify Compass**). Session ₹5,000 · Audit ₹15,000 · Roadmap ₹30,000 (§10.3); 100% credited against a setup signed within 60 days (default). **Compass Advisory** (ongoing, added Oct 2026): year-end P&L / balance sheet / cash flow / annual report, profitability, marketing strategy, reporting and a free weekly live online meeting in every plan — Monthly ₹15,000 · Growth ₹30,000 · Turnaround ₹50,000 per month, annual = 10 months, plus pay-as-you-go and add-ons (§2.4d). Audit and tax filings stay with a Chartered Accountant. |
 | 31 | **Marketing** | **Webify Reach**: SEO · online ads (Google, Meta) & SEM · local & maps listings · **AI visibility** (being found and described correctly in ChatGPT, Gemini, Perplexity, Copilot and other AI assistants) · WhatsApp & social campaigns. Honest: no guaranteed rankings or AI mentions; ad spend paid to platforms separately. |
 | 32 | **Images & brand assets** | **Launch with zero generated images.** Claude Code builds the full SVG brand kit (logo variants, icons, patterns, Webu, spot illustrations, skylines, mocks, OG images, off-site kit) per §17.3. |
 
@@ -205,16 +205,18 @@ Small businesses rarely think about search, ads or AI assistants — yet that's 
 #### Compass Advisory — ongoing (data: `lib/compass.ts`)
 For businesses that sell but don't make enough profit, or are in loss. Month to month, 30 days' notice; annual prepay = pay 10 months, get 12.
 
-| Plan | Monthly | Annual | Live online sessions | What you get |
+**Every plan includes a weekly live online meeting (60 min) at no extra cost.** Price is set by the depth of the written strategic deliverables.
+
+| Plan | Monthly | Annual | Strategic deliverable | What you get |
 |---|---|---|---|---|
-| **Compass Monthly** | ₹15,000 | ₹1,50,000 | 1 a month | Monthly P&L + cash report · quarterly profitability check · year-end pack (P&L, balance sheet, cash flow, annual report) · WhatsApp support |
-| **Compass Growth** (most chosen) | ₹30,000 | ₹3,00,000 | 2 a month | + profit by product/service/branch · 12-month budget vs actual · marketing strategy review + quarterly plan |
-| **Compass Turnaround** | ₹50,000 | ₹5,00,000 | Weekly | + 13-week cash-flow forecast · cost/pricing/product-mix fix plan · new marketing strategy, adjusted monthly · yearly bank/investor-ready report · priority replies |
+| **Compass Monthly** | ₹15,000 | ₹1,50,000 | Quarterly profit review | Weekly meeting · monthly P&L + cash report · year-end pack (P&L, balance sheet, cash flow, annual report) · WhatsApp support |
+| **Compass Growth** (most chosen) | ₹30,000 | ₹3,00,000 | Yearly growth strategy, reviewed quarterly | + profit by product/service/branch · 12-month budget vs actual · marketing strategy review + quarterly plan |
+| **Compass Turnaround** | ₹50,000 | ₹5,00,000 | Turnaround plan, updated monthly | + costs/pricing/product-mix/cash plan · 13-week cash-flow forecast · new marketing strategy, adjusted monthly · yearly bank/investor-ready report · priority replies |
 
 **Pay as you go:** Year-End Pack (one completed FY) from ₹35,000 · Profitability Review ₹25,000 · Marketing Strategy (review + new strategy + 90-day plan) ₹30,000.
-**Add-ons:** extra live session ₹5,000 · extra company/branch/brand +₹7,500/month · earlier year's pack ₹30,000 per year · 12-month budget & forecast ₹20,000 · bank/investor-ready report ₹25,000 · Marketing Strategy refresh ₹15,000 · books clean-up quoted.
+**Add-ons:** extra live session (beyond the weekly one) ₹5,000 · extra company/branch/brand +₹7,500/month · earlier year's pack ₹30,000 per year · 12-month budget & forecast ₹20,000 · bank/investor-ready report ₹25,000 · Marketing Strategy refresh ₹15,000 · books clean-up quoted.
 **Start:** after the financial year closes (we prepare last year's pack, then the monthly cycle) or any month (first year-end pack covers the full year).
-**Rules (shown on page):** we work from the client's books; statutory audit, tax filings and signed statements are done by a Chartered Accountant (client's own or one we coordinate with, billed by them); sessions online, booked in advance, unused don't carry over; no promise of profit.
+**Rules (shown on page):** we work from the client's books; statutory audit, tax filings and signed statements are done by a Chartered Accountant (client's own or one we coordinate with, billed by them); weekly meeting online and free in every plan, missed weeks don't carry over; no promise of profit.
 
 Rule: the **free** WhatsApp discovery chat stays free (it qualifies the need). Compass is the **paid**, deeper work. Default: Compass fees 100% credited against a setup signed within 60 days (`compassCreditable: true`).
 

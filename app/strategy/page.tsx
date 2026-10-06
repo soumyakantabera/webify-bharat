@@ -48,7 +48,7 @@ function AdvisoryCard({ plan, gst }: { plan: AdvisoryPlan; gst: string }) {
           <small>pay 10 months, get 12{gst ? ` · ${gst}` : ""}</small>
         </p>
         <p className="tier-setup">
-          {plan.sessions} · {plan.bestFor}
+          {plan.deliverable} · {plan.bestFor}
         </p>
         <ul className="ticks">
           {plan.features.map((f) => (
@@ -124,7 +124,7 @@ export default function Strategy() {
             kicker="Ongoing · Compass Advisory"
             id="advisory-title"
             title="Selling well, but not making money? Let's fix that together."
-            sub="Your year-end statements, monthly reports, profit review and marketing strategy, with live online sessions to go through it all. One team, every month, yearly or pay as you go."
+            sub="Every plan includes a free weekly live meeting online to go through your situation. What the price changes is the depth of the strategy work: year-end statements, reports, profit review, marketing strategy and turnaround plans. Monthly, yearly or pay as you go."
           />
           <BillingToggle>
             <div className="stage-row is-three">

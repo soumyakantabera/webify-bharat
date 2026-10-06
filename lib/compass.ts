@@ -32,7 +32,7 @@ export const COMPASS_FREE_RULE =
 
 /**
  * Ongoing advisory plans: management accounts, year-end statements, profitability,
- * marketing strategy and live online review sessions. Same billing rules as the
+ * marketing strategy, plus a free weekly live online meeting on every plan. Same billing rules as the
  * stage plans: month to month, 30 days' notice, annual prepay = pay 10 months, get 12.
  */
 export type AdvisoryPlan = {
@@ -44,8 +44,8 @@ export type AdvisoryPlan = {
   monthly: string;
   annual: string;
   monthlyAmount: number;
-  /** Live online review sessions per month (60 min each). */
-  sessions: string;
+  /** The long-form strategic deliverable that sets the plan's price. */
+  deliverable: string;
   popular: boolean;
   features: string[];
 };
@@ -60,14 +60,14 @@ export const advisoryPlans: AdvisoryPlan[] = [
     monthly: "₹15,000",
     annual: "₹1,50,000/yr",
     monthlyAmount: 15000,
-    sessions: "1 live session a month",
+    deliverable: "Quarterly profit review",
     popular: false,
     features: [
+      "Weekly live online meeting (60 min)",
       "Monthly report: profit & loss and cash position",
-      "Quarterly profitability check",
+      "Quarterly profitability review, in writing",
       "Year-end pack: P&L, balance sheet, cash flow and annual report",
-      "1 live online review a month (60 min)",
-      "Questions on WhatsApp between sessions",
+      "Questions on WhatsApp between meetings",
     ],
   },
   {
@@ -79,14 +79,14 @@ export const advisoryPlans: AdvisoryPlan[] = [
     monthly: "₹30,000",
     annual: "₹3,00,000/yr",
     monthlyAmount: 30000,
-    sessions: "2 live sessions a month",
+    deliverable: "Growth strategy + 12-month budget",
     popular: true,
     features: [
       "Everything in Compass Monthly",
       "Monthly profit by product, service or branch",
       "12-month budget, tracked against actuals",
+      "Written growth strategy for the year, reviewed every quarter",
       "Marketing strategy: review what you do now, plan what's next — refreshed every quarter",
-      "2 live online reviews a month (60 min, fortnightly)",
     ],
   },
   {
@@ -98,13 +98,12 @@ export const advisoryPlans: AdvisoryPlan[] = [
     monthly: "₹50,000",
     annual: "₹5,00,000/yr",
     monthlyAmount: 50000,
-    sessions: "Weekly live session",
+    deliverable: "Full turnaround plan",
     popular: false,
     features: [
       "Everything in Compass Growth",
-      "Weekly live online review (60 min) on your situation",
+      "Written turnaround plan: costs, pricing, product mix and cash",
       "13-week cash-flow forecast, updated every week",
-      "Cost, pricing and product-mix fix plan",
       "New marketing strategy built with you, adjusted every month",
       "Bank- or investor-ready report once a year",
       "Priority replies on WhatsApp",
@@ -114,13 +113,14 @@ export const advisoryPlans: AdvisoryPlan[] = [
 
 /** Comparison rows for the advisory plans (true = included, false = not, string = detail). */
 export const advisoryCompare: { label: string; cells: [boolean | string, boolean | string, boolean | string] }[] = [
+  { label: "Weekly live online meeting (60 min)", cells: [true, true, true] },
   { label: "Monthly P&L and cash report", cells: [true, true, true] },
   { label: "Year-end P&L, balance sheet, cash flow, annual report", cells: [true, true, true] },
   { label: "Profitability review", cells: ["Quarterly", "Monthly, by product / branch", "Monthly + fix plan"] },
   { label: "Budget vs actual", cells: [false, true, true] },
   { label: "Cash-flow forecast", cells: [false, false, "13 weeks, weekly"] },
   { label: "Marketing strategy", cells: [false, "Review + quarterly plan", "New strategy, monthly"] },
-  { label: "Live online sessions (60 min)", cells: ["1 a month", "2 a month", "Every week"] },
+  { label: "Written strategy deliverable", cells: ["Quarterly profit review", "Yearly growth strategy, reviewed quarterly", "Turnaround plan, updated monthly"] },
   { label: "Bank / investor-ready report", cells: ["Add-on", "Add-on", "Once a year"] },
   { label: "WhatsApp support", cells: [true, true, "Priority"] },
 ];
@@ -151,7 +151,7 @@ export const advisoryOneOffs: { slug: string; name: string; what: string; delive
 ];
 
 export const advisoryAddons: { name: string; price: string; note: string }[] = [
-  { name: "Extra live session (60 min, online)", price: "₹5,000 each", note: "Any plan, booked in advance" },
+  { name: "Extra live session (60 min, online)", price: "₹5,000 each", note: "On top of your weekly meeting, booked in advance" },
   { name: "Extra company, branch or brand", price: "+₹7,500/month", note: "Reported separately and combined" },
   { name: "Earlier year's pack (catch-up)", price: "₹30,000 per year", note: "For years before you joined" },
   { name: "12-month budget & forecast", price: "₹20,000", note: "Included in Growth and Turnaround" },
@@ -177,7 +177,7 @@ export const ADVISORY_START = [
 export const ADVISORY_RULES = [
   "We work from your books — Tally, Zoho Books, Excel, or bank statements and bills.",
   "Statutory audit, tax filings and signed financial statements are done by a Chartered Accountant — yours, or one we coordinate with. Their fees are billed by them.",
-  "Live sessions are online (Google Meet or Zoom), booked in advance. Unused sessions don't carry over.",
+  "Every plan includes a weekly live meeting online (Google Meet or Zoom) at no extra cost. Missed weeks don't carry over.",
   "No lock-in: stop with 30 days' notice. Annual prepay: pay 10 months, get 12.",
   "We can't promise profit. We promise clear numbers, a plan, and follow-through every week.",
 ];
